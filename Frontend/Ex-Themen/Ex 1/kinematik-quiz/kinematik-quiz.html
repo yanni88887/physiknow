@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinematik-Quiz | PhysikNow</title>
+<!-- MathJax für Formeln -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f3f6fb;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+        
+    }
+    .status {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .progress-bar {
+        width: 90%;
+        margin: 10px auto;
+        background: #ddd;
+        height: 12px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .progress {
+        height: 12px;
+        background: #0066ff;
+        width: 0%;
+        transition: width 0.3s ease-in-out;
+    }
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .question {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .values {
+        background: #eef4ff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .input-row {
+        margin-bottom: 15px;
+    }
+    input[type="number"] {
+        width: 120px;
+        padding: 8px;
+        font-size: 1.1rem;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        margin-right: 8px;
+        input[type="number"] {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+    }
+    /* Entfernt Pfeile im Chrome, Safari, Edge */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .buttons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 16px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .btn-primary {
+        background: #0066ff;
+        color: #fff;
+    }
+    .btn-primary:hover {
+        background: #004bbd;
+    }
+    .btn-hint {
+        background: #8e44ad; /* Neue Farbe: Lila */
+        color: #fff;
+    }
+    .btn-hint:hover {
+        background: #732d91;
+    }
+    .hint {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f4eafc;
+        border-left: 4px solid #8e44ad;
+        font-style: italic;
+    }
+    .result {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .correct {
+        background: #d4f8d4;
+        color: #206020;
+    }
+    .wrong {
+        background: #ffd6d6;
+        color: #8b0000;
+    }
+    .score-box {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>PhysikNow – Kinematik-Quiz</header>
+<div class="status" id="status">Frage 0 von 10</div>
+<div class="progress-bar"><div class="progress" id="progress"></div></div>
+<div class="container" id="quiz-area">
+    <button class="btn-primary" id="start-btn">Quiz starten</button>
+</div>
+<div id="score" class="score-box"></div>
+
+<script>
+// Aufgaben
+const questions = [
+    { question:"Berechne die Endgeschwindigkeit", formula:"v = v_0 + a \\cdot t", values:{v0:20,a:2,t:5}, unit:"m/s", solution:30, steps:"v = 20 + 2·5 = 30" },
+    { question:"Berechne die Strecke", formula:"s = v_0 \\cdot t + \\frac{1}{2} a t^2", values:{v0:10,a:3,t:4}, unit:"m", solution:64, steps:"s = 10·4 + 0.5·3·16 = 64" },
+    { question:"Berechne die Durchschnittsgeschwindigkeit", formula:"v = \\frac{s}{t}", values:{s:120,t:8}, unit:"m/s", solution:15, steps:"v = 120/8 = 15" },
+    { question:"Berechne die Bremsverzögerung", formula:"a = \\frac{v^2}{2s}", values:{v:20,s:50}, unit:"m/s²", solution:4, steps:"a = (20²)/(2·50)=400/100=4" },
+    { question:"Berechne die Winkelgeschwindigkeit", formula:"\\omega = \\frac{v}{r}", values:{v:12,r:3}, unit:"1/s", solution:4, steps:"ω = 12/3 = 4" },
+    { question:"Berechne den freien Fall", formula:"s = \\frac{1}{2} g t^2", values:{g:9.81,t:3}, unit:"m", solution:44.14, steps:"s=0.5·9.81·9=44.14" },
+    { question:"Berechne die Zeit beim Bremsen", formula:"t = \\frac{v}{a}", values:{v:25,a:5}, unit:"s", solution:5, steps:"t=25/5=5" },
+    { question:"Berechne die Beschleunigung", formula:"a = \\frac{\\Delta v}{t}", values:{v:30,t:6}, unit:"m/s²", solution:5, steps:"a=30/6=5" },
+    { question:"Berechne die Strecke (Ruhe bis v)", formula:"s = \\frac{v^2}{2a}", values:{v:20,a:4}, unit:"m", solution:50, steps:"s=(20²)/(2·4)=400/8=50" },
+    { question:"Berechne die Endgeschwindigkeit (mit Bremsweg)", formula:"v = \\sqrt{2as}", values:{a:5,s:18}, unit:"m/s", solution:13.42, steps:"v=√(2·5·18)=√180=13.42" }
+];
+
+let shuffledQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let attempts = 0;
+
+document.getElementById("start-btn").addEventListener("click", startQuiz);
+
+function startQuiz(){
+    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+    currentIndex = 0;
+    score = 0;
+    updateStatus();
+    updateProgress();
+    showQuestion();
+}
+
+function showQuestion(){
+    const q = shuffledQuestions[currentIndex];
+    const quizArea = document.getElementById("quiz-area");
+    quizArea.innerHTML = `
+        <div class="question">${currentIndex+1}. ${q.question}</div>
+        <div class="values">Gegeben: ${Object.entries(q.values).map(([k,v])=>`${k} = ${v}`).join(", ")}</div>
+        <div class="input-row"><input type="number" step="0.01" id="answer"> ${q.unit}</div>
+        <div class="buttons">
+            <button class="btn-primary" onclick="checkAnswer()">Auswerten</button>
+            <button class="btn-hint" onclick="showHint()">Hinweis</button>
+        </div>
+        <div class="hint">Formel: \\(${q.formula}\\)</div>
+        <div class="result" id="result"></div>
+    `;
+    MathJax.typeset();
+    attempts = 0;
+}
+
+function showHint(){
+    document.querySelector(".hint").style.display = "block";
+}
+
+function checkAnswer(){
+    const q = shuffledQuestions[currentIndex];
+    const userVal = parseFloat(document.getElementById("answer").value);
+    const resultDiv = document.getElementById("result");
+
+    if(isNaN(userVal)){ alert("Bitte gib eine Zahl ein."); return; }
+
+    attempts++;
+    if(Math.abs(userVal - q.solution) <= 0.1){
+        resultDiv.innerHTML = `
+            <div class="correct">
+                ✔ Deine Antwort ist korrekt!<br>
+                Lösung: ${q.solution} ${q.unit}<br>
+                Formel: \\(${q.formula}\\)<br>
+                Rechenweg: ${q.steps}
+            </div>`;
+        score++;
+        MathJax.typeset();
+        nextButton();
+    } else {
+        if(attempts === 1){
+            resultDiv.innerHTML = `<div class="wrong">❌ Falsch! Du hast noch einen Versuch.</div>`;
+            document.getElementById("answer").value = "";
+        } else {
+            resultDiv.innerHTML = `
+                <div class="wrong">
+                    ❌ Leider falsch.<br>
+                    Richtige Lösung: ${q.solution} ${q.unit}<br>
+                    Formel: \\(${q.formula}\\)<br>
+                    Rechenweg: ${q.steps}
+                </div>`;
+            MathJax.typeset();
+            nextButton();
+        }
+    }
+}
+
+function nextButton(){
+    const quizArea = document.getElementById("quiz-area");
+    if(currentIndex < shuffledQuestions.length - 1){
+        quizArea.innerHTML += `<button class="btn-primary" onclick="nextQuestion()">Weiter</button>`;
+    } else {
+        quizArea.innerHTML += `<button class="btn-primary" onclick="endQuiz()">Quiz beenden</button>`;
+    }
+}
+
+function nextQuestion(){
+    currentIndex++;
+    updateStatus();
+    updateProgress();
+    showQuestion();
+}
+
+function updateStatus(){
+    document.getElementById("status").textContent = `Frage ${currentIndex+1} von ${questions.length}`;
+}
+
+function updateProgress(){
+    const progress = document.getElementById("progress");
+    const percent = (currentIndex / questions.length) * 100;
+    progress.style.width = percent + "%";
+}
+
+function endQuiz(){
+    document.getElementById("quiz-area").innerHTML = `
+        <div class="score-box">Endergebnis: ${score}/${questions.length} richtig ✅</div>
+        <button class="btn-primary" onclick="startQuiz()">Nochmal spielen</button>`;
+    document.getElementById("status").textContent = "Quiz abgeschlossen!";
+    updateProgress();
+}
+</script>
+</body>
+</html>
