@@ -277,6 +277,718 @@
   </div>
 </section>
 
+<section id="bewegung-1d" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 3: Bewegung in einer Dimension (1D)</h1>
+    <p>In diesem Kapitel betrachten wir Bewegungen entlang einer Geraden. Dies ist der einfachste Fall in der Kinematik und Grundlage für komplexere Bewegungen in 2D und 3D.</p>
+
+    <h2>3.1 Grundgrößen: Ort, Geschwindigkeit, Beschleunigung</h2>
+    <ul>
+      <li><strong>Ort:</strong> \( s(t) \) [m]</li>
+      <li><strong>Geschwindigkeit:</strong> \( v(t) = \dfrac{ds}{dt} \) [m/s]</li>
+      <li><strong>Beschleunigung:</strong> \( a(t) = \dfrac{dv}{dt} = \dfrac{d^2 s}{dt^2} \) [m/s²]</li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Geschwindigkeit ist die erste Ableitung des Ortes, Beschleunigung die zweite.
+    </div>
+
+    <h2>3.2 Bewegungsarten in 1D</h2>
+    <h3>3.2.1 Gleichförmige Bewegung</h3>
+    <p>
+      Die Geschwindigkeit bleibt konstant (\( a = 0 \)):
+    </p>
+    <p>
+      \[
+      s(t) = s_0 + v \cdot t
+      \]
+    </p>
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <line x1="30" y1="120" x2="280" y2="20" stroke="#0073e6" stroke-width="2"/>
+        <text x="140" y="140" font-size="12">s-t-Diagramm (gleichförmig)</text>
+      </svg>
+    </div>
+
+    <h3>3.2.2 Gleichmäßig beschleunigte Bewegung</h3>
+    <p>
+      Die Beschleunigung ist konstant (\( a \neq 0 \)):
+    </p>
+    <p>
+      \[
+      s(t) = s_0 + v_0 t + \frac{1}{2} a t^2
+      \]
+      \[
+      v(t) = v_0 + a t
+      \]
+    </p>
+    <p>
+      Typisches Beispiel: Freier Fall mit \( a = g = 9{,}81 \, \text{m/s}^2 \).
+    </p>
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <path d="M30,120 Q150,-20 280,20" stroke="#4caf50" stroke-width="2" fill="none"/>
+        <text x="90" y="140" font-size="12">s-t-Diagramm (beschleunigt)</text>
+      </svg>
+    </div>
+
+    <h2>3.3 Bremsvorgang (negative Beschleunigung)</h2>
+    <p>
+      Wenn die Beschleunigung negativ ist (\( a &lt; 0 \)), sprechen wir von Verzögerung:
+    </p>
+    <p>
+      \[
+      v(t) = v_0 - |a| t, \quad s(t) = s_0 + v_0 t - \frac{1}{2} |a| t^2
+      \]
+    </p>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Ein Auto fährt \( v_0 = 20 \, \text{m/s} \) und bremst mit \( a = -5 \, \text{m/s}^2 \). Bremsweg:
+      \[
+      s = \frac{v_0^2}{2|a|} = \frac{20^2}{2 \cdot 5} = 40 \, \text{m}
+      \]
+    </div>
+
+    <h2>3.4 Diagramme (Überblick)</h2>
+    <p>
+      Für die gleichmäßig beschleunigte Bewegung:
+    </p>
+    <ul>
+      <li>\( s(t) \): Parabel</li>
+      <li>\( v(t) \): Gerade</li>
+      <li>\( a(t) \): Konstante Linie</li>
+    </ul>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#bewegung-2d" style="color:#2196f3;">Zu Kapitel 4: Bewegung in zwei Dimensionen</a>
+    </div>
+  </div>
+</section>
+<section id="bewegung-2d" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 4: Bewegung in zwei und drei Dimensionen (2D/3D)</h1>
+    <p>In diesem Kapitel erweitern wir die Kinematik auf Bewegungen in der Ebene und im Raum. Dies ist entscheidend für die Beschreibung realer Bewegungen wie Würfe, Kreisbahnen und Bahnkurven von Fahrzeugen.</p>
+
+    <h2>4.1 Koordinatensysteme</h2>
+    <p>
+      Zur Beschreibung von Bewegungen in 2D und 3D verwenden wir:
+    </p>
+    <ul>
+      <li><strong>Kartesisch:</strong> \((x, y, z)\)</li>
+      <li><strong>Polarkoordinaten (2D):</strong> \((r, \varphi)\)</li>
+      <li><strong>Zylindrisch/Sphärisch (3D):</strong> \((r, \varphi, z)\) bzw. \((r, \varphi, \theta)\)</li>
+    </ul>
+
+    <h2>4.2 Vektorielle Beschreibung der Bewegung</h2>
+    <p>In 2D oder 3D schreiben wir Ort, Geschwindigkeit und Beschleunigung als Vektoren:</p>
+    <p>
+      \[
+      \vec{r}(t) = \begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}, \quad
+      \vec{v}(t) = \frac{d\vec{r}}{dt}, \quad
+      \vec{a}(t) = \frac{d^2\vec{r}}{dt^2}
+      \]
+    </p>
+
+    <h2>4.3 Schiefer Wurf (Projektile)</h2>
+    <p>
+      Ein Klassiker: Ein Körper wird mit Anfangsgeschwindigkeit \( v_0 \) unter einem Winkel \(\alpha\) zur Horizontalen geworfen.
+    </p>
+    <p>
+      Zerlegung der Geschwindigkeit in Komponenten:
+      \[
+      v_{0x} = v_0 \cos \alpha, \quad v_{0y} = v_0 \sin \alpha
+      \]
+    </p>
+    <p>
+      Bewegungsfunktionen:
+      \[
+      x(t) = v_0 \cos \alpha \cdot t
+      \]
+      \[
+      y(t) = v_0 \sin \alpha \cdot t - \frac{1}{2} g t^2
+      \]
+    </p>
+    <p>
+      Die Flugbahn (Parabel) folgt aus:
+      \[
+      y(x) = x \tan \alpha - \frac{g}{2 v_0^2 \cos^2 \alpha} x^2
+      \]
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <path d="M30,120 Q150,10 280,120" stroke="#0073e6" stroke-width="2" fill="none"/>
+        <text x="90" y="140" font-size="12">Schiefer Wurf (Parabel)</text>
+      </svg>
+    </div>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> \( v_0 = 20 \, \text{m/s}, \alpha = 45^\circ \). Reichweite:
+      \[
+      R = \frac{v_0^2 \sin 2\alpha}{g} = \frac{20^2 \sin 90^\circ}{9{,}81} \approx 40{,}8 \, \text{m}
+      \]
+    </div>
+
+    <h2>4.4 Kreisbewegung (Sonderfall in 2D)</h2>
+    <p>
+      Gleichförmige Kreisbewegung:
+      \[
+      \vec{r}(t) = r \begin{pmatrix} \cos \omega t \\ \sin \omega t \end{pmatrix}, \quad
+      \omega = \frac{2\pi}{T}
+      \]
+    </p>
+    <p>
+      Geschwindigkeit:
+      \[
+      v = \omega r, \quad \vec{v} \perp \vec{r}
+      \]
+    </p>
+    <p>
+      Beschleunigung (Zentripetal):
+      \[
+      a = \frac{v^2}{r} = \omega^2 r
+      \]
+    </p>
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="150" height="150" style="border:1px solid #ccc;">
+        <circle cx="75" cy="75" r="50" stroke="#4caf50" stroke-width="2" fill="none"/>
+        <line x1="75" y1="75" x2="125" y2="75" stroke="#0073e6" stroke-width="2"/>
+        <text x="40" y="140" font-size="12">Kreisbewegung</text>
+      </svg>
+    </div>
+
+    <h2>4.5 Allgemeine Bahnkurven</h2>
+    <p>
+      Bei beliebigen Bahnkurven werden Geschwindigkeit und Beschleunigung in <strong>Tangential-</strong> und <strong>Normal-Komponenten</strong> zerlegt:
+      \[
+      \vec{a} = a_\text{tangential} \cdot \vec{t} + a_\text{normal} \cdot \vec{n}
+      \]
+      mit
+      \[
+      a_\text{tangential} = \frac{dv}{dt}, \quad a_\text{normal} = \frac{v^2}{r}
+      \]
+    </p>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#kreisrotation" style="color:#2196f3;">Zu Kapitel 5: Kreis- und Rotationsbewegungen</a>
+    </div>
+  </div>
+</section>
+<section id="kreisrotation" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 5: Kreis- und Rotationsbewegungen</h1>
+    <p>Kreisbewegungen sind eine spezielle Form der 2D-Bewegung, bei der sich ein Punkt auf einer Kreisbahn bewegt. Hier kommen Winkelgrößen wie <strong>Winkelgeschwindigkeit</strong> und <strong>Winkelbeschleunigung</strong> ins Spiel.</p>
+
+    <h2>5.1 Winkelgrößen</h2>
+    <p>
+      \[
+      \varphi(t) = \text{Winkel in Radiant}, \quad
+      \omega = \frac{d\varphi}{dt}, \quad
+      \alpha = \frac{d\omega}{dt}
+      \]
+    </p>
+    <ul>
+      <li>\(\varphi\): Winkel (rad)</li>
+      <li>\(\omega\): Winkelgeschwindigkeit [rad/s]</li>
+      <li>\(\alpha\): Winkelbeschleunigung [rad/s²]</li>
+    </ul>
+
+    <h2>5.2 Zusammenhang linearer und Winkelgrößen</h2>
+    <p>
+      \[
+      s = r \cdot \varphi, \quad
+      v = \omega \cdot r, \quad
+      a_\text{tangential} = \alpha \cdot r
+      \]
+    </p>
+
+    <h2>5.3 Zentripetal- und Zentrifugalbeschleunigung</h2>
+    <p>
+      Für eine gleichförmige Kreisbewegung:
+      \[
+      a_\text{zentripetal} = \frac{v^2}{r} = \omega^2 r
+      \]
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="180" height="180" style="border:1px solid #ccc;">
+        <circle cx="90" cy="90" r="60" stroke="#4caf50" stroke-width="2" fill="none"/>
+        <line x1="90" y1="90" x2="150" y2="90" stroke="#0073e6" stroke-width="2"/>
+        <text x="40" y="170" font-size="12">Kreisbewegung</text>
+      </svg>
+    </div>
+
+    <h2>5.4 Anwendungen</h2>
+    <ul>
+      <li>Räder und Zahnräder</li>
+      <li>Planetenbewegungen</li>
+      <li>Rotierende Maschinen</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Rad mit \(r = 0{,}3\,\text{m}\) dreht mit \(\omega = 10\,\text{rad/s}\).
+      \[
+      v = \omega \cdot r = 10 \cdot 0{,}3 = 3 \,\text{m/s}, \quad a_\text{zentripetal} = \omega^2 r = 10^2 \cdot 0{,}3 = 30\,\text{m/s}^2
+      \]
+    </div>
+  </div>
+</section>
+<section id="zusammengesetzte-bewegungen" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 6: Zusammengesetzte Bewegungen</h1>
+    <p>In der Realität treten oft mehrere Bewegungen gleichzeitig auf. In der Kinematik behandeln wir dies durch <strong>Überlagerung von Bewegungen</strong> und <strong>Relativgeschwindigkeiten</strong>.</p>
+
+    <h2>6.1 Überlagerung von Bewegungen</h2>
+    <p>
+      Beispiel: Schiefer Wurf ist die Überlagerung von:
+    </p>
+    <ul>
+      <li>Gleichförmige Bewegung in x-Richtung</li>
+      <li>Gleichmäßig beschleunigte Bewegung in y-Richtung</li>
+    </ul>
+    <p>
+      Allgemein:
+      \[
+      \vec{r}(t) = \vec{r}_1(t) + \vec{r}_2(t)
+      \]
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <path d="M30,120 Q150,20 280,120" stroke="#0073e6" stroke-width="2" fill="none"/>
+        <text x="70" y="140" font-size="12">Überlagerung (Schiefer Wurf)</text>
+      </svg>
+    </div>
+
+    <h2>6.2 Relativbewegungen</h2>
+    <p>
+      Wenn ein Objekt sich in einem bewegten System befindet:
+      \[
+      \vec{v}_\text{gesamt} = \vec{v}_\text{relativ} + \vec{v}_\text{System}
+      \]
+    </p>
+    <p>
+      Beispiel: Boot in fließendem Wasser:
+      \[
+      \vec{v}_\text{Boot/Erde} = \vec{v}_\text{Boot/Wasser} + \vec{v}_\text{Wasser/Erde}
+      \]
+    </p>
+
+    <h2>6.3 Bewegungen in nicht-inertialen Systemen</h2>
+    <p>
+      Bei beschleunigten Bezugssystemen (z. B. Zug in der Kurve) treten Scheinkräfte auf – relevant in der Dynamik, aber kinematisch beschreiben wir nur die Bahn relativ zum System.
+    </p>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Flugzeug fliegt 200 m/s relativ zur Luft, Wind 50 m/s. Resultierende Geschwindigkeit:
+      \[
+      |\vec{v}| = \sqrt{200^2 + 50^2} \approx 206 \,\text{m/s}
+      \]
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#starre-koerper" style="color:#2196f3;">Zu Kapitel 7: Kinematik von Punkten vs. starren Körpern</a>
+    </div>
+  </div>
+</section>
+<section id="starre-koerper" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 7: Kinematik von Punkten vs. starren Körpern</h1>
+    <p>Die bisherige Kinematik behandelte einzelne Punkte. Reale Körper besitzen jedoch eine räumliche Ausdehnung und können sich gleichzeitig <strong>verschieben (Translation)</strong> und <strong>drehen (Rotation)</strong>. Dies erfordert eine differenzierte Beschreibung.</p>
+
+    <h2>7.1 Unterschied zwischen Punkt und starrem Körper</h2>
+    <ul>
+      <li><strong>Punkt:</strong> Idealisierung ohne Ausdehnung → Bewegung vollständig durch einen Ortsvektor beschrieben.</li>
+      <li><strong>Starrer Körper:</strong> Unveränderliche Form → Bewegung besteht aus Translation und Rotation.</li>
+    </ul>
+
+    <h2>7.2 Bewegungsarten</h2>
+    <p>
+      <strong>Translation:</strong> Alle Punkte bewegen sich parallel, z. B. Auto auf gerader Straße.
+      \[
+      \vec{r}_i(t) = \vec{r}_\text{Schwerpunkt}(t) + \text{konst.}
+      \]
+    </p>
+    <p>
+      <strong>Rotation um eine feste Achse:</strong>
+      Jeder Punkt beschreibt eine Kreisbahn:
+      \[
+      \vec{v} = \omega \times \vec{r}
+      \]
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="250" height="150" style="border:1px solid #ccc;">
+        <circle cx="80" cy="75" r="40" stroke="#4caf50" stroke-width="2" fill="none"/>
+        <line x1="80" y1="75" x2="180" y2="75" stroke="#0073e6" stroke-width="2"/>
+        <text x="50" y="140" font-size="12">Rotation + Translation</text>
+      </svg>
+    </div>
+
+    <h2>7.3 Schraubbewegung (Translation + Rotation)</h2>
+    <p>
+      Kombination aus beidem, typisch bei Gewinden oder Robotergelenken:
+      \[
+      \text{Schraubenlinie: } \vec{r}(t) = \vec{r}_0 + \vec{v}_\text{trans} \cdot t + \text{Rotation um Achse}
+      \]
+    </p>
+
+    <h2>7.4 Anwendungen</h2>
+    <ul>
+      <li>Maschinenbau (Getriebe, Roboterarme)</li>
+      <li>Luftfahrt (Propeller + Flugzeugbewegung)</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Ein Rad (r = 0,3 m) rotiert mit ω = 20 rad/s und bewegt sich mit v_trans = 10 m/s. Punkt auf Felge:
+      \[
+      |\vec{v}| = v_\text{trans} \pm \omega r = 10 \pm 20 \cdot 0,3 = 16\,\text{m/s (oben)}, 4\,\text{m/s (unten)}
+      \]
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#diagramme" style="color:#2196f3;">Zu Kapitel 8: Grafische und analytische Darstellungen</a>
+    </div>
+  </div>
+</section>
+<section id="diagramme" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 8: Grafische und analytische Darstellungen</h1>
+    <p>In der Kinematik werden Bewegungen oft grafisch dargestellt. Diese Diagramme helfen, Zusammenhänge zwischen Ort, Geschwindigkeit und Beschleunigung zu verstehen und zu berechnen.</p>
+
+    <h2>8.1 Zeit-Ort-Diagramm (s-t-Diagramm)</h2>
+    <p>
+      Darstellung des Ortes über die Zeit:
+      <ul>
+        <li>Gleichförmig: Gerade</li>
+        <li>Beschleunigt: Parabel</li>
+      </ul>
+      \[
+      s(t) = s_0 + v_0 t + \frac{1}{2} a t^2
+      \]
+    </p>
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <path d="M30,120 Q150,10 280,20" stroke="#0073e6" stroke-width="2" fill="none"/>
+        <text x="100" y="140" font-size="12">s-t-Diagramm</text>
+      </svg>
+    </div>
+
+    <h2>8.2 Zeit-Geschwindigkeit-Diagramm (v-t-Diagramm)</h2>
+    <p>
+      \[
+      v(t) = v_0 + a t
+      \]
+      → Gerade bei konstanter Beschleunigung.
+    </p>
+    <p><strong>Wichtiger Zusammenhang:</strong> Fläche unter v-t-Diagramm = Weg.</p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <line x1="30" y1="120" x2="280" y2="30" stroke="#4caf50" stroke-width="2"/>
+        <text x="80" y="140" font-size="12">v-t-Diagramm</text>
+      </svg>
+    </div>
+
+    <h2>8.3 Zeit-Beschleunigungs-Diagramm (a-t-Diagramm)</h2>
+    <p>
+      Bei konstanter Beschleunigung: Horizontale Linie.
+    </p>
+    <p><strong>Wichtiger Zusammenhang:</strong> Fläche unter a-t-Diagramm = Geschwindigkeitsänderung.</p>
+
+    <h2>8.4 Aus Diagrammen Größen berechnen</h2>
+    <ul>
+      <li>\( s = \int v(t) dt \)</li>
+      <li>\( v = \int a(t) dt \)</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Aus einem v-t-Diagramm mit Basis 4 s und Höhe 10 m/s:
+      \[
+      s = \text{Fläche} = \frac{1}{2} \cdot 4 \cdot 10 = 20 \,\text{m}
+      \]
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#gleichungen" style="color:#2196f3;">Zu Kapitel 9: Kinematische Gleichungen und Herleitungen</a>
+    </div>
+  </div>
+</section>
+<section id="gleichungen" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 9: Kinematische Gleichungen und Herleitungen</h1>
+    <p>Die kinematischen Grundgleichungen stellen den Zusammenhang zwischen Ort, Geschwindigkeit, Beschleunigung und Zeit her. Sie sind essenziell für Berechnungen in der Mechanik.</p>
+
+    <h2>9.1 Gleichförmige Bewegung (a = 0)</h2>
+    <p>
+      \[
+      s(t) = s_0 + v \cdot t
+      \]
+      Geschwindigkeit konstant: \( v = \text{konstant} \).
+    </p>
+
+    <h2>9.2 Gleichmäßig beschleunigte Bewegung (a = konstant)</h2>
+    <p>
+      Grundgleichungen:
+      \[
+      v(t) = v_0 + a t
+      \]
+      \[
+      s(t) = s_0 + v_0 t + \frac{1}{2} a t^2
+      \]
+      \[
+      v^2 = v_0^2 + 2 a (s - s_0)
+      \]
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <line x1="30" y1="120" x2="280" y2="30" stroke="#0073e6" stroke-width="2"/>
+        <text x="70" y="140" font-size="12">v-t-Gerade (a = konstant)</text>
+      </svg>
+    </div>
+
+    <h2>9.3 Schiefer Wurf (Parabel)</h2>
+    <p>
+      \[
+      x(t) = v_0 \cos \alpha \cdot t, \quad
+      y(t) = v_0 \sin \alpha \cdot t - \frac{1}{2} g t^2
+      \]
+      Flugbahn:
+      \[
+      y(x) = x \tan \alpha - \frac{g}{2 v_0^2 \cos^2 \alpha} x^2
+      \]
+    </p>
+
+    <h2>9.4 Kreisbewegung</h2>
+    <p>
+      \[
+      s = r \varphi, \quad
+      v = \omega r, \quad
+      a = \omega^2 r
+      \]
+    </p>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Bremsweg berechnen:
+      \[
+      s = \frac{v_0^2}{2 a}, \text{ wenn } v = 0
+      \]
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#praxis" style="color:#2196f3;">Zu Kapitel 10: Anwendungen & Beispiele</a>
+    </div>
+  </div>
+</section>
+<section id="praxis" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 10: Anwendungen und Beispiele aus der Praxis</h1>
+    <p>Kinematik ist nicht nur Theorie – sie hat unzählige praktische Anwendungen in Technik, Natur und Alltag. Hier einige typische Beispiele:</p>
+
+    <h2>10.1 Verkehr (Bremsweg & Anhalteweg)</h2>
+    <p>
+      Formel:
+      \[
+      s = \frac{v^2}{2 a}
+      \]
+      Beispiel:
+      \[
+      v = 100\,\text{km/h} = 27{,}8\,\text{m/s}, \ a = 8\,\text{m/s}^2
+      \]
+      Bremsweg:
+      \[
+      s = \frac{27{,}8^2}{2 \cdot 8} \approx 48\,\text{m}
+      \]
+    </p>
+
+    <h2>10.2 Sport (Wurfbewegung)</h2>
+    <p>
+      Weitsprung oder Ballwurf folgt der Parabelbahn:
+      \[
+      y(x) = x \tan \alpha - \frac{g}{2 v_0^2 \cos^2 \alpha} x^2
+      \]
+      Reichweite:
+      \[
+      R = \frac{v_0^2 \sin 2\alpha}{g}
+      \]
+    </p>
+
+    <h2>10.3 Technik (Förderbänder & Roboterarme)</h2>
+    <p>
+      Roboterarme kombinieren Translation und Rotation → Schraubbewegungen, optimiert mit kinematischen Gleichungen.
+    </p>
+
+    <h2>10.4 Natur (Planetenbewegungen)</h2>
+    <p>
+      Umlaufgeschwindigkeit:
+      \[
+      v = \sqrt{\frac{GM}{r}}
+      \]
+      (Kepler'sche Gesetze für fortgeschrittene Anwendungen)
+    </p>
+
+    <div class="diagram" style="text-align:center; margin:15px 0;">
+      <svg width="300" height="150" style="border:1px solid #ccc;">
+        <circle cx="150" cy="75" r="50" stroke="#ff9800" stroke-width="2" fill="none"/>
+        <text x="80" y="140" font-size="12">Planetenbewegung</text>
+      </svg>
+    </div>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Kinematik liefert die Basis für Verkehrssicherheit, Maschinenbau, Sportanalysen und Raumfahrt.
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#aufgaben" style="color:#2196f3;">Zu Kapitel 11: Typische Aufgaben und Lösungen</a>
+    </div>
+  </div>
+</section>
+<section id="fehler" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 11: Häufige Fehler & Missverständnisse</h1>
+    <p>Auch in der Kinematik gibt es typische Stolperfallen. Hier die häufigsten Fehler – und wie man sie vermeidet.</p>
+
+    <h2>11.1 Ort vs. Weg</h2>
+    <p>
+      <strong>Fehler:</strong> Den Ort (Positionsangabe) mit dem zurückgelegten Weg verwechseln.<br>
+      <strong>Korrekt:</strong> Ort kann negativ werden (bei Richtungswechsel), Weg ist immer positiv.
+    </p>
+
+    <h2>11.2 Geschwindigkeit vs. Beschleunigung</h2>
+    <p>
+      <strong>Fehler:</strong> Beschleunigung = Geschwindigkeit.<br>
+      <strong>Korrekt:</strong> Beschleunigung = Änderung der Geschwindigkeit (\(a = \frac{\Delta v}{\Delta t}\)).
+    </p>
+
+    <h2>11.3 Bezugssysteme ignorieren</h2>
+    <p>
+      <strong>Fehler:</strong> Bewegung nicht relativ zum Bezugssystem betrachten.<br>
+      <strong>Korrekt:</strong>
+      \[
+      \vec{v}_{A/B} = \vec{v}_{A/C} - \vec{v}_{B/C}
+      \]
+    </p>
+
+    <h2>11.4 Einheitenprobleme</h2>
+    <p>
+      <strong>Fehler:</strong> km/h und m/s mischen.<br>
+      <strong>Korrekt:</strong>
+      \[
+      1 \,\text{km/h} = 0{,}278 \,\text{m/s}
+      \]
+    </p>
+
+    <h2>11.5 Diagramme falsch interpretieren</h2>
+    <p>
+      Fläche unter v-t-Diagramm = Weg, nicht Geschwindigkeit!
+    </p>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #ff5722; margin:20px 0;">
+      <strong>Tipp:</strong> Immer zuerst Einheiten prüfen, dann die passende Formel wählen.
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#fortgeschritten" style="color:#2196f3;">Zu Kapitel 12: Erweiterte Themen</a>
+    </div>
+  </div>
+</section>
+<section id="fortgeschritten" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 12: Erweiterte Themen (für Fortgeschrittene)</h1>
+    <p>Für alle, die tiefer einsteigen wollen: Hier ein Ausblick auf anspruchsvollere Konzepte.</p>
+
+    <h2>12.1 Polarkoordinaten</h2>
+    <p>
+      Bewegung in Polarkoordinaten:
+      \[
+      \vec{r}(t) = r \vec{e}_r, \quad
+      \vec{v} = \dot{r} \vec{e}_r + r \dot{\varphi} \vec{e}_\varphi
+      \]
+      \[
+      \vec{a} = (\ddot{r} - r \dot{\varphi}^2) \vec{e}_r + (r \ddot{\varphi} + 2 \dot{r} \dot{\varphi}) \vec{e}_\varphi
+      \]
+    </p>
+
+    <h2>12.2 Gekrümmte Bahnen</h2>
+    <p>
+      Beschleunigung:
+      \[
+      \vec{a} = a_t \vec{t} + a_n \vec{n}, \quad a_n = \frac{v^2}{\rho}
+      \]
+    </p>
+
+    <h2>12.3 Lagrange-Kinematik</h2>
+    <p>
+      Einführung:
+      \[
+      L = T - V, \quad \text{mit generalisierten Koordinaten } q_i
+      \]
+    </p>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Tipp:</strong> Diese Themen sind wichtig für Maschinenbau, Robotik und Physik.
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#formelsammlung" style="color:#2196f3;">Zu Kapitel 13: Formelsammlung & Zusammenfassung</a>
+    </div>
+  </div>
+</section>
+<section id="formelsammlung" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 13: Zusammenfassung & Formelsammlung</h1>
+    <p>Die wichtigsten Formeln der Kinematik auf einen Blick:</p>
+
+    <h2>13.1 Grundgleichungen</h2>
+    <ul>
+      <li>\( v = \frac{ds}{dt} \)</li>
+      <li>\( a = \frac{dv}{dt} \)</li>
+    </ul>
+
+    <h2>13.2 Gleichförmig</h2>
+    \[
+    s = s_0 + v t
+    \]
+
+    <h2>13.3 Gleichmäßig beschleunigt</h2>
+    \[
+    v = v_0 + a t, \quad
+    s = s_0 + v_0 t + \frac{1}{2} a t^2, \quad
+    v^2 = v_0^2 + 2 a (s - s_0)
+    \]
+
+    <h2>13.4 Schiefer Wurf</h2>
+    \[
+    x(t) = v_0 \cos \alpha t, \quad
+    y(t) = v_0 \sin \alpha t - \frac{1}{2} g t^2
+    \]
+
+    <h2>13.5 Kreisbewegung</h2>
+    \[
+    v = \omega r, \quad
+    a = \omega^2 r
+    \]
+
+    <h2>13.6 Einheiten</h2>
+    <ul>
+      <li>Länge: m</li>
+      <li>Zeit: s</li>
+      <li>Geschwindigkeit: m/s</li>
+      <li>Beschleunigung: m/s²</li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Bei allen Berechnungen Einheiten prüfen!
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Gratulation!</strong> Du hast die gesamte Kinematik durchgearbeitet. Weiterführend: Dynamik und Energieprinzip.
+    </div>
+  </div>
+</section>
+
+
     <a href="quiz.html" class="quiz-btn">Quiz zu Kinematik starten</a>
 </main>
 
