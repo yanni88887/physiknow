@@ -29,11 +29,12 @@
         position: sticky;
         top: 0;
         z-index: 100;
+        text-decoration: none;
     }
-    header h1 { font-size: 1.5rem; color: #00d4ff; }
-    nav ul { display: flex; gap: 1rem; list-style: none; }
-    nav a { color: #fff; font-weight: bold; transition: color 0.3s; }
-    nav a:hover { color: #00d4ff; }
+    header h1 { font-size: 1.5rem; color: #00d4ff;text-decoration: none; }
+    nav ul { display: flex; gap: 1rem; list-style: none; text-decoration: none;}
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none;}
+    nav a:hover { color: #00d4ff; text-decoration: none;}
 
     .hero {
         text-align: center;
@@ -80,18 +81,19 @@
         font-style: italic;
     }
     .quiz-btn {
-        display: block;
-        text-align: center;
-        background: #0066ff;
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: bold;
-        padding: 1rem;
-        border-radius: 8px;
-        margin: 3rem auto 0;
-        max-width: 300px;
-        transition: background 0.3s;
-    }
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto 3rem; /* jetzt oben UND unten Abstand */
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
     .quiz-btn:hover { background: #004bbd; }
 
     footer {
@@ -246,10 +248,6 @@
         \]
       </p>
     </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#grundlagen" style="color:#2196f3;">Zu Kapitel 2: Grundlagen & Begriffe</a>
-    </div>
   </div>
 </section>
 
@@ -332,10 +330,6 @@
       \[
       v = 72 \cdot \frac{1000}{3600} = 20 \, \text{m/s}
       \]
-    </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#bewegung-1d" style="color:#2196f3;">Zu Kapitel 3: Bewegung in einer Dimension</a>
     </div>
   </div>
 </section>
@@ -421,10 +415,6 @@
       <li>\( v(t) \): Gerade</li>
       <li>\( a(t) \): Konstante Linie</li>
     </ul>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#bewegung-2d" style="color:#2196f3;">Zu Kapitel 4: Bewegung in zwei Dimensionen</a>
-    </div>
   </div>
 </section>
 <section id="bewegung-2d" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -531,10 +521,6 @@
       a_\text{tangential} = \frac{dv}{dt}, \quad a_\text{normal} = \frac{v^2}{r}
       \]
     </p>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#kreisrotation" style="color:#2196f3;">Zu Kapitel 5: Kreis- und Rotationsbewegungen</a>
-    </div>
   </div>
 </section>
 <section id="kreisrotation" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -648,10 +634,6 @@
       |\vec{v}| = \sqrt{200^2 + 50^2} \approx 206 \,\text{m/s}
       \]
     </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#starre-koerper" style="color:#2196f3;">Zu Kapitel 7: Kinematik von Punkten vs. starren Körpern</a>
-    </div>
   </div>
 </section>
 <section id="starre-koerper" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -707,10 +689,6 @@
       \[
       |\vec{v}| = v_\text{trans} \pm \omega r = 10 \pm 20 \cdot 0,3 = 16\,\text{m/s (oben)}, 4\,\text{m/s (unten)}
       \]
-    </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#diagramme" style="color:#2196f3;">Zu Kapitel 8: Grafische und analytische Darstellungen</a>
     </div>
   </div>
 </section>
@@ -770,10 +748,6 @@
       \[
       s = \text{Fläche} = \frac{1}{2} \cdot 4 \cdot 10 = 20 \,\text{m}
       \]
-    </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#gleichungen" style="color:#2196f3;">Zu Kapitel 9: Kinematische Gleichungen und Herleitungen</a>
     </div>
   </div>
 </section>
@@ -838,10 +812,6 @@
       s = \frac{v_0^2}{2 a}, \text{ wenn } v = 0
       \]
     </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#praxis" style="color:#2196f3;">Zu Kapitel 10: Anwendungen & Beispiele</a>
-    </div>
   </div>
 </section>
 <section id="praxis" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -901,10 +871,6 @@
     <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
       <strong>Merke:</strong> Kinematik liefert die Basis für Verkehrssicherheit, Maschinenbau, Sportanalysen und Raumfahrt.
     </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#aufgaben" style="color:#2196f3;">Zu Kapitel 11: Typische Aufgaben und Lösungen</a>
-    </div>
   </div>
 </section>
 <section id="fehler" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -950,10 +916,6 @@
     <div style="background:#f7f7f7; padding:15px; border-left:5px solid #ff5722; margin:20px 0;">
       <strong>Tipp:</strong> Immer zuerst Einheiten prüfen, dann die passende Formel wählen.
     </div>
-
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#fortgeschritten" style="color:#2196f3;">Zu Kapitel 12: Erweiterte Themen</a>
-    </div>
   </div>
 </section>
 <section id="fortgeschritten" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
@@ -993,9 +955,7 @@
       <strong>Tipp:</strong> Diese Themen sind wichtig für Maschinenbau, Robotik und Physik.
     </div>
 
-    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
-      <strong>Nächster Schritt:</strong> <a href="#formelsammlung" style="color:#2196f3;">Zu Kapitel 13: Formelsammlung & Zusammenfassung</a>
-    </div>
+    
   </div>
 </section>
 <section id="formelsammlung" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
