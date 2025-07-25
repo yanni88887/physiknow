@@ -135,13 +135,22 @@
 <!-- Inhaltsübersicht -->
 <div class="toc-box">
   <h3>Inhaltsübersicht</h3>
-  <ul>
-    <li><a href="#einleitung">1 Einführung</a></li>
-    <li><a href="#grundbegriffe">1.2 Grundbegriffe & Systemarten</a></li>
-    <li><a href="#groessen">1.3 Thermodynamische Größen</a></li>
-    <li><a href="#zustand">1.4 Zustandsgrößen & Prozesse</a></li>
-    <li><a href="#bedeutung">1.5 Warum wichtig?</a></li>
-    <li><a href="#quiz">1.6 Mini-Quiz</a></li>
+   <ul>
+    <li><a href="#kapitel-1">1. Einführung in die Thermodynamik</a></li>
+    <li><a href="#kapitel-2">2. Grundlagen und Zustandsgrößen</a></li>
+    <li><a href="#kapitel-3">3. Ideale Gase und Gasgesetze</a></li>
+    <li><a href="#kapitel-4">4. Arbeit und Wärme</a></li>
+    <li><a href="#kapitel-5">5. Erster Hauptsatz der Thermodynamik</a></li>
+    <li><a href="#kapitel-6">6. Zweiter Hauptsatz und Entropie</a></li>
+    <li><a href="#kapitel-7">7. Entropie im Detail & T-S-Diagramme</a></li>
+    <li><a href="#kapitel-8">8. Thermodynamische Kreisprozesse</a></li>
+    <li><a href="#kapitel-9">9. Reale Gase & Zustandsgleichungen</a></li>
+    <li><a href="#kapitel-10">10. Mischungen, Feuchte Luft & Partialdruck</a></li>
+    <li><a href="#kapitel-11">11. Wärmeübertragung</a></li>
+    <li><a href="#kapitel-12">12. Wärmekraftmaschinen & Energieumwandlung</a></li>
+    <li><a href="#kapitel-13">13. Technische Anwendungen & Beispiele</a></li>
+    <li><a href="#kapitel-14">14. Typische Fehler & Prüfungsfallen</a></li>
+    <li><a href="#kapitel-15">15. Formelsammlung & Zusammenfassung</a></li>
   </ul>
 </div>
 
@@ -526,6 +535,576 @@
     </div>
   </div>
 </section>
+
+<section id="kapitel-7" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>7 Entropie und T-S-Diagramme</h2>
+    <p>Die Entropie ist eine zentrale Größe der Thermodynamik, die den Ordnungszustand und die Prozessrichtung beschreibt. In diesem Kapitel vertiefen wir das Konzept der Entropie und stellen das T-S-Diagramm als wichtiges Werkzeug vor.</p>
+
+    <!-- Abschnitt 7.1 -->
+    <h2>7.1 Bedeutung der Entropie</h2>
+    <p>Entropie misst die Energieverteilung und „Unordnung“ eines Systems. Sie steigt bei irreversiblen Prozessen an und bleibt in reversiblen Prozessen konstant.</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      dS = \frac{\delta Q_\text{rev}}{T}
+      \]
+      <p>Bei reversiblen Prozessen: Gleichheit, bei irreversiblen Prozessen: \(dS > \frac{\delta Q}{T}\).</p>
+    </div>
+
+    <!-- Abschnitt 7.2 -->
+    <h2>7.2 Entropieänderung für ideale Gase</h2>
+    <p>Für ein ideales Gas bei einem reversiblen Prozess:</p>
+    <div class="highlight">
+      \[
+      \Delta S = m \cdot c_p \ln \frac{T_2}{T_1} - m \cdot R \ln \frac{p_2}{p_1}
+      \]
+    </div>
+    <p>oder alternativ in Abhängigkeit von Volumen und Temperatur:</p>
+    <div class="highlight">
+      \[
+      \Delta S = m \cdot c_v \ln \frac{T_2}{T_1} + m \cdot R \ln \frac{V_2}{V_1}
+      \]
+    </div>
+
+    <!-- Abschnitt 7.3 -->
+    <h2>7.3 Entropie und Reversibilität</h2>
+    <p>
+      <ul>
+        <li><strong>Reversible Prozesse:</strong> Gesamtentropie bleibt konstant (\(\Delta S_\text{gesamt} = 0\)).</li>
+        <li><strong>Irreversible Prozesse:</strong> \(\Delta S_\text{gesamt} > 0\).</li>
+      </ul>
+    </p>
+
+    <!-- Abschnitt 7.4 -->
+    <h2>7.4 T-S-Diagramm</h2>
+    <p>Das T-S-Diagramm (Temperatur-Entropie-Diagramm) ist wichtig zur Analyse thermodynamischer Prozesse:</p>
+    <ul>
+      <li>Isotherme Prozesse: Horizontale Linie (T konstant).</li>
+      <li>Isentrope Prozesse: Vertikale Linie (S konstant).</li>
+    </ul>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Fläche unter der Kurve im T-S-Diagramm:</strong>  
+      \[
+      W_\text{wärme} = \int T \, dS
+      \]
+      → Gibt die zu- oder abgeführte Wärme an.
+    </div>
+
+    <!-- Abschnitt 7.5 -->
+    <h2>7.5 Anwendungen in Kreisprozessen</h2>
+    <p>Das T-S-Diagramm wird für Carnot-, Rankine- und Brayton-Prozesse genutzt, um die Effizienz und Wärmeübertragung grafisch darzustellen.</p>
+
+  </div>
+</section>
+
+<section id="kapitel-8" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>8 Thermodynamische Kreisprozesse</h2>
+    <p>Kreisprozesse sind Abfolgen thermodynamischer Zustandsänderungen, bei denen das System am Ende wieder in seinen Ausgangszustand zurückkehrt. Diese Prozesse sind entscheidend für Wärmekraftmaschinen, Kältemaschinen und Wärmepumpen.</p>
+
+    <!-- Abschnitt 8.1 -->
+    <h2>8.1 Grundlagen der Kreisprozesse</h2>
+    <p>In einem Kreisprozess gilt:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      \Delta U_{\text{zyklus}} = 0 \quad \Rightarrow \quad Q_{\text{ges}} = W_{\text{ges}}
+      \]
+      <p>Die zugeführte Wärme entspricht der abgegebenen Arbeit über einen Zyklus.</p>
+    </div>
+
+    <!-- Abschnitt 8.2 -->
+    <h2>8.2 Wärmekraftmaschinen</h2>
+    <p>Eine Wärmekraftmaschine wandelt Wärme teilweise in Arbeit um. Ihr Wirkungsgrad ist definiert als:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{W_{\text{netto}}}{Q_\text{zu}} = 1 - \frac{Q_\text{ab}}{Q_\text{zu}}
+      \]
+    </div>
+    <p><strong>Merke:</strong> Kein realer Prozess erreicht den Carnot-Wirkungsgrad.</p>
+
+    <!-- Abschnitt 8.3 -->
+    <h2>8.3 Carnot-Prozess</h2>
+    <p>Der Carnot-Prozess ist ein idealer Kreisprozess, bestehend aus:</p>
+    <ul>
+      <li>Isotherme Expansion bei \(T_\text{heiß}\)</li>
+      <li>Adiabate Expansion</li>
+      <li>Isotherme Kompression bei \(T_\text{kalt}\)</li>
+      <li>Adiabate Kompression</li>
+    </ul>
+    <div class="highlight">
+      <strong>Carnot-Wirkungsgrad:</strong>
+      \[
+      \eta_\text{Carnot} = 1 - \frac{T_\text{kalt}}{T_\text{heiß}}
+      \]
+    </div>
+
+    <!-- Abschnitt 8.4 -->
+    <h2>8.4 Rankine-Prozess</h2>
+    <p>Typischer Dampfprozess in Kraftwerken. Schritte:</p>
+    <ul>
+      <li>Verdampfung im Kessel</li>
+      <li>Expansion in der Turbine</li>
+      <li>Kondensation im Kondensator</li>
+      <li>Förderung durch Speisepumpe</li>
+    </ul>
+
+    <!-- Abschnitt 8.5 -->
+    <h2>8.5 Brayton-Prozess</h2>
+    <p>Gas-Turbinen-Prozess, Anwendung in Flugzeugtriebwerken:</p>
+    <ul>
+      <li>Kompression der Luft</li>
+      <li>Verbrennung bei nahezu konstantem Druck</li>
+      <li>Expansion in der Turbine</li>
+    </ul>
+
+    <!-- Abschnitt 8.6 -->
+    <h2>8.6 Wärmepumpen und Kältemaschinen</h2>
+    <p>Wärmepumpen entziehen der Umgebung Wärme und geben sie an ein Heizsystem ab:</p>
+    <div class="highlight">
+      <strong>Leistungskennzahl (COP):</strong>
+      \[
+      COP_\text{Heizung} = \frac{T_\text{heiß}}{T_\text{heiß} - T_\text{kalt}}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-9" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>9 Reale Gase und Zustandsgleichungen</h2>
+    <p>Während das ideale Gasgesetz für viele Anwendungen ausreichend ist, treten bei hohen Drücken und niedrigen Temperaturen Abweichungen auf. Dieses Kapitel behandelt die Korrekturmodelle und reale Gasgleichungen.</p>
+
+    <!-- Abschnitt 9.1 -->
+    <h2>9.1 Abweichungen vom idealen Verhalten</h2>
+    <p>Das ideale Gasgesetz nimmt an, dass Teilchen keine Volumenausdehnung besitzen und keine Wechselwirkungen zeigen. Bei realen Gasen treten jedoch:</p>
+    <ul>
+      <li><strong>Wechselwirkungskräfte:</strong> Anziehung zwischen Molekülen.</li>
+      <li><strong>Eigenvolumen:</strong> Teilchen beanspruchen Raum.</li>
+    </ul>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Folge:</strong> Abweichung des Drucks und Volumens vom idealen Gasgesetz.
+    </div>
+
+    <!-- Abschnitt 9.2 -->
+    <h2>9.2 Van-der-Waals-Gleichung</h2>
+    <p>Die Van-der-Waals-Gleichung berücksichtigt Molekülkräfte und Volumen:</p>
+    <div class="highlight">
+      \[
+      \left( p + \frac{a}{V_m^2} \right)(V_m - b) = R T
+      \]
+      <ul>
+        <li>\(V_m\): molares Volumen</li>
+        <li>\(a\): Korrektur für Anziehungskräfte</li>
+        <li>\(b\): Eigenvolumen-Korrektur</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 9.3 -->
+    <h2>9.3 Kompressibilitätsfaktor (Z)</h2>
+    <p>Zur Beschreibung realer Gase wird der Kompressibilitätsfaktor eingeführt:</p>
+    <div class="highlight">
+      \[
+      Z = \frac{p \cdot V_m}{R T}
+      \]
+      <p>Für ideale Gase: \(Z = 1\). Für reale Gase: \(Z \neq 1\).</p>
+    </div>
+
+    <!-- Abschnitt 9.4 -->
+    <h2>9.4 Andere Zustandsgleichungen</h2>
+    <ul>
+      <li><strong>Redlich-Kwong:</strong> Verbesserung gegenüber Van-der-Waals bei hohen T.</li>
+      <li><strong>Soave-Redlich-Kwong:</strong> Berücksichtigung von Wechselwirkungen bei Flüssigkeiten.</li>
+      <li><strong>Peng-Robinson:</strong> Für präzisere Berechnungen in der Industrie.</li>
+    </ul>
+
+    <!-- Abschnitt 9.5 -->
+    <h2>9.5 Kritische Punkte und Phasendiagramme</h2>
+    <p>Wichtige Kenngrößen für reale Stoffe:</p>
+    <ul>
+      <li><strong>Kritischer Punkt:</strong> Oberhalb keine Unterscheidung zwischen Flüssigkeit und Gas.</li>
+      <li><strong>Tripelpunkt:</strong> Fest, flüssig und gasförmig im Gleichgewicht.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-10" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>10 Mischungen, Feuchte Luft und Partialdruck</h1>
+    <p>In vielen technischen Anwendungen treten Gasgemische auf, z. B. Luft oder Abgase. Dieses Kapitel behandelt Mischungen, das Dalton’sche Gesetz der Partialdrücke und den Begriff der Luftfeuchtigkeit.</p>
+
+    <!-- Abschnitt 10.1 -->
+    <h2>10.1 Gasmischungen und Dalton’sches Gesetz</h2>
+    <p>Ein Gasgemisch besteht aus mehreren Komponenten. Nach Dalton gilt:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      p_\text{ges} = \sum_i p_i
+      \]
+      <p>Gesamtdruck ist die Summe der Partialdrücke der Komponenten.</p>
+    </div>
+    <p>
+      <strong>Partialdruck:</strong> Druck, den eine Komponente ausüben würde, wenn sie allein das gesamte Volumen einnimmt.
+    </p>
+
+    <!-- Abschnitt 10.2 -->
+    <h2>10.2 Stoffmengen- und Massenanteile</h2>
+    <p>Zur Beschreibung von Mischungen werden verwendet:</p>
+    <ul>
+      <li><strong>Molenbruch:</strong> \( y_i = \frac{n_i}{\sum n}\)</li>
+      <li><strong>Massenanteil:</strong> \( x_i = \frac{m_i}{\sum m}\)</li>
+    </ul>
+
+    <!-- Abschnitt 10.3 -->
+    <h2>10.3 Feuchte Luft</h2>
+    <p>Feuchte Luft ist ein Gemisch aus trockener Luft und Wasserdampf. Wichtige Begriffe:</p>
+    <ul>
+      <li><strong>Absolute Feuchte:</strong> Masse Wasserdampf pro m³ Luft.</li>
+      <li><strong>Relative Luftfeuchtigkeit:</strong>
+        \[
+        \phi = \frac{p_\text{Wasserdampf}}{p_\text{sättigung}} \cdot 100\%
+        \]
+      </li>
+      <li><strong>Taupunkt:</strong> Temperatur, bei der die Luft wasserdampfgesättigt wird.</li>
+    </ul>
+
+    <!-- Abschnitt 10.4 -->
+    <h2>10.4 Psychrometrische Größen</h2>
+    <p>Für Klimatisierung und Trocknung sind psychrometrische Größen entscheidend:</p>
+    <ul>
+      <li>Enthalpie feuchter Luft</li>
+      <li>Spezifische Feuchte (Wasserdampf pro kg trockener Luft)</li>
+    </ul>
+    <div class="highlight">
+      <strong>Beispiel:</strong> Spezifische Feuchte:
+      \[
+      x = 0{,}622 \cdot \frac{p_\text{Wasserdampf}}{p_\text{Luft} - p_\text{Wasserdampf}}
+      \]
+    </div>
+
+    <!-- Abschnitt 10.5 -->
+    <h2>10.5 Anwendungen</h2>
+    <ul>
+      <li>Klimaanlagen</li>
+      <li>Trocknungsprozesse</li>
+      <li>Luftbefeuchtung und -entfeuchtung</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-11" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>11 Wärmeübertragung</h1>
+    <p>Die Wärmeübertragung beschreibt den Transport von thermischer Energie zwischen Systemen oder innerhalb eines Systems aufgrund von Temperaturunterschieden. In diesem Kapitel betrachten wir die drei grundlegenden Mechanismen: Wärmeleitung, Konvektion und Wärmestrahlung.</p>
+
+    <!-- Abschnitt 11.1 -->
+    <h2>11.1 Grundbegriffe</h2>
+    <p>Wärmeübertragung erfolgt immer vom Bereich höherer Temperatur in den Bereich niedrigerer Temperatur. Die Übertragungsmechanismen unterscheiden sich hinsichtlich des Transportmediums und der physikalischen Prozesse.</p>
+
+    <!-- Abschnitt 11.2 -->
+    <h2>11.2 Wärmeleitung (Konduktion)</h2>
+    <p>Die Wärmeleitung erfolgt in festen Körpern oder ruhenden Fluiden durch molekulare Schwingungen oder Elektronenbewegung.</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Fourier’sches Gesetz:</strong>
+      \[
+      \dot{Q} = - \lambda \cdot A \cdot \frac{dT}{dx}
+      \]
+      <ul>
+        <li>\(\lambda\): Wärmeleitfähigkeit [W/(m·K)]</li>
+        <li>\(A\): Querschnittsfläche</li>
+        <li>\(\frac{dT}{dx}\): Temperaturgradient</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 11.3 -->
+    <h2>11.3 Konvektion</h2>
+    <p>Bei der Konvektion erfolgt die Wärmeübertragung durch strömende Fluide. Sie kann natürlich (durch Dichteunterschiede) oder erzwungen (durch Pumpen oder Ventilatoren) erfolgen.</p>
+    <div class="highlight">
+      <strong>Grundgleichung:</strong>
+      \[
+      \dot{Q} = \alpha \cdot A \cdot (T_\text{Wand} - T_\text{Fluid})
+      \]
+      <ul>
+        <li>\(\alpha\): Wärmeübergangskoeffizient [W/(m²·K)]</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 11.4 -->
+    <h2>11.4 Wärmestrahlung</h2>
+    <p>Die Wärmestrahlung erfolgt durch elektromagnetische Wellen, auch im Vakuum.</p>
+    <div class="highlight">
+      <strong>Stefan-Boltzmann-Gesetz:</strong>
+      \[
+      \dot{Q} = \varepsilon \cdot \sigma \cdot A \cdot (T^4 - T_\text{Umgebung}^4)
+      \]
+      <ul>
+        <li>\(\varepsilon\): Emissionsgrad</li>
+        <li>\(\sigma = 5{,}67 \cdot 10^{-8}\, W/(m^2 \cdot K^4)\)</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 11.5 -->
+    <h2>11.5 Kombinierte Wärmeübertragung</h2>
+    <p>In der Praxis treten Wärmeleitung, Konvektion und Strahlung oft gemeinsam auf, z. B. in Wärmetauschern oder Gebäudewänden.</p>
+
+    <!-- Abschnitt 11.6 -->
+    <h2>11.6 Anwendungen</h2>
+    <ul>
+      <li>Kühlsysteme in Motoren</li>
+      <li>Wärmetauscher in Kraftwerken</li>
+      <li>Dämmung in Gebäuden</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-12" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>12 Wärmekraftmaschinen und Energieumwandlung</h1>
+    <p>Wärmekraftmaschinen wandeln thermische Energie in mechanische Arbeit um. Dieses Kapitel behandelt die Grundprinzipien, Wirkungsgrade und Anwendungen solcher Systeme.</p>
+
+    <!-- Abschnitt 12.1 -->
+    <h2>12.1 Prinzip der Wärmekraftmaschine</h2>
+    <p>Wärmekraftmaschinen arbeiten nach dem Prinzip des Kreisprozesses: Wärme wird aus einer heißen Quelle aufgenommen, teilweise in Arbeit umgewandelt und als Restwärme an eine kalte Quelle abgegeben.</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      Q_\text{zu} = W_\text{abgegeben} + Q_\text{ab}
+      \]
+    </div>
+
+    <!-- Abschnitt 12.2 -->
+    <h2>12.2 Wirkungsgrad</h2>
+    <p>Der Wirkungsgrad \(\eta\) gibt das Verhältnis von abgegebener Arbeit zur aufgenommenen Wärme an:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{W_\text{netto}}{Q_\text{zu}} = 1 - \frac{Q_\text{ab}}{Q_\text{zu}}
+      \]
+    </div>
+    <p><strong>Merke:</strong> Kein reales System erreicht 100 %, da immer Verluste auftreten.</p>
+
+    <!-- Abschnitt 12.3 -->
+    <h2>12.3 Carnot-Wirkungsgrad</h2>
+    <p>Der theoretisch maximale Wirkungsgrad wird durch den Carnot-Prozess beschrieben:</p>
+    <div class="highlight">
+      \[
+      \eta_\text{Carnot} = 1 - \frac{T_\text{kalt}}{T_\text{heiß}}
+      \]
+      <p>(Temperaturen in Kelvin!)</p>
+    </div>
+
+    <!-- Abschnitt 12.4 -->
+    <h2>12.4 Beispiele für Wärmekraftmaschinen</h2>
+    <ul>
+      <li><strong>Dampfmaschinen:</strong> Historisch bedeutend für die Industrialisierung.</li>
+      <li><strong>Dampfturbinen:</strong> Einsatz in Kraftwerken.</li>
+      <li><strong>Gasturbinen:</strong> Anwendung in Flugzeugtriebwerken.</li>
+      <li><strong>Verbrennungsmotoren:</strong> Otto- und Dieselmotor.</li>
+    </ul>
+
+    <!-- Abschnitt 12.5 -->
+    <h2>12.5 Wärmepumpen und Kältemaschinen</h2>
+    <p>Neben der Energieerzeugung spielt die Umkehrung des Prinzips eine Rolle: Wärmepumpen und Kältemaschinen transportieren Wärme gegen das Temperaturgefälle.</p>
+    <div class="highlight">
+      \[
+      COP_\text{Heizung} = \frac{T_\text{heiß}}{T_\text{heiß} - T_\text{kalt}}
+      \]
+      <p>(COP = Coefficient of Performance)</p>
+    </div>
+
+    <!-- Abschnitt 12.6 -->
+    <h2>12.6 Energieumwandlungsketten</h2>
+    <p>Technische Systeme kombinieren oft mehrere Umwandlungsstufen:</p>
+    <ul>
+      <li>Chemische Energie → Wärme → Mechanik → Elektrizität</li>
+      <li>Beispiel: Kraftwerke (Kohle, Gas, Kernkraft)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-13" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 13: Technische Anwendungen und Beispiele</h1>
+    <p>Die thermodynamischen Prinzipien finden sich in nahezu allen technischen Systemen wieder. Dieses Kapitel gibt einen Überblick über typische Anwendungen und zeigt, wie die Theorie in der Praxis genutzt wird.</p>
+
+    <!-- Abschnitt 13.1 -->
+    <h2>13.1 Energieerzeugung in Kraftwerken</h2>
+    <p>Kraftwerke basieren auf thermodynamischen Prozessen zur Umwandlung von Wärme in mechanische Energie und schließlich in Elektrizität:</p>
+    <ul>
+      <li><strong>Dampfkraftwerke:</strong> Rankine-Prozess, Einsatz von Dampfturbinen.</li>
+      <li><strong>Gasturbinenkraftwerke:</strong> Brayton-Prozess.</li>
+      <li><strong>Kombikraftwerke:</strong> Kombination aus Gas- und Dampfturbinen (höhere Effizienz).</li>
+    </ul>
+
+    <!-- Abschnitt 13.2 -->
+    <h2>13.2 Wärmepumpen und Kälteanlagen</h2>
+    <p>Wärmepumpen nutzen die Umkehrung des Wärmekraftmaschinen-Prinzips:</p>
+    <ul>
+      <li>Heizung von Gebäuden durch Nutzung von Umweltwärme.</li>
+      <li>Kühlanlagen für Lebensmittel und Klimatisierung.</li>
+    </ul>
+    <div class="highlight">
+      \[
+      COP = \frac{\text{Nutzhafte Wärme oder Kälte}}{\text{aufgewendete Arbeit}}
+      \]
+    </div>
+
+    <!-- Abschnitt 13.3 -->
+    <h2>13.3 Motoren und Antriebe</h2>
+    <p>Thermodynamik in Fahrzeugantrieben:</p>
+    <ul>
+      <li>Ottomotor (Benzin) – Otto-Prozess.</li>
+      <li>Dieselmotor – Diesel-Prozess.</li>
+      <li>Gasturbinen in Flugzeugen.</li>
+    </ul>
+
+    <!-- Abschnitt 13.4 -->
+    <h2>13.4 Chemische Prozesse und Industrie</h2>
+    <p>Thermodynamische Prinzipien in der Chemie:</p>
+    <ul>
+      <li>Reaktoren (z. B. Ammoniak-Synthese, Haber-Bosch-Verfahren).</li>
+      <li>Destillation, Verdampfung und Trocknung.</li>
+    </ul>
+
+    <!-- Abschnitt 13.5 -->
+    <h2>13.5 Energietechnik und Nachhaltigkeit</h2>
+    <p>
+      Steigerung der Energieeffizienz und Nutzung erneuerbarer Energien:
+    </p>
+    <ul>
+      <li>Solarthermie (Umwandlung von Sonnenstrahlung in Wärme).</li>
+      <li>Geothermie (Nutzung von Erdwärme für Heizung und Strom).</li>
+    </ul>
+
+    <!-- Abschnitt 13.6 -->
+    <h2>13.6 Alltagstechnologien</h2>
+    <p>Auch im Alltag sind thermodynamische Anwendungen allgegenwärtig:</p>
+    <ul>
+      <li>Kühlschrank und Gefrierschrank.</li>
+      <li>Mikrowelle (Erwärmung durch Strahlung).</li>
+      <li>Isolierflaschen (Reduktion von Wärmeübertragung).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-15" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>14 Formelsammlung & Zusammenfassung</h1>
+    <p>Zum Abschluss der Thermodynamik fassen wir die wichtigsten Formeln und Konzepte übersichtlich zusammen. Diese Übersicht dient als schnelle Referenz für Studium, Übungen und Prüfungen.</p>
+
+    <!-- Abschnitt 14.1 -->
+    <h2>14.1 Allgemeine Begriffe</h2>
+    <ul>
+      <li><strong>Ideale Gasgleichung:</strong>
+        \[
+        p \cdot V = n \cdot R \cdot T
+        \]
+      </li>
+      <li><strong>Spezifische Größen:</strong> Bezug auf Masse (z. B. spezifisches Volumen \(v = V/m\)).</li>
+    </ul>
+
+    <!-- Abschnitt 14.2 -->
+    <h2>14.2 Erster Hauptsatz</h2>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      \Delta U = Q - W
+      \]
+      <ul>
+        <li>\(Q > 0\): Wärme ins System</li>
+        <li>\(W > 0\): Arbeit vom System an die Umgebung</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 14.3 -->
+    <h2>14.3 Zweiter Hauptsatz & Entropie</h2>
+    <ul>
+      <li>Reversible Prozesse:
+        \[
+        dS = \frac{\delta Q_\text{rev}}{T}
+        \]
+      </li>
+      <li>Irreversible Prozesse:
+        \[
+        \Delta S_\text{gesamt} > 0
+        \]
+      </li>
+      <li>Carnot-Wirkungsgrad:
+        \[
+        \eta_\text{Carnot} = 1 - \frac{T_\text{kalt}}{T_\text{heiß}}
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 14.4 -->
+    <h2>14.4 Kreisprozesse & Wärmepumpen</h2>
+    <ul>
+      <li>
+        \[
+        \eta = \frac{W_\text{netto}}{Q_\text{zu}}
+        \]
+      </li>
+      <li>
+        \[
+        COP_\text{Heizung} = \frac{T_\text{heiß}}{T_\text{heiß} - T_\text{kalt}}
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 14.5 -->
+    <h2>14.5 Wärmeübertragung</h2>
+    <ul>
+      <li>Wärmeleitung:
+        \[
+        \dot{Q} = -\lambda \cdot A \cdot \frac{dT}{dx}
+        \]
+      </li>
+      <li>Konvektion:
+        \[
+        \dot{Q} = \alpha \cdot A \cdot (T_\text{Wand} - T_\text{Fluid})
+        \]
+      </li>
+      <li>Strahlung:
+        \[
+        \dot{Q} = \varepsilon \cdot \sigma \cdot A \cdot (T^4 - T_\text{Umgebung}^4)
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 14.6 -->
+    <h2>14.6 Zustandsgleichungen & reale Gase</h2>
+    <ul>
+      <li>Van-der-Waals:
+        \[
+        \left( p + \frac{a}{V_m^2} \right)(V_m - b) = R T
+        \]
+      </li>
+      <li>Kompressibilitätsfaktor:
+        \[
+        Z = \frac{p V_m}{R T}
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 14.7 -->
+    <h2>14.7 Wichtige Konstanten</h2>
+    <ul>
+      <li>Gaskonstante:
+        \[
+        R = 8{,}314 \, \text{J/(mol·K)}
+        \]
+      </li>
+      <li>Stefan-Boltzmann:
+        \[
+        \sigma = 5{,}67 \cdot 10^{-8} \, \text{W/(m²·K⁴)}
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 14.8 -->
+    <h2>14.8 Merksatz & Lernhinweis</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Die Thermodynamik basiert auf Energieerhaltung (1. Hauptsatz), Prozessrichtung (2. Hauptsatz) und der korrekten Anwendung von Stoffmodellen.
+    </div>
+    <p><strong>Lerntipp:</strong> Formeln nicht nur auswendig lernen, sondern verstehen, wann und warum sie gelten.</p>
+  </div>
+</section>
+
 
 
  <a href="quiz.html" class="quiz-btn">Quiz zu Thermodynamik starten</a>
