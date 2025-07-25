@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhysikNow | Universitäre Vorlage</title>
+<style>
+    /* RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    html, body {
+        height: 100%;
+    }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* HEADER (wie index.html) */
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        color: #00d4ff;
+    }
+    nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+    }
+    nav a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #00d4ff;
+    }
+
+    /* HERO */
+    .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    /* GRID LAYOUT */
+    .content {
+        flex: 1;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.8rem;
+    }
+    .box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .box:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .box h3 {
+        color: #0066ff;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+    .topics-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .topics-list li {
+        margin-bottom: 0.6rem;
+    }
+    .topics-list a {
+        color: #333;
+        display: inline-block;
+        padding: 0.3rem 0.4rem;
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+    }
+    .topics-list a:hover {
+        background: #0066ff;
+        color: #fff;
+    }
+
+    /* FOOTER */
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Sortiert nach Universitärer Vorlage</h2>
+    <p>Klicke auf ein Thema, um mehr zu lernen</p>
+</section>
+
+<main class="content">
+    <div class="grid">
+        <!-- Experimentalphysik 1 -->
+        <div class="box">
+            <h3>Experimentalphysik 1: Mechanik & Thermodynamik</h3>
+            <ul class="topics-list">
+                <li><a href="kinematik.html">Kinematik</a></li>
+                <li><a href="#">Dynamik</a></li>
+                <li><a href="#">Arbeit, Energie, Leistung</a></li>
+                <li><a href="#">Impuls & Drehimpuls</a></li>
+                <li><a href="#">Schwingungen</a></li>
+                <li><a href="#">Wellen</a></li>
+                <li><a href="#">Gravitation</a></li>
+            </ul>
+        </div>
+
+        <!-- Experimentalphysik 2 -->
+        <div class="box">
+            <h3>Experimentalphysik 2: Elektrodynamik</h3>
+            <ul class="topics-list">
+                <li><a href="#">Elektrostatik</a></li>
+                <li><a href="#">Elektrische Ströme</a></li>
+                <li><a href="#">Magnetismus</a></li>
+                <li><a href="#">Maxwell-Gleichungen</a></li>
+                <li><a href="#">Elektromagnetische Wellen</a></li>
+            </ul>
+        </div>
+
+        <!-- Experimentalphysik 3 -->
+        <div class="box">
+            <h3>Experimentalphysik 3: Optik</h3>
+            <ul class="topics-list">
+                <li><a href="#">Geometrische Optik</a></li>
+                <li><a href="#">Wellenoptik</a></li>
+                <li><a href="#">Polarisation</a></li>
+            </ul>
+        </div>
+
+        <!-- Experimentalphysik 4 -->
+        <div class="box">
+            <h3>Experimentalphysik 4: Quanten- und Atomphysik</h3>
+            <ul class="topics-list">
+                <li><a href="#">Schwarzkörperstrahlung</a></li>
+                <li><a href="#">Photoeffekt</a></li>
+                <li><a href="#">Welle-Teilchen-Dualismus</a></li>
+                <li><a href="#">Schrödingergleichung</a></li>
+                <li><a href="#">Atommodelle</a></li>
+                <li><a href="#">Spektroskopie</a></li>
+            </ul>
+        </div>
+
+        <!-- Experimentalphysik 5 -->
+        <div class="box">
+            <h3>Experimentalphysik 5: Relativität & Kernphysik</h3>
+            <ul class="topics-list">
+                <li><a href="#">Spezielle Relativität</a></li>
+                <li><a href="#">Allgemeine Relativität</a></li>
+                <li><a href="#">Kernphysik</a></li>
+                <li><a href="#">Teilchenphysik</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 PhysikNow | Nach Unikursen sortierte Übersicht
+</footer>
+
+</body>
+</html>

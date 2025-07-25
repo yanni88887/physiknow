@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste dein Wissen | PhysikNow</title>
+<style>
+    /* RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    html, body {
+        height: 100%;
+    }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER (wie Seite 1) */
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        color: #00d4ff;
+    }
+    nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+    }
+    nav a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #00d4ff;
+    }
+
+    /* HERO */
+    .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    /* QUIZ SELECTION */
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+    }
+    .section {
+        background: #fff;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .section h3 {
+        color: #0066ff;
+        margin-bottom: 1rem;
+    }
+    .topics-list {
+        list-style: none;
+    }
+    .topics-list li {
+        margin-bottom: 0.8rem;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1rem;
+    }
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    /* BUTTON */
+    .start-btn {
+        display: block;
+        width: 100%;
+        background: #0066ff;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 1rem;
+        margin-top: 2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .start-btn:hover {
+        background: #004bbd;
+    }
+
+    /* FOOTER */
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Teste dein Wissen</h2>
+    <p>Wähle die Themen aus, zu denen du ein Quiz machen möchtest:</p>
+</section>
+
+<main class="quiz-container">
+    <!-- Experimentalphysik 1 -->
+    <div class="section">
+        <h3>Experimentalphysik 1: Mechanik & Thermodynamik</h3>
+        <ul class="topics-list">
+            <li><label><input type="checkbox" value="Kinematik">Kinematik</label></li>
+            <li><label><input type="checkbox" value="Dynamik">Dynamik</label></li>
+            <li><label><input type="checkbox" value="Arbeit, Energie, Leistung">Arbeit, Energie, Leistung</label></li>
+            <li><label><input type="checkbox" value="Impuls & Drehimpuls">Impuls & Drehimpuls</label></li>
+            <li><label><input type="checkbox" value="Schwingungen">Schwingungen</label></li>
+            <li><label><input type="checkbox" value="Wellen">Wellen</label></li>
+            <li><label><input type="checkbox" value="Gravitation">Gravitation</label></li>
+        </ul>
+    </div>
+
+    <!-- Experimentalphysik 2 -->
+    <div class="section">
+        <h3>Experimentalphysik 2: Elektrodynamik</h3>
+        <ul class="topics-list">
+            <li><label><input type="checkbox" value="Elektrostatik">Elektrostatik</label></li>
+            <li><label><input type="checkbox" value="Elektrische Ströme">Elektrische Ströme</label></li>
+            <li><label><input type="checkbox" value="Magnetismus">Magnetismus</label></li>
+            <li><label><input type="checkbox" value="Maxwell-Gleichungen">Maxwell-Gleichungen</label></li>
+            <li><label><input type="checkbox" value="Elektromagnetische Wellen">Elektromagnetische Wellen</label></li>
+        </ul>
+    </div>
+
+    <!-- Experimentalphysik 3 -->
+    <div class="section">
+        <h3>Experimentalphysik 3: Optik</h3>
+        <ul class="topics-list">
+            <li><label><input type="checkbox" value="Geometrische Optik">Geometrische Optik</label></li>
+            <li><label><input type="checkbox" value="Wellenoptik">Wellenoptik</label></li>
+            <li><label><input type="checkbox" value="Polarisation">Polarisation</label></li>
+        </ul>
+    </div>
+
+    <!-- Experimentalphysik 4 -->
+    <div class="section">
+        <h3>Experimentalphysik 4: Quanten- und Atomphysik</h3>
+        <ul class="topics-list">
+            <li><label><input type="checkbox" value="Schwarzkörperstrahlung">Schwarzkörperstrahlung</label></li>
+            <li><label><input type="checkbox" value="Photoeffekt">Photoeffekt</label></li>
+            <li><label><input type="checkbox" value="Welle-Teilchen-Dualismus">Welle-Teilchen-Dualismus</label></li>
+            <li><label><input type="checkbox" value="Schrödingergleichung">Schrödingergleichung</label></li>
+            <li><label><input type="checkbox" value="Atommodelle">Atommodelle</label></li>
+            <li><label><input type="checkbox" value="Spektroskopie">Spektroskopie</label></li>
+        </ul>
+    </div>
+
+    <!-- Experimentalphysik 5 -->
+    <div class="section">
+        <h3>Experimentalphysik 5: Relativität & Kernphysik</h3>
+        <ul class="topics-list">
+            <li><label><input type="checkbox" value="Spezielle Relativität">Spezielle Relativität</label></li>
+            <li><label><input type="checkbox" value="Allgemeine Relativität">Allgemeine Relativität</label></li>
+            <li><label><input type="checkbox" value="Kernphysik">Kernphysik</label></li>
+            <li><label><input type="checkbox" value="Teilchenphysik">Teilchenphysik</label></li>
+        </ul>
+    </div>
+
+    <!-- Button -->
+    <button class="start-btn" onclick="startQuiz()">Quiz starten</button>
+</main>
+
+<footer>
+    &copy; 2025 PhysikNow | Teste dein Wissen
+</footer>
+
+<script>
+function startQuiz() {
+    const checkedTopics = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
+    if (checkedTopics.length === 0) {
+        alert("Bitte wähle mindestens ein Thema aus!");
+    } else {
+        alert("Du hast folgende Themen gewählt:\n" + checkedTopics.join(", ") + "\n\nQuiz-Logik kommt bald!");
+    }
+}
+</script>
+
+</body>
+</html>
