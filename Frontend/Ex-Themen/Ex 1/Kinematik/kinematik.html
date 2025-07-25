@@ -122,107 +122,160 @@
     <p>Die umfassende Bewegungsbeschreibung in der Mechanik – für dein Physikstudium</p>
 </section>
 
-<main class="content">
+<section id="einleitung-kinematik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Einführung in die Kinematik</h1>
+    <p><strong>Kinematik</strong> ist ein Teilgebiet der Mechanik, das die <strong>Beschreibung von Bewegungen</strong> untersucht – unabhängig von den Kräften, die diese Bewegung verursachen. Im Gegensatz zur Dynamik beschäftigt sich die Kinematik also ausschließlich mit dem „Wie“ einer Bewegung, nicht mit dem „Warum“.</p>
 
-    <h3>1. Einführung und Definition</h3>
-    <p>
-        Die <strong>Kinematik</strong> ist der Zweig der Mechanik, der sich mit der Beschreibung der Bewegung von Objekten beschäftigt, 
-        ohne die Ursachen dieser Bewegungen (z. B. Kräfte) zu berücksichtigen. 
-        Ziel ist es, Bewegungen mathematisch zu erfassen und Beziehungen zwischen Größen wie <em>Ort</em>, <em>Geschwindigkeit</em> und <em>Beschleunigung</em> herzustellen.
-    </p>
-    <p>
-        Formal wird die Bewegung eines Punktes oder Körpers durch einen Zeit-abhängigen Ortsvektor 
-        \(\vec{r}(t)\) beschrieben. 
-    </p>
+    <h2>1.1 Was ist Kinematik?</h2>
+    <p>Kinematik beantwortet Fragen wie:</p>
+    <ul>
+      <li>Wie ändert sich die Position eines Körpers im Laufe der Zeit?</li>
+      <li>Mit welcher Geschwindigkeit bewegt sich ein Punkt?</li>
+      <li>Wie groß ist seine Beschleunigung?</li>
+    </ul>
+    <p>Zur Beschreibung werden drei Grundgrößen verwendet:</p>
+    <ol>
+      <li><strong>Ort</strong> (Position): <span style="font-family: 'Courier New', monospace;">s(t)</span></li>
+      <li><strong>Geschwindigkeit</strong>: <span style="font-family: 'Courier New', monospace;">v(t) = \(\frac{ds}{dt}\)</span></li>
+      <li><strong>Beschleunigung</strong>: <span style="font-family: 'Courier New', monospace;">a(t) = \(\frac{dv}{dt} = \frac{d^2s}{dt^2}\)</span></li>
+    </ol>
+    
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Die Kinematik arbeitet mit Zeitableitungen:
+      <ul>
+        <li>\(v(t) = \dfrac{ds}{dt}\)</li>
+        <li>\(a(t) = \dfrac{d^2 s}{dt^2}\)</li>
+      </ul>
+    </div>
 
-    <h3>2. Grundbegriffe</h3>
-    <h4>2.1 Ort</h4>
+    <h2>1.2 Abgrenzung zu Dynamik und Statik</h2>
     <p>
-        Der Ort eines Punktes wird im Raum durch einen Vektor dargestellt:
-    </p>
-    <div class="formula">\(\vec{r}(t) = (x(t), y(t), z(t))\)</div>
-    <p>
-        In der Praxis arbeitet man je nach Problemstellung mit kartesischen, zylindrischen oder sphärischen Koordinaten.
-    </p>
-
-    <h4>2.2 Geschwindigkeit</h4>
-    <p>
-        Die Geschwindigkeit ist die zeitliche Ableitung des Ortsvektors:
-    </p>
-    <div class="formula">\(\vec{v}(t) = \frac{d\vec{r}(t)}{dt}\)</div>
-    <p>
-        Der Betrag der Geschwindigkeit ist:
-    </p>
-    <div class="formula">\(v = |\vec{v}(t)|\)</div>
-
-    <h4>2.3 Beschleunigung</h4>
-    <p>
-        Die Beschleunigung ist die Ableitung der Geschwindigkeit nach der Zeit:
-    </p>
-    <div class="formula">\(\vec{a}(t) = \frac{d^2\vec{r}(t)}{dt^2}\)</div>
-
-    <h4>2.4 Weglänge</h4>
-    <p>
-        Der Weg, den ein Körper zurücklegt, ist die Länge der Bahnkurve:
-    </p>
-    <div class="formula">\(s = \int_{t_0}^{t_1} |\vec{v}(t)| \, dt\)</div>
-
-    <h3>3. Bewegungsarten</h3>
-    <h4>3.1 Geradlinige Bewegung</h4>
-    <p>
-        Bei geradliniger Bewegung gilt:
+      Die Mechanik gliedert sich in drei Hauptbereiche:
     </p>
     <ul>
-        <li>Gleichförmig: \(s(t) = s_0 + v \cdot t\)</li>
-        <li>Gleichmäßig beschleunigt:
-            <div class="formula">\(s(t) = s_0 + v_0 t + \frac{1}{2} a t^2\)</div>
-            <div class="formula">\(v(t) = v_0 + a t\)</div>
-        </li>
+      <li><strong>Kinematik:</strong> Beschreibung der Bewegung.</li>
+      <li><strong>Dynamik:</strong> Erklärung der Bewegung durch Kräfte (<em>Newton: F = m·a</em>).</li>
+      <li><strong>Statik:</strong> Gleichgewichtszustände ohne Bewegung.</li>
     </ul>
-    <div class="diagram">[Hier könnte ein s-t-Diagramm für gleichmäßig beschleunigte Bewegung eingefügt werden]</div>
 
-    <h4>3.2 Kreisbewegung</h4>
-    <p>
-        Für die gleichförmige Kreisbewegung:
-    </p>
-    <div class="formula">\(\omega = \frac{d\varphi}{dt}\)</div>
-    <div class="formula">\(v = \omega r\)</div>
-    <div class="formula">\(a_r = \omega^2 r = \frac{v^2}{r}\)</div>
+    <h2>1.3 Grundbegriffe</h2>
+    <ul>
+      <li><strong>Punkt:</strong> Idealisierte Masse ohne Ausdehnung.</li>
+      <li><strong>Körper:</strong> Reales Objekt mit Ausdehnung und Masse.</li>
+      <li><strong>Bezugssystem:</strong> Koordinatensystem, in dem Bewegung gemessen wird.</li>
+    </ul>
 
-    <h3>4. Bezugssysteme</h3>
-    <p>
-        Alle Bewegungsbeschreibungen beziehen sich auf ein Bezugssystem. 
-        In einem Inertialsystem gilt das Trägheitsgesetz, in beschleunigten Systemen müssen Scheinkräfte berücksichtigt werden.
-    </p>
+    <h2>1.4 Beispiele für kinematische Anwendungen</h2>
+    <ul>
+      <li>Bremsweg-Berechnung im Straßenverkehr</li>
+      <li>Wurfbewegungen im Sport</li>
+      <li>Robotersteuerung</li>
+      <li>Planetenbahnen in der Astronomie</li>
+    </ul>
 
-    <h3>5. Koordinatensysteme</h3>
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel für eine typische Formel in der Kinematik:</strong>
+      <p>Bei gleichmäßig beschleunigter Bewegung gilt:</p>
+      <p>
+        \[
+        s(t) = s_0 + v_0 \cdot t + \frac{1}{2} a t^2
+        \]
+      </p>
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#grundlagen" style="color:#2196f3;">Zu Kapitel 2: Grundlagen & Begriffe</a>
+    </div>
+  </div>
+</section>
+
+<section id="grundlagen-kinematik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Kapitel 2: Grundlagen & Begriffe</h1>
+    <p>Bevor wir in die Berechnungen und Bewegungsarten der Kinematik einsteigen, müssen einige grundlegende Begriffe und Konzepte klar sein. Dazu gehören <strong>Skalare und Vektoren</strong>, <strong>Bezugssysteme</strong>, der <strong>Ortsvektor</strong> sowie die <strong>SI-Einheiten</strong>.</p>
+
+    <h2>2.1 Skalar vs. Vektor</h2>
     <p>
-        Häufig genutzte Koordinaten:
+      In der Kinematik arbeiten wir mit Größen, die entweder nur einen Zahlenwert (Skalar) oder zusätzlich eine Richtung (Vektor) haben:
     </p>
     <ul>
-        <li>Kartesisch: \((x, y, z)\)</li>
-        <li>Zylindrisch: \((r, \varphi, z)\)</li>
-        <li>Sphärisch: \((r, \theta, \varphi)\)</li>
+      <li><strong>Skalare:</strong> Größe ohne Richtung (z. B. Zeit \( t \), Temperatur, Masse).</li>
+      <li><strong>Vektoren:</strong> Größe mit Richtung (z. B. Geschwindigkeit \(\vec{v}\), Beschleunigung \(\vec{a}\), Ortsvektor \(\vec{s}\)).</li>
     </ul>
+    <p>
+      Beispiel für einen Vektor in 2D:
+    </p>
+    <p>
+      \[
+      \vec{s} = \begin{pmatrix} x \\ y \end{pmatrix}, \quad \text{Betrag: } |\vec{s}| = \sqrt{x^2 + y^2}
+      \]
+    </p>
 
-    <h3>6. Wichtige Formeln</h3>
-    <div class="formula">\(v = \frac{ds}{dt}, \; a = \frac{dv}{dt}\)</div>
-    <div class="formula">\(s = s_0 + v_0 t + \frac{1}{2} a t^2\)</div>
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merksatz:</strong> Geschwindigkeit, Beschleunigung und Kraft sind immer Vektoren!
+    </div>
 
-    <h3>7. Spezialfälle</h3>
-    <p><strong>Freier Fall:</strong></p>
-    <div class="formula">\(s(t) = \frac{1}{2} g t^2,\; v(t) = g t\)</div>
-
-    <p><strong>Schiefer Wurf:</strong></p>
-    <div class="formula">\(x(t) = v_0 \cos\alpha t,\; y(t) = v_0 \sin\alpha t - \frac{1}{2} g t^2\)</div>
-
-    <h3>8. Anwendungen</h3>
+    <h2>2.2 Bezugssysteme und Koordinatensysteme</h2>
+    <p>
+      Bewegungen werden immer relativ zu einem <strong>Bezugssystem</strong> gemessen. In der Praxis:
+    </p>
     <ul>
-        <li>Robotik</li>
-        <li>Raumfahrt und Satellitenbahnen</li>
-        <li>Fahrzeugdynamik</li>
-        <li>Teilchenphysik</li>
+      <li><strong>Inertialsystem:</strong> Ruht oder bewegt sich gleichförmig (z. B. Boden).</li>
+      <li><strong>Nicht-inertiales System:</strong> Beschleunigt (z. B. Auto in der Kurve).</li>
     </ul>
+    <p>
+      Typische Koordinatensysteme:
+    </p>
+    <ul>
+      <li>Kartesisch: \((x, y, z)\)</li>
+      <li>Polarkoordinaten: \((r, \varphi)\)</li>
+      <li>Zylindrisch/Sphärisch für 3D-Bewegungen</li>
+    </ul>
+
+    <h2>2.3 Ortsvektor, Zeit und Trajektorie</h2>
+    <p>
+      Der <strong>Ortsvektor</strong> beschreibt die Position eines Punktes relativ zum Ursprung:
+    </p>
+    <p>
+      \[
+      \vec{r}(t) = \begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}
+      \]
+    </p>
+    <p>
+      Die <strong>Trajektorie</strong> ist die Bahn, die ein Punkt bei der Bewegung durchläuft. Sie wird durch die Funktion \(\vec{r}(t)\) beschrieben.
+    </p>
+
+    <h2>2.4 SI-Einheiten und Umrechnung</h2>
+    <p>
+      In der Kinematik sind korrekte Einheiten entscheidend:
+    </p>
+    <ul>
+      <li>Länge \(s\): Meter (m)</li>
+      <li>Zeit \(t\): Sekunde (s)</li>
+      <li>Geschwindigkeit \(v\): \([m/s]\)</li>
+      <li>Beschleunigung \(a\): \([m/s^2]\)</li>
+    </ul>
+    <p>
+      Häufige Umrechnungen:
+    </p>
+    <ul>
+      <li>\(1 \, \text{km/h} = \frac{1000}{3600} \, \text{m/s} \approx 0{,}278 \, \text{m/s}\)</li>
+      <li>\(1 \, \text{m/s} = 3{,}6 \, \text{km/h}\)</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Ein Auto fährt mit \(v = 72 \, \text{km/h}\). Umgerechnet in m/s:
+      \[
+      v = 72 \cdot \frac{1000}{3600} = 20 \, \text{m/s}
+      \]
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Nächster Schritt:</strong> <a href="#bewegung-1d" style="color:#2196f3;">Zu Kapitel 3: Bewegung in einer Dimension</a>
+    </div>
+  </div>
+</section>
 
     <a href="quiz.html" class="quiz-btn">Quiz zu Kinematik starten</a>
 </main>
