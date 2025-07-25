@@ -218,8 +218,314 @@
   </div>
 </section>
 
+<section id="kapitel-2" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>2 Thermodynamische Systeme und Prozesse</h2>
+    <p>In diesem Kapitel behandeln wir die unterschiedlichen Systeme in der Thermodynamik, den Unterschied zwischen idealen und realen Gasen sowie die wichtigsten Prozessarten. Diese Grundlagen sind entscheidend, um spätere Hauptsätze der Thermodynamik und technische Anwendungen zu verstehen.</p>
 
+    <!-- Abschnitt 2.1 -->
+    <h2>2.1 Einführung</h2>
+    <p>Thermodynamische Systeme sind die Objekte, die wir untersuchen. Jedes System hat definierte Grenzen und interagiert mit seiner Umgebung. Prozesse beschreiben Zustandsänderungen dieser Systeme.</p>
 
+    <!-- Abschnitt 2.2 -->
+    <h2>2.2 Reine Substanzen & Phasendiagramme</h2>
+    <p>Eine <strong>reine Substanz</strong> besteht aus einem einzigen chemischen Stoff. Sie kann in verschiedenen Phasen (fest, flüssig, gasförmig) auftreten. Das Verhalten wird im Phasendiagramm dargestellt.</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Wichtige Punkte:</strong>
+      <ul>
+        <li><strong>Tripelpunkt:</strong> Alle drei Phasen koexistieren.</li>
+        <li><strong>Kritischer Punkt:</strong> Oberhalb verschwinden die Unterschiede zwischen flüssig und gasförmig.</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 2.3 -->
+    <h2>2.3 Ideale Gase</h2>
+    <p>Das ideale Gasgesetz verknüpft Druck, Volumen, Temperatur und Stoffmenge:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      p \cdot V = n \cdot R \cdot T
+      \]
+      <ul>
+        <li>\(p\): Druck [Pa]</li>
+        <li>\(V\): Volumen [m³]</li>
+        <li>\(n\): Stoffmenge [mol]</li>
+        <li>\(R\): Gaskonstante (8,314 J/mol·K)</li>
+        <li>\(T\): Temperatur [K]</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 2.4 -->
+    <h2>2.4 Reale Gase</h2>
+    <p>Reale Gase weichen vom idealen Verhalten ab, besonders bei hohen Drücken und niedrigen Temperaturen. Die Van-der-Waals-Gleichung berücksichtigt diese Abweichungen:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      \left(p + \frac{a}{V_m^2}\right)(V_m - b) = R T
+      \]
+      <p>\(a\), \(b\): Stoffabhängige Konstanten</p>
+    </div>
+
+    <!-- Abschnitt 2.5 -->
+    <h2>2.5 Wichtige Prozessarten</h2>
+    <p>Thermodynamische Prozesse beschreiben, wie sich ein System von einem Zustand in einen anderen verändert. Die wichtigsten Typen:</p>
+    <ul>
+      <li><strong>Isotherm:</strong> \(T = \text{konstant}\)</li>
+      <li><strong>Isobar:</strong> \(p = \text{konstant}\)</li>
+      <li><strong>Isochor:</strong> \(V = \text{konstant}\)</li>
+      <li><strong>Adiabat:</strong> kein Wärmeaustausch (\(Q = 0\))</li>
+    </ul>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Beispiel:</strong> Arbeit bei isothermer Expansion:
+      \[
+      W = nRT \ln \frac{V_2}{V_1}
+      \]
+    </div>
+
+    <!-- Abschnitt 2.6 -->
+    <h2>2.6 Merksatz</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Ideale Gase sind theoretische Modelle. Reale Gase zeigen Wechselwirkungen und Volumeneffekte, die bei technischen Berechnungen wichtig sind.
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-3" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>3 Temperatur und Temperaturmessung</h2>
+    <p>Die Temperatur ist eine fundamentale thermodynamische Größe, die den thermischen Zustand eines Systems beschreibt. In diesem Kapitel lernen wir, was Temperatur bedeutet, wie sie gemessen wird und welche Skalen in der Praxis verwendet werden.</p>
+
+    <!-- Abschnitt 3.1 -->
+    <h2>3.1 Definition der Temperatur</h2>
+    <p>Temperatur ist ein Maß für die mittlere kinetische Energie der Teilchen eines Systems. Systeme im thermischen Gleichgewicht haben die gleiche Temperatur.</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Wichtige Aussage:</strong>  
+      Zwei Systeme, die sich im thermischen Gleichgewicht befinden, haben die gleiche Temperatur (Zeroth Law der Thermodynamik).
+    </div>
+
+    <!-- Abschnitt 3.2 -->
+    <h2>3.2 Temperaturskalen</h2>
+    <p>Es existieren verschiedene Skalen zur Messung der Temperatur:</p>
+    <ul>
+      <li><strong>Celsius (\(^\circ\)C):</strong> Wasser gefriert bei 0, siedet bei 100.</li>
+      <li><strong>Kelvin (K):</strong> Absolute Skala, Nullpunkt = -273,15 °C.</li>
+      <li><strong>Fahrenheit (°F):</strong> In den USA verbreitet.</li>
+    </ul>
+    <div class="highlight">
+      <strong>Umrechnungen:</strong><br>
+      \[
+      T[K] = T[^\circ C] + 273{,}15
+      \]<br>
+      \[
+      T[^\circ C] = \frac{5}{9}(T[^\circ F] - 32)
+      \]
+    </div>
+
+    <!-- Abschnitt 3.3 -->
+    <h2>3.3 Thermometerarten</h2>
+    <p>Zur Messung der Temperatur werden unterschiedliche Geräte verwendet:</p>
+    <ul>
+      <li><strong>Flüssigkeitsthermometer:</strong> Ausdehnung einer Flüssigkeit (z. B. Quecksilber, Alkohol).</li>
+      <li><strong>Bimetall-Thermometer:</strong> Verbiegen zweier Metalle bei Temperaturänderung.</li>
+      <li><strong>Widerstandsthermometer (RTD):</strong> Temperaturabhängiger Widerstand eines Metalls.</li>
+      <li><strong>Thermoelement:</strong> Thermospannung durch Temperaturdifferenz.</li>
+      <li><strong>Pyrometer:</strong> Strahlungstemperaturmessung (kontaktlos).</li>
+    </ul>
+
+    <!-- Abschnitt 3.4 -->
+    <h2>3.4 Thermisches Gleichgewicht & Nulltes Gesetz</h2>
+    <p>Das Nullte Gesetz der Thermodynamik ist die Grundlage der Temperaturdefinition:</p>
+    <div class="highlight">
+      <strong>Nulltes Gesetz:</strong>  
+      Wenn System A mit System B im thermischen Gleichgewicht ist und B mit C, dann ist auch A mit C im Gleichgewicht.  
+      <br>
+      \[
+      T_A = T_B = T_C
+      \]
+    </div>
+
+    <!-- Abschnitt 3.5 -->
+    <h2>3.5 Absolute Temperatur & Kelvin-Skala</h2>
+    <p>Die Kelvin-Skala basiert auf dem absoluten Nullpunkt (0 K = -273,15 °C), bei dem alle Teilchen ihre minimale Energie haben.</p>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Negative Temperaturen sind in Kelvin nicht möglich.  
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-4" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>4 Arbeit, Wärme und Energieübertragung</h2>
+    <p>Dieses Kapitel behandelt die Konzepte von Arbeit, Wärme und Energie in der Thermodynamik. Wir klären, wie Energie zwischen System und Umgebung übertragen wird und welche Prozesse dabei eine Rolle spielen.</p>
+
+    <!-- Abschnitt 4.1 -->
+    <h2>4.1 Einführung</h2>
+    <p>Arbeit und Wärme sind Energieübertragungsgrößen. Sie beschreiben, wie sich der Energieinhalt eines Systems verändert. Im Gegensatz zu Zustandsgrößen wie Temperatur oder Druck sind sie **prozessabhängig**.</p>
+
+    <!-- Abschnitt 4.2 -->
+    <h2>4.2 Arbeit in der Thermodynamik</h2>
+    <p>Mechanische Arbeit wird in der Thermodynamik meist als Volumenänderungsarbeit betrachtet:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      W = \int_{V_1}^{V_2} p \, dV
+      \]
+      <p><strong>Einheit:</strong> Joule (J)</p>
+    </div>
+    <ul>
+      <li><strong>Expansion:</strong> System verrichtet Arbeit an der Umgebung (W positiv).</li>
+      <li><strong>Kompression:</strong> Umgebung verrichtet Arbeit am System (W negativ).</li>
+    </ul>
+
+    <!-- Abschnitt 4.3 -->
+    <h2>4.3 Wärme</h2>
+    <p>Wärme \(Q\) ist Energieübertragung aufgrund von Temperaturdifferenzen. Sie fließt immer vom wärmeren zum kälteren Körper (2. Hauptsatz).</p>
+    <div class="highlight">
+      <strong>Einheit:</strong> Joule (J)  
+      <strong>Positive Konvention:</strong> Wärme, die dem System zugeführt wird, ist positiv.
+    </div>
+
+    <!-- Abschnitt 4.4 -->
+    <h2>4.4 Zusammenhang zwischen Arbeit, Wärme und innerer Energie</h2>
+    <p>Das **erste Gesetz der Thermodynamik** beschreibt die Energieerhaltung:</p>
+    <div class="highlight">
+      \[
+      \Delta U = Q - W
+      \]
+      <ul>
+        <li>\(\Delta U\): Änderung der inneren Energie</li>
+        <li>\(Q\): Zugeführte Wärme</li>
+        <li>\(W\): Abgegebene Arbeit</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 4.5 -->
+    <h2>4.5 Spezifische Wärmekapazität</h2>
+    <p>Die Wärmemenge zur Temperaturänderung einer Masse \(m\):</p>
+    <div class="highlight">
+      \[
+      Q = m \cdot c \cdot \Delta T
+      \]
+      <ul>
+        <li>\(c\): spezifische Wärmekapazität [J/(kg·K)]</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 4.6 -->
+    <h2>4.6 Wärmeübertragungsarten</h2>
+    <ul>
+      <li><strong>Wärmeleitung:</strong> Energieübertragung durch Molekülstöße.</li>
+      <li><strong>Konvektion:</strong> Transport durch strömendes Medium.</li>
+      <li><strong>Wärmestrahlung:</strong> Übertragung durch elektromagnetische Strahlung (auch im Vakuum).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-5" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>5 Erster Hauptsatz der Thermodynamik</h2>
+    <p>Der erste Hauptsatz ist das Gesetz der Energieerhaltung in der Thermodynamik. Er verknüpft Wärme, Arbeit und die Änderung der inneren Energie eines Systems.</p>
+
+    <!-- Abschnitt 5.1 -->
+    <h2>5.1 Grundidee</h2>
+    <p>Energie kann nicht verloren gehen, sondern nur von einer Form in eine andere umgewandelt werden. In einem abgeschlossenen System ist die Gesamtenergie konstant.</p>
+
+    <!-- Abschnitt 5.2 -->
+    <h2>5.2 Mathematische Formulierung</h2>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      \Delta U = Q - W
+      \]
+      <ul>
+        <li>\(\Delta U\): Änderung der inneren Energie</li>
+        <li>\(Q\): Zugeführte Wärme (positiv ins System)</li>
+        <li>\(W\): Vom System verrichtete Arbeit (positiv nach außen)</li>
+      </ul>
+    </div>
+    <p><strong>Merke:</strong> Wärme und Arbeit sind prozessabhängig, innere Energie ist eine Zustandsgröße.</p>
+
+    <!-- Abschnitt 5.3 -->
+    <h2>5.3 Anwendung auf geschlossene Systeme</h2>
+    <p>Bei einem geschlossenen System ohne Stoffaustausch gilt:</p>
+    <ul>
+      <li>Isothermer Prozess (\(T = \text{konstant}\)): \(\Delta U = 0 \Rightarrow Q = W\)</li>
+      <li>Isochorer Prozess (\(V = \text{konstant}\)): \(W = 0 \Rightarrow \Delta U = Q\)</li>
+      <li>Adiabater Prozess (\(Q = 0\)): \(\Delta U = -W\)</li>
+    </ul>
+
+    <!-- Abschnitt 5.4 -->
+    <h2>5.4 Offene Systeme (Energie- und Massenstrom)</h2>
+    <p>In offenen Systemen (z. B. Turbinen, Verdichter) fließt Masse mit Energie ein und aus. Hier wird der erste Hauptsatz in der stationären Form verwendet:</p>
+    <div class="highlight">
+      \[
+      \dot{Q} - \dot{W} = \sum \dot{m} \left(h + \frac{v^2}{2} + gz\right)_{\text{out}} -
+      \sum \dot{m} \left(h + \frac{v^2}{2} + gz\right)_{\text{in}}
+      \]
+      <p>Enthalpie \(h\), kinetische Energie \(\frac{v^2}{2}\), potenzielle Energie \(gz\).</p>
+    </div>
+
+    <!-- Abschnitt 5.5 -->
+    <h2>5.5 Spezielle Fälle</h2>
+    <ul>
+      <li><strong>Drosselprozesse:</strong> Keine Arbeit, keine Wärmeübertragung, aber Druckänderung.</li>
+      <li><strong>Wärmetauscher:</strong> Kein mechanischer Energietransport, aber \(Q \neq 0\).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-6" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>6 Zweiter Hauptsatz der Thermodynamik</h2>
+    <p>Der zweite Hauptsatz beschreibt die Richtung natürlicher Prozesse und führt das Konzept der Entropie ein. Während der erste Hauptsatz die Energieerhaltung behandelt, legt der zweite Hauptsatz fest, in welche Richtung Energieumwandlungen ablaufen können.</p>
+
+    <!-- Abschnitt 6.1 -->
+    <h2>6.1 Grundidee</h2>
+    <p>Nicht alle energieerhaltenden Prozesse sind spontan möglich. Wärme fließt beispielsweise nicht von selbst vom kälteren zum wärmeren Körper. Der zweite Hauptsatz liefert Kriterien für die Prozessrichtung.</p>
+
+    <!-- Abschnitt 6.2 -->
+    <h2>6.2 Formulierung des zweiten Hauptsatzes</h2>
+    <ul>
+      <li><strong>Clausius-Formulierung:</strong> Wärme kann nicht von selbst von einem kälteren auf einen wärmeren Körper übergehen.</li>
+      <li><strong>Kelvin-Planck-Formulierung:</strong> Es ist unmöglich, einen Kreisprozess zu realisieren, der nur Wärme in Arbeit umwandelt, ohne andere Änderungen hervorzurufen.</li>
+    </ul>
+
+    <!-- Abschnitt 6.3 -->
+    <h2>6.3 Entropie (S)</h2>
+    <p>Die Entropie ist eine Zustandsgröße, die die Unordnung oder Zufälligkeit eines Systems beschreibt. Sie wächst bei irreversiblen Prozessen:</p>
+    <div class="highlight" style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      \[
+      dS \ge \frac{\delta Q}{T}
+      \]
+      <p>Bei reversiblen Prozessen gilt \(dS = \frac{\delta Q_{\text{rev}}}{T}\).</p>
+    </div>
+    <p><strong>Einheit:</strong> Joule pro Kelvin (J/K)</p>
+
+    <!-- Abschnitt 6.4 -->
+    <h2>6.4 Irreversibilität</h2>
+    <p>Natürliche Prozesse sind irreversibel, z. B. Wärmeleitung, Reibung, Strömungsverluste. Die Gesamtentropie (System + Umgebung) nimmt nie ab:</p>
+    <div class="highlight">
+      \[
+      \Delta S_{\text{gesamt}} \ge 0
+      \]
+    </div>
+
+    <!-- Abschnitt 6.5 -->
+    <h2>6.5 Kreisprozesse und Wärmekraftmaschinen</h2>
+    <p>Die Effizienz von Wärmekraftmaschinen ist durch den Carnot-Wirkungsgrad begrenzt:</p>
+    <div class="highlight">
+      \[
+      \eta_{\text{Carnot}} = 1 - \frac{T_\text{kalt}}{T_\text{heiß}}
+      \]
+      <p>(Temperaturen in Kelvin)</p>
+    </div>
+
+    <!-- Abschnitt 6.6 -->
+    <h2>6.6 Wärmepumpen und Kältemaschinen</h2>
+    <p>Auch für Wärmepumpen gilt ein Leistungskennwert (COP):</p>
+    <div class="highlight">
+      \[
+      COP_{\text{Heizung}} = \frac{T_\text{heiß}}{T_\text{heiß} - T_\text{kalt}}
+      \]
+    </div>
+  </div>
+</section>
 
 
  <a href="quiz.html" class="quiz-btn">Quiz zu Thermodynamik starten</a>
