@@ -20,7 +20,6 @@
         padding: 1rem;
         font-size: 1.8rem;
         font-weight: bold;
-        
     }
     .status {
         text-align: center;
@@ -49,6 +48,14 @@
         padding: 25px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .level-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
     }
     .question {
         font-size: 1.4rem;
@@ -72,14 +79,7 @@
         border: 2px solid #ccc;
         border-radius: 6px;
         margin-right: 8px;
-        input[type="number"] {
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    padding: 8px;
-}
-
     }
-    /* Entfernt Pfeile im Chrome, Safari, Edge */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -88,7 +88,9 @@
     .buttons {
         display: flex;
         gap: 10px;
+        justify-content: center;
         margin-bottom: 10px;
+        flex-wrap: wrap;
     }
     button {
         padding: 10px 16px;
@@ -106,7 +108,7 @@
         background: #004bbd;
     }
     .btn-hint {
-        background: #8e44ad; /* Neue Farbe: Lila */
+        background: #8e44ad;
         color: #fff;
     }
     .btn-hint:hover {
@@ -146,36 +148,199 @@
 <body>
 
 <header>PhysikNow – Kinematik-Quiz</header>
-<div class="status" id="status">Frage 0 von 10</div>
+<div class="status" id="status">Frage 0 von 0</div>
 <div class="progress-bar"><div class="progress" id="progress"></div></div>
 <div class="container" id="quiz-area">
-    <button class="btn-primary" id="start-btn">Quiz starten</button>
+    <h2>Wähle deinen Schwierigkeitsgrad</h2>
+    <div class="level-buttons">
+        <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+        <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+        <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+    </div>
 </div>
 <div id="score" class="score-box"></div>
 
 <script>
-// Aufgaben
-const questions = [
-    { question:"Berechne die Endgeschwindigkeit", formula:"v = v_0 + a \\cdot t", values:{v0:20,a:2,t:5}, unit:"m/s", solution:30, steps:"v = 20 + 2·5 = 30" },
-    { question:"Berechne die Strecke", formula:"s = v_0 \\cdot t + \\frac{1}{2} a t^2", values:{v0:10,a:3,t:4}, unit:"m", solution:64, steps:"s = 10·4 + 0.5·3·16 = 64" },
-    { question:"Berechne die Durchschnittsgeschwindigkeit", formula:"v = \\frac{s}{t}", values:{s:120,t:8}, unit:"m/s", solution:15, steps:"v = 120/8 = 15" },
-    { question:"Berechne die Bremsverzögerung", formula:"a = \\frac{v^2}{2s}", values:{v:20,s:50}, unit:"m/s²", solution:4, steps:"a = (20²)/(2·50)=400/100=4" },
-    { question:"Berechne die Winkelgeschwindigkeit", formula:"\\omega = \\frac{v}{r}", values:{v:12,r:3}, unit:"1/s", solution:4, steps:"ω = 12/3 = 4" },
-    { question:"Berechne den freien Fall", formula:"s = \\frac{1}{2} g t^2", values:{g:9.81,t:3}, unit:"m", solution:44.14, steps:"s=0.5·9.81·9=44.14" },
+// Fragenpools
+const easyQuestions = [
+    { question:"Berechne die Endgeschwindigkeit", formula:"v = v_0 + a \\cdot t", values:{v0:10,a:2,t:4}, unit:"m/s", solution:18, steps:"v = 10 + 2·4 = 18" },
+    { question:"Berechne die Strecke (gleichförmig)", formula:"s = v \\cdot t", values:{v:15,t:5}, unit:"m", solution:75, steps:"s = 15·5 = 75" },
+    { question:"Berechne die Strecke", formula:"s = v_0 t + \\frac{1}{2} a t^2", values:{v0:10,a:3,t:4}, unit:"m", solution:64, steps:"s = 10·4 + 0.5·3·16 = 64" },
     { question:"Berechne die Zeit beim Bremsen", formula:"t = \\frac{v}{a}", values:{v:25,a:5}, unit:"s", solution:5, steps:"t=25/5=5" },
-    { question:"Berechne die Beschleunigung", formula:"a = \\frac{\\Delta v}{t}", values:{v:30,t:6}, unit:"m/s²", solution:5, steps:"a=30/6=5" },
-    { question:"Berechne die Strecke (Ruhe bis v)", formula:"s = \\frac{v^2}{2a}", values:{v:20,a:4}, unit:"m", solution:50, steps:"s=(20²)/(2·4)=400/8=50" },
-    { question:"Berechne die Endgeschwindigkeit (mit Bremsweg)", formula:"v = \\sqrt{2as}", values:{a:5,s:18}, unit:"m/s", solution:13.42, steps:"v=√(2·5·18)=√180=13.42" }
+    { question:"Berechne die Endgeschwindigkeit (Bremsweg)", formula:"v = \\sqrt{2as}", values:{a:5,s:18}, unit:"m/s", solution:13.42, steps:"v=√(2·5·18)=√180=13.42" },
+    { question:"Berechne die Winkelgeschwindigkeit", formula:"\\omega = \\frac{v}{r}", values:{v:12,r:3}, unit:"1/s", solution:4, steps:"ω = 12/3 = 4" }
 ];
 
+const mediumQuestions = [
+    { 
+        question:"Berechne die Bahnkurve eines schiefen Wurfs bei t = 3s", 
+        formula:"y = v_0 \\sin(\\alpha) t - \\frac{1}{2} g t^2", 
+        values:{v0:25, alpha:45, t:3, g:9.81}, 
+        unit:"m", 
+        solution:10.09, 
+        steps:"y = 25·sin45°·3 - 0.5·9.81·9 ≈ 10.09" 
+    },
+    { 
+        question:"Berechne die Geschwindigkeit in x-Richtung beim schiefen Wurf", 
+        formula:"v_x = v_0 \\cos(\\alpha)", 
+        values:{v0:30, alpha:30}, 
+        unit:"m/s", 
+        solution:25.98, 
+        steps:"v_x = 30·cos30° ≈ 25.98" 
+    },
+    { 
+        question:"Berechne die Flugzeit eines Wurfs", 
+        formula:"t = \\frac{2 v_0 \\sin(\\alpha)}{g}", 
+        values:{v0:20, alpha:40, g:9.81}, 
+        unit:"s", 
+        solution:2.62, 
+        steps:"t = (2·20·sin40°)/9.81 ≈ 2.62" 
+    },
+    { 
+        question:"Berechne die horizontale Reichweite", 
+        formula:"R = \\frac{v_0^2 \\sin(2\\alpha)}{g}", 
+        values:{v0:22, alpha:35, g:9.81}, 
+        unit:"m", 
+        solution:47.93, 
+        steps:"R = (22²·sin70°)/9.81 ≈ 47.93" 
+    },
+    { 
+        question:"Berechne die Zentripetalbeschleunigung", 
+        formula:"a_c = \\frac{v^2}{r}", 
+        values:{v:18, r:12}, 
+        unit:"m/s²", 
+        solution:27, 
+        steps:"a_c = (18²)/12 = 324/12 = 27" 
+    },
+    { 
+        question:"Berechne die Winkelgeschwindigkeit eines Kreisels", 
+        formula:"\\omega = \\sqrt{\\frac{g}{r}}", 
+        values:{g:9.81, r:0.8}, 
+        unit:"rad/s", 
+        solution:3.5, 
+        steps:"ω = √(9.81/0.8) ≈ 3.5" 
+    },
+    { 
+        question:"Berechne die Beschleunigung bei Polarkoordinaten", 
+        formula:"a = \\ddot{r} - r \\dot{\\varphi}^2", 
+        values:{rddot:2, r:5, phi_dot:3}, 
+        unit:"m/s²", 
+        solution:-43, 
+        steps:"a = 2 - 5·(3²) = 2 - 45 = -43" 
+    },
+    { 
+        question:"Berechne die Geschwindigkeit in Polarkoordinaten", 
+        formula:"v = \\sqrt{\\dot{r}^2 + (r \\dot{\\varphi})^2}", 
+        values:{r_dot:4, r:6, phi_dot:2}, 
+        unit:"m/s", 
+        solution:13.42, 
+        steps:"v = √(4² + (6·2)²) = √(16 + 144) = √160 ≈ 12.65" 
+    },
+    { 
+        question:"Berechne die Umlaufzeit eines Satelliten", 
+        formula:"T = 2\\pi \\sqrt{\\frac{r^3}{GM}}", 
+        values:{r:7e6, GM:3.986e14}, 
+        unit:"s", 
+        solution:5820, 
+        steps:"T = 2π√(7e6³ / 3.986e14) ≈ 5820" 
+    },
+    { 
+        question:"Berechne die Geschwindigkeit bei gleichmäßiger Rotation", 
+        formula:"v = \\omega r", 
+        values:{omega:12, r:0.5}, 
+        unit:"m/s", 
+        solution:6, 
+        steps:"v = 12·0.5 = 6" 
+    }
+
+];
+
+const hardQuestions = [
+    { 
+        question:"Berechne die Coriolis-Beschleunigung für einen Körper, der sich mit v = 10 m/s radial nach außen bewegt, auf einer rotierenden Scheibe mit \\( \\omega = 3\\,\\text{rad/s} \\).", 
+        formula:"a_C = 2 \\omega v", 
+        values:{v:"10 m/s", omega:"3 rad/s"}, 
+        unit:"m/s²", 
+        solution:60, 
+        steps:"a_C = 2·3·10 = 60 \\;\\text{m/s²}" 
+    },
+    { 
+        question:"Berechne die Coriolis-Ablenkung Δx eines Körpers auf der Erde am Äquator nach t = 20 s bei v = 200 m/s.", 
+        formula:"\\Delta x = 2 \\Omega v t", 
+        values:{Omega:"7.292·10^{-5} s^{-1}", v:"200 m/s", t:"20 s"}, 
+        unit:"m", 
+        solution:0.58, 
+        steps:"\\Delta x = 2·7.292·10^{-5}·200·20 ≈ 0.58 m" 
+    },
+    { 
+        question:"Ein Punkt bewegt sich in Polarkoordinaten: \\( r(t) = 3t \\), \\( \\varphi(t) = t^2 \\). Berechne |v| nach t = 2 s.", 
+        formula:"v = \\sqrt{\\dot{r}^2 + (r \\dot{\\varphi})^2}", 
+        values:{r:"6 m", r_dot:"3 m/s", phi_dot:"4 rad/s"}, 
+        unit:"m/s", 
+        solution:24.19, 
+        steps:"v = √(3² + (6·4)²) = √(9 + 576) = √585 ≈ 24.19" 
+    },
+    { 
+        question:"Berechne die Normalbeschleunigung für eine Bahn mit Krümmungsradius \\( \\rho = 15 \\text{ m} \\) bei \\( v = 30 \\text{ m/s} \\).", 
+        formula:"a_n = \\frac{v^2}{\\rho}", 
+        values:{v:"30 m/s", rho:"15 m"}, 
+        unit:"m/s²", 
+        solution:60, 
+        steps:"a_n = (30²)/15 = 900/15 = 60" 
+    },
+    { 
+        question:"Ein Satellit bewegt sich in einer Ellipsenbahn. Berechne die Geschwindigkeit im Perigäum (\\( r_p = 7·10^6 \\text{ m}, r_a = 14·10^6 \\text{ m} \\)).", 
+        formula:"v_p = \\sqrt{GM\\left(\\frac{2}{r_p}-\\frac{1}{a}\\right)}", 
+        values:{GM:"3.986·10^{14} m³/s²", r_p:"7·10^6 m", r_a:"14·10^6 m"}, 
+        unit:"m/s", 
+        solution:10610, 
+        steps:"a = (r_p + r_a)/2 = 10.5·10^6 → v_p ≈ 10610 m/s" 
+    },
+    { 
+        question:"Herleite die Lagrange-Gleichung für ein Pendel bei kleinem Winkel.", 
+        formula:"L = T - V, \\; T = \\frac{1}{2} m l^2 \\dot{\\theta}^2, \\; V = mgl(1-\\cos\\theta)", 
+        values:{m:"m", l:"l", g:"g"}, 
+        unit:"-", 
+        solution:"m l^2 \\ddot{\\theta} + m g l \\theta = 0", 
+        steps:"∂L/∂θ = -mglθ, ∂L/∂θ̇ = ml²θ̇ → ml²θ̈ + mglθ = 0" 
+    },
+    { 
+        question:"Ein Punkt bewegt sich auf einer Schraubenlinie: \\( r(t)=t, \\varphi(t)=2t, z(t)=t \\). Berechne |v| bei t = 3 s.", 
+        formula:"v = \\sqrt{\\dot{r}^2 + (r \\dot{\\varphi})^2 + \\dot{z}^2}", 
+        values:{r:"3 m", r_dot:"1 m/s", phi_dot:"2 rad/s", z_dot:"1 m/s"}, 
+        unit:"m/s", 
+        solution:6.48, 
+        steps:"v = √(1² + (3·2)² + 1²) = √(1+36+1) ≈ 6.48" 
+    },
+    { 
+        question:"Berechne die beschleunigten Bezugskräfte: Coriolis- und Zentrifugalbeschleunigung für ω = 4 rad/s und v = 8 m/s.", 
+        formula:"a = 2\\omega v + \\omega^2 r", 
+        values:{omega:"4 rad/s", v:"8 m/s", r:"0.6 m"}, 
+        unit:"m/s²", 
+        solution:"a_c=64, a_z=9.6", 
+        steps:"a_c=2·4·8=64, a_z=(4²)·0.6=16·0.6=9.6" 
+    },
+    { 
+        question:"Berechne die Bahn-Beschleunigung für v(t)=20 m/s, \\( \\dot{v}=3 m/s² \\), Krümmungsradius \\( \\rho=50 m \\).", 
+        formula:"\\vec{a} = a_t \\vec{t} + a_n \\vec{n}, a_t=\\dot{v}, a_n=\\frac{v^2}{\\rho}", 
+        values:{v:"20 m/s", v_dot:"3 m/s²", rho:"50 m"}, 
+        unit:"m/s²", 
+        solution:"a = 3 (tangential) + 8 (normal)", 
+        steps:"a_t=3, a_n=400/50=8" 
+    }
+];
+
+let questions = [];
 let shuffledQuestions = [];
 let currentIndex = 0;
 let score = 0;
 let attempts = 0;
 
-document.getElementById("start-btn").addEventListener("click", startQuiz);
+function startQuiz(level){
+    if(level === "easy") questions = easyQuestions;
+    if(level === "medium") questions = mediumQuestions;
+    if(level === "hard") questions = hardQuestions;
 
-function startQuiz(){
     shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
     currentIndex = 0;
     score = 0;
@@ -272,7 +437,11 @@ function updateProgress(){
 function endQuiz(){
     document.getElementById("quiz-area").innerHTML = `
         <div class="score-box">Endergebnis: ${score}/${questions.length} richtig ✅</div>
-        <button class="btn-primary" onclick="startQuiz()">Nochmal spielen</button>`;
+        <div class="level-buttons">
+            <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+            <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+            <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+        </div>`;
     document.getElementById("status").textContent = "Quiz abgeschlossen!";
     updateProgress();
 }
