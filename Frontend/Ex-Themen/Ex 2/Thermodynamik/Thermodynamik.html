@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thermodynamik | PhysikNow</title>
+<title>Thermodynamik | Kapitel 1 Einführung</title>
 
 <!-- MathJax für Formeldarstellung -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -29,7 +29,6 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        text-decoration: none;
     }
     header h1 { font-size: 1.5rem; color: #00d4ff; }
     nav ul { display: flex; gap: 1rem; list-style: none; }
@@ -46,39 +45,187 @@
     .hero p { font-size: 1.3rem; }
 
     .toc-box {
-      background: #ffffff;
-      border: 2px solid #0073e6;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin: 25px auto;
-      max-width: 800px;
+        background: #ffffff;
+        border: 2px solid #0073e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 25px auto;
+        max-width: 800px;
     }
     .toc-box h3 {
-      margin-top: 0;
-      font-size: 18px;
-      color: #0073e6;
-      text-align: center;
-      margin-bottom: 15px;
+        font-size: 18px;
+        color: #0073e6;
+        text-align: center;
+        margin-bottom: 15px;
     }
     .toc-box ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      columns: 2;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        columns: 2;
     }
-    .toc-box li {
-      margin-bottom: 8px;
+    .toc-box li { margin-bottom: 8px; }
+    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+
+    section {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
     }
-    .toc-box a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
+    .container {
+        max-width: 900px;
+        margin: auto;
     }
-    .toc-box a:hover {
-      color: #0073e6;
-      text-decoration: underline;
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #0066ff; }
+    h2 { font-size: 1.5rem; margin-top: 1rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    ul { padding-left: 20px; }
+    .highlight {
+        background: #f7f7f7;
+        padding: 15px;
+        border-left: 5px solid #0073e6;
+        margin: 20px 0;
     }
-    @media (max-width: 768px) {
-      .toc-box ul { columns: 1; }
+    .quiz-btn {
+        display: block;
+        text-align: center;
+        background: #0066ff;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 3rem auto;
+        max-width: 300px;
+        text-decoration: none;
     }
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Thermodynamik</h2>
+    <p>Grundlagen, Begriffe und Konzepte für dein Studium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+  <ul>
+    <li><a href="#einleitung">1 Einführung</a></li>
+    <li><a href="#grundbegriffe">1.2 Grundbegriffe & Systemarten</a></li>
+    <li><a href="#groessen">1.3 Thermodynamische Größen</a></li>
+    <li><a href="#zustand">1.4 Zustandsgrößen & Prozesse</a></li>
+    <li><a href="#bedeutung">1.5 Warum wichtig?</a></li>
+    <li><a href="#quiz">1.6 Mini-Quiz</a></li>
+  </ul>
+</div>
+
+<!-- Kapitel-Abschnitte -->
+<section id="einleitung">
+  <div class="container">
+    <h2>Einführung in die Thermodynamik</h2>
+    <p><strong>Thermodynamik</strong> ist die Lehre von Energieumwandlungen und den Naturgesetzen, die diese Prozesse bestimmen. Sie spielt eine zentrale Rolle in Technik, Naturwissenschaften und Energiewirtschaft.</p>
+  </div>
+</section>
+
+<section id="grundbegriffe">
+  <div class="container">
+    <h2>1.1 Grundbegriffe & Systemarten</h2>
+    <ul>
+      <li><strong>System:</strong> Der untersuchte Bereich (z. B. Gas im Zylinder).</li>
+      <li><strong>Umgebung:</strong> Alles außerhalb des Systems.</li>
+      <li><strong>Systemarten:</strong>
+        <ul>
+          <li>Offenes System: Austausch von Masse und Energie.</li>
+          <li>Geschlossenes System: Nur Energieaustausch, keine Masse.</li>
+          <li>Isoliertes System: Kein Austausch von Energie oder Masse.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="groessen">
+  <div class="container">
+    <h2>1.2 Thermodynamische Größen</h2>
+    <p>Wichtige Größen sind:</p>
+    <ul>
+      <li>Temperatur \(T\) [K]</li>
+      <li>Druck \(p\) [Pa]</li>
+      <li>Volumen \(V\) [m³]</li>
+      <li>Energieformen:
+        <ul>
+          <li>Innere Energie \(U\)</li>
+          <li>Arbeit \(W\)</li>
+          <li>Wärme \(Q\)</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="highlight">
+      <strong>Formeln:</strong><br>
+      \[
+      W = \int p \, dV, \quad \Delta U = Q - W
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="zustand">
+  <div class="container">
+    <h2>1.3 Zustandsgrößen & Prozesse</h2>
+    <p>Zustandsgrößen wie \(p, V, T, U\) beschreiben den Zustand. Prozessgrößen (Arbeit, Wärme) hängen vom Weg ab.</p>
+    <p>Typische Zustandsänderungen:</p>
+    <ul>
+      <li>isobar (p = konstant)</li>
+      <li>isochor (V = konstant)</li>
+      <li>isotherm (T = konstant)</li>
+      <li>adiabatisch (kein Wärmeaustausch)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bedeutung">
+  <div class="container">
+    <div class="highlight">
+      <strong>1.4 Warum wichtig?</strong>  
+      Ohne die Grundlagen der Thermodynamik können die Hauptsätze nicht verstanden werden. Dieses Kapitel ist die Basis für alle weiteren Themen.
+    </div>
+  </div>
+</section>
+
+
+
+
+
+ <a href="quiz.html" class="quiz-btn">Quiz zu Thermodynamik starten</a>
+<footer>
+    &copy; 2025 PhysikNow | Thermodynamik
+</footer>
+
+</body>
+</html>
