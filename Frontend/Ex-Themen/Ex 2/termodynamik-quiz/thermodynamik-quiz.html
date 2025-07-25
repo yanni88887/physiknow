@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinematik-Quiz | PhysikNow</title>
+<!-- MathJax für Formeln -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f3f6fb;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        text-decoration: none;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff;text-decoration: none; }
+    nav ul { display: flex; gap: 1rem; list-style: none; text-decoration: none;}
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none;}
+    nav a:hover { color: #00d4ff; text-decoration: none;}
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .status {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .progress-bar {
+        width: 90%;
+        margin: 10px auto;
+        background: #ddd;
+        height: 12px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .progress {
+        height: 12px;
+        background: #0066ff;
+        width: 0%;
+        transition: width 0.3s ease-in-out;
+    }
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .level-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .question {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .values {
+        background: #eef4ff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .input-row {
+        margin-bottom: 15px;
+    }
+    input[type="number"] {
+        width: 120px;
+        padding: 8px;
+        font-size: 1.1rem;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        margin-right: 8px;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    button {
+        padding: 10px 16px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .btn-primary {
+        background: #0066ff;
+        color: #fff;
+    }
+    .btn-primary:hover {
+        background: #004bbd;
+    }
+    .btn-hint {
+        background: #8e44ad;
+        color: #fff;
+    }
+    .btn-hint:hover {
+        background: #732d91;
+    }
+    .hint {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f4eafc;
+        border-left: 4px solid #8e44ad;
+        font-style: italic;
+    }
+    .result {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .correct {
+        background: #d4f8d4;
+        color: #206020;
+    }
+    .wrong {
+        background: #ffd6d6;
+        color: #8b0000;
+    }
+    .score-box {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="status" id="status">Frage 0 von 0</div>
+<div class="progress-bar"><div class="progress" id="progress"></div></div>
+<div class="container" id="quiz-area">
+    <h2>Wähle deinen Schwierigkeitsgrad</h2>
+    <div class="level-buttons">
+        <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+        <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+        <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+    </div>
+</div>
+<div id="score" class="score-box"></div>
+
+<script>
+// Fragenpools
+const easyQuestions = [
+   [
+  { 
+    question: "Berechne den Druck", 
+    formula: "p = \\frac{F}{A}", 
+    values: {"F": 200, "A": 0.5}, 
+    unit: "Pa", 
+    solution: 400, 
+    steps: "p = 200 / 0.5 = 400" 
+  },
+
+  { 
+    question: "Berechne die Wärmemenge", 
+    formula: "Q = m \\cdot c \\cdot \\Delta T", 
+    values: {"m": 2, "c": 4.18, "ΔT": 10}, 
+    unit: "kJ", 
+    solution: 83.6, 
+    steps: "Q = 2·4.18·10 = 83.6 kJ" 
+  },
+
+  { 
+    question: "Berechne die innere Energieänderung", 
+    formula: "\\Delta U = m \\cdot c \\cdot \\Delta T", 
+    values: {"m": 1.5, "c": 4.18, "ΔT": 20}, 
+    unit: "kJ", 
+    solution: 125.4, 
+    steps: "ΔU = 1.5·4.18·20 = 125.4 kJ" 
+  },
+
+  { 
+    question: "Berechne die Arbeit bei isobarem Prozess", 
+    formula: "W = p \\cdot \\Delta V", 
+    values: {"p": 100000, "ΔV": 0.02}, 
+    unit: "J", 
+    solution: 2000, 
+    steps: "W = 100000·0.02 = 2000 J" 
+  },
+
+  { 
+    question: "Berechne den Druck des idealen Gases", 
+    formula: "p = \\frac{nRT}{V}", 
+    values: {"n": 1, "R": 8.314, "T": 300, "V": 0.025}, 
+    unit: "Pa", 
+    solution: 99768, 
+    steps: "p = (1·8.314·300)/0.025 ≈ 99768 Pa" 
+  },
+
+  { 
+    question: "Berechne die Temperatur aus dem idealen Gasgesetz", 
+    formula: "T = \\frac{pV}{nR}", 
+    values: {"p": 101325, "V": 0.05, "n": 2, "R": 8.314}, 
+    unit: "K", 
+    solution: 304.5, 
+    steps: "T = (101325·0.05)/(2·8.314) ≈ 304.5 K" 
+  },
+
+  { 
+    question: "Berechne die Verdampfungswärme", 
+    formula: "Q = m \\cdot L", 
+    values: {"m": 0.5, "L": 2256}, 
+    unit: "kJ", 
+    solution: 1128, 
+    steps: "Q = 0.5·2256 = 1128 kJ" 
+  },
+
+  { 
+    question: "Berechne die spezifische Wärmekapazität", 
+    formula: "c = \\frac{Q}{m \\cdot \\Delta T}", 
+    values: {"Q": 5000, "m": 2, "ΔT": 50}, 
+    unit: "J/(kg·K)", 
+    solution: 50, 
+    steps: "c = 5000 / (2·50) = 50" 
+  },
+
+  { 
+    question: "Berechne den Wirkungsgrad einer Wärmekraftmaschine", 
+    formula: "\\eta = \\frac{W}{Q_1} \\cdot 100\\%", 
+    values: {"W": 400, "Q1": 1000}, 
+    unit: "%", 
+    solution: 40, 
+    steps: "η = (400 / 1000)·100% = 40%" 
+  },
+
+  { 
+    question: "Berechne den Carnot-Wirkungsgrad", 
+    formula: "\\eta = 1 - \\frac{T_k}{T_h}", 
+    values: {"T_k": 300, "T_h": 600}, 
+    unit: "", 
+    solution: 0.5, 
+    steps: "η = 1 - (300 / 600) = 0.5 = 50%" 
+  }
+]
+
+];
+
+const mediumQuestions = [
+  {
+    question: "Ein ideales Gas expandiert isobar. Berechne die Arbeit W.",
+    formula: "W = p · (V₂ - V₁)",
+    values: { p: 150000, "V₁": 0.02, "V₂": 0.04 },
+    unit: "J",
+    solution: 3000,
+    steps: "W = 150000 × (0.04 - 0.02) = 150000 × 0.02 = 3000 J"
+  },
+  {
+    question: "Ein Gas wird isochor von 300 K auf 450 K erwärmt. Berechne die zugeführte Wärme Q.",
+    formula: "Q = n · cᵥ · ΔT",
+    values: { n: 2, cᵥ: 20.8, ΔT: 150 },
+    unit: "J",
+    solution: 6240,
+    steps: "Q = 2 × 20.8 × 150 = 6240 J"
+  },
+  {
+    question: "Ein Gas expandiert isotherm. Berechne die Arbeit W.",
+    formula: "W = n · R · T · ln(V₂ / V₁)",
+    values: { n: 1, R: 8.314, T: 300, "V₁": 0.01, "V₂": 0.03 },
+    unit: "J",
+    solution: 2744,
+    steps: "W = 1 × 8.314 × 300 × ln(0.03 / 0.01) = 2494.2 × ln(3) ≈ 2494.2 × 1.099 = 2744 J"
+  },
+  {
+    question: "Ein Carnot-Prozess arbeitet zwischen zwei Temperaturen. Berechne den Wirkungsgrad η.",
+    formula: "η = 1 - Tₖ / Tₕ",
+    values: { Tₕ: 600, Tₖ: 300 },
+    unit: "",
+    solution: 0.5,
+    steps: "η = 1 - 300 / 600 = 1 - 0.5 = 0.5 (50 %)"
+  },
+  {
+    question: "Ein Gas wird adiabatisch komprimiert. Berechne den Enddruck p₂.",
+    formula: "p₂ = p₁ · (V₁ / V₂)^γ",
+    values: { "p₁": 100000, "V₁": 0.08, "V₂": 0.04, γ: 1.4 },
+    unit: "Pa",
+    solution: 264800,
+    steps: "p₂ = 100000 × (0.08 / 0.04)^1.4 = 100000 × (2)^1.4 ≈ 100000 × 2.648 = 264800 Pa"
+  },
+  {
+    question: "Ein Heizkörper erwärmt Wasser. Berechne die Wärmemenge Q.",
+    formula: "Q = m · c · ΔT",
+    values: { m: 5, c: 4180, ΔT: 40 },
+    unit: "J",
+    solution: 836000,
+    steps: "Q = 5 × 4180 × 40 = 836000 J"
+  },
+  {
+    question: "Ein Gas wird bei konstantem Druck von 350 K auf 450 K erwärmt. Berechne die Enthalpieänderung ΔH.",
+    formula: "ΔH = n · cₚ · ΔT",
+    values: { n: 1.5, cₚ: 29, ΔT: 100 },
+    unit: "J",
+    solution: 4350,
+    steps: "ΔH = 1.5 × 29 × 100 = 4350 J"
+  },
+  {
+    question: "Ein Kompressor verdichtet Luft adiabatisch. Berechne die Endtemperatur T₂.",
+    formula: "T₂ = T₁ · (V₁ / V₂)^(γ - 1)",
+    values: { "T₁": 300, "V₁": 0.08, "V₂": 0.05, γ: 1.4 },
+    unit: "K",
+    solution: 363,
+    steps: "T₂ = 300 × (0.08 / 0.05)^0.4 = 300 × (1.6)^0.4 ≈ 300 × 1.21 = 363 K"
+  },
+  {
+    question: "Ein Gas wird isochor abgekühlt. Berechne die Entropieänderung ΔS.",
+    formula: "ΔS = m · cᵥ · ln(T₂ / T₁)",
+    values: { m: 1, cᵥ: 718, "T₁": 350, "T₂": 300 },
+    unit: "J/K",
+    solution: -113.8,
+    steps: "ΔS = 1 × 718 × ln(300 / 350) = 718 × ln(0.857) ≈ 718 × (-0.158) = -113.8 J/K"
+  },
+  {
+    question: "Ein Gas wird isobar erwärmt. Berechne die zugeführte Wärme Q.",
+    formula: "Q = n · cₚ · ΔT",
+    values: { n: 3, cₚ: 29, ΔT: 120 },
+    unit: "J",
+    solution: 10440,
+    steps: "Q = 3 × 29 × 120 = 10440 J"
+  }
+];
+
+
+const hardQuestions = [
+  {
+    question: "Ein ideales Gas expandiert isotherm. Berechne zuerst die Arbeit W und den Enddruck p₂. Gesucht: W in Joule.",
+    formula: "W = n · R · T · ln(V₂ / V₁), p₂ = (n · R · T) / V₂",
+    values: {"n": 2, "R": 8.314, "T": 400, "V₁": 0.01, "V₂": 0.03},
+    unit: "J",
+    solution: 7309,
+    steps: "W = 2 × 8.314 × 400 × ln(0.03 / 0.01) = 6651.2 × ln(3) ≈ 6651.2 × 1.099 = 7309 J"
+  },
+  {
+    question: "Ein Kolben expandiert isobar. Berechne zuerst die Arbeit W und dann die Enthalpieänderung ΔH. Gesucht: ΔH in kJ.",
+    formula: "W = p · (V₂ - V₁), ΔH = m · cₚ · ΔT",
+    values: {"p": 100000, "V₁": 0.02, "V₂": 0.05, "m": 1, "cₚ": 1.005, "ΔT": 50},
+    unit: "kJ",
+    solution: 50.25,
+    steps: "W = 100000 × (0.05 - 0.02) = 3000 J; ΔH = 1 × 1.005 × 50 = 50.25 kJ"
+  },
+  {
+    question: "Ein Gas wird adiabatisch komprimiert. Berechne zuerst p₂ und dann die Endtemperatur T₂. Gesucht: T₂ in Kelvin.",
+    formula: "p₂ = p₁ · (V₁ / V₂)^γ, T₂ = T₁ · (V₁ / V₂)^(γ - 1)",
+    values: {"p₁": 100000, "V₁": 0.10, "V₂": 0.04, "γ": 1.4, "T₁": 300},
+    unit: "K",
+    solution: 521,
+    steps: "p₂ ≈ 459000 Pa; T₂ = 300 × (2.5)^0.4 ≈ 521 K"
+  },
+  {
+    question: "Ein Wärmetauscher erwärmt Wasser. Berechne zuerst Q und dann ΔS. Gesucht: ΔS in J/K.",
+    formula: "Q = m · c · ΔT, ΔS = m · c · ln(T₂ / T₁)",
+    values: {"m": 2, "c": 4180, "T₁": 293, "T₂": 353},
+    unit: "J/K",
+    solution: 1554,
+    steps: "Q = 501600 J; ΔS ≈ 1554 J/K"
+  },
+  {
+    question: "Ein Carnot-Kreisprozess arbeitet zwischen zwei Temperaturen. Berechne zuerst den Wirkungsgrad η und dann die Nutzarbeit W. Gesucht: W in kJ.",
+    formula: "η = 1 - Tₖ / Tₕ, W = η × Q",
+    values: {"Tₕ": 500, "Tₖ": 300, "Q": 2000},
+    unit: "kJ",
+    solution: 800,
+    steps: "η = 1 - 300 / 500 = 0.4; W = 0.4 × 2000 = 800 kJ"
+  },
+  {
+    question: "Ein Gas durchläuft eine isotherme Expansion und eine isochore Erwärmung. Berechne zuerst W₁ und dann Q₂. Gesucht: Q₂ in J.",
+    formula: "W₁ = n · R · T · ln(V₂ / V₁), Q₂ = n · cᵥ · ΔT",
+    values: {"n": 1, "R": 8.314, "T": 400, "V₁": 0.01, "V₂": 0.02, "cᵥ": 20.8, "ΔT": 50},
+    unit: "J",
+    solution: 1040,
+    steps: "W₁ ≈ 2306 J; Q₂ = 1 × 20.8 × 50 = 1040 J"
+  },
+  {
+    question: "Eine Wärmepumpe liefert Heizleistung. Berechne zuerst COP und dann die minimale elektrische Leistung. Gesucht: Wₑₗ in kW.",
+    formula: "COP = Tₕ / (Tₕ - T𝒸), Wₑₗ = Qₕ / COP",
+    values: {"Tₕ": 308, "T𝒸": 268, "Qₕ": 10},
+    unit: "kW",
+    solution: 1.3,
+    steps: "COP = 308 / (308 - 268) = 7.7; Wₑₗ ≈ 1.3 kW"
+  },
+  {
+    question: "Ein Rankine-Prozess: Berechne zuerst η und dann die Arbeit W. Gesucht: W in kJ/kg.",
+    formula: "η = 1 - Tₖ / Tₕ, W = η × Q",
+    values: {"Tₕ": 823, "Tₖ": 313, "Q": 2800},
+    unit: "kJ/kg",
+    solution: 1736,
+    steps: "η ≈ 0.62; W = 2800 × 0.62 = 1736 kJ/kg"
+  },
+  {
+    question: "Ein Gas wird bei konstantem Druck erwärmt. Berechne zuerst ΔH und dann W. Gesucht: ΔH in J.",
+    formula: "ΔH = n · cₚ · ΔT",
+    values: {"n": 2, "cₚ": 29, "ΔT": 200},
+    unit: "J",
+    solution: 11600,
+    steps: "ΔH = 2 × 29 × 200 = 11600 J"
+  },
+  {
+    question: "Ein Kompressor verdichtet Luft adiabatisch. Berechne zuerst T₂ und dann W. Gesucht: W in kJ.",
+    formula: "T₂ = T₁ · (V₁ / V₂)^(γ - 1), W = cₚ · (T₂ - T₁)",
+    values: {"T₁": 300, "V₁": 0.1, "V₂": 0.04, "γ": 1.4, "cₚ": 1.005, "m": 1},
+    unit: "kJ",
+    solution: 222.4,
+    steps: "T₂ ≈ 521 K; W ≈ 222.4 kJ"
+  }
+];
+
+
+let questions = [];
+let shuffledQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let attempts = 0;
+
+function startQuiz(level){
+    if(level === "easy") questions = easyQuestions;
+    if(level === "medium") questions = mediumQuestions;
+    if(level === "hard") questions = hardQuestions;
+
+    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+    currentIndex = 0;
+    score = 0;
+    updateStatus();
+    updateProgress();
+    showQuestion();
+}
+
+function showQuestion(){
+    const q = shuffledQuestions[currentIndex];
+    const quizArea = document.getElementById("quiz-area");
+    quizArea.innerHTML = `
+        <div class="question">${currentIndex+1}. ${q.question}</div>
+        <div class="values">Gegeben: ${Object.entries(q.values).map(([k,v])=>`${k} = ${v}`).join(", ")}</div>
+        <div class="input-row"><input type="number" step="0.01" id="answer"> ${q.unit}</div>
+        <div class="buttons">
+            <button class="btn-primary" onclick="checkAnswer()">Auswerten</button>
+            <button class="btn-hint" onclick="showHint()">Hinweis</button>
+        </div>
+        <div class="hint">Formel: \\(${q.formula}\\)</div>
+        <div class="result" id="result"></div>
+    `;
+    MathJax.typeset();
+    attempts = 0;
+}
+
+function showHint(){
+    document.querySelector(".hint").style.display = "block";
+}
+
+function checkAnswer(){
+    const q = shuffledQuestions[currentIndex];
+    const userVal = parseFloat(document.getElementById("answer").value);
+    const resultDiv = document.getElementById("result");
+
+    if(isNaN(userVal)){ alert("Bitte gib eine Zahl ein."); return; }
+
+    attempts++;
+    if(Math.abs(userVal - q.solution) <= 0.1){
+        resultDiv.innerHTML = `
+            <div class="correct">
+                ✔ Deine Antwort ist korrekt!<br>
+                Lösung: ${q.solution} ${q.unit}<br>
+                Formel: \\(${q.formula}\\)<br>
+                Rechenweg: ${q.steps}
+            </div>`;
+        score++;
+        MathJax.typeset();
+        nextButton();
+    } else {
+        if(attempts === 1){
+            resultDiv.innerHTML = `<div class="wrong">❌ Falsch! Du hast noch einen Versuch.</div>`;
+            document.getElementById("answer").value = "";
+        } else {
+            resultDiv.innerHTML = `
+                <div class="wrong">
+                    ❌ Leider falsch.<br>
+                    Richtige Lösung: ${q.solution} ${q.unit}<br>
+                    Formel: \\(${q.formula}\\)<br>
+                    Rechenweg: ${q.steps}
+                </div>`;
+            MathJax.typeset();
+            nextButton();
+        }
+    }
+}
+
+function nextButton(){
+    const quizArea = document.getElementById("quiz-area");
+    if(currentIndex < shuffledQuestions.length - 1){
+        quizArea.innerHTML += `<button class="btn-primary" onclick="nextQuestion()">Weiter</button>`;
+    } else {
+        quizArea.innerHTML += `<button class="btn-primary" onclick="endQuiz()">Quiz beenden</button>`;
+    }
+}
+
+function nextQuestion(){
+    currentIndex++;
+    updateStatus();
+    updateProgress();
+    showQuestion();
+}
+
+function updateStatus(){
+    document.getElementById("status").textContent = `Frage ${currentIndex+1} von ${questions.length}`;
+}
+
+function updateProgress(){
+    const progress = document.getElementById("progress");
+    const percent = (currentIndex / questions.length) * 100;
+    progress.style.width = percent + "%";
+}
+
+function endQuiz(){
+    document.getElementById("quiz-area").innerHTML = `
+        <div class="score-box">Endergebnis: ${score}/${questions.length} richtig ✅</div>
+        <div class="level-buttons">
+            <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+            <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+            <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+        </div>`;
+    document.getElementById("status").textContent = "Quiz abgeschlossen!";
+    updateProgress();
+}
+</script>
+</body>
+</html>
