@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanik | Arbeit, Energie und Leistung</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .toc-box {
+        background: #ffffff;
+        border: 2px solid #0073e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 25px auto;
+        max-width: 800px;
+    }
+    .toc-box h3 {
+        font-size: 18px;
+        color: #0073e6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .toc-box ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        columns: 2;
+    }
+    .toc-box li { margin-bottom: 8px; }
+    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+
+    section {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #0066ff; }
+    h2 { font-size: 1.5rem; margin-top: 1rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    ul { padding-left: 20px; }
+    .highlight {
+        background: #f7f7f7;
+        padding: 15px;
+        border-left: 5px solid #0073e6;
+        margin: 20px 0;
+    }
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Mechanik: Arbeit, Energie und Leistung</h2>
+    <p>Grundlagen, Formeln und Konzepte für dein Studium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+   <ul>
+    <li><a href="#kapitel-1">1. Einführung in Arbeit, Energie und Leistung</a></li>
+    <li><a href="#kapitel-1-2">1.2 Mechanische Arbeit</a></li>
+    <li><a href="#kapitel-1-3">1.3 Energieformen</a></li>
+    <li><a href="#kapitel-1-4">1.4 Leistung</a></li>
+    <li><a href="#kapitel-1-5">1.5 Wirkungsgrad</a></li>
+  </ul>
+</div>
+
+<!-- Kapitel 1 -->
+<section id="kapitel-1">
+  <div class="container">
+    <h2>1. Einführung in Arbeit, Energie und Leistung</h2>
+    <p>In der klassischen Mechanik spielen die Begriffe <strong>Arbeit</strong>, <strong>Energie</strong> und <strong>Leistung</strong> eine zentrale Rolle. Sie beschreiben, wie Kräfte auf Körper wirken, wie Energie gespeichert und übertragen wird und wie schnell diese Vorgänge ablaufen.</p>
+    <p>Die grundlegenden Beziehungen basieren auf der Newtonschen Mechanik und lassen sich mathematisch präzise formulieren.</p>
+  </div>
+</section>
+
+<section id="kapitel-1-2">
+  <div class="container">
+    <h2>1.2 Mechanische Arbeit</h2>
+    <p>Mechanische Arbeit \(W\) wird verrichtet, wenn eine Kraft \(\mathbf{F}\) einen Körper entlang einer Bahn bewegt. Mathematisch ist Arbeit das Linienintegral der Kraft über den Weg:</p>
+    <div class="highlight">
+      \[
+      W = \int_{C} \mathbf{F} \cdot d\mathbf{s}
+      \]
+    </div>
+    <ul>
+      <li>Für konstante Kraft und geradlinige Bewegung:
+        \[
+        W = F \cdot s \cdot \cos(\alpha)
+        \]
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-1-3">
+  <div class="container">
+    <h2>1.3 Energieformen</h2>
+    <p>Die wichtigsten mechanischen Energieformen:</p>
+    <ul>
+      <li><strong>Kinetische Energie:</strong>
+        \[
+        E_\text{kin} = \frac{1}{2} m v^2
+        \]
+      </li>
+      <li><strong>Potenzielle Energie (im Schwerefeld):</strong>
+        \[
+        E_\text{pot} = m g h
+        \]
+      </li>
+    </ul>
+    <p><strong>Arbeit-Energie-Satz:</strong>
+      \[
+      W = \Delta E_\text{kin}
+      \]
+    </p>
+  </div>
+</section>
+
+<section id="kapitel-1-4">
+  <div class="container">
+    <h2>1.4 Leistung</h2>
+    <p>Leistung \(P\) ist die Arbeit pro Zeit:</p>
+    <div class="highlight">
+      \[
+      P = \frac{dW}{dt} = \mathbf{F} \cdot \mathbf{v}
+      \]
+    </div>
+    <p><strong>Einheit:</strong> Watt (W).</p>
+  </div>
+</section>
+
+<section id="kapitel-1-5">
+  <div class="container">
+    <h2>1.5 Wirkungsgrad</h2>
+    <p>Der Wirkungsgrad \(\eta\) gibt an, wie effizient ein Prozess ist:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{\text{nutzbare Energie}}{\text{zugeführte Energie}} \leq 1
+      \]
+    </div>
+  </div>
+</section>
+<section id="kapitel-2" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>2 Mathematische Grundlagen: Arbeit, Energie und Integrale</h2>
+    <p>In diesem Kapitel vertiefen wir die Konzepte von Arbeit und Energie auf Basis vektorieller Analysis. Dies ist essenziell für Anwendungen in Mechanik, Elektrodynamik und Strömungslehre.</p>
+
+    <!-- Abschnitt 2.1 -->
+    <h2>2.1 Arbeit als Linienintegral</h2>
+    <p>Die allgemeinste Definition der Arbeit lautet:</p>
+    <div class="highlight">
+      \[
+      W = \int_{C} \mathbf{F}(\mathbf{r}) \cdot d\mathbf{s}
+      \]
+      <p>wobei \(C\) die Bahn des Körpers ist.</p>
+    </div>
+    <p>Wenn \(\mathbf{F} = (F_x, F_y, F_z)\) und \(d\mathbf{s} = (dx, dy, dz)\), dann:</p>
+    <div class="highlight">
+      \[
+      W = \int_{C} (F_x \, dx + F_y \, dy + F_z \, dz)
+      \]
+    </div>
+
+    <!-- Abschnitt 2.2 -->
+    <h2>2.2 Arbeit bei konservativen Kräften</h2>
+    <p>Eine Kraft ist konservativ, wenn das Linienintegral wegunabhängig ist. Dann existiert ein Potential \(U\):</p>
+    <div class="highlight">
+    \[
+    \mathbf{F} = - \nabla U, \quad W_{12} = U_1 - U_2
+    \]
+    </div>
+    <p><strong>Erklärung:</strong>  
+    Das Potential \(U(\mathbf{r})\) beschreibt die potenzielle Energie eines Systems an einem bestimmten Ort. Je nach Kraftfeld hat \(U\) unterschiedliche Formen:
+    <ul>
+    <li>Schwerkraftfeld: \( U = m g h \)</li>
+    <li>Federkraft: \( U = \frac{1}{2} k x^2 \)</li>
+    </ul>
+    Wenn sich ein Körper bewegt, ändert sich seine potenzielle Energie, wobei die Arbeit durch die Kraft genau dieser Änderung entspricht.
+    </p>
+    <p>Bedingung für Konservativität:</p>
+    <div class="highlight">
+    \[
+    \nabla \times \mathbf{F} = 0
+    \]
+    </div>
+
+
+    <!-- Abschnitt 2.3 -->
+    <h2>2.3 Herleitung des Arbeit-Energie-Satzes</h2>
+    <p>Aus Newtons 2. Gesetz: \(\mathbf{F} = m \frac{d\mathbf{v}}{dt}\). Dann:</p>
+    <div class="highlight">
+      \[
+      W = \int_{t_1}^{t_2} \mathbf{F} \cdot \mathbf{v} \, dt
+      = \int_{t_1}^{t_2} m \frac{d\mathbf{v}}{dt} \cdot \mathbf{v} \, dt
+      = \frac{1}{2} m v^2 \Big|_{v_1}^{v_2}
+      \]
+    </div>
+    <p>Daraus folgt der Arbeit-Energie-Satz:</p>
+    <div class="highlight">
+      \[
+      W = \Delta E_\text{kin}
+      \]
+    </div>
+
+    
+    <!-- Abschnitt 2.4 -->
+    <h2>2.4 Energieerhaltungssatz</h2>
+    <p>Für konservative Kräfte gilt:</p>
+    <div class="highlight">
+      \[
+      E_\text{ges} = E_\text{kin} + U = \frac{1}{2} m v^2 + U(\mathbf{r}) = \text{konstant}
+     \]
+    </div>
+    \[
+    E_\text{kin} = \frac{1}{2} m v^2
+    \]
+    Je größer die Geschwindigkeit \(v\), desto mehr kinetische Energie besitzt das System. Diese Energie kann in potenzielle Energie \(U\) umgewandelt werden, und umgekehrt, ohne dass die Gesamtenergie verloren geht (unter Vernachlässigung von Reibungsverlusten).
+    </p>
+
+
+    <!-- Abschnitt 2.5 -->
+    <h2>2.5 Beispiel: Arbeit entlang einer Kurve</h2>
+    <p>Gegeben: \(\mathbf{F}(x,y) = (2x, 3y)\), Weg: Gerade von (0,0) nach (1,2).</p>
+    <p>Lösung:</p>
+    <div class="highlight">
+      \[
+      W = \int_{0}^{1} (2x \cdot dx + 3y \cdot dy), \quad y = 2x \Rightarrow dy = 2 dx
+      \]
+      \[
+      W = \int_0^1 (2x + 3(2x)\cdot 2) dx = \int_0^1 (2x + 12x) dx = \int_0^1 14x dx = 7
+      \]
+    </div>
+
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Arbeit = Linienintegral. Für konservative Kräfte ist der Weg egal, sonst nicht!
+    </div>
+  </div>
+</section>
+<section id="kapitel-3" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>3 Leistung, Wirkungsgrad und Anwendungen</h2>
+    <p>Die Leistung beschreibt, wie schnell Arbeit verrichtet oder Energie umgesetzt wird. Der Wirkungsgrad gibt an, wie effizient ein Prozess arbeitet. Beide Konzepte sind essenziell in Technik und Physik.</p>
+
+    <!-- Abschnitt 3.1 -->
+    <h2>3.1 Definition der Leistung</h2>
+    <p>Die mittlere Leistung ist die verrichtete Arbeit pro Zeit:</p>
+    <div class="highlight">
+      \[
+      P = \frac{W}{\Delta t}
+      \]
+    </div>
+    <p>Die momentane Leistung ergibt sich als Ableitung:</p>
+    <div class="highlight">
+      \[
+      P = \frac{dW}{dt} = \mathbf{F} \cdot \mathbf{v}
+      \]
+    </div>
+    <p><strong>Einheit:</strong> Watt (W) = Joule pro Sekunde.</p>
+
+    <!-- Abschnitt 3.2 -->
+    <h2>3.2 Leistung bei Drehbewegungen</h2>
+    <p>Bei rotierenden Systemen hängt die Leistung vom Drehmoment \(M\) und der Winkelgeschwindigkeit \(\omega\) ab:</p>
+    <div class="highlight">
+      \[
+      P = M \cdot \omega
+      \]
+    </div>
+    <p>Beispiel: Elektromotor mit \(M = 50 \, \text{Nm}\), \(\omega = 100 \, \text{rad/s}\):</p>
+    <div class="highlight">
+      \[
+      P = 50 \cdot 100 = 5000 \, \text{W} = 5 \, \text{kW}
+      \]
+    </div>
+
+    <!-- Abschnitt 3.3 -->
+    <h2>3.3 Wirkungsgrad</h2>
+    <p>Der Wirkungsgrad beschreibt das Verhältnis von nutzbarer zu zugeführter Energie oder Leistung:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{\text{nutzbare Leistung}}{\text{zugeführte Leistung}} \le 1
+      \]
+    </div>
+    <p>Beispiel: Ein Motor nimmt 1000 W auf und gibt 800 W ab:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{800}{1000} = 0{,}8 = 80\%
+      \]
+    </div>
+
+    <!-- Abschnitt 3.4 -->
+    <h2>3.4 Typische Anwendungen</h2>
+    <ul>
+      <li><strong>Kraftwerke:</strong> Leistung in Megawatt-Bereich.</li>
+      <li><strong>Fahrzeuge:</strong> Motorleistung in kW oder PS (1 PS ≈ 735 W).</li>
+      <li><strong>Elektrogeräte:</strong> Leistungsaufnahme in Watt (z. B. Heizgeräte, PCs).</li>
+    </ul>
+
+    <!-- Abschnitt 3.5 -->
+    <h2>3.5 Beispiel: Wirkungsgrad einer Pumpe</h2>
+    <p>Eine Pumpe fördert 10 m³ Wasser pro Stunde (Dichte \( \rho = 1000 \,\text{kg/m}^3\)) um 20 m Höhe. Elektrische Leistung: 1,2 kW.</p>
+    <p>Hydraulische Leistung:</p>
+    <div class="highlight">
+      \[
+      \dot{V} = \frac{10}{3600} \approx 0{,}00278 \,\text{m}^3/\text{s}, \quad
+      P_\text{hyd} = \rho g h \dot{V} = 1000 \cdot 9{,}81 \cdot 20 \cdot 0{,}00278 \approx 545 \,\text{W}
+      \]
+    </div>
+    <p>Wirkungsgrad:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{545}{1200} \approx 0{,}45 = 45\%
+      \]
+    </div>
+
+    <!-- Abschnitt 3.6 -->
+    <h2>3.6 Merksatz</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Hohe Leistung ≠ hohe Effizienz. Wirkungsgrad zeigt, wie viel der eingesetzten Energie wirklich genutzt wird.
+    </div>
+  </div>
+</section>
+<section id="kapitel-4" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>4 Anwendungen und Energieumwandlungen</h2>
+    <p>In diesem Kapitel betrachten wir typische Anwendungen von Arbeit, Energie und Leistung sowie Energieumwandlungen in technischen Systemen. Ziel ist es, die theoretischen Konzepte in reale Beispiele zu übertragen.</p>
+
+    <!-- Abschnitt 4.1 -->
+    <h2>4.1 Energieumwandlungsketten</h2>
+    <p>Energie kann nicht erzeugt oder vernichtet werden (Energieerhaltungssatz), aber in verschiedene Formen umgewandelt werden. Beispiele:</p>
+    <ul>
+      <li><strong>Kraftwerk:</strong> Chemische Energie → Wärme → mechanische Arbeit → elektrische Energie.</li>
+      <li><strong>Auto:</strong> Chemische Energie (Brennstoff) → mechanische Arbeit (Antrieb).</li>
+      <li><strong>Elektromotor:</strong> Elektrische Energie → mechanische Arbeit.</li>
+    </ul>
+
+    <!-- Abschnitt 4.2 -->
+    <h2>4.2 Mechanische Arbeit im Alltag</h2>
+    <p>Beispiele für Berechnungen:</p>
+    <div class="highlight">
+      <strong>Beispiel 1: Hubarbeit</strong><br>
+      \[
+      W = m \cdot g \cdot h = 80\,\text{kg} \cdot 9{,}81\,\text{m/s}^2 \cdot 5\,\text{m} \approx 3924\,\text{J} \, (3{,}9 \,\text{kJ})
+      \]
+    </div>
+    <div class="highlight">
+      <strong>Beispiel 2: Beschleunigungsarbeit</strong><br>
+      \[
+      W = \Delta E_\text{kin} = \frac{1}{2} m (v_2^2 - v_1^2)
+      \]
+    </div>
+
+    <!-- Abschnitt 4.3 -->
+    <h2>4.3 Leistung in der Praxis</h2>
+    <p>Die Berechnung der Leistung in verschiedenen Situationen:</p>
+    <ul>
+      <li><strong>Aufzug:</strong> Masse 500 kg, Hubhöhe 10 m in 20 s.<br>
+        \[
+        W = m g h = 500 \cdot 9{,}81 \cdot 10 = 49{,}050 \,\text{J}
+        \]
+        \[
+        P = \frac{49{,}050}{20} \approx 2453 \,\text{W} \approx 2{,}45 \,\text{kW}
+        \]
+      </li>
+      <li><strong>Radfahrer:</strong> 300 W Dauerleistung = 0,3 kW.</li>
+    </ul>
+
+    <!-- Abschnitt 4.4 -->
+    <h2>4.4 Energieverluste und Wirkungsgrade</h2>
+    <p>In realen Systemen treten Verluste durch Reibung, Wärmeabgabe oder Strömungswiderstand auf. Daher liegt der Wirkungsgrad meist deutlich unter 100 %:</p>
+    <div class="highlight">
+      \[
+      \eta = \frac{\text{nutzbare Energie}}{\text{zugeführte Energie}}
+      \]
+    </div>
+    <p>Typische Werte:</p>
+    <ul>
+      <li>Verbrennungsmotor: 30–40 %</li>
+      <li>Elektromotor: 85–95 %</li>
+      <li>Dampfkraftwerk: 35–45 %</li>
+    </ul>
+
+    <!-- Abschnitt 4.5 -->
+    <h2>4.5 Visualisierung: Energiefluss-Diagramm</h2>
+    <p>Zur Darstellung von Energieumwandlungen eignen sich Sankey-Diagramme. Beispiel für ein Kraftwerk:</p>
+    <div class="highlight">
+      <p><strong>Textdarstellung:</strong></p>
+      <p>Chemische Energie (100%) → Wärme (60%) → Turbine/Generator (35%) → Stromnetz.</p>
+    </div>
+
+    <!-- Abschnitt 4.6 -->
+    <h2>4.6 Übungsaufgabe</h2>
+    <p><strong>Aufgabe:</strong> Ein Elektromotor hebt eine Last von 200 kg in 12 Sekunden um 8 m. Berechne die erforderliche mittlere Leistung und den Wirkungsgrad, wenn der Motor 2,5 kW aufnimmt.</p>
+    <div class="highlight">
+      <strong>Lösung:</strong><br>
+      \[
+      W = m g h = 200 \cdot 9{,}81 \cdot 8 = 15{,}696 \,\text{J}
+      \]
+      \[
+      P_\text{nutz} = \frac{15{,}696}{12} \approx 1{,}31 \,\text{kW}, \quad
+      \eta = \frac{1{,}31}{2{,}5} \approx 52\%
+      \]
+    </div>
+
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Jede Energieumwandlung ist mit Verlusten verbunden. Je weniger Umwandlungsstufen, desto effizienter das System.
+    </div>
+  </div>
+</section>
+<section id="kapitel-5" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>5 Energieerhaltung und mechanische Systeme</h2>
+    <p>Der Energieerhaltungssatz ist ein fundamentales Prinzip der Physik: In einem abgeschlossenen System bleibt die Gesamtenergie konstant. In der Mechanik umfasst dies kinetische Energie, potenzielle Energie und ggf. elastische Energie.</p>
+
+    <!-- Abschnitt 5.1 -->
+    <h2>5.1 Energieerhaltungssatz</h2>
+    <p>In einem konservativen System (keine Reibung, keine Energiezufuhr/-abfuhr) gilt:</p>
+    <div class="highlight">
+      \[
+      E_\text{gesamt} = E_\text{kin} + E_\text{pot} = \text{konstant}
+      \]
+      \[
+      \frac{1}{2} m v^2 + m g h = \text{konstant}
+      \]
+    </div>
+
+    <!-- Abschnitt 5.2 -->
+    <h2>5.2 Energieumwandlung: Beispiel Pendel</h2>
+    <p>Beim Pendel schwingt die Energie zwischen potenzieller und kinetischer Form:</p>
+    <ul>
+      <li>Obere Lage: \( v = 0 \), maximale potenzielle Energie.</li>
+      <li>Tiefster Punkt: \( h = 0 \), maximale kinetische Energie.</li>
+    </ul>
+    <div class="highlight">
+      \[
+      m g h_\text{max} = \frac{1}{2} m v_\text{max}^2
+      \]
+      \[
+      v_\text{max} = \sqrt{2 g h_\text{max}}
+      \]
+    </div>
+
+    <!-- Abschnitt 5.3 -->
+    <h2>5.3 Energieverluste in realen Systemen</h2>
+    <p>In der Realität wirken dissipative Kräfte (z. B. Reibung, Luftwiderstand), die mechanische Energie in Wärme umwandeln. Der Energieerhaltungssatz gilt dann nur, wenn alle Energieformen (inkl. Wärme) berücksichtigt werden:</p>
+    <div class="highlight">
+      \[
+      E_\text{gesamt} = E_\text{kin} + E_\text{pot} + E_\text{Reibungsverlust} = \text{konstant}
+      \]
+    </div>
+
+    <!-- Abschnitt 5.4 -->
+    <h2>5.4 Energie in elastischen Systemen</h2>
+    <p>Bei Federn wird Energie in Form von Spannenergie gespeichert:</p>
+    <div class="highlight">
+      \[
+      E_\text{Feder} = \frac{1}{2} k x^2
+      \]
+      <ul>
+        <li>\(k\): Federkonstante [N/m]</li>
+        <li>\(x\): Auslenkung [m]</li>
+      </ul>
+    </div>
+
+    <!-- Abschnitt 5.5 -->
+    <h2>5.5 Beispielaufgabe: Achterbahn</h2>
+    <p>Ein Wagen (m = 500 kg) startet aus 30 m Höhe ohne Anfangsgeschwindigkeit. Vernachlässige Reibung. Berechne die Geschwindigkeit am tiefsten Punkt.</p>
+    <div class="highlight">
+      \[
+      E_\text{pot, oben} = E_\text{kin, unten}
+      \]
+      \[
+      m g h = \frac{1}{2} m v^2
+      \]
+      \[
+      v = \sqrt{2 g h} = \sqrt{2 \cdot 9{,}81 \cdot 30} \approx 24{,}3 \,\text{m/s} \, ( \approx 87 \,\text{km/h} )
+      \]
+    </div>
+
+    <!-- Abschnitt 5.6 -->
+    <h2>5.6 Übungsaufgabe</h2>
+    <p><strong>Aufgabe:</strong> Eine Feder (k = 150 N/m) wird um 0,2 m gedehnt. Berechne die gespeicherte Energie.</p>
+    <div class="highlight">
+      <strong>Lösung:</strong><br>
+      \[
+      E = \frac{1}{2} \cdot 150 \cdot (0{,}2)^2 = 3 \,\text{J}
+      \]
+    </div>
+
+    <!-- Abschnitt 5.7 -->
+    <h2>5.7 Merksatz</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> Die Energie bleibt erhalten, sie wechselt nur ihre Form. Verluste entstehen durch Umwandlung in Wärme, Schall oder Verformungsenergie.
+    </div>
+  </div>
+</section>
+<section id="kapitel-6" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>6 Komplexe Beispiele & Kombinierte Anwendungen</h2>
+    <p>In diesem Kapitel betrachten wir realistische Szenarien, in denen Arbeit, Energie und Leistung kombiniert auftreten. Ziel ist es, den Zusammenhang der Konzepte in praxisnahen Problemstellungen zu verstehen.</p>
+
+    <!-- Abschnitt 6.1 -->
+    <h2>6.1 Beispiel: Auto beschleunigt auf der Straße</h2>
+    <p>Ein Auto mit \(m = 1200 \,\text{kg}\) beschleunigt von \(0\) auf \(100 \,\text{km/h}\) (≈ 27,8 m/s) in \(10\,\text{s}\). Berechne:</p>
+    <ul>
+      <li>Die verrichtete Arbeit</li>
+      <li>Die mittlere Leistung des Motors</li>
+    </ul>
+    <div class="highlight">
+      <strong>Lösung:</strong><br>
+      \[
+      W = \Delta E_\text{kin} = \frac{1}{2} m v^2 = \frac{1}{2} \cdot 1200 \cdot (27{,}8)^2 \approx 463{,}000 \,\text{J} \, (463 \,\text{kJ})
+      \]
+      \[
+      P_\text{mittel} = \frac{W}{\Delta t} = \frac{463{,}000}{10} \approx 46{,}3 \,\text{kW}
+      \]
+    </div>
+    <p><strong>Hinweis:</strong> Tatsächliche Motorleistung ist höher wegen Luft- und Rollwiderständen.</p>
+
+    <!-- Abschnitt 6.2 -->
+    <h2>6.2 Beispiel: Hebevorrichtung mit Reibungsverlusten</h2>
+    <p>Eine Maschine hebt eine Last von 500 kg in 15 s um 12 m. 10 % der Energie gehen durch Reibung verloren. Berechne die elektrische Leistung, wenn der Motor einen Wirkungsgrad von 85 % hat.</p>
+    <div class="highlight">
+      <strong>Lösung:</strong><br>
+      Hubarbeit:
+      \[
+      W_\text{nutz} = m g h = 500 \cdot 9{,}81 \cdot 12 = 58{,}860 \,\text{J}
+      \]
+      Zeit:
+      \[
+      P_\text{nutz} = \frac{58{,}860}{15} \approx 3924 \,\text{W} \, (3{,}9 \,\text{kW})
+      \]
+      Mit Verlusten:
+      \[
+      P_\text{real} = \frac{3924}{0{,}9 \cdot 0{,}85} \approx 5130 \,\text{W} \, (\approx 5{,}1 \,\text{kW})
+      \]
+    </div>
+
+    <!-- Abschnitt 6.3 -->
+    <h2>6.3 Beispiel: Windkraftanlage</h2>
+    <p>Eine Windkraftanlage mit Rotorfläche \(A = 50 \,\text{m}^2\) nutzt Wind mit Geschwindigkeit \(v = 10 \,\text{m/s}\). Luftdichte \(\rho = 1{,}225 \,\text{kg/m}^3\). Theoretisch verfügbare Leistung:</p>
+    <div class="highlight">
+      \[
+      P_\text{Wind} = \frac{1}{2} \rho A v^3 = 0{,}5 \cdot 1{,}225 \cdot 50 \cdot 10^3 \approx 306 \,\text{kW}
+      \]
+      <p>(Tatsächliche Leistung durch Betz-Gesetz max. ~59 % der Windenergie.)</p>
+    </div>
+
+    <!-- Abschnitt 6.4 -->
+    <h2>6.4 Beispiel: Förderband in der Industrie</h2>
+    <p>Förderband transportiert 200 kg Material pro Minute in 6 m Höhe. Berechne die notwendige Antriebsleistung bei 80 % Gesamtwirkungsgrad.</p>
+    <div class="highlight">
+      Masse pro Sekunde:
+      \[
+      \dot{m} = \frac{200}{60} \approx 3{,}33 \,\text{kg/s}
+      \]
+      Leistung:
+      \[
+      P = \frac{\dot{m} \cdot g \cdot h}{\eta} = \frac{3{,}33 \cdot 9{,}81 \cdot 6}{0{,}8} \approx 245 \,\text{W}
+      \]
+    </div>
+
+    <!-- Abschnitt 6.5 -->
+    <h2>6.5 Merksatz</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Merke:</strong> In praxisnahen Anwendungen treten immer mehrere Energieumwandlungen, Verluste und Leistungsbegrenzungen auf. Einfache Formeln müssen daher um Wirkungsgradfaktoren ergänzt werden.
+    </div>
+  </div>
+</section>
+<section id="kapitel-7" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>7 Formelsammlung & Zusammenfassung</h2>
+    <p>Dieses Kapitel bietet eine kompakte Übersicht über die wichtigsten Formeln, Konzepte und Zusammenhänge zu Arbeit, Energie und Leistung. Ideal als Lernhilfe für Prüfungen.</p>
+
+    <!-- Abschnitt 7.1 -->
+    <h2>7.1 Arbeit</h2>
+    <div class="highlight">
+      <strong>Allgemeine Definition:</strong><br>
+      \[
+      W = \int_C \mathbf{F} \cdot d\mathbf{s}
+      \]
+      Für konstante Kraft:
+      \[
+      W = F \cdot s \cdot \cos \alpha
+      \]
+    </div>
+
+    <!-- Abschnitt 7.2 -->
+    <h2>7.2 Energieformen</h2>
+    <ul>
+      <li>Kinetische Energie:
+        \[
+        E_\text{kin} = \frac{1}{2} m v^2
+        \]
+      </li>
+      <li>Potenzielle Energie (Schwerkraft):
+        \[
+        E_\text{pot} = m g h
+        \]
+      </li>
+      <li>Elastische Energie (Feder):
+        \[
+        E_\text{Feder} = \frac{1}{2} k x^2
+        \]
+      </li>
+    </ul>
+
+    <!-- Abschnitt 7.3 -->
+    <h2>7.3 Arbeit-Energie-Satz</h2>
+    <div class="highlight">
+      \[
+      W = \Delta E_\text{kin}
+      \]
+    </div>
+
+    <!-- Abschnitt 7.4 -->
+    <h2>7.4 Leistung</h2>
+    <div class="highlight">
+      Mittlere Leistung:
+      \[
+      P = \frac{W}{\Delta t}
+      \]
+      Momentanleistung:
+      \[
+      P = \mathbf{F} \cdot \mathbf{v}
+      \]
+      Bei Drehbewegung:
+      \[
+      P = M \cdot \omega
+      \]
+    </div>
+
+    <!-- Abschnitt 7.5 -->
+    <h2>7.5 Wirkungsgrad</h2>
+    <div class="highlight">
+      \[
+      \eta = \frac{\text{nutzbare Energie oder Leistung}}{\text{zugeführte Energie oder Leistung}}
+      \]
+      \[
+      0 \le \eta \le 1
+      \]
+    </div>
+
+    <!-- Abschnitt 7.6 -->
+    <h2>7.6 Energieerhaltungssatz</h2>
+    <div class="highlight">
+      \[
+      E_\text{gesamt} = E_\text{kin} + E_\text{pot} (+ E_\text{elastisch}) = \text{konstant}
+      \]
+    </div>
+
+    <!-- Abschnitt 7.7 -->
+    <h2>7.7 Einheitentabelle</h2>
+    <table style="width:100%; border-collapse:collapse; text-align:left; margin-top:15px;">
+      <tr style="background:#0073e6; color:#fff;">
+        <th style="padding:8px;">Größe</th>
+        <th style="padding:8px;">Symbol</th>
+        <th style="padding:8px;">Einheit</th>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Arbeit</td>
+        <td style="padding:8px;">W</td>
+        <td style="padding:8px;">Joule (J)</td>
+      </tr>
+      <tr style="background:#f7f7f7;">
+        <td style="padding:8px;">Leistung</td>
+        <td style="padding:8px;">P</td>
+        <td style="padding:8px;">Watt (W)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Kraft</td>
+        <td style="padding:8px;">F</td>
+        <td style="padding:8px;">Newton (N)</td>
+      </tr>
+      <tr style="background:#f7f7f7;">
+        <td style="padding:8px;">Energie</td>
+        <td style="padding:8px;">E</td>
+        <td style="padding:8px;">Joule (J)</td>
+      </tr>
+    </table>
+
+    <!-- Abschnitt 7.8 -->
+    <h2>7.8 Merksätze</h2>
+    <div class="highlight" style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <ul>
+        <li>Energie wird nicht verbraucht, sondern umgewandelt.</li>
+        <li>Hohe Leistung bedeutet nicht automatisch hohen Wirkungsgrad.</li>
+        <li>Alle realen Systeme haben Verluste durch Reibung, Wärme oder Verformung.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+    &copy; 2025 PhysikNow | Arbeit, Energie und Leistung
+</footer>
+
+</body>
+</html>
