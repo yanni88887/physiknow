@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elektrostatik | Kapitel 1 Einführung</title>
+
+<!-- MathJax für Formeln -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #ffffff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Überschreibe Farbe explizit auf Weiß */
+}
+
+    .hero p { font-size: 1.3rem; }
+
+    section { padding: 20px; line-height: 1.6; }
+    .container { max-width: 900px; margin: auto; }
+    h1 { font-size: 2rem; color: #0066ff; margin-bottom: 1rem; }
+    h2 { font-size: 1.6rem; color: #000; margin-top: 1.2rem; }
+    h3 { font-size: 1.3rem; margin-top: 1rem; }
+    .highlight {
+        background: #f7f7f7;
+        border-left: 5px solid #0073e6;
+        padding: 15px;
+        margin: 20px 0;
+    }
+    .merke {
+        background: #e8f5e9;
+        border-left: 5px solid #4caf50;
+        padding: 15px;
+        margin: 20px 0;
+    }
+    ul { margin-left: 20px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Elektrostatik</h2>
+    <p>Grundlagen, Begriffe und mathematische Herleitungen</p>
+</section>
+
+<section id="kapitel-1">
+<div class="container">
+    <h2>Einführung in die Elektrostatik</h2>
+    <p>
+        Die Elektrostatik befasst sich mit Kräften, Feldern und Potentialen, die von ruhenden elektrischen Ladungen erzeugt werden. Sie ist ein fundamentaler Bestandteil der Elektrodynamik und bildet die Basis für viele Anwendungen in Technik und Naturwissenschaft.
+    </p>
+
+    <!-- Abschnitt 1.1 -->
+    <h2>1.1 Elektrische Ladung – Grundbegriffe</h2>
+    <p>
+        Elektrische Ladung ist eine fundamentale Eigenschaft der Materie. Sie tritt in zwei Arten auf: <strong>positiv</strong> und <strong>negativ</strong>.
+    </p>
+    <div class="highlight">
+        <strong>Elementarladung:</strong>
+        \[
+        e = 1{,}602 \times 10^{-19} \,\text{C}
+        \]
+    </div>
+    <ul>
+        <li>Proton: \(+e\)</li>
+        <li>Elektron: \(-e\)</li>
+        <li>Ladungserhaltung: In abgeschlossenen Systemen bleibt die Gesamtladung konstant.</li>
+    </ul>
+
+    <h3>Ladungsquantisierung</h3>
+    <p>Jede Ladung \(Q\) ist ein ganzzahliges Vielfaches der Elementarladung:</p>
+    <div class="highlight">
+        \[
+        Q = n \cdot e,\quad n \in \mathbb{Z}
+        \]
+    </div>
+
+    <!-- Abschnitt 1.2 -->
+    <!-- Abschnitt 1.2 -->
+    <h2>1.2 Coulomb-Gesetz</h2>
+    <p>
+        Die Coulomb-Kraft beschreibt die elektrische Wechselwirkung zwischen zwei punktförmigen Ladungen im Vakuum. Sie ist eine der fundamentalen Kräfte der Physik und wurde erstmals von Charles-Augustin de Coulomb 1785 experimentell bestimmt.
+    </p>
+
+    <h3>Grundformel:</h3>
+    <div class="highlight">
+    \[
+    F = k \cdot \frac{|q_1 \cdot q_2|}{r^2}, \quad k = \frac{1}{4\pi \varepsilon_0}
+    \]
+    <ul>
+        <li>\(F\): Betrag der Kraft in Newton (N)</li>
+        <li>\(q_1, q_2\): elektrische Ladungen in Coulomb (C)</li>
+        <li>\(r\): Abstand der beiden Ladungen in Meter (m)</li>
+        <li>\(k\): Coulomb-Konstante \(\approx 8{,}9875 \times 10^9 \, \text{N·m}^2/\text{C}^2\)</li>
+        <li>\(\varepsilon_0\): elektrische Feldkonstante \(\approx 8{,}854 \times 10^{-12} \, \text{C}^2/\text{N·m}^2\)</li>
+    </ul>
+    </div>
+
+    <h3>1.2.1 Physikalische Bedeutung</h3>
+    <p>
+        Die Coulomb-Kraft ist:
+    </p>
+    <ul>
+        <li><strong>Proportional</strong> zu den Beträgen der beiden Ladungen (\(F \propto q_1 q_2\)).</li>
+        <li><strong>Umgekehrt proportional</strong> zum Quadrat ihres Abstands (\(F \propto 1/r^2\)).</li>
+        <li><strong>Zentral</strong>: Wirkt entlang der Verbindungslinie der Ladungen.</li>
+        <li><strong>Konservativ</strong>: Es gibt ein zugehöriges Potential (später wichtig für elektrische Energie).</li>
+    </ul>
+
+    <h3>1.2.2 Vorzeichen und Richtung</h3>
+    <p>
+        Das Vorzeichen der Ladungen bestimmt, ob die Kraft anziehend oder abstoßend wirkt:
+    </p>
+    <ul>
+        <li>\(q_1 \cdot q_2 > 0\) → gleichnamige Ladungen → <strong>Abstoßung</strong>.</li>
+        <li>\(q_1 \cdot q_2 < 0\) → ungleichnamige Ladungen → <strong>Anziehung</strong>.</li>
+    </ul>
+
+    <h3>1.2.3 Vektorform</h3>
+    <div class="highlight">
+    \[
+    \mathbf{F}_{12} = \frac{1}{4 \pi \varepsilon_0} \cdot \frac{q_1 q_2}{r^3} \mathbf{r}_{12}
+    \]
+    <ul>
+        <li>\(\mathbf{r}_{12}\): Ortsvektor von Ladung 1 zu Ladung 2</li>
+    </ul>
+    </div>
+    <p>
+        Diese Darstellung ist wichtig, da die Coulomb-Kraft eine gerichtete Größe ist.
+    </p>
+
+    <h3>1.2.4 Einheitenprüfung</h3>
+    <p>
+        Prüfen wir die Dimension:
+    </p>
+    <div class="highlight">
+    \[
+    [k] = \text{N·m}^2/\text{C}^2,\quad
+    F = k \cdot \frac{\text{C}^2}{\text{m}^2} = \text{N}
+    \]
+    → Die Formel ist dimensionsrichtig.
+    </div>
+
+    <h3>1.2.5 Herleitung aus Feldbegriff</h3>
+    <p>
+        Das elektrische Feld einer Punktladung \(Q\) ist:
+    </p>
+    <div class="highlight">
+    \[
+    \mathbf{E} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2} \hat{\mathbf{r}}
+    \]
+    <p>
+        Setzt man \(F = q \cdot E\), folgt:
+    </p>
+    \[
+    F = q \cdot \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2}
+    \]
+    → Dies ist das Coulomb-Gesetz.
+    </div>
+
+    <div class="merke">
+    <strong>Merke:</strong> Das Coulomb-Gesetz gilt streng nur für Punktladungen im Vakuum. Bei Materie, Leitern oder in Medien müssen Permittivität \(\varepsilon\) und Abschirmungen berücksichtigt werden.
+    </div>
+
+
+    <!-- Abschnitt 1.3 -->
+    <h2>1.3 Superpositionsprinzip</h2>
+    <p>
+        Wirkt auf eine Ladung mehrere Kräfte durch verschiedene Ladungen:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{F}_{\text{ges}} = \sum_{i=1}^{n} \mathbf{F}_i
+        \]
+    </div>
+
+    <!-- Abschnitt 1.4 -->
+    <h2>1.4 Elektrisches Feld</h2>
+    <p>Definition: Kraft pro Probeladung \(q\):</p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = \frac{\mathbf{F}}{q}
+        \]
+        Für Punktladung \(Q\):
+        \[
+        \mathbf{E}(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2} \hat{\mathbf{r}}
+        \]
+    </div>
+
+    <!-- Abschnitt 1.5 -->
+    <h2>1.5 Elektrisches Potential und Spannung</h2>
+    <p>
+        Arbeit \(W\) zum Verschieben einer Ladung \(q\) von Punkt A nach B:
+    </p>
+    <div class="highlight">
+        \[
+        W = q (V_A - V_B)
+        \]
+        \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r}
+        \]
+    </div>
+    <p>
+        Zusammenhang:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = -\nabla V
+        \]
+    </div>
+
+    <!-- Abschnitt 1.6 -->
+    <h2>1.6 Beispiel</h2>
+    <p>
+        Gegeben: \(Q = 2\,\mu C\), \(r = 0{,}1\,m\). Berechne \(E\):
+    </p>
+    <div class="highlight">
+        \[
+        E = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2} = 9 \times 10^9 \cdot \frac{2 \times 10^{-6}}{(0.1)^2} = 1.8 \times 10^6 \,\text{N/C}
+        \]
+    </div>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong> Elektrische Kräfte sind um Größenordnungen stärker als Gravitationskräfte zwischen Teilchen.
+    </div>
+</div>
+</section>
+
+<section id="kapitel-2">
+<div class="container">
+    <h2>2 Elektrisches Feld und Feldgrößen</h2>
+    <p>
+        Das elektrische Feld ist ein zentrales Konzept der Elektrostatik. Es beschreibt den Einfluss einer elektrischen Ladung auf ihre Umgebung. 
+        Statt die Kräfte direkt zwischen zwei Ladungen zu berechnen, wird das Feld eingeführt, das die Wirkung jeder Ladung im Raum repräsentiert.
+    </p>
+
+    <!-- Abschnitt 2.1 -->
+    <h2>2.1 Definition des elektrischen Feldes</h2>
+    <p>
+        Ein elektrisches Feld \(\mathbf{E}\) ist der Raum, in dem eine elektrische Kraft auf eine Probeladung wirkt. 
+        Es wird definiert als:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = \frac{\mathbf{F}}{q}
+        \]
+        <ul>
+            <li>\(\mathbf{E}\): elektrische Feldstärke (Einheit: \(\text{N/C}\) oder \(\text{V/m}\))</li>
+            <li>\(\mathbf{F}\): elektrische Kraft auf die Probeladung</li>
+            <li>\(q\): Probeladung</li>
+        </ul>
+    </div>
+    <p>
+        Die Richtung von \(\mathbf{E}\) entspricht der Richtung der Kraft auf eine positive Probeladung.
+    </p>
+
+    <!-- Abschnitt 2.2 -->
+    <h2>2.2 Elektrisches Feld einer Punktladung</h2>
+    <p>
+        Für eine Punktladung \(Q\) im Ursprung gilt:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E}(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2} \hat{\mathbf{r}}
+        \]
+    </div>
+    <ul>
+        <li>\(r\): Abstand vom Ladungszentrum</li>
+        <li>\(\hat{\mathbf{r}}\): Einheitsvektor vom Ursprung zum Punkt</li>
+    </ul>
+    <h3>Wichtige Eigenschaften:</h3>
+    <ul>
+        <li>Abnahme mit \(1/r^2\) (ähnlich wie Gravitationsfeld)</li>
+        <li>Richtung: radial – weg von positiver Ladung, hin zu negativer Ladung</li>
+    </ul>
+
+    <!-- Abschnitt 2.3 -->
+    <h2>2.3 Überlagerung von Feldern</h2>
+    <p>
+        Mehrere Ladungen erzeugen ein Gesamtfeld nach dem <strong>Superpositionsprinzip</strong>:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E}_{\text{ges}} = \sum_{i=1}^n \mathbf{E}_i
+        \]
+    </div>
+    <p>
+        Jede Feldkomponente wird als Vektor addiert.
+    </p>
+
+    <!-- Abschnitt 2.4 -->
+    <h2>2.4 Feldlinienkonzept</h2>
+    <p>
+        Feldlinien sind eine visuelle Darstellung des elektrischen Feldes:
+    </p>
+    <ul>
+        <li>Richtung: entlang \(\mathbf{E}\) (von + zu -)</li>
+        <li>Dichte der Linien ∝ Feldstärke</li>
+        <li>Keine Schnittpunkte</li>
+    </ul>
+    <p>
+        Beispiele:
+        <ul>
+            <li>Einzelne Punktladung: radiale Linien</li>
+            <li>Dipol: Linien von + nach - gekrümmt</li>
+        </ul>
+    </p>
+
+    <!-- Abschnitt 2.5 -->
+    <h2>2.5 Elektrisches Potential und Spannung</h2>
+    <p>
+        Das Potential \(V\) ist die Arbeit pro Ladung:
+    </p>
+    <div class="highlight">
+        \[
+        V = \frac{W}{q}
+        \]
+        <br>
+        Für eine Punktladung:
+        \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r}
+        \]
+    </div>
+    <p>
+        Zusammenhang mit Feld:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = -\nabla V
+        \]
+    </div>
+
+    <!-- Abschnitt 2.6 -->
+    <h2>2.6 Zusammenhang zwischen Feld und Kraft</h2>
+    <p>
+        Auf eine Ladung \(q\) wirkt:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{F} = q \cdot \mathbf{E}
+        \]
+    </div>
+
+    <!-- Abschnitt 2.7 -->
+    <h2>2.7 Arbeit und Energie im elektrischen Feld</h2>
+    <p>
+        Arbeit, um eine Ladung von A nach B zu verschieben:
+    </p>
+    <div class="highlight">
+        \[
+        W = q \cdot (V_A - V_B)
+        \]
+    </div>
+    <p>
+        Dies ist eine <strong>wegunabhängige</strong> Größe, da das Feld konservativ ist.
+    </p>
+
+    <!-- Abschnitt 2.8 -->
+    <h2>2.8 Beispielaufgabe</h2>
+    <p>
+        Eine Punktladung \(Q = +4 \,\mu C\) im Ursprung. Berechne \(\mathbf{E}\) in 0,2 m Entfernung:
+    </p>
+    <div class="highlight">
+        \[
+        E = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2}
+        = 9 \times 10^9 \cdot \frac{4 \times 10^{-6}}{(0.2)^2}
+        = 9 \times 10^9 \cdot \frac{4 \times 10^{-6}}{0.04}
+        = 9 \times 10^9 \cdot 1 \times 10^{-4}
+        = 9 \times 10^5 \,\text{N/C}
+        \]
+    </div>
+
+
+
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong> Das elektrische Feld ist eine ortsabhängige Vektorgröße. 
+        Es wird durch die Ladungsverteilung bestimmt und ist die Grundlage für elektrische Kräfte und Spannungen.
+    </div>
+</div>
+</section>
+
+<section id="kapitel-3">
+<div class="container">
+    <h2>3 Gauß’sches Gesetz und elektrischer Fluss</h2>
+    <p>
+        Das Gauß’sche Gesetz ist ein fundamentales Gesetz der Elektrostatik und stellt eine der Maxwell-Gleichungen dar.
+        Es verknüpft das elektrische Feld mit der eingeschlossenen elektrischen Ladung über einen geschlossenen Flächenintegralansatz.
+    </p>
+
+    <!-- Abschnitt 3.1 -->
+    <h2>3.1 Definition des Gauß’schen Gesetzes</h2>
+    <p>
+        Das Gauß’sche Gesetz lautet in seiner Integralform:
+    </p>
+    <div class="highlight">
+        \[
+        \oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q_\text{innen}}{\varepsilon_0}
+        \]
+        <ul>
+            <li>\(\mathbf{E}\): Elektrisches Feld</li>
+            <li>\(d\mathbf{A}\): infinitesimales Flächenelement (gerichtet nach außen)</li>
+            <li>\(Q_\text{innen}\): gesamte eingeschlossene Ladung</li>
+            <li>\(\varepsilon_0 = 8{,}854 \times 10^{-12}\, \text{C}^2/\text{N·m}^2\)</li>
+        </ul>
+    </div>
+    <p>
+        Bedeutung: Der elektrische Fluss durch eine geschlossene Oberfläche ist proportional zur eingeschlossenen Ladung.
+    </p>
+
+    <!-- Abschnitt 3.2 -->
+    <h2>3.2 Elektrischer Fluss</h2>
+    <p>
+        Der elektrische Fluss \(\Phi_E\) ist definiert als:
+    </p>
+    <div class="highlight">
+        \[
+        \Phi_E = \oint_{\partial V} \mathbf{E} \cdot d\mathbf{A}
+        \]
+    </div>
+    <p>
+        Er misst, wie stark ein elektrisches Feld durch eine Fläche „hindurchgeht“.
+    </p>
+
+    <!-- Abschnitt 3.3 -->
+    <h2>3.3 Differentialform des Gauß’schen Gesetzes</h2>
+    <p>
+        Mit dem Divergenzsatz erhält man die lokale Form:
+    </p>
+    <div class="highlight">
+        \[
+        \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+        \]
+        <ul>
+            <li>\(\rho\): Ladungsdichte (C/m³)</li>
+        </ul>
+    </div>
+    <p>
+        Diese Form beschreibt den Zusammenhang zwischen der Divergenz des Feldes und der Ladungsdichte.
+    </p>
+
+    <!-- Abschnitt 3.4 -->
+    <h2>3.4 Anwendung auf Symmetrieprobleme</h2>
+    <p>
+        Das Gauß’sche Gesetz ist besonders nützlich bei Problemen mit hoher Symmetrie, da es Integrale vereinfacht. 
+        Typische Fälle:
+    </p>
+    <ul>
+        <li>Sphärische Symmetrie (Punktladung, Kugelschale)</li>
+        <li>Zylindrische Symmetrie (geladener Draht)</li>
+        <li>Planare Symmetrie (unendliche geladene Ebene)</li>
+    </ul>
+
+    <!-- Abschnitt 3.5 -->
+    <h2>3.5 Beispiel 1: Punktladung</h2>
+    <p>
+        Für eine Punktladung \(Q\) im Ursprung, Gauß-Fläche = Kugelradius \(r\):
+    </p>
+    <div class="highlight">
+        \[
+        \oint \mathbf{E} \cdot d\mathbf{A} = E \cdot 4\pi r^2 = \frac{Q}{\varepsilon_0}
+        \]
+        \[
+        \Rightarrow E = \frac{Q}{4\pi \varepsilon_0 r^2}
+        \]
+    </div>
+    <p>
+        → Wir erhalten das Coulomb-Gesetz!
+    </p>
+
+    <!-- Abschnitt 3.6 -->
+    <h2>3.6 Beispiel 2: Unendliche geladene Ebene</h2>
+    <p>
+        Ladungsdichte: \(\sigma\) (C/m²). Wähle eine zylindrische Gauß-Fläche (Pillbox):
+    </p>
+    <div class="highlight">
+        \[
+        \oint \mathbf{E} \cdot d\mathbf{A} = 2EA = \frac{\sigma A}{\varepsilon_0}
+        \]
+        \[
+        \Rightarrow E = \frac{\sigma}{2\varepsilon_0}
+        \]
+    </div>
+    <p>
+        Feld ist unabhängig vom Abstand!
+    </p>
+
+    <!-- Abschnitt 3.7 -->
+    <h2>3.7 Beispiel 3: Unendlicher geladener Zylinder</h2>
+    <p>
+        Linienladungsdichte: \(\lambda\). Zylindrische Gauß-Fläche mit Radius \(r\) und Länge \(L\):
+    </p>
+    <div class="highlight">
+        \[
+        \oint \mathbf{E} \cdot d\mathbf{A} = E (2\pi r L) = \frac{\lambda L}{\varepsilon_0}
+        \]
+        \[
+        \Rightarrow E(r) = \frac{\lambda}{2\pi \varepsilon_0 r}
+        \]
+    </div>
+
+    <!-- Abschnitt 3.8 -->
+    <h2>3.8 Physikalische Bedeutung</h2>
+    <p>
+        Das Gauß’sche Gesetz sagt: Ladungen sind Quellen und Senken des elektrischen Feldes. 
+        In Regionen ohne Ladung ist \(\nabla \cdot \mathbf{E} = 0\).
+    </p>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong> Das Gauß’sche Gesetz ist eine der vier Maxwell-Gleichungen. 
+        Es ist besonders mächtig bei symmetrischen Problemen und bildet die Grundlage für die Definition von elektrischer Flussdichte \(\mathbf{D} = \varepsilon_0 \mathbf{E}\).
+    </div>
+</div>
+</section>
+
+<section id="kapitel-4">
+<div class="container">
+    <h2>4 Kapazität und Kondensatoren</h2>
+    <p>
+        Kondensatoren sind elektrische Bauelemente, die elektrische Ladung speichern. 
+        Die Fähigkeit, Ladung pro Spannung zu speichern, wird als <strong>Kapazität</strong> bezeichnet. 
+        Sie ist eine zentrale Größe in der Elektrostatik und Schaltungstechnik.
+    </p>
+
+    <!-- Abschnitt 4.1 -->
+    <h2>4.1 Definition der Kapazität</h2>
+    <p>
+        Die Kapazität \(C\) ist definiert als das Verhältnis der gespeicherten Ladung \(Q\) zur angelegten Spannung \(U\):
+    </p>
+    <div class="highlight">
+        \[
+        C = \frac{Q}{U}
+        \]
+        <ul>
+            <li>\(C\): Kapazität [Farad (F)]</li>
+            <li>\(Q\): Ladung [Coulomb]</li>
+            <li>\(U\): Spannung [Volt]</li>
+        </ul>
+    </div>
+    <p>
+        1 Farad (F) = 1 Coulomb pro Volt (1 F = 1 C/V).
+    </p>
+
+    <!-- Abschnitt 4.2 -->
+    <h2>4.2 Plattenkondensator</h2>
+    <p>
+        Ein Plattenkondensator besteht aus zwei parallelen leitenden Platten der Fläche \(A\), die durch einen Abstand \(d\) getrennt sind.
+    </p>
+    <div class="highlight">
+        <strong>Kapazität:</strong>
+        \[
+        C = \varepsilon_0 \varepsilon_r \frac{A}{d}
+        \]
+        <ul>
+            <li>\(\varepsilon_0 = 8{,}854 \times 10^{-12} \,\text{F/m}\)</li>
+            <li>\(\varepsilon_r\): relative Permittivität (Material)</li>
+        </ul>
+    </div>
+    <h3>Herleitung:</h3>
+    <p>
+        Elektrisches Feld im Kondensator:
+        \[
+        E = \frac{U}{d}
+        \]
+        Mit Oberflächenladungsdichte:
+        \[
+        \sigma = \frac{Q}{A},\quad E = \frac{\sigma}{\varepsilon_0 \varepsilon_r}
+        \]
+        ⇒
+        \[
+        \frac{U}{d} = \frac{Q}{A \varepsilon_0 \varepsilon_r} \Rightarrow U = \frac{Q d}{A \varepsilon_0 \varepsilon_r}
+        \]
+        ⇒
+        \[
+        C = \frac{Q}{U} = \varepsilon_0 \varepsilon_r \frac{A}{d}
+        \]
+    </p>
+
+    <!-- Abschnitt 4.3 -->
+    <h2>4.3 Energie im Kondensator</h2>
+    <p>
+        Arbeit zum Laden:
+    </p>
+    <div class="highlight">
+        \[
+        W = \int_0^Q U \, dQ = \int_0^Q \frac{Q'}{C} dQ' = \frac{Q^2}{2C}
+        \]
+        <p>
+        In Abhängigkeit von Spannung:
+        \[
+        W = \frac{1}{2} C U^2
+        \]
+        </p>
+    </div>
+    <p>
+        Diese Energie ist im elektrischen Feld des Kondensators gespeichert.
+    </p>
+
+    <!-- Abschnitt 4.4 -->
+    <h2>4.4 Dielektrika</h2>
+    <p>
+        Zwischen den Platten kann ein Dielektrikum eingesetzt werden. 
+        Es reduziert das Feld und erhöht die Kapazität um den Faktor \(\varepsilon_r\):
+    </p>
+    <div class="highlight">
+        \[
+        C_\text{neu} = \varepsilon_r C_\text{leer}
+        \]
+    </div>
+
+    <!-- Abschnitt 4.5 -->
+    <h2>4.5 Kombinationen von Kondensatoren</h2>
+    <ul>
+        <li><strong>Parallel:</strong>
+            \[
+            C_\text{ges} = C_1 + C_2 + \dots
+            \]
+        </li>
+        <li><strong>Reihe:</strong>
+            \[
+            \frac{1}{C_\text{ges}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots
+            \]
+        </li>
+    </ul>
+
+    <!-- Abschnitt 4.6 -->
+    <h2>4.6 Beispiele</h2>
+    <h3>Beispiel 1: Plattenkondensator</h3>
+    <p>
+        Gegeben: \(A = 0{,}02\,\text{m}^2\), \(d = 1\,\text{mm}\), Luft (\(\varepsilon_r = 1\)):
+    </p>
+    <div class="highlight">
+        \[
+        C = \varepsilon_0 \frac{A}{d} = 8{,}854 \times 10^{-12} \cdot \frac{0{,}02}{0{,}001} \approx 1{,}77 \times 10^{-10}\,\text{F} = 177 \,\text{pF}
+        \]
+    </div>
+
+    <h3>Beispiel 2: Energie bei 100 V</h3>
+    <div class="highlight">
+        \[
+        W = \frac{1}{2} C U^2 = 0{,}5 \cdot 177 \times 10^{-12} \cdot (100)^2 \approx 8{,}85 \times 10^{-7}\,\text{J}
+        \]
+    </div>
+
+    <!-- Abschnitt 4.7 -->
+    <h2>4.7 Physikalische Bedeutung</h2>
+    <p>
+        Kondensatoren speichern Energie im elektrischen Feld. 
+        Sie sind essenziell in der Elektronik (Filter, Speicher, Energiespeicher).
+    </p>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong> Die Kapazität hängt nur von der Geometrie und dem Dielektrikum ab, nicht von der Spannung oder Ladung.
+    </div>
+</div>
+</section>
+<section id="kapitel-5">
+<div class="container">
+    <h2>Kapitel 5: Elektrische Energie, Potentiale & Netzwerke</h2>
+    <p>
+        In diesem Kapitel betrachten wir die Arbeit elektrischer Kräfte, die Konzepte von elektrischem Potential und Spannung, die Speicherung von Energie im Feld sowie die Analyse elektrischer Netzwerke mit Kirchhoff-Regeln.
+    </p>
+
+    <!-- 5.1 Arbeit der elektrischen Kraft -->
+    <h3>5.1 Arbeit der elektrischen Kraft</h3>
+    <p>
+        Die Arbeit, die eine elektrische Kraft beim Verschieben einer Ladung \( q \) von Punkt \( A \) nach Punkt \( B \) leistet:
+    </p>
+    <div class="highlight">
+        \[
+        W_{AB} = \int_A^B \mathbf{F} \cdot d\mathbf{s} = \int_A^B q \mathbf{E} \cdot d\mathbf{s}
+        \]
+    </div>
+    <p>
+        Da das elektrische Feld konservativ ist, hängt die Arbeit nur von den Punkten \( A \) und \( B \) ab:
+    </p>
+    <div class="highlight">
+        \[
+        W_{AB} = q (V_A - V_B)
+        \]
+    </div>
+
+    <!-- 5.2 Elektrisches Potential -->
+    <h3>5.2 Elektrisches Potential</h3>
+    <p>
+        Das elektrische Potential \(V\) an einem Punkt ist die Arbeit pro positiver Probeladung, die nötig ist, um diese vom Unendlichen an den Punkt zu bringen:
+    </p>
+    <div class="highlight">
+        \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r}
+        \]
+    </div>
+    <p>Einheit: Volt (V) = Joule pro Coulomb (J/C).</p>
+
+    <!-- 5.3 Potenzielle Energie -->
+    <h3>5.3 Elektrische Energie & Systeme von Ladungen</h3>
+    <p>
+        Potenzielle Energie einer Ladung \( q \) im Potential \( V \):
+    </p>
+    <div class="highlight">
+        \[
+        U = q \cdot V
+        \]
+    </div>
+
+    <!-- 5.4 Energie im elektrischen Feld -->
+    <h3>5.4 Energie im elektrischen Feld</h3>
+    <p>
+        Die Energie kann auch direkt aus dem Feld berechnet werden:
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{\varepsilon_0}{2} \int_{\text{ges}} E^2 \, dV
+        \]
+    </div>
+    <p>
+        Interpretation: Energie ist im Raum verteilt und hängt quadratisch von der Feldstärke ab.
+    </p>
+
+    <!-- 5.5 Beispiel: Kondensator -->
+    <h3>5.5 Energie im Plattenkondensator</h3>
+    <p>
+        Für einen Plattenkondensator:
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{2} C U^2, \quad C = \varepsilon_0 \frac{A}{d}
+        \]
+    </div>
+    <p>
+        Beispiel: \( C = 220\,\mu\text{F}, U = 50\,\text{V} \):
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{2} \cdot 220 \times 10^{-6} \cdot 50^2 \approx 0{,}275 \,\text{J}
+        \]
+    </div>
+
+    <!-- 5.6 Elektrische Spannung -->
+    <h3>5.6 Elektrische Spannung</h3>
+    <p>
+        Spannung ist die Potentialdifferenz zwischen zwei Punkten:
+    </p>
+    <div class="highlight">
+        \[
+        U = V_A - V_B
+        \]
+    </div>
+    <p>
+        Sie gibt an, wie viel Arbeit pro Ladung beim Verschieben erfolgt:
+    </p>
+    <div class="highlight">
+        \[
+        W = q \cdot U
+        \]
+    </div>
+
+    <!-- 5.7 Elektrische Netzwerke & Kirchhoff-Regeln -->
+    <h3>5.7 Elektrische Netzwerke & Kirchhoff-Regeln</h3>
+    <p>
+        In realen Stromkreisen gelten das Ohmsche Gesetz und Kirchhoff-Regeln:
+    </p>
+    <h4>Ohmsches Gesetz</h4>
+    <div class="highlight">
+        \[
+        U = R \cdot I
+        \]
+    </div>
+
+    
+    <h4>Knotenregel (1. Kirchhoff-Regel)</h4>
+    <p>In jedem Knotenpunkt eines elektrischen Netzwerks ist die Summe aller zufließenden Ströme gleich der Summe der abfließenden Ströme. </p>
+    <div class="highlight">
+        \[
+        \sum I_{\text{ein}} = \sum I_{\text{aus}}
+        \]
+    </div>
+
+    
+    
+    <h4>Maschenregel (2. Kirchhoff-Regel)</h4>
+    <p>In jeder geschlossenen Masche (Stromkreis) ist die Summe aller Spannungen gleich null. </p>
+    <div class="highlight">
+        \[
+        \sum U = 0
+        \]
+    </div>
+    <p> </p>
+
+
+    <h4>Widerstände in Serie</h4>
+    <div class="highlight">
+        \[
+        R_{\text{ges}} = R_1 + R_2 + \dots
+        \]
+    </div>
+
+    <h4>Widerstände parallel</h4>
+    <div class="highlight">
+        \[
+        \frac{1}{R_{\text{ges}}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots
+        \]
+    </div>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong>
+        <ul>
+            <li>Energie kann als \( W = \frac{1}{2} C U^2 \) oder über das Feld \( W = \frac{\varepsilon_0}{2} \int E^2 dV \) berechnet werden.</li>
+            <li>Kirchhoff-Regeln folgen aus Ladungs- und Energieerhaltung.</li>
+        </ul>
+    </div>
+</div>
+</section>
+
+
+<section id="kapitel-6">
+<div class="container">
+    <h2>6. Gauss’sches Gesetz</h2>
+    <p>
+        Das Gauss’sche Gesetz ist eine fundamentale Aussage der Elektrostatik. Es verbindet die elektrische Flussdichte mit der eingeschlossenen Ladung. 
+        Es ist eine integrale Form von Maxwells Gleichungen für den statischen Fall.
+    </p>
+
+    <!-- Abschnitt 6.1 -->
+    <h2>6.1 Mathematische Formulierung</h2>
+    <div class="highlight">
+        \[
+        \oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q_\text{innen}}{\varepsilon_0}
+        \]
+    </div>
+    <ul>
+        <li>\(\mathbf{E}\): Elektrisches Feld (Vektor)</li>
+        <li>\(d\mathbf{A}\): Infinitesimale Flächennormale</li>
+        <li>\(Q_\text{innen}\): Gesamte eingeschlossene Ladung</li>
+        <li>\(\varepsilon_0\): Elektrische Feldkonstante</li>
+    </ul>
+    <p>
+        Interpretation: Der gesamte elektrische Fluss durch eine geschlossene Oberfläche ist proportional zur eingeschlossenen Ladung.
+    </p>
+
+    <!-- Abschnitt 6.2 -->
+    <h2>6.2 Anwendung auf Symmetrien</h2>
+    <p>
+        Das Gauss’sche Gesetz ist besonders nützlich für Probleme mit hoher Symmetrie, z. B.:
+    </p>
+    <ul>
+        <li>Kugelsymmetrie (Ladung gleichmäßig verteilt)</li>
+        <li>Zylindersymmetrie (lange geladene Leitung)</li>
+        <li>Plansymmetrie (unendliche geladene Ebene)</li>
+    </ul>
+
+    <!-- Beispiel Kugel -->
+    <h3>Beispiel: Kugelsymmetrie</h3>
+    <p>
+        Eine Kugel mit gleichmäßig verteilter Ladung \(Q\), Radius \(R\). Gesucht: \(E(r)\) für innen und außen.
+    </p>
+    <div class="highlight">
+        Außen (\(r \ge R\)):
+        \[
+        E(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2}
+        \]
+        Innen (\(r &lt; R\), homogen verteilt):
+        \[
+        E(r) = \frac{Q \cdot r}{4\pi\varepsilon_0 R^3}
+        \]
+    </div>
+
+    <!-- Abschnitt 6.3 -->
+    <h2>6.3 Differentialform</h2>
+    <p>
+        Über den Divergenzsatz gelangt man von der Integralform zur Differentialform:
+    </p>
+    <div class="highlight">
+        \[
+        \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+        \]
+    </div>
+    <ul>
+        <li>\(\rho\): Ladungsdichte [C/m³]</li>
+    </ul>
+
+    <!-- Abschnitt 6.4 -->
+    <h2>6.4 Elektrischer Fluss</h2>
+    <p>
+        Der elektrische Fluss \(\Phi_E\) ist definiert als:
+    </p>
+    <div class="highlight">
+        \[
+        \Phi_E = \oint \mathbf{E} \cdot d\mathbf{A}
+        \]
+    </div>
+
+    <!-- Abschnitt 6.5 -->
+    <h2>6.5 Merksatz</h2>
+    <div class="merke">
+        <strong>Merke:</strong>  
+        Das Gauss’sche Gesetz ist ein mächtiges Werkzeug zur Berechnung elektrischer Felder bei hoher Symmetrie. Für beliebige Geometrien ist es jedoch oft nicht direkt anwendbar.
+    </div>
+</div>
+</section>
+<section id="kapitel-7">
+<div class="container">
+    <h2>7. Elektrisches Potential und Energie im Feld</h2>
+    <p>
+        Das elektrische Potential ist eine skalare Größe, die die Arbeit beschreibt, die zum Verschieben einer Probeladung in einem elektrischen Feld benötigt wird.
+        Es vereinfacht viele Berechnungen, da anstelle des Vektorfeldes \(\mathbf{E}\) eine skalare Funktion \(V\) verwendet wird.
+    </p>
+
+    <!-- Abschnitt 7.1 -->
+    <h2>7.1 Definition des elektrischen Potentials</h2>
+    <p>
+        Das Potential \(V(\mathbf{r})\) an einem Punkt ist definiert als die Arbeit pro Ladung, die nötig ist, um eine Probeladung \(q\) aus dem Unendlichen (Referenzpunkt) an den Ort \(\mathbf{r}\) zu bringen:
+    </p>
+    <div class="highlight">
+        \[
+        V(\mathbf{r}) = \frac{W_\text{Arbeit}}{q}
+        \]
+    </div>
+    <p>
+        Arbeit für Verschiebung von A nach B:
+    </p>
+    <div class="highlight">
+        \[
+        W = q \cdot (V_A - V_B)
+        \]
+    </div>
+
+    <!-- Abschnitt 7.2 -->
+    <h2>7.2 Zusammenhang zwischen Feld und Potential</h2>
+    <p>
+        Das elektrische Feld ist der negative Gradient des Potentials:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = - \nabla V
+        \]
+    </div>
+    <p>
+        Für kartesische Koordinaten:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E} = - \left( \frac{\partial V}{\partial x} \mathbf{\hat{i}} +
+                            \frac{\partial V}{\partial y} \mathbf{\hat{j}} +
+                            \frac{\partial V}{\partial z} \mathbf{\hat{k}} \right)
+        \]
+    </div>
+
+    <!-- Abschnitt 7.3 -->
+    <h2>7.3 Potential einer Punktladung</h2>
+    <p>
+        Für eine Punktladung \(Q\) im Abstand \(r\):
+    </p>
+    <div class="highlight">
+        \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r}
+        \]
+    </div>
+    <p>
+        Für mehrere Ladungen gilt das Superpositionsprinzip:
+    </p>
+    <div class="highlight">
+        \[
+        V_\text{ges}(\mathbf{r}) = \sum_{i=1}^{n} \frac{1}{4\pi\varepsilon_0} \cdot \frac{q_i}{r_i}
+        \]
+    </div>
+
+    <!-- Abschnitt 7.4 -->
+    <h2>7.4 Äquipotentialflächen</h2>
+    <p>
+        Äquipotentialflächen sind Flächen gleicher Potentialwerte. Wichtige Eigenschaften:
+    </p>
+    <ul>
+        <li>Das elektrische Feld steht senkrecht auf Äquipotentialflächen.</li>
+        <li>Keine Arbeit wird verrichtet, wenn man sich entlang einer Äquipotentialfläche bewegt.</li>
+    </ul>
+
+    <!-- Abschnitt 7.5 -->
+    <h2>7.5 Energie geladener Systeme</h2>
+    <p>
+        Die potentielle Energie eines Systems aus Punktladungen:
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{4\pi\varepsilon_0} \sum_{i&lt;j} \frac{q_i q_j}{r_{ij}}
+        \]
+    </div>
+    <p>
+        Für eine kontinuierliche Ladungsverteilung:
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{2} \int \rho(\mathbf{r}) V(\mathbf{r}) \, d^3r
+        \]
+    </div>
+
+    <!-- Abschnitt 7.6 -->
+    <h2>7.6 Beispielrechnung</h2>
+    <p>
+        Gegeben: Zwei Punktladungen \(q_1 = 3 \,\mu C\), \(q_2 = -2 \,\mu C\), Abstand \(r = 0.2 \,m\). Berechne die potentielle Energie.
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{4\pi\varepsilon_0} \cdot \frac{q_1 q_2}{r}
+        = 9 \times 10^9 \cdot \frac{(3 \times 10^{-6})(-2 \times 10^{-6})}{0.2}
+        = -0.27 \, J
+        \]
+    </div>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong>  
+        Das Potential ist ein Hilfswerkzeug: Statt mit Vektoren (Feld) arbeitet man mit Skalargrößen. Energiebetrachtungen werden dadurch erheblich vereinfacht.
+    </div>
+</div>
+</section>
+<section id="kapitel-8">
+<div class="container">
+    <h2>8. Leitende Körper und Influenz</h2>
+    <p>
+        In der Elektrostatik spielen leitende Körper eine zentrale Rolle, da sie den Ladungstransport innerhalb des Materials und die Verteilung auf der Oberfläche bestimmen.
+        Unter <strong>Influenz</strong> versteht man die Umlagerung von Ladungen in einem Leiter, die durch äußere elektrische Felder hervorgerufen wird.
+    </p>
+
+    <!-- Abschnitt 8.1 -->
+    <h2>8.1 Eigenschaften von Leitern im elektrostatischen Gleichgewicht</h2>
+    <ul>
+        <li>Im Inneren eines Leiters herrscht <strong>kein elektrisches Feld</strong>: 
+            \[
+            \mathbf{E}_{\text{innen}} = 0
+            \]</li>
+        <li>Alle überschüssigen Ladungen befinden sich auf der Oberfläche.</li>
+        <li>Die Potentialdifferenz innerhalb des Leiters ist null: 
+            \[
+            V = \text{konstant}
+            \]</li>
+        <li>Das elektrische Feld an der Oberfläche steht <strong>senkrecht</strong> zur Oberfläche (keine Tangentialkomponente).</li>
+    </ul>
+
+    <div class="highlight">
+        <strong>Begründung:</strong>  
+        Wäre im Inneren eines Leiters ein elektrisches Feld vorhanden, würden sich freie Elektronen so lange bewegen, bis das Feld kompensiert ist.
+    </div>
+
+    <!-- Abschnitt 8.2 -->
+    <h2>8.2 Influenz</h2>
+    <p>
+        Wird ein ungeladener Leiter in ein äußeres elektrisches Feld gebracht, verschieben sich die Elektronen innerhalb des Leiters. Es entstehen:
+    </p>
+    <ul>
+        <li>Negative Überschussladungen auf der feldzugewandten Seite.</li>
+        <li>Positive Überschussladungen auf der gegenüberliegenden Seite.</li>
+    </ul>
+    <p>
+        Der Leiter bleibt insgesamt elektrisch neutral, aber es bildet sich ein <strong>induziertes Dipolmoment</strong>.
+    </p>
+
+    <h3>Mathematische Beschreibung:</h3>
+    <p>
+        Für einen Leiter im äußeren Feld \(\mathbf{E}_0\):
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{p} = \alpha \cdot \mathbf{E}_0
+        \]
+        wobei \(\mathbf{p}\) das induzierte Dipolmoment ist und \(\alpha\) die Polarisierbarkeit des Leiters.
+    </div>
+
+    <!-- Abschnitt 8.3 -->
+    <h2>8.3 Influenz durch Punktladung – Beispiel</h2>
+    <p>
+        Betrachten wir eine Punktladung \(+Q\) in der Nähe einer geerdeten Metallkugel (Radius \(R\)):
+    </p>
+    <ul>
+        <li>Die Metallkugel zieht Elektronen an der feldzugewandten Seite an → negative Ladung entsteht nahe der Punktladung.</li>
+        <li>An der gegenüberliegenden Seite entsteht eine positive Ladung.</li>
+        <li>Gesamtladung der Kugel = 0 (da geerdet).</li>
+    </ul>
+    <p>
+        Dieses Prinzip wird bei elektrostatischer Abschirmung genutzt.
+    </p>
+
+    <!-- Abschnitt 8.4 -->
+    <h2>8.4 Faraday-Käfig</h2>
+    <p>
+        Ein vollständig geschlossener Leiter (Faraday-Käfig) blockiert äußere elektrische Felder im Inneren:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{E}_{\text{innen}} = 0
+        \]
+    </div>
+    <p>
+        Anwendung:
+    </p>
+    <ul>
+        <li>Sicherheitskabinen bei Blitzeinschlag.</li>
+        <li>Abschirmung empfindlicher Elektronik.</li>
+    </ul>
+
+    <!-- Abschnitt 8.5 -->
+    <h2>8.5 Feld an der Oberfläche eines Leiters</h2>
+    <p>
+        Das elektrische Feld direkt außerhalb eines Leiters ist proportional zur Oberflächenladungsdichte \(\sigma\):
+    </p>
+    <div class="highlight">
+        \[
+        E = \frac{\sigma}{\varepsilon_0}
+        \]
+    </div>
+    <p>
+        Für gekrümmte Flächen: An stark gekrümmten Stellen ist \(\sigma\) größer → Funkenüberschlag wahrscheinlicher.
+    </p>
+
+    <!-- Abschnitt 8.6 -->
+    <h2>8.6 Beispielrechnung: Feld an einer geladenen Kugel</h2>
+    <p>
+        Eine leitende Kugel mit Radius \(R\) trägt die Ladung \(Q\). Gesucht: \(E\) außerhalb der Kugel.
+    </p>
+    <div class="highlight">
+        <strong>Lösung:</strong>
+        \[
+        E(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2}, \quad r \ge R
+        \]
+        Für \(r < R\):
+        \[
+        E = 0
+        \]
+    </div>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong>  
+        Leiter schirmen ihr Inneres vollständig von äußeren Feldern ab. Ladungen befinden sich im elektrostatischen Gleichgewicht ausschließlich auf der Oberfläche.
+    </div>
+</div>
+</section>
+<section id="kapitel-9">
+<div class="container">
+    <h2>9. Kapazität und Kondensatoren</h2>
+    <p>
+        Kondensatoren sind elektrische Bauelemente, die elektrische Ladung speichern. 
+        Die Fähigkeit eines Systems, Ladung bei gegebener Spannung zu speichern, bezeichnet man als <strong>Kapazität</strong>.
+        Kondensatoren sind zentrale Komponenten in nahezu allen elektrischen und elektronischen Schaltungen.
+    </p>
+
+    <!-- Abschnitt 9.1 -->
+    <h2>9.1 Definition der Kapazität</h2>
+    <p>
+        Die Kapazität \(C\) eines Kondensators ist definiert als das Verhältnis der gespeicherten Ladung \(Q\) zur anliegenden Spannung \(U\):
+    </p>
+    <div class="highlight">
+        \[
+        C = \frac{Q}{U}
+        \]
+        Einheit: 
+        \[
+        [C] = 1 \,\text{Farad (F)} = 1 \frac{\text{Coulomb}}{\text{Volt}}
+        \]
+    </div>
+    <p>
+        Physikalisch bedeutet das: Ein Kondensator hat eine Kapazität von 1 F, wenn er bei einer Spannung von 1 V eine Ladung von 1 C speichern kann.
+    </p>
+
+    <!-- Abschnitt 9.2 -->
+    <h2>9.2 Plattenkondensator</h2>
+    <p>
+        Der einfachste Kondensator besteht aus zwei parallelen Metallplatten, die durch ein Dielektrikum (Isolator) getrennt sind.
+    </p>
+    <h3>Herleitung der Kapazität:</h3>
+    <p>
+        Für einen Plattenkondensator mit:
+    </p>
+    <ul>
+        <li>Plattenfläche: \(A\)</li>
+        <li>Abstand: \(d\)</li>
+        <li>Dielektrikum mit Permittivität: \(\varepsilon = \varepsilon_0 \varepsilon_r\)</li>
+    </ul>
+    <div class="highlight">
+        \[
+        C = \varepsilon \cdot \frac{A}{d}
+        \]
+    </div>
+    <p>
+        Ohne Dielektrikum (\(\varepsilon_r = 1\)): 
+        \[
+        C = \varepsilon_0 \cdot \frac{A}{d}, \quad \varepsilon_0 = 8{,}854 \times 10^{-12} \,\text{F/m}
+        \]
+    </p>
+
+    <!-- Abschnitt 9.3 -->
+    <h2>9.3 Dielektrikum und Permittivität</h2>
+    <p>
+        Ein Dielektrikum erhöht die Kapazität, weil es die Feldlinien im Kondensator beeinflusst. Der Faktor:
+    </p>
+    <div class="highlight">
+        \[
+        \varepsilon_r = \text{relative Permittivität (dielektrische Konstante)}
+        \]
+    </div>
+    <p>
+        Typische Werte:
+    </p>
+    <ul>
+        <li>Luft: \(\varepsilon_r \approx 1\)</li>
+        <li>Glas: \(\varepsilon_r \approx 5 - 10\)</li>
+        <li>Keramik: \(\varepsilon_r \approx 100 - 10^4\)</li>
+    </ul>
+
+    <!-- Abschnitt 9.4 -->
+    <h2>9.4 Energie im Kondensator</h2>
+    <p>
+        Die im Kondensator gespeicherte Energie \(W\):
+    </p>
+    <div class="highlight">
+        \[
+        W = \frac{1}{2} C U^2 = \frac{Q^2}{2C} = \frac{1}{2} Q U
+        \]
+    </div>
+    <p>
+        <strong>Herleitung:</strong>
+    </p>
+    <p>
+        Arbeit zum Laden:
+        \[
+        dW = U \, dQ = \frac{Q}{C} \, dQ
+        \]
+        Integration von \(0\) bis \(Q\):
+        \[
+        W = \int_0^Q \frac{Q'}{C} dQ' = \frac{Q^2}{2C}
+        \]
+    </p>
+
+    <!-- Abschnitt 9.5 -->
+    <h2>9.5 Kombination von Kondensatoren</h2>
+    <p>
+        Kondensatoren können in <strong>Reihe</strong> oder <strong>parallel</strong> geschaltet werden:
+    </p>
+
+    <h3>Parallelschaltung:</h3>
+    <p>
+        \[
+        C_\text{ges} = C_1 + C_2 + \dots
+        \]
+        Spannung ist für alle gleich: \(U_\text{ges} = U\)
+    </p>
+
+    <h3>Reihenschaltung:</h3>
+    <p>
+        \[
+        \frac{1}{C_\text{ges}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots
+        \]
+        Ladung ist für alle gleich: \(Q_\text{ges} = Q\)
+    </p>
+
+    <!-- Abschnitt 9.6 -->
+    <h2>9.6 Beispielrechnung</h2>
+    <p>
+        Ein Plattenkondensator:
+    </p>
+    <ul>
+        <li>A = 0,1 m²</li>
+        <li>d = 1 mm</li>
+        <li>Luft als Dielektrikum (\(\varepsilon_r = 1\))</li>
+        <li>U = 100 V</li>
+    </ul>
+    <p>
+        Berechne Kapazität und gespeicherte Energie:
+    </p>
+    <div class="highlight">
+        \[
+        C = \varepsilon_0 \frac{A}{d} = 8{,}854 \times 10^{-12} \frac{0,1}{0,001} = 8{,}85 \times 10^{-10} \,\text{F}
+        \]
+        Energie:
+        \[
+        W = \frac{1}{2} C U^2 = 0{,}5 \cdot 8{,}85 \times 10^{-10} \cdot 100^2 = 4{,}4 \times 10^{-6} \,\text{J}
+        \]
+    </div>
+
+    <!-- Abschnitt 9.7 -->
+    <h2>9.7 Anwendungen</h2>
+    <ul>
+        <li>Glättung von Spannung in Netzteilen.</li>
+        <li>Energiespeicherung in Blitzgeräten.</li>
+        <li>Filterung in elektronischen Schaltungen.</li>
+        <li>Koppelkondensatoren in Audioverstärkern.</li>
+    </ul>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong>
+        Kapazität hängt von Geometrie (Fläche, Abstand) und Material (Dielektrikum) ab. 
+        Energie im Kondensator wächst quadratisch mit der Spannung.
+    </div>
+</div>
+</section>
+<section id="kapitel-10">
+<div class="container">
+    <h2>10. Elektrische Ströme und Widerstände</h2>
+    <p>
+        In diesem Kapitel behandeln wir den elektrischen Strom, seine Ursachen, den Zusammenhang mit Spannung und Widerstand (Ohm’sches Gesetz) sowie wichtige Größen wie Stromdichte, Leitfähigkeit und Energieverluste. 
+        Elektrische Ströme sind Grundlage aller elektrischen Schaltungen und Antriebe.
+    </p>
+
+    <!-- Abschnitt 10.1 -->
+    <h2>10.1 Definition des elektrischen Stroms</h2>
+    <p>
+        Der elektrische Strom \(I\) ist die pro Zeit transportierte Ladungsmenge:
+    </p>
+    <div class="highlight">
+        \[
+        I = \frac{\Delta Q}{\Delta t} \quad \text{bzw.} \quad I = \frac{dQ}{dt}
+        \]
+        Einheit:
+        \[
+        [I] = 1 \,\text{Ampere (A)} = 1 \,\text{Coulomb pro Sekunde}
+        \]
+    </div>
+    <ul>
+        <li>\(Q\): Ladung in Coulomb (C)</li>
+        <li>\(t\): Zeit in Sekunden (s)</li>
+    </ul>
+    <p>
+        Elektronen bewegen sich in einem Leiter mit der Driftgeschwindigkeit \(v_d\), die sehr klein ist (mm/s), während das elektrische Feld sich nahezu mit Lichtgeschwindigkeit ausbreitet.
+    </p>
+
+    <!-- Abschnitt 10.2 -->
+    <h2>10.2 Stromdichte und Leitfähigkeit</h2>
+    <p>
+        Die Stromdichte \(\mathbf{J}\) beschreibt den Strom pro Querschnittsfläche:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{J} = \frac{I}{A} \quad [\mathbf{J}] = \text{A/m}^2
+        \]
+    </div>
+    <p>
+        Für einen Leiter im elektrischen Feld \(\mathbf{E}\) gilt:
+    </p>
+    <div class="highlight">
+        \[
+        \mathbf{J} = \sigma \mathbf{E}
+        \]
+        \(\sigma\): elektrische Leitfähigkeit [S/m] (Siemens pro Meter)
+    </div>
+    <p>
+        Der Kehrwert der Leitfähigkeit ist der spezifische Widerstand (Resistivität) \(\rho\):
+    </p>
+    <div class="highlight">
+        \[
+        \rho = \frac{1}{\sigma}, \quad \mathbf{J} = \frac{\mathbf{E}}{\rho}
+        \]
+    </div>
+
+    <!-- Abschnitt 10.3 -->
+    <h2>10.3 Ohm’sches Gesetz</h2>
+    <p>
+        Für einen homogenen Leiter der Länge \(l\) und Querschnittsfläche \(A\):
+    </p>
+    <div class="highlight">
+        \[
+        R = \rho \cdot \frac{l}{A}
+        \]
+    </div>
+    <p>
+        Der Zusammenhang zwischen Spannung \(U\), Strom \(I\) und Widerstand \(R\) lautet:
+    </p>
+    <div class="highlight">
+        \[
+        U = R \cdot I
+        \]
+    </div>
+    <p>
+        Einheit: \([R] = \text{Ohm} (\Omega)\)
+    </p>
+
+    <!-- Abschnitt 10.4 -->
+    <h2>10.4 Temperaturabhängigkeit des Widerstands</h2>
+    <p>
+        Der Widerstand von Metallen steigt mit der Temperatur:
+    </p>
+    <div class="highlight">
+        \[
+        R(T) = R_0 \left[ 1 + \alpha (T - T_0) \right]
+        \]
+        \(\alpha\): Temperaturkoeffizient [1/K]
+    </div>
+    <p>
+        Für Halbleiter sinkt der Widerstand mit steigender Temperatur.
+    </p>
+
+    <!-- Abschnitt 10.5 -->
+    <h2>10.5 Elektrische Leistung und Energie</h2>
+    <p>
+        Ein elektrischer Strom transportiert Energie. Die Leistung:
+    </p>
+    <div class="highlight">
+        \[
+        P = U \cdot I = R I^2 = \frac{U^2}{R}
+        \]
+        Einheit:
+        \[
+        [P] = \text{Watt (W)}
+        \]
+    </div>
+    <p>
+        Die über eine Zeit \(t\) umgesetzte Energie:
+    </p>
+    <div class="highlight">
+        \[
+        W = P \cdot t
+        \]
+    </div>
+    <p>
+        **Joule’sches Gesetz:** Wärmeverluste in Leitern:
+        \[
+        W_\text{Verlust} = I^2 R t
+        \]
+    </p>
+
+    <!-- Abschnitt 10.6 -->
+    <h2>10.6 Beispielrechnung</h2>
+    <p>
+        Ein Kupferdraht:
+    </p>
+    <ul>
+        <li>Länge: \(l = 50 \, \text{m}\)</li>
+        <li>Durchmesser: \(d = 2 \, \text{mm}\)</li>
+        <li>\(\rho_\text{Cu} = 1{,}7 \times 10^{-8} \Omega \cdot \text{m}\)</li>
+        <li>Strom: \(I = 10 \, \text{A}\)</li>
+    </ul>
+    <p>
+        Berechne \(R\) und \(P\):
+    </p>
+    <div class="highlight">
+        \[
+        A = \frac{\pi d^2}{4} = \frac{\pi (0{,}002)^2}{4} = 3{,}14 \times 10^{-6} \, \text{m}^2
+        \]
+        \[
+        R = \rho \frac{l}{A} = 1{,}7 \times 10^{-8} \frac{50}{3{,}14 \times 10^{-6}} \approx 0{,}27 \, \Omega
+        \]
+        Leistung:
+        \[
+        P = I^2 R = (10)^2 \cdot 0{,}27 = 27 \, \text{W}
+        \]
+    </div>
+
+    <!-- Abschnitt 10.7 -->
+    <h2>10.7 Anwendungen</h2>
+    <ul>
+        <li>Leitungen in Stromnetzen</li>
+        <li>Elektroheizungen</li>
+        <li>Sicherungen und Schutzelemente</li>
+        <li>Widerstände in elektronischen Schaltungen</li>
+    </ul>
+
+    <!-- Merksatz -->
+    <div class="merke">
+        <strong>Merke:</strong>
+        Strom ist bewegte Ladung. Widerstand hängt von Material, Länge, Querschnitt und Temperatur ab. 
+        Energieverluste steigen quadratisch mit dem Strom.
+    </div>
+</div>
+</section>
+<section id="kapitel-11" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+<div class="container" style="max-width:900px; margin:auto;">
+
+<h2>Kapitel 11: Formelsammlung & Zusammenfassung</h2>
+<p>
+Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elektrostatik zusammen. Es dient als Lern- und Prüfungs-Checkliste.
+</p>
+
+<!-- Abschnitt 11.1 -->
+<h2>11.1 Grundlegende Begriffe</h2>
+<ul>
+    <li><strong>Elektrische Ladung:</strong> 
+        \[
+        Q = n \cdot e,\quad e = 1{,}602 \times 10^{-19}\,\text{C}
+        \]
+    </li>
+    <li><strong>Ladungserhaltung:</strong> Gesamtladung bleibt in abgeschlossenen Systemen konstant.</li>
+    <li><strong>Einheit:</strong> Coulomb (C).</li>
+</ul>
+
+<!-- Abschnitt 11.2 -->
+<h2>11.2 Coulomb-Gesetz</h2>
+<div class="highlight">
+    \[
+    F = \frac{1}{4\pi\varepsilon_0} \cdot \frac{|q_1 q_2|}{r^2}, \quad 
+    \varepsilon_0 = 8{,}854 \times 10^{-12}\,\text{C}^2/\text{N·m}^2
+    \]
+    Vektorform:
+    \[
+    \mathbf{F}_{12} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{q_1 q_2}{r^3} \mathbf{r}
+    \]
+</div>
+
+<!-- Abschnitt 11.3 -->
+<h2>11.3 Elektrisches Feld</h2>
+<ul>
+    <li><strong>Definition:</strong>
+        \[
+        \mathbf{E} = \frac{\mathbf{F}}{q}
+        \]
+    </li>
+    <li><strong>Punktladung:</strong>
+        \[
+        E(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r^2}
+        \]
+    </li>
+    <li><strong>Superposition:</strong>
+        \[
+        \mathbf{E}_\text{ges} = \sum \mathbf{E}_i
+        \]
+    </li>
+</ul>
+
+<!-- Abschnitt 11.4 -->
+<h2>11.4 Elektrischer Fluss & Gauss’sches Gesetz</h2>
+<div class="highlight">
+    \[
+    \Phi_E = \oint \mathbf{E} \cdot d\mathbf{A}, \quad 
+    \Phi_E = \frac{Q_\text{innen}}{\varepsilon_0}
+    \]
+</div>
+
+<!-- Abschnitt 11.5 -->
+<h2>11.5 Elektrisches Potential</h2>
+<ul>
+    <li>
+        <strong>Definition:</strong>
+        \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{r}
+        \]
+    </li>
+    <li>
+        Zusammenhang mit Feld:
+        \[
+        \mathbf{E} = -\nabla V
+        \]
+    </li>
+    <li>
+        Arbeit:
+        \[
+        W = q (V_A - V_B)
+        \]
+    </li>
+</ul>
+
+<!-- Abschnitt 11.6 -->
+<h2>11.6 Energie im elektrischen Feld</h2>
+
+<div class="highlight">
+    <strong>Energie in einem Kondensator:</strong>
+    \[
+    W = \frac{1}{2} C U^2
+    \]
+</div>
+
+<!-- Abschnitt 11.7 -->
+<h2>11.7 Kapazität & Kondensatoren</h2>
+<ul>
+    <li><strong>Kondensator:</strong>
+        \[
+        C = \frac{Q}{U}
+        \]
+    </li>
+    <li><strong>Plattenkondensator:</strong>
+        \[
+        C = \varepsilon_0 \varepsilon_r \frac{A}{d}
+        \]
+    </li>
+</ul>
+
+<!-- Abschnitt 11.8 -->
+<h2>11.8 Dielektrika</h2>
+<ul>
+    <li>
+        <strong>Polarisation:</strong>
+        \[
+        \mathbf{P} = \varepsilon_0 \chi_e \mathbf{E}
+        \]
+    </li>
+    <li>
+        <strong>Permittivität:</strong>
+        \[
+        \varepsilon = \varepsilon_0 (1 + \chi_e)
+        \]
+    </li>
+</ul>
+
+<!-- Abschnitt 11.9 -->
+<h2>11.9 Merksätze</h2>
+<div class="merke">
+    <ul>
+        <li>Coulomb-Gesetz und Gauss’sches Gesetz sind äquivalent (für statische Ladungen).</li>
+        <li>Elektrisches Feld: Kraft pro Ladung.</li>
+        <li>Potential: Arbeit pro Ladung.</li>
+        <li>Energie im Feld ist immer positiv und wächst quadratisch mit der Ladung.</li>
+    </ul>
+</div>
+
+<!-- Abschnitt 11.10 -->
+<h2>11.10 Wichtige Konstanten</h2>
+<ul>
+    <li>\(\varepsilon_0 = 8{,}854 \times 10^{-12}\,\text{C}^2/\text{N·m}^2\)</li>
+    <li>\(k = \frac{1}{4\pi\varepsilon_0} \approx 9 \times 10^9 \,\text{N·m}^2/\text{C}^2\)</li>
+    <li>\(e = 1{,}602 \times 10^{-19}\,\text{C}\)</li>
+</ul>
+
+</div>
+</section>
+
+
+
+
+
+<footer style="background:#1e1e2f; color:#bbb; text-align:center; padding:1rem;">
+    &copy; 2025 PhysikNow | Elektrostatik
+</footer>
+
+</body>
+</html>
