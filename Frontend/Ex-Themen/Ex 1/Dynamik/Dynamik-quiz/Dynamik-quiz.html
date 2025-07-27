@@ -1,348 +1,532 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dynamik-Quiz | PhysikNow</title>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz: Dynamik | PhysikNow</title>
+<!-- MathJax für Formeln -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: #f3f6fb;
-      margin: 0;
-      padding: 0;
+        font-family: 'Arial', sans-serif;
+        background: #f3f6fb;
+        margin: 0;
+        padding: 0;
     }
     header {
-      background: #1e1e2f;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
-    header h1 {
-      font-size: 1.5rem;
-      color: #00d4ff;
+    header h1 { font-size: 1.5rem; color: #00d4ff; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
     }
-    nav ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    nav a {
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    nav a:hover {
-      color: #00d4ff;
-    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
     .status {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 1.1rem;
-      font-weight: bold;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
     }
     .progress-bar {
-      width: 90%;
-      margin: 10px auto;
-      background: #ddd;
-      height: 12px;
-      border-radius: 8px;
-      overflow: hidden;
+        width: 90%;
+        margin: 10px auto;
+        background: #ddd;
+        height: 12px;
+        border-radius: 8px;
+        overflow: hidden;
     }
     .progress {
-      height: 12px;
-      background: #0066ff;
-      width: 0%;
-      transition: width 0.3s ease-in-out;
+        height: 12px;
+        background: #0066ff;
+        width: 0%;
+        transition: width 0.3s ease-in-out;
     }
     .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      text-align: center;
+        max-width: 800px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
     }
     .level-buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
     }
     .question {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 10px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 10px;
     }
     .values {
-      background: #eef4ff;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      font-weight: bold;
+        background: #eef4ff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-weight: bold;
     }
     .input-row {
-      margin-bottom: 15px;
+        margin-bottom: 15px;
     }
     input[type="number"] {
-      width: 120px;
-      padding: 8px;
-      font-size: 1.1rem;
-      border: 2px solid #ccc;
-      border-radius: 6px;
-      margin-right: 8px;
+        width: 120px;
+        padding: 8px;
+        font-size: 1.1rem;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        margin-right: 8px;
+        appearance: textfield;
+    }
+    /* Entfernt die Spinner für alle Browser */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Entfernt Pfeile bei number-Feldern */
+    input[type=number] {
+    -webkit-appearance: textfield; /* Safari/Chrome */
+    -moz-appearance: textfield;    /* Firefox */
+    appearance: textfield;         /* Standard */
+    }
+
+/* Entfernt die Up/Down-Buttons in Webkit-Browsern */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    input:disabled {
+        background: #f0f0f0;
+        color: #999;
     }
     .buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
     }
     button {
-      padding: 10px 16px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
+        padding: 10px 16px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
     }
     .btn-primary {
-      background: #0066ff;
-      color: #fff;
+        background: #0066ff;
+        color: #fff;
     }
     .btn-primary:hover {
-      background: #004bbd;
+        background: #004bbd;
     }
     .btn-hint {
-      background: #8e44ad;
-      color: #fff;
+        background: #8e44ad;
+        color: #fff;
     }
     .btn-hint:hover {
-      background: #732d91;
+        background: #732d91;
     }
     .hint {
-      display: none;
-      margin-top: 10px;
-      padding: 10px;
-      background: #f4eafc;
-      border-left: 4px solid #8e44ad;
-      font-style: italic;
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f4eafc;
+        border-left: 4px solid #8e44ad;
+        font-style: italic;
     }
     .result {
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 12px;
-      border-radius: 8px;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 12px;
+        border-radius: 8px;
     }
     .correct {
-      background: #d4f8d4;
-      color: #206020;
+        background: #d4f8d4;
+        color: #206020;
     }
     .wrong {
-      background: #ffd6d6;
-      color: #8b0000;
+        background: #ffd6d6;
+        color: #8b0000;
     }
     .score-box {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
     }
-  </style>
+</style>
 </head>
 <body>
+
 <header>
-  <h1>PhysikNow</h1>
-  <nav>
-    <ul>
-      <li><a href="#">Start</a></li>
-      <li><a href="#">Lerninhalt</a></li>
-      <li><a href="#">Quiz</a></li>
-    </ul>
-  </nav>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
 </header>
 <div class="status" id="status">Frage 0 von 0</div>
 <div class="progress-bar"><div class="progress" id="progress"></div></div>
 <div class="container" id="quiz-area">
-  <h2>Wähle deinen Schwierigkeitsgrad</h2>
-  <div class="level-buttons">
-    <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
-    <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
-    <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
-  </div>
+    <h2>Wähle deinen Schwierigkeitsgrad</h2>
+    <div class="level-buttons">
+        <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+        <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+        <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+    </div>
 </div>
 <div id="score" class="score-box"></div>
 
 <script>
+// Fragenpools - neue fragen hier nach dem = eingeben
 const easyQuestions = [
   {
-    question: "Berechne die Gewichtskraft",
-    formula: "F_G = m \\cdot g",
-    values: { m: 5, g: 9.81 },
+    question: "Berechne die Gewichtskraft: m = 5 kg, g = 9.81 m/s²",
+    formula: "F_G = m · g",
+    values: { "m": 5, "g": 9.81 },
     unit: "N",
     solution: 49.05,
-    steps: "F_G = 5·9.81 = 49.05"
+    steps: "F_G = 5 × 9.81 = 49.05 N"
   },
   {
-    question: "Berechne die Normalkraft auf einer waagrechten Fläche",
-    formula: "F_N = m \\cdot g",
-    values: { m: 8, g: 9.81 },
+    question: "Berechne die Gewichtskraft: m = 12 kg",
+    formula: "F_G = m · g",
+    values: { "m": 12, "g": 9.81 },
     unit: "N",
-    solution: 78.48,
-    steps: "F_N = 8·9.81 = 78.48"
+    solution: 117.72,
+    steps: "F_G = 12 × 9.81 = 117.72 N"
   },
   {
-    question: "Berechne die Reibungskraft",
-    formula: "F_R = \\mu \\cdot F_N",
-    values: { mu: 0.3, FN: 100 },
+    question: "Berechne die Normalkraft auf einer waagrechten Fläche: m = 10 kg",
+    formula: "F_N = m · g",
+    values: { "m": 10, "g": 9.81 },
+    unit: "N",
+    solution: 98.1,
+    steps: "F_N = 10 × 9.81 = 98.1 N"
+  },
+  {
+    question: "Berechne die Reibungskraft: μ = 0.3, F_N = 100 N",
+    formula: "F_R = μ · F_N",
+    values: { "μ": 0.3, "F_N": 100 },
     unit: "N",
     solution: 30,
-    steps: "F_R = 0.3·100 = 30"
+    steps: "F_R = 0.3 × 100 = 30 N"
   },
   {
-    question: "Berechne die Hangabtriebskraft bei \\( \\alpha = 30^\\circ \\)",
-    formula: "F_H = m \\cdot g \\cdot \\sin(\\alpha)",
-    values: { m: 10, g: 9.81, alpha: 30 },
+    question: "Berechne die Hangabtriebskraft: m = 4 kg, α = 30°",
+    formula: "F_H = m · g · sin(α)",
+    values: { "m": 4, "g": 9.81, "sin(30°)": 0.5 },
     unit: "N",
-    solution: 49.05,
-    steps: "F_H = 10·9.81·sin(30°) = 98.1·0.5 = 49.05"
+    solution: 19.62,
+    steps: "F_H = 4 × 9.81 × 0.5 = 19.62 N"
   },
   {
-    question: "Berechne die Beschleunigung aus Kraft und Masse",
-    formula: "a = \\frac{F}{m}",
-    values: { F: 20, m: 4 },
+    question: "Berechne die Federkraft: k = 200 N/m, x = 0.1 m",
+    formula: "F = -k · x",
+    values: { "k": 200, "x": 0.1 },
+    unit: "N",
+    solution: -20,
+    steps: "F = -200 × 0.1 = -20 N"
+  },
+  {
+    question: "Berechne die Beschleunigung: F = 20 N, m = 5 kg",
+    formula: "a = F / m",
+    values: { "F": 20, "m": 5 },
     unit: "m/s²",
-    solution: 5,
-    steps: "a = 20 / 4 = 5"
+    solution: 4,
+    steps: "a = 20 / 5 = 4 m/s²"
+  },
+  {
+    question: "Berechne die Reibungskraft: μ = 0.2, F_N = 80 N",
+    formula: "F_R = μ · F_N",
+    values: { "μ": 0.2, "F_N": 80 },
+    unit: "N",
+    solution: 16,
+    steps: "F_R = 0.2 × 80 = 16 N"
+  },
+  {
+    question: "Berechne die Normalkraft auf einer geneigten Fläche: m = 6 kg, α = 45°",
+    formula: "F_N = m · g · cos(α)",
+    values: { "m": 6, "g": 9.81, "cos(45°)": 0.707 },
+    unit: "N",
+    solution: 41.57,
+    steps: "F_N = 6 × 9.81 × 0.707 = 41.57 N"
+  },
+  {
+    question: "Berechne die Hangabtriebskraft: m = 2.5 kg, α = 20°",
+    formula: "F_H = m · g · sin(α)",
+    values: { "m": 2.5, "g": 9.81, "sin(20°)": 0.342 },
+    unit: "N",
+    solution: 8.38,
+    steps: "F_H = 2.5 × 9.81 × 0.342 = 8.38 N"
   }
 ];
 
-const mediumQuestions = [/* wie oben */];
-const hardQuestions = [/* wie oben */];
-// (Trag hier bei Bedarf die anderen beiden Frageblöcke ein)
 
-let questions = [];
-let shuffledQuestions = [];
-let currentIndex = 0;
-let score = 0;
-let attempts = 0;
-
-function startQuiz(level) {
-  if (level === "easy") questions = easyQuestions;
-  if (level === "medium") questions = mediumQuestions;
-  if (level === "hard") questions = hardQuestions;
-
-  shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
-  currentIndex = 0;
-  score = 0;
-  updateStatus();
-  updateProgress();
-  showQuestion();
-}
-
-function showQuestion() {
-  const q = shuffledQuestions[currentIndex];
-  const quizArea = document.getElementById("quiz-area");
-  quizArea.innerHTML = `
-    <div class="question">${currentIndex + 1}. ${q.question}</div>
-    <div class="values">Gegeben: ${Object.entries(q.values).map(([k,v]) => `${k} = ${v}`).join(", ")}</div>
-    <div class="input-row"><input type="number" step="0.01" id="answer"> ${q.unit}</div>
-    <div class="buttons">
-      <button class="btn-primary" onclick="checkAnswer()">Auswerten</button>
-      <button class="btn-hint" onclick="showHint()">Hinweis</button>
-    </div>
-    <div class="hint">Formel: \\(${q.formula}\\)</div>
-    <div class="result" id="result"></div>
-  `;
-  MathJax.typeset();
-  attempts = 0;
-}
-
-function showHint() {
-  document.querySelector(".hint").style.display = "block";
-}
-
-function checkAnswer() {
-  const q = shuffledQuestions[currentIndex];
-  const userVal = parseFloat(document.getElementById("answer").value);
-  const resultDiv = document.getElementById("result");
-  if (isNaN(userVal)) {
-    alert("Bitte gib eine Zahl ein.");
-    return;
+// Fragenpools - neue fragen hier nach dem = eingeben
+const mediumQuestions = [
+  {
+    question: "Ein Körper mit m = 2 kg beschleunigt mit a = 3 m/s². Berechne die Kraft.",
+    formula: "F = m · a",
+    values: { "m": 2, "a": 3 },
+    unit: "N",
+    solution: 6,
+    steps: "F = 2 × 3 = 6 N"
+  },
+  {
+    question: "Berechne die Normalkraft auf einer schiefen Ebene: m = 5 kg, α = 60°",
+    formula: "F_N = m · g · cos(α)",
+    values: { "m": 5, "g": 9.81, "cos(60°)": 0.5 },
+    unit: "N",
+    solution: 24.525,
+    steps: "F_N = 5 × 9.81 × 0.5 = 24.525 N"
+  },
+  {
+    question: "Berechne die Zentripetalkraft: m = 2 kg, v = 3 m/s, r = 1.5 m",
+    formula: "F_Z = m · v² / r",
+    values: { "m": 2, "v": 3, "r": 1.5 },
+    unit: "N",
+    solution: 12,
+    steps: "F_Z = 2 × 9 / 1.5 = 12 N"
+  },
+  {
+    question: "Ein Auto mit m = 1000 kg bremst mit a = −4 m/s². Berechne die Bremskraft.",
+    formula: "F = m · a",
+    values: { "m": 1000, "a": -4 },
+    unit: "N",
+    solution: -4000,
+    steps: "F = 1000 × (−4) = −4000 N"
+  },
+  {
+    question: "Berechne die resultierende Kraft: F_H = 30 N, F_R = 10 N",
+    formula: "F_res = F_H − F_R",
+    values: { "F_H": 30, "F_R": 10 },
+    unit: "N",
+    solution: 20,
+    steps: "F_res = 30 − 10 = 20 N"
+  },
+  {
+    question: "Ein Körper der Masse 6 kg erfährt eine resultierende Kraft von 24 N. Berechne die Beschleunigung.",
+    formula: "a = F / m",
+    values: { "F": 24, "m": 6 },
+    unit: "m/s²",
+    solution: 4,
+    steps: "a = 24 / 6 = 4 m/s²"
+  },
+  {
+    question: "Ein Objekt gleitet eine geneigte Fläche mit α = 25° und μ = 0.1 hinunter. Berechne die resultierende Beschleunigung.",
+    formula: "a = g (sin(α) − μ · cos(α))",
+    values: { "g": 9.81, "sin(25°)": 0.4226, "μ": 0.1, "cos(25°)": 0.9063 },
+    unit: "m/s²",
+    solution: 3.26,
+    steps: "a = 9.81 × (0.4226 − 0.1 × 0.9063) ≈ 3.55 m/s²"
+  },
+  {
+    question: "Eine Feder mit k = 300 N/m wird um 0.15 m gedehnt. Berechne die Federkraft.",
+    formula: "F = −k · x",
+    values: { "k": 300, "x": 0.15 },
+    unit: "N",
+    solution: -45,
+    steps: "F = −300 × 0.15 = −45 N"
+  },
+  {
+    question: "Ein Körper erfährt eine Zentripetalkraft von 16 N bei einer Kreisbewegung mit v = 4 m/s und m = 2 kg. Berechne den Radius.",
+    formula: "r = m · v² / F",
+    values: { "m": 2, "v": 4, "F": 16 },
+    unit: "m",
+    solution: 2,
+    steps: "r = 2 × 16 / 16 = 2 m"
+  },
+  {
+    question: "Berechne die Arbeit gegen Reibung: F_R = 50 N, Weg = 10 m",
+    formula: "W = F · s",
+    values: { "F": 50, "s": 10 },
+    unit: "J",
+    solution: 500,
+    steps: "W = 50 × 10 = 500 J"
   }
-  attempts++;
-  if (Math.abs(userVal - q.solution) <= 0.1) {
-    resultDiv.innerHTML = `<div class="correct">
-      ✔ Deine Antwort ist korrekt!<br>
-      Lösung: ${q.solution} ${q.unit}<br>
-      Formel: \\(${q.formula}\\)<br>
-      Rechenweg: ${q.steps}
-    </div>`;
-    score++;
-    MathJax.typeset();
-    nextButton();
-  } else {
-    if (attempts === 1) {
-      resultDiv.innerHTML = `<div class="wrong">❌ Falsch! Du hast noch einen Versuch.</div>`;
-      document.getElementById("answer").value = "";
+];
+
+
+// Fragenpools - neue fragen hier nach dem = eingeben
+const hardQuestions = [
+  {
+    question: "Zwei Körper (m₁ = 3 kg, m₂ = 5 kg) sind über ein ideales Seil verbunden. Berechne die Beschleunigung.",
+    formula: "a = g · (m₂ − m₁) / (m₁ + m₂)",
+    values: { "m₁": 3, "m₂": 5, "g": 9.81 },
+    unit: "m/s²",
+    solution: 2.45,
+    steps: "a = 9.81 × (5 − 3) / (3 + 5) = 9.81 × 2 / 8 = 2.45 m/s²"
+  },
+  {
+    question: "Berechne das Drehmoment: J = 0.08 kg·m², α = 5 rad/s²",
+    formula: "M = J · α",
+    values: { "J": 0.08, "α": 5 },
+    unit: "Nm",
+    solution: 0.4,
+    steps: "M = 0.08 × 5 = 0.4 Nm"
+  },
+  {
+    question: "Ein Körper (m = 10 kg) gleitet einen Hang (α = 30°) mit μ = 0.2 hinab. Berechne die Beschleunigung.",
+    formula: "a = g · (sin(α) − μ · cos(α))",
+    values: { "g": 9.81, "sin(30°)": 0.5, "μ": 0.2, "cos(30°)": 0.866 },
+    unit: "m/s²",
+    solution: 3.22,
+    steps: "a = 9.81 × (0.5 − 0.2 × 0.866) = 9.81 × 0.3268 = 3.22 m/s²"
+  },
+  {
+    question: "Ein Auto (m = 1200 kg) kollidiert elastisch mit einem ruhenden Objekt (m = 800 kg) bei v = 10 m/s. Berechne die Endgeschwindigkeiten.",
+    formula: "v₁' = [(m₁−m₂)/(m₁+m₂)]·v₁, v₂' = [2m₁/(m₁+m₂)]·v₁",
+    values: { "m₁": 1200, "m₂": 800, "v₁": 10 },
+    unit: "m/s",
+    solution: { "v₁'": 2, "v₂'": 12 },
+    steps: "v₁' = (1200−800)/(2000)·10 = 0.2·10 = 2 m/s; v₂' = 2·1200/2000·10 = 1.2·10 = 12 m/s"
+  },
+  {
+    question: "Berechne die Seilkraft bei m₁ = 3 kg, m₂ = 5 kg, a = 2.45 m/s²",
+    formula: "T = m₁ · (g + a)",
+    values: { "m₁": 3, "g": 9.81, "a": 2.45 },
+    unit: "N",
+    solution: 36.78,
+    steps: "T = 3 × (9.81 + 2.45) = 3 × 12.26 = 36.78 N"
+  },
+  {
+    question: "Ein Fahrzeug (m = 1500 kg) fährt mit 25 m/s in eine Vollbremsung über 60 m. Berechne die Bremskraft.",
+    formula: "F = m · a, a = −v² / (2·s)",
+    values: { "m": 1500, "v": 25, "s": 60 },
+    unit: "N",
+    solution: -7812.5,
+    steps: "a = −(25²)/(2·60) = −625 / 120 = −5.21 m/s²; F = 1500 × (−5.21) = −7812.5 N"
+  },
+  {
+    question: "Ein Kreisel erfährt ein konstantes Drehmoment von 0.5 Nm bei einem Trägheitsmoment J = 0.2 kg·m². Berechne die Winkelbeschleunigung.",
+    formula: "α = M / J",
+    values: { "M": 0.5, "J": 0.2 },
+    unit: "rad/s²",
+    solution: 2.5,
+    steps: "α = 0.5 / 0.2 = 2.5 rad/s²"
+  },
+  {
+    question: "Ein Seilzug zieht 400 kg gleichmäßig eine Rampe von 6 m Länge mit 30° Neigung hoch. Berechne die notwendige Zugkraft ohne Reibung.",
+    formula: "F = m · g · sin(α)",
+    values: { "m": 400, "g": 9.81, "sin(30°)": 0.5 },
+    unit: "N",
+    solution: 1962,
+    steps: "F = 400 × 9.81 × 0.5 = 1962 N"
+  },
+  {
+    question: "Ein Karussell dreht sich mit konstanter Winkelgeschwindigkeit ω = 2 rad/s, Radius = 3 m, m = 50 kg. Berechne die Zentripetalkraft.",
+    formula: "F = m · r · ω²",
+    values: { "m": 50, "r": 3, "ω": 2 },
+    unit: "N",
+    solution: 600,
+    steps: "F = 50 × 3 × 4 = 600 N"
+  },
+  {
+    question: "Ein Objekt durchläuft eine Kreisbahn mit 10 m Radius bei 8 m/s. Berechne die Zentripetalbeschleunigung.",
+    formula: "a = v² / r",
+    values: { "v": 8, "r": 10 },
+    unit: "m/s²",
+    solution: 6.4,
+    steps: "a = 64 / 10 = 6.4 m/s²"
+  }
+];
+
+
+let questions = [], shuffledQuestions = [], currentIndex = 0, score = 0, attempts = 0;
+
+function startQuiz(level){
+    if(level === "easy") questions = easyQuestions;
+    if(level === "medium") questions = mediumQuestions;
+    if(level === "hard") questions = hardQuestions;
+
+    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+    currentIndex = 0; score = 0;
+    updateStatus(); updateProgress(); showQuestion();
+}
+
+function showQuestion(){
+    const q = shuffledQuestions[currentIndex];
+    const quizArea = document.getElementById("quiz-area");
+    quizArea.innerHTML = `
+        <div class="question">${currentIndex+1}. ${q.question}</div>
+        <div class="values">Gegeben: ${Object.entries(q.values).map(([k,v])=>`${k} = ${v}`).join(", ")}</div>
+        <div class="input-row"><input type="number" step="0.01" id="answer"> ${q.unit}</div>
+        <div class="buttons">
+            <button class="btn-primary" onclick="checkAnswer()">Auswerten</button>
+            <button class="btn-hint" onclick="showHint()">Hinweis</button>
+        </div>
+        <div class="hint">Formel: \\(${q.formula}\\)</div>
+        <div class="result" id="result"></div>
+    `;
+    MathJax.typeset(); attempts = 0;
+}
+
+function showHint(){ document.querySelector(".hint").style.display = "block"; }
+
+function checkAnswer(){
+    const q = shuffledQuestions[currentIndex], userVal = parseFloat(document.getElementById("answer").value);
+    const resultDiv = document.getElementById("result"), inputField = document.getElementById("answer");
+    if(isNaN(userVal)){ alert("Bitte gib eine Zahl ein."); return; }
+    attempts++;
+    if(Math.abs(userVal - q.solution) <= 0.1){
+        resultDiv.innerHTML = `<div class="correct">✔ Richtig! ${q.solution} ${q.unit}<br>${q.steps}</div>`;
+        score++; inputField.disabled = true; showNextButton();
+    } else if(attempts === 1){
+        resultDiv.innerHTML = `<div class="wrong">❌ Falsch! Noch ein Versuch.</div>`; inputField.value = "";
     } else {
-      resultDiv.innerHTML = `<div class="wrong">
-        ❌ Leider falsch.<br>
-        Richtige Lösung: ${q.solution} ${q.unit}<br>
-        Formel: \\(${q.formula}\\)<br>
-        Rechenweg: ${q.steps}
-      </div>`;
-      MathJax.typeset();
-      nextButton();
+        resultDiv.innerHTML = `<div class="wrong">❌ Leider falsch.<br>Lösung: ${q.solution} ${q.unit}<br>${q.steps}</div>`;
+        inputField.disabled = true; showNextButton();
     }
-  }
+    MathJax.typeset();
 }
 
-function nextButton() {
-  const quizArea = document.getElementById("quiz-area");
-  if (currentIndex < shuffledQuestions.length - 1) {
-    quizArea.innerHTML += `<button class="btn-primary" onclick="nextQuestion()">Weiter</button>`;
-  } else {
-    quizArea.innerHTML += `<button class="btn-primary" onclick="endQuiz()">Quiz beenden</button>`;
-  }
+function showNextButton(){
+    const quizArea = document.getElementById("quiz-area");
+    if(!document.getElementById("nextBtn")){
+        quizArea.innerHTML += currentIndex < shuffledQuestions.length - 1
+            ? `<button id="nextBtn" class="btn-primary" onclick="nextQuestion()">Weiter</button>`
+            : `<button id="nextBtn" class="btn-primary" onclick="endQuiz()">Quiz beenden</button>`;
+    }
 }
 
-function nextQuestion() {
-  currentIndex++;
-  updateStatus();
-  updateProgress();
-  showQuestion();
-}
-
-function updateStatus() {
-  document.getElementById("status").textContent = `Frage ${currentIndex + 1} von ${questions.length}`;
-}
-
-function updateProgress() {
-  const progress = document.getElementById("progress");
-  const percent = (currentIndex / questions.length) * 100;
-  progress.style.width = percent + "%";
-}
-
-function endQuiz() {
-  document.getElementById("quiz-area").innerHTML = `
-    <div class="score-box">Endergebnis: ${score}/${questions.length} richtig ✅</div>
-    <div class="level-buttons">
-      <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
-      <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
-      <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
-    </div>
-  `;
-  document.getElementById("status").textContent = "Quiz abgeschlossen!";
-  updateProgress();
+function nextQuestion(){ currentIndex++; updateStatus(); updateProgress(); showQuestion(); }
+function updateStatus(){ document.getElementById("status").textContent = `Frage ${currentIndex+1} von ${questions.length}`; }
+function updateProgress(){ document.getElementById("progress").style.width = (currentIndex / questions.length) * 100 + "%"; }
+function endQuiz(){
+    document.getElementById("quiz-area").innerHTML = `<div class="score-box">Endergebnis: ${score}/${questions.length}</div>
+        <div class="level-buttons"><button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+        <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+        <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button></div>`;
+    document.getElementById("status").textContent = "Quiz abgeschlossen!"; updateProgress();
 }
 </script>
 </body>
