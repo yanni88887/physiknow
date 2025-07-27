@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamik-Quiz | PhysikNow</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f3f6fb;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1e1e2f;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #00d4ff;
+    }
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #00d4ff;
+    }
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .progress-bar {
+      width: 90%;
+      margin: 10px auto;
+      background: #ddd;
+      height: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 12px;
+      background: #0066ff;
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .level-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .question {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .values {
+      background: #eef4ff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .input-row {
+      margin-bottom: 15px;
+    }
+    input[type="number"] {
+      width: 120px;
+      padding: 8px;
+      font-size: 1.1rem;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      margin-right: 8px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-primary {
+      background: #0066ff;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #004bbd;
+    }
+    .btn-hint {
+      background: #8e44ad;
+      color: #fff;
+    }
+    .btn-hint:hover {
+      background: #732d91;
+    }
+    .hint {
+      display: none;
+      margin-top: 10px;
+      padding: 16px;
+      background: #f4eafc;
+      border-left: 6px solid #8e44ad;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #333;
+      text-align: center;
+      border-radius: 6px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .correct {
+      background: #d4f8d4;
+      color: #206020;
+    }
+    .wrong {
+      background: #ffd6d6;
+      color: #8b0000;
+    }
+    .score-box {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PhysikNow</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Start</a></li>
+        <li><a href="#">Lerninhalt</a></li>
+        <li><a href="#">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="status" id="status">Frage 0 von 0</div>
+  <div class="progress-bar"><div class="progress" id="progress"></div></div>
+  <div class="container" id="quiz-area">
+    <h2>Wähle deinen Schwierigkeitsgrad</h2>
+    <div class="level-buttons">
+      <button class="btn-primary" onclick="startQuiz('easy')">Einführung</button>
+      <button class="btn-primary" onclick="startQuiz('medium')">Fortgeschritten</button>
+      <button class="btn-primary" onclick="startQuiz('hard')">Schwer</button>
+    </div>
+  </div>
+  <div id="score" class="score-box"></div>
+  <script>
+    // ... (JS-Code wie bereits enthalten)
+  </script>
+</body>
+</html>
