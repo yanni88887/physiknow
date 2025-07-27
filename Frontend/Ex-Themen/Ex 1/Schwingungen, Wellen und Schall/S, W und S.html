@@ -135,23 +135,14 @@
 <div class="toc-box">
   <h3>Inhaltsübersicht</h3>
    <ul>
-    <li><a href="#kapitel-1">1. Einführung in die Thermodynamik</a></li>
-    <li><a href="#kapitel-2">2. Grundlagen und Zustandsgrößen</a></li>
-    <li><a href="#kapitel-3">3. Ideale Gase und Gasgesetze</a></li>
-    <li><a href="#kapitel-4">4. Arbeit und Wärme</a></li>
-    <li><a href="#kapitel-5">5. Erster Hauptsatz der Thermodynamik</a></li>
-    <li><a href="#kapitel-6">6. Zweiter Hauptsatz und Entropie</a></li>
-    <li><a href="#kapitel-7">7. Entropie im Detail & T-S-Diagramme</a></li>
-    <li><a href="#kapitel-8">8. Thermodynamische Kreisprozesse</a></li>
-    <li><a href="#kapitel-9">9. Reale Gase & Zustandsgleichungen</a></li>
-    <li><a href="#kapitel-10">10. Mischungen, Feuchte Luft & Partialdruck</a></li>
-    <li><a href="#kapitel-11">11. Wärmeübertragung</a></li>
-    <li><a href="#kapitel-12">12. Wärmekraftmaschinen & Energieumwandlung</a></li>
-    <li><a href="#kapitel-13">13. Technische Anwendungen & Beispiele</a></li>
-    <li><a href="#kapitel-14">14. Typische Fehler & Prüfungsfallen</a></li>
-    <li><a href="#kapitel-15">15. Formelsammlung & Zusammenfassung</a></li>
+    <li><a href="#kapitel-1">1. Grundlagen</a></li>
+    <li><a href="#kapitel-2">2. Schwingungen</a></li>
+    <li><a href="#kapitel-3">3. Wellen</a></li>
+    <li><a href="#kapitel-4">4. Schall</a></li>
+    <li><a href="#kapitel-5">5. Erweiterte Themen & Anwendungen</a></li>
   </ul>
 </div>
+
 
 <!-- Kapitel 1: Grundlagen -->
 <section id="kapitel-1">
@@ -609,30 +600,77 @@
   </div>
 </section>
 
-<!-- 3.5 Überlagerung und stehende Wellen -->
 <section id="ueberlagerung">
   <div class="container">
     <h3>3.5 Überlagerung und stehende Wellen</h3>
     <p>
-      Treffen zwei Wellen gleicher Frequenz aufeinander, überlagern sie sich (Superposition):
+      Wenn sich zwei oder mehr Wellen im Raum überlagern, gilt das <strong>Superpositionsprinzip</strong>:
     </p>
-    <ul>
-      <li><strong>Konstruktive Interferenz:</strong> Amplituden addieren sich.</li>
-      <li><strong>Destruktive Interferenz:</strong> Amplituden heben sich auf.</li>
-    </ul>
+    <div class="highlight">
+      <p>Die Gesamtamplitude an einem Punkt ist die Summe der Einzelamplituden.</p>
+    </div>
 
+    <h4>Konstruktive Interferenz:</h4>
     <p>
-      Stehende Wellen entstehen, wenn sich zwei gleich starke Wellen entgegengesetzt ausbreiten:
+      Die Wellen sind <strong>in Phase</strong> (Maxima treffen auf Maxima):
+    </p>
+    <div class="highlight">
+      <p>Resultierende Amplitude: A<sub>gesamt</sub> = A₁ + A₂</p>
+    </div>
+
+    <h4>Destruktive Interferenz:</h4>
+    <p>
+      Die Wellen sind <strong>gegenphasig</strong> (Maxima treffen auf Minima):
+    </p>
+    <div class="highlight">
+      <p>Resultierende Amplitude: A<sub>gesamt</sub> = |A₁ − A₂|</p>
+    </div>
+
+    <hr>
+
+    <h4>Stehende Wellen:</h4>
+    <p>
+      Entstehen, wenn sich zwei gleich große harmonische Wellen mit gleicher Frequenz und Amplitude 
+      in entgegengesetzter Richtung ausbreiten. Die resultierende Welle hat die Form:
     </p>
     <div class="highlight">
       <p>y(x, t) = 2A · sin(kx) · cos(ωt)</p>
     </div>
+    <ul>
+      <li>Knoten: Punkte mit y = 0 (keine Auslenkung) → Abstand = λ / 2</li>
+      <li>Bäuche: Punkte mit maximaler Auslenkung → Abstand = λ / 2</li>
+    </ul>
+
+    <h4>Eigenschaften einer stehenden Welle:</h4>
+    <ul>
+      <li>Die Welle breitet sich nicht fort, die Schwingung bleibt lokal.</li>
+      <li>Knoten und Bäuche sind fest im Raum verankert.</li>
+    </ul>
+
+    <hr>
+
+    <h4>Beispiel: Stehende Welle auf einer Gitarrensaite</h4>
+    <p>
+      Länge der Saite: L = 0,65 m  
+      Ausbreitungsgeschwindigkeit der Welle: c = 520 m/s  
+      Grundschwingung (n = 1): λ = 2 · L = 1,30 m  
+    </p>
+    <div class="highlight">
+      <p>f₁ = c / λ = 520 / 1,30 ≈ 400 Hz (Tonhöhe: etwa G<sub>4</sub>)</p>
+    </div>
 
     <p>
-      Knoten: Stellen ohne Auslenkung → Abstand = λ/2.
+      Für die 2. Harmonische (n = 2): λ₂ = L  
+      <br>f₂ = 2 · f₁ = 800 Hz  
     </p>
+    <div class="highlight">
+      <strong>Interpretation:</strong><br>
+      Die Knoten sind an den Befestigungspunkten der Saite, die Bäuche liegen dazwischen. 
+      Dies ist die physikalische Grundlage für die Tonerzeugung von Saiteninstrumenten.
+    </div>
   </div>
 </section>
+
 
 <!-- 3.6 Reflexion, Brechung, Beugung -->
 <section id="reflexion">
@@ -646,8 +684,342 @@
   </div>
 </section>
 
+ <section id="kapitel-4">
+  <div class="container">
+    <h2>4. Schall</h2>
+    <p>
+      Schall ist eine mechanische Longitudinalwelle, die sich in Gasen, Flüssigkeiten oder Festkörpern ausbreitet. 
+      Im Folgenden werden Grundlagen, Schallgeschwindigkeit, akustische Größen und Anwendungen betrachtet.
+    </p>
+  </div>
+</section>
 
- <a href="quiz.html" class="quiz-btn">Quiz zu Thermodynamik starten</a>
+<!-- 4.1 Schall als Longitudinalwelle -->
+<section id="schall-longitudinal">
+  <div class="container">
+    <h3>4.1 Schall als Longitudinalwelle</h3>
+    <p>
+      Bei einer Schallwelle schwingen Teilchen in Ausbreitungsrichtung. 
+      Es entstehen abwechselnd Verdichtungen und Verdünnungen im Medium.
+    </p>
+    <div class="highlight">
+      <p>Bewegungsgleichung der Schallwelle:  
+      ∂²p/∂t² = c² · ∂²p/∂x²  
+      (analog zur Wellengleichung für Druckschwankungen p(x, t))</p>
+    </div>
+    <p>
+      <strong>Beispiele:</strong> Sprache, Musik, Maschinenlärm.
+    </p>
+  </div>
+</section>
+
+<!-- 4.2 Schallgeschwindigkeit -->
+<section id="schallgeschwindigkeit">
+  <div class="container">
+    <h3>4.2 Schallgeschwindigkeit</h3>
+    <p>
+      Die Schallgeschwindigkeit hängt vom Medium ab. Für Gase gilt:
+    </p>
+    <div class="highlight">
+      <p>c = √(κ · p / ρ) = √(γ · R · T)</p>
+      <ul>
+        <li>κ oder γ: Adiabatenexponent (für Luft ≈ 1,4)</li>
+        <li>p: Druck [Pa]</li>
+        <li>ρ: Dichte [kg/m³]</li>
+        <li>R: Gaskonstante</li>
+        <li>T: Temperatur [K]</li>
+      </ul>
+    </div>
+    <p>
+      Für Luft bei 20 °C:
+    </p>
+    <div class="highlight">
+      <p>c ≈ 343 m/s</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4.3 Akustische Größen -->
+<section id="akustische-groessen">
+  <div class="container">
+    <h3>4.3 Akustische Größen</h3>
+    <p>
+      Wichtige Kenngrößen:
+    </p>
+    <ul>
+      <li><strong>Schalldruck:</strong> p [Pa]</li>
+      <li><strong>Schallintensität:</strong> I = P / A [W/m²]</li>
+      <li><strong>Schallleistung:</strong> P [W]</li>
+    </ul>
+
+    <h4>Schalldruckpegel in dB:</h4>
+    <div class="highlight">
+      <p>L<sub>p</sub> = 20 · log₁₀(p / p₀)</p>
+      <ul>
+        <li>p₀ = 20 μPa (Hörschwelle)</li>
+      </ul>
+    </div>
+    <p>
+      <strong>Beispiele:</strong>
+    </p>
+    <ul>
+      <li>0 dB → Hörschwelle</li>
+      <li>60 dB → normales Gespräch</li>
+      <li>120 dB → Schmerzgrenze</li>
+    </ul>
+  </div>
+  <div class="container">
+    <h3>Beispiel: Berechnung des Schalldruckpegels</h3>
+    <p>
+      Gegeben: Schalldruck p = 0,2 Pa.  
+      Berechne den Schalldruckpegel:
+    </p>
+    <div class="highlight">
+      <p>
+      L<sub>p</sub> = 20 · log₁₀(p / p₀) = 20 · log₁₀(0,2 / 20·10⁻⁶)  
+      = 20 · log₁₀(10⁴) = 20 · 4 = 80 dB
+      </p>
+    </div>
+    <p>
+      <strong>Interpretation:</strong> 80 dB entspricht Verkehrslärm – gesundheitsschädlich bei Dauerbelastung.
+    </p>
+  </div>
+</section>
+
+<section id="wahrnehmung">
+  <div class="container">
+    <h3>4.4 Wahrnehmungsgrößen</h3>
+    <p>
+      Die physikalischen Größen (Frequenz, Schalldruck) bestimmen die Eigenschaften des Schalls, 
+      aber die menschliche Wahrnehmung hängt von der Empfindlichkeit des Gehörs ab. 
+      Es gibt drei wesentliche subjektive Wahrnehmungsgrößen:
+    </p>
+
+    <h4>1. Lautstärke (Subjektive Empfindung der Schallintensität)</h4>
+    <p>
+      Lautstärke ist nicht proportional zum Schalldruck, sondern folgt einer logarithmischen Wahrnehmung (Weber-Fechner-Gesetz).
+      Verdoppelt man die Schallintensität, wird der Ton nur leicht lauter wahrgenommen.
+    </p>
+    <ul>
+      <li>Maßeinheit: Sone (subjektive Lautheit).</li>
+      <li>Referenz: 1 Sone ≈ 40 dB bei 1 kHz.</li>
+      <li>Richtwert: +10 dB ≈ Verdoppelung der empfundenen Lautstärke.</li>
+    </ul>
+    <div class="highlight">
+      <strong>Beispiel:</strong> 60 dB (normales Gespräch) → 70 dB (Straßenlärm) klingt ungefähr doppelt so laut.
+    </div>
+
+    <hr>
+
+    <h4>2. Tonhöhe (Abhängig von der Frequenz)</h4>
+    <p>
+      Die Tonhöhe wird von der Frequenz bestimmt, aber die Wahrnehmung ist nicht linear: 
+      Der Frequenzbereich des menschlichen Gehörs liegt bei etwa 16 Hz bis 20.000 Hz.
+    </p>
+    <ul>
+      <li>Niederfrequent: < 100 Hz → tiefe Töne (Brummen).</li>
+      <li>Mittelfrequenz: 500 – 2000 Hz → Sprachbereich (höchste Empfindlichkeit).</li>
+      <li>Hochfrequent: > 10.000 Hz → schrille Töne.</li>
+    </ul>
+    <div class="highlight">
+      <strong>Beispiel:</strong> Ein Ton mit f = 880 Hz (Kammerton A’) klingt eine Oktave höher als f = 440 Hz.
+    </div>
+
+    <hr>
+
+    <h4>3. Klangfarbe (Charakter des Tones)</h4>
+    <p>
+      Die Klangfarbe wird durch die Zusammensetzung von Grundton und Oberwellen bestimmt. 
+      Zwei Instrumente mit gleicher Frequenz und Lautstärke klingen unterschiedlich, weil sie unterschiedliche Obertonspektren besitzen.
+    </p>
+    <ul>
+      <li>Reiner Sinuston → keine Oberwellen (künstlich, langweilig).</li>
+      <li>Instrumente → komplexe Spektren (Obertonreihen).</li>
+    </ul>
+    <div class="highlight">
+      <strong>Beispiel:</strong> Geige und Klavier bei 440 Hz: gleiche Tonhöhe, aber unterschiedliche Klangfarbe.
+    </div>
+
+    <hr>
+
+    <h4>Psychophysikalische Skalen:</h4>
+    <p>
+      Für die Hörwahrnehmung werden spezielle Einheiten verwendet:
+    </p>
+    <ul>
+      <li><strong>Phon:</strong> Lautstärkepegel bei 1 kHz.</li>
+      <li><strong>Sone:</strong> subjektive Lautheit, definiert relativ zu 40 dB bei 1 kHz.</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Merksatz:</strong> Frequenz → Tonhöhe, Intensität → Lautstärke, Obertonstruktur → Klangfarbe.
+    </div>
+  </div>
+</section>
+
+
+<section id="doppler">
+  <div class="container">
+    <h3>4.5 Doppler-Effekt</h3>
+    <p>
+      Der Doppler-Effekt beschreibt die Änderung der wahrgenommenen Frequenz, wenn sich die Schallquelle und/oder der Beobachter relativ zueinander bewegen.
+      Dieses Phänomen tritt nicht nur bei Schall, sondern auch bei elektromagnetischen Wellen (z. B. Licht) auf.
+    </p>
+
+    <h4>Grundprinzip:</h4>
+    <ul>
+      <li>Bewegt sich die Quelle <strong>auf den Beobachter zu</strong>, erscheinen die Wellen <strong>gestaucht</strong> → höhere Frequenz (höherer Ton).</li>
+      <li>Bewegt sich die Quelle <strong>vom Beobachter weg</strong>, erscheinen die Wellen <strong>gedehnt</strong> → niedrigere Frequenz (tieferer Ton).</li>
+    </ul>
+
+    <hr>
+
+    <h4>Allgemeine Formel:</h4>
+    <div class="highlight">
+      <p>
+      f' = f · (c ± v<sub>Beobachter</sub>) / (c ∓ v<sub>Quelle</sub>)
+      </p>
+      <ul>
+        <li>f': wahrgenommene Frequenz [Hz]</li>
+        <li>f: Originalfrequenz [Hz]</li>
+        <li>c: Schallgeschwindigkeit (≈ 343 m/s in Luft)</li>
+        <li>v<sub>Beobachter</sub>: Geschwindigkeit des Beobachters</li>
+        <li>v<sub>Quelle</sub>: Geschwindigkeit der Quelle</li>
+      </ul>
+      <p>
+        Vorzeichenregel:  
+        <strong>(+)</strong>, wenn Bewegung <em>aufeinander zu</em> erfolgt;  
+        <strong>(−)</strong>, wenn Bewegung <em>voneinander weg</em> erfolgt.
+      </p>
+    </div>
+
+    <hr>
+
+    <h4>Anwendungsbeispiele:</h4>
+    <ul>
+      <li>Martinshorn eines Krankenwagens (Ton wird höher beim Näherkommen, tiefer beim Entfernen).</li>
+      <li>Radargeräte zur Geschwindigkeitsmessung (Doppler-Radar).</li>
+      <li>Astronomie: Rot- und Blauverschiebung bei Licht (Bewegung von Sternen und Galaxien).</li>
+      <li>Medizin: Doppler-Ultraschall zur Blutflussmessung.</li>
+    </ul>
+
+    <hr>
+
+    <h4>Beispielrechnung:</h4>
+    <p>
+      Ein Krankenwagen mit einer Sirene von f = 800 Hz fährt mit 30 m/s (≈108 km/h) auf einen stehenden Beobachter zu.  
+      Schallgeschwindigkeit: c = 343 m/s.
+    </p>
+    <div class="highlight">
+      <p>
+      f' = 800 · (343 / (343 − 30)) = 800 · (343 / 313) ≈ 800 · 1,095 ≈ 876 Hz  
+      → Ton klingt um ca. 76 Hz höher.
+      </p>
+    </div>
+    <p>
+      Wenn sich das Fahrzeug entfernt:
+    </p>
+    <div class="highlight">
+      <p>
+      f' = 800 · (343 / (343 + 30)) = 800 · (343 / 373) ≈ 800 · 0,919 ≈ 735 Hz  
+      → Ton klingt um ca. 65 Hz tiefer.
+      </p>
+    </div>
+
+    <div class="highlight">
+      <strong>Interpretation:</strong><br>
+      Der Frequenzunterschied ist für das menschliche Ohr deutlich wahrnehmbar – 
+      deshalb hört sich ein Martinshorn beim Vorbeifahren "kippend" an.
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-5">
+  <div class="container">
+    <h2>5. Erweiterte Themen & Anwendungen</h2>
+    <p>
+      Dieses Kapitel fasst besondere Phänomene und technische Anwendungen im Zusammenhang mit Schwingungen, Wellen und Schall zusammen.
+    </p>
+  </div>
+</section>
+
+<!-- 5.1 Resonanz -->
+<section id="resonanz">
+  <div class="container">
+    <h3>5.1 Resonanz und Schwingungsprobleme</h3>
+    <p>
+      Resonanz tritt auf, wenn die Erregerfrequenz mit der Eigenfrequenz des Systems übereinstimmt. 
+      Die Amplitude wächst stark an – bei fehlender Dämpfung kann dies zu Zerstörungen führen.
+    </p>
+    <div class="highlight">
+      <p><strong>Beispiel:</strong> Tacoma-Narrows-Brücke (1940) stürzte durch Resonanz bei Windlast ein.</p>
+    </div>
+    <p>
+      <strong>Gegenmaßnahmen:</strong> Dämpfer einbauen, Eigenfrequenzen verändern.
+    </p>
+  </div>
+</section>
+
+<!-- 5.2 Kopplung -->
+<section id="kopplung">
+  <div class="container">
+    <h3>5.2 Kopplung von Schwingungen</h3>
+    <p>
+      Werden zwei oder mehr Schwinger gekoppelt, treten Normalmoden auf. 
+      Typisches Verhalten: Energieaustausch zwischen den Schwingern (z. B. bei Molekülen oder Pendeln).
+    </p>
+    <div class="highlight">
+      <p><strong>Beispiel:</strong> Zwei gekoppelte Pendel → Schwebungseffekt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5.3 Ultraschall & Infraschall -->
+<section id="ultraschall">
+  <div class="container">
+    <h3>5.3 Ultraschall und Infraschall</h3>
+    <p>
+      <strong>Ultraschall:</strong> f > 20 kHz → Anwendungen in Medizin (Sonografie), Industrie (Materialprüfung).  
+      <strong>Infraschall:</strong> f < 16 Hz → spürbar, aber nicht hörbar; z. B. bei Erdbeben.
+    </p>
+  </div>
+</section>
+
+<!-- 5.4 Raumakustik -->
+<section id="raumakustik">
+  <div class="container">
+    <h3>5.4 Schall in Räumen (Raumakustik)</h3>
+    <p>
+      Nachhallzeit T<sub>60</sub>: Zeit, bis Schallpegel um 60 dB sinkt.  
+      Sabine-Formel:
+    </p>
+    <div class="highlight">
+      <p>T<sub>60</sub> = 0,163 · V / A  
+      (V: Raumvolumen [m³], A: Absorptionsfläche [m²])</p>
+    </div>
+    <p>
+      <strong>Beispiel:</strong> Konzertsäle optimieren Nachhall für gute Klangqualität.
+    </p>
+  </div>
+</section>
+
+<!-- 5.5 Schwingungsisolierung -->
+<section id="isolierung">
+  <div class="container">
+    <h3>5.5 Schwingungsisolierung in Technik</h3>
+    <p>
+      Maschinen und Gebäude werden durch Feder- und Dämpfersysteme vor Vibrationen geschützt. 
+      Ziel: Resonanz vermeiden, Komfort und Sicherheit erhöhen.
+    </p>
+    <div class="highlight">
+      <p><strong>Anwendung:</strong> Motorlagerungen, Erdbebenschutz bei Hochhäusern.</p>
+    </div>
+  </div>
+</section>
+
+
+
+ <a href="quiz.html" class="quiz-btn">Quiz zu Schwingungen, Wellen und Schall starten</a>
 <footer>
     &copy; 2025 PhysikNow | Thermodynamik
 </footer>
