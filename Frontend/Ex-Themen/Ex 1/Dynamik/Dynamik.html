@@ -6,87 +6,213 @@
 <title>Dynamik | PhysikNow</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <style>
+/* RESET & BASIS */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  color: #333;
-  margin: 0;
-  padding: 0;
+    background: #f8f9fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+/* HEADER */
 header {
-  background: #1e1e2f;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 header h1 {
-  font-size: 1.5rem;
-  color: #00d4ff;
+    font-size: 1.5rem;
+    color: #00d4ff;
 }
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
 }
 nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 nav a:hover {
-  color: #00d4ff;
+    color: #00d4ff;
 }
+
+/* HERO (volle Breite) */
 .hero {
-  background: linear-gradient(135deg, #00d4ff, #0066ff);
-  color: white;
-  padding: 2rem;
-  text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #00d4ff, #0066ff);
+    color: #fff;
+    text-align: center;
 }
-section {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-  line-height: 1.6;
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
 }
-.cta-box {
-  background: #f1f8ff;
-  padding: 15px;
-  border-left: 5px solid #2196f3;
-  margin: 20px 0;
+.hero p {
+    font-size: 1.3rem;
+}
+
+/* TOC-BOX (Inhaltsübersicht) */
+.toc-box {
+    background: #fff;
+    padding: 20px;
+    border: 2px solid #0066ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 900px;
+}
+.toc-box h3 {
+    color: #0066ff;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+.toc-box ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
+    gap: 0.8rem 2rem; /* vertikal | horizontal */
+    padding-left: 0;
+    list-style: none;
+    margin: 0 auto;
+}
+.toc-box li {
+    font-size: 1rem;
+}
+.toc-box a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.toc-box a:hover {
+    color: #0066ff;
+}
+
+/* SECTIONS */
+section:not(.hero) {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+    padding: 20px;
+    line-height: 1.8;
+}
+section h3 {
+    font-size: 1.8rem;
+    color: #0066ff;
+    margin-top: 2rem;
+}
+section h4 {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    color: #444;
+}
+section p {
+    margin-bottom: 1rem;
+}
+section ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* CTA-BOX & FORMEL */
+.cta-box, .formel-box {
+    background: #f1f8ff;
+    padding: 15px;
+    border-left: 5px solid #2196f3;
+    margin: 20px 0;
+    border-radius: 8px;
 }
 .formel-box {
-  background: #f7f7f7;
-  padding: 15px;
-  border-left: 5px solid #0073e6;
-  margin: 20px 0;
+    border-left: 5px solid #0073e6;
+    background: #f7f7f7;
+    text-align: center;
+    font-size: 1.2rem;
 }
+
+/* QUIZ-BUTTON */
+.quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto;
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+.quiz-btn:hover { background: #004bbd; }
+
+/* FOOTER */
 footer {
-  background: #1e1e2f;
-  color: #bbb;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+    background: #1e1e2f;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
 }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>PhysikNow</h1>
-  <nav>
-    <ul>
-      <li><a href="#">Start</a></li>
-      <li><a href="#">Vorlage</a></li>
-      <li><a href="#">Quiz</a></li>
-    </ul>
-  </nav>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Vorlage</a></li>
+            <li><a href="#">Quiz</a></li>
+        </ul>
+    </nav>
 </header>
+
 <section class="hero">
-  <h2>Dynamik</h2>
-  <p>Die Lehre von Kräften und ihren Wirkungen – Grundlage der klassischen Mechanik</p>
+    <h2>Dynamik</h2>
+    <p>Die Lehre von Kräften und ihren Wirkungen – Grundlage der klassischen Mechanik</p>
 </section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+    <h3>Inhaltsübersicht</h3>
+    <ul>
+        <li><a href="#einleitung">1. Einführung</a></li>
+        <li><a href="#grundlagen">2. Grundlagen</a></li>
+        <li><a href="#bewegung-1d">3. Bewegung in 1D</a></li>
+        <li><a href="#bewegung-2d">4. Bewegung in 2D/3D</a></li>
+        <li><a href="#kreisrotation">5. Kreisbewegung</a></li>
+        <li><a href="#zusammengesetzte-bewegungen">6. Zusammengesetzte Bewegungen</a></li>
+        <li><a href="#starre-koerper">7. Starre Körper</a></li>
+        <li><a href="#diagramme">8. Diagramme</a></li>
+        <li><a href="#gleichungen">9. Gleichungen</a></li>
+        <li><a href="#praxis">10. Anwendungen</a></li>
+        <li><a href="#fehler">11. Fehler</a></li>
+        <li><a href="#fortgeschritten">12. Erweiterte Themen</a></li>
+        <li><a href="#formelsammlung">13. Formelsammlung</a></li>
+    </ul>
+</div>
+
 <section id="einleitung">
   <h1>Kapitel 1: Einführung in die Dynamik</h1>
   <p><strong>Dynamik</strong> untersucht, wie Kräfte auf Körper wirken und wie sie Bewegungen hervorrufen oder verändern. Sie ergänzt die Kinematik, die nur beschreibt, nicht erklärt.</p>
@@ -1065,23 +1191,7 @@ footer {
     </li>
   </ul>
 
-  <h2>14.6 Typische Problemstellungen</h2>
-  <ul>
-    <li>Hangabtrieb mit Reibung</li>
-    <li>Systeme mit mehreren Körpern und Seilen</li>
-    <li>Drehbewegungen und Trägheitsmomente</li>
-    <li>Stoßaufgaben mit Impulserhaltung</li>
-    <li>Kreisbewegungen (Kurvenfahrt, Zentrifuge)</li>
-    <li>Energieumwandlung mit Verlusten</li>
-  </ul>
-
-  <h2>14.7 Rechenstrategien</h2>
-  <ul>
-    <li>Freikörperbild zeichnen</li>
-    <li>Kräfte zerlegen und Gleichungen aufstellen</li>
-    <li>Energie- oder Impulssätze anwenden</li>
-    <li>Ergebnisse auf Plausibilität und Einheiten prüfen</li>
-  </ul>
+  <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
 
   <div class="cta-box">
     <strong>Ende der Gesamtdarstellung</strong><br>
