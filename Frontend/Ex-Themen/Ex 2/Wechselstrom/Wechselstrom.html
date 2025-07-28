@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wechselstrom | Kapitel 1 Einführung</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .toc-box {
+        background: #ffffff;
+        border: 2px solid #0073e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 25px auto;
+        max-width: 800px;
+    }
+    .toc-box h3 {
+        font-size: 18px;
+        color: #0073e6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .toc-box ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        columns: 2;
+    }
+    .toc-box li { margin-bottom: 8px; }
+    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+
+    section {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #0066ff; }
+    h2 { font-size: 1.5rem; margin-top: 1rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    ul { padding-left: 20px; }
+    .highlight {
+        background: #f7f7f7;
+        padding: 15px;
+        border-left: 5px solid #0073e6;
+        margin: 20px 0;
+    }
+    .quiz-btn {
+        display: block;
+        text-align: center;
+        background: #0066ff;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 3rem auto;
+        max-width: 300px;
+        text-decoration: none;
+    }
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Wechselstrom</h2>
+    <p>Grundlagen, Begriffe und Konzepte für dein Studium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+   <ul>
+    <li><a href="#kapitel-1">1. Einführung in die Thermodynamik</a></li>
+    <li><a href="#kapitel-2">2. Grundlagen und Zustandsgrößen</a></li>
+    <li><a href="#kapitel-3">3. Ideale Gase und Gasgesetze</a></li>
+    <li><a href="#kapitel-4">4. Arbeit und Wärme</a></li>
+    <li><a href="#kapitel-5">5. Erster Hauptsatz der Thermodynamik</a></li>
+    <li><a href="#kapitel-6">6. Zweiter Hauptsatz und Entropie</a></li>
+    <li><a href="#kapitel-7">7. Entropie im Detail & T-S-Diagramme</a></li>
+    <li><a href="#kapitel-8">8. Thermodynamische Kreisprozesse</a></li>
+    <li><a href="#kapitel-9">9. Reale Gase & Zustandsgleichungen</a></li>
+    <li><a href="#kapitel-10">10. Mischungen, Feuchte Luft & Partialdruck</a></li>
+    <li><a href="#kapitel-11">11. Wärmeübertragung</a></li>
+    <li><a href="#kapitel-12">12. Wärmekraftmaschinen & Energieumwandlung</a></li>
+    <li><a href="#kapitel-13">13. Technische Anwendungen & Beispiele</a></li>
+    <li><a href="#kapitel-14">14. Typische Fehler & Prüfungsfallen</a></li>
+    <li><a href="#kapitel-15">15. Formelsammlung & Zusammenfassung</a></li>
+  </ul>
+</div>
+
+<!-- Kapitel 1: Einführung in Wechselstrom -->
+<section id="einleitung">
+  <div class="container">
+    <h2>Einführung in Wechselstrom</h2>
+    <p>
+      <strong>Wechselstrom (AC)</strong> ist ein elektrischer Strom, dessen Richtung und Betrag sich periodisch ändern. 
+      Im Gegensatz zu <strong>Gleichstrom (DC)</strong>, der konstant in eine Richtung fließt, schwingt Wechselstrom sinusförmig zwischen einem positiven und einem negativen Wert.
+    </p>
+    <p>
+      In der Energietechnik wird fast ausschließlich Wechselstrom verwendet, da er sich leicht erzeugen, transformieren und über weite Strecken verlustarm transportieren lässt. 
+      In Europa beträgt die Netzfrequenz <strong>50 Hz</strong> (d. h. 50 vollständige Schwingungen pro Sekunde), in den USA <strong>60 Hz</strong>.
+    </p>
+  </div>
+</section>
+
+<section id="grundbegriffe">
+  <div class="container">
+    <h2>1.1 Grundbegriffe des Wechselstroms</h2>
+    <p>
+      Um Wechselstrom zu beschreiben, benötigt man folgende Größen:
+    </p>
+    <ul>
+      <li><strong>Amplitude (\( U_\text{max}, I_\text{max} \)):</strong> Der größte positive oder negative Wert der Spannung bzw. des Stroms.</li>
+      <li><strong>Effektivwert:</strong> Der Wert eines Gleichstroms, der dieselbe Heizwirkung wie der Wechselstrom hätte:
+        \[
+        U_\text{eff} = \frac{U_\text{max}}{\sqrt{2}}, \; I_\text{eff} = \frac{I_\text{max}}{\sqrt{2}}
+        \]
+        Für das Stromnetz: \( U_\text{eff} = 230\ \text{V}, \; U_\text{max} \approx 325\ \text{V} \).
+      </li>
+      <li><strong>Frequenz (\( f \)):</strong> Anzahl der Schwingungen pro Sekunde (Einheit: Hertz [Hz]).</li>
+      <li><strong>Kreisfrequenz (\( \omega \)):</strong> Winkelgeschwindigkeit der Schwingung:
+        \[
+        \omega = 2\pi f
+        \]
+      </li>
+      <li><strong>Periode (\( T \)):</strong> Zeit für eine vollständige Schwingung:
+        \[
+        T = \frac{1}{f}
+        \]
+      </li>
+      <li><strong>Phase (\( \varphi \)):</strong> Lage der Schwingung im Zeitverlauf (wichtig bei mehreren Signalen).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="mathematische-beschreibung">
+  <div class="container">
+    <h2>1.2 Mathematische Beschreibung</h2>
+    <p>
+      Wechselspannung und -strom verlaufen in der Regel sinusförmig und lassen sich wie folgt beschreiben:
+    </p>
+    <div class="highlight">
+      \[
+      u(t) = U_\text{max} \cdot \sin(\omega t + \varphi), \quad
+      i(t) = I_\text{max} \cdot \sin(\omega t + \varphi)
+      \]
+    </div>
+    <p>
+      Hierbei gilt:
+    </p>
+    <ul>
+      <li>\( U_\text{max}, I_\text{max} \): Amplituden (Spitzenwerte) von Spannung und Strom</li>
+      <li>\( \omega = 2\pi f \): Kreisfrequenz (z. B. \( \omega = 2\pi \cdot 50 \approx 314 \,\text{s}^{-1} \))</li>
+      <li>\( \varphi \): Phasenwinkel</li>
+    </ul>
+    <p>
+      Beispiel: Für 50 Hz gilt \( T = 20\ \text{ms}, \omega \approx 314 \,\text{s}^{-1} \).
+    </p>
+  </div>
+</section>
+
+<section id="diagramm">
+  <div style="text-align:center; margin-top:15px;">
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Achsen -->
+  <line x1="50" y1="150.0" x2="570" y2="150.0" stroke="#333" stroke-width="2" />
+  <line x1="50" y1="30" x2="50" y2="270" stroke="#333" stroke-width="2" />
+  
+  <!-- Achsenbeschriftungen -->
+  <text x="580" y="155.0" font-size="16" fill="#333">t</text>
+  <text x="30" y="20" font-size="16" fill="#333">I</text>
+  
+  <!-- Beschriftungen -->
+  <text x="100" y="60.0" font-size="14" fill="#0066ff">+ I<tspan baseline-shift="sub">max</tspan></text>
+  <text x="100" y="250.0" font-size="14" fill="#0066ff">- I<tspan baseline-shift="sub">max</tspan></text>
+  
+  <!-- Sinuskurve (Amplitude reduziert) -->
+  <polyline points="
+    50.00,150.00 55.03,141.66 60.05,133.36 65.08,125.23 70.10,117.39
+    75.13,109.97 80.15,103.07 85.18,96.80 90.20,91.24 95.23,86.48
+    100.25,82.57 105.28,79.56 110.30,77.47 115.33,76.33 120.35,76.14
+    125.38,76.88 130.40,78.55 135.43,81.09 140.45,84.47 145.48,88.65
+    150.50,93.56 155.53,99.14 160.55,105.32 165.58,112.00 170.60,119.10
+    175.63,126.52 180.65,134.16 185.68,141.93 190.70,149.71
+    195.73,157.41 200.75,164.91 205.78,172.12 210.80,178.94
+    215.83,185.27 220.85,191.04 225.88,196.18 230.90,200.63
+    235.93,204.35 240.95,207.30 245.98,209.45 251.00,210.79
+    256.03,211.32 261.05,211.03 266.08,209.93 271.10,208.03
+    276.13,205.36 281.15,201.94 286.18,197.79 291.20,192.94
+    296.23,187.44 301.25,181.32 306.28,174.62 311.30,167.38
+    316.33,159.66 321.35,151.49 326.38,142.94 331.40,134.07
+    336.43,124.93 341.45,115.59 346.48,106.12 351.50,96.57
+    356.53,87.02 359.04,82.86
+  " fill="none" stroke="#0066ff" stroke-width="3" />
+</svg>
+</div>
+
+
+
+
+  </div>
+</section>
+
+<section id="phasor">
+  <div class="container">
+    <h2>1.4 Zeigerdarstellung (Phasoren)</h2>
+    <p>
+      In der Wechselstromrechnung werden Spannungen und Ströme häufig als <strong>Zeiger</strong> dargestellt. 
+      Dazu verwendet man die komplexe Schreibweise:
+    </p>
+    <div class="highlight">
+      \[
+      \underline{U} = U_\text{max} e^{i\varphi}, \quad
+      \underline{I} = I_\text{max} e^{i\varphi}
+      \]
+    </div>
+    <p>
+      Diese Methode erleichtert die Berechnung von Phasenverschiebungen und Impedanzen in RLC-Netzwerken.
+    </p>
+  </div>
+</section>
+
+<section id="bedeutung">
+  <div class="container">
+    <div class="highlight">
+      <strong>1.5 Warum wichtig?</strong>  
+      Wechselstrom ist die Basis der modernen Stromversorgung. Er ermöglicht den Betrieb nahezu aller elektrischen Geräte, effiziente Energieübertragung und den Einsatz von Transformatoren.
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-2">
+  <div class="container">
+    <h2>Kapitel 2: Impedanz & Blindwiderstände</h2>
+    <p>
+      In einem Wechselstromkreis können Widerstände (\(R\)), Spulen (\(L\)) und Kondensatoren (\(C\)) vorkommen. 
+      Während ein ohmscher Widerstand \(R\) die Phasenlage von Spannung und Strom nicht verändert, 
+      führen Induktivitäten und Kapazitäten zu einer Phasenverschiebung und verändern den Stromfluss. 
+      Um diese Effekte zusammenzufassen, verwendet man den Begriff <strong>Impedanz</strong>.
+    </p>
+  </div>
+</section>
+
+<section id="definition-impedanz">
+  <div class="container">
+    <h2>2.1 Was ist Impedanz?</h2>
+    <p>
+      Die <strong>Impedanz \(Z\)</strong> ist das Wechselstrom-Analogon zum Widerstand in Gleichstromkreisen. 
+      Sie beschreibt nicht nur den Betrag des Widerstands, sondern auch die Phasenverschiebung zwischen Spannung und Strom.
+    </p>
+    <p>
+      Allgemein:
+    </p>
+    <div class="highlight">
+      \[
+      Z = \frac{\underline{U}}{\underline{I}} \quad [\Omega]
+      \]
+    </div>
+    <p>
+      Dabei sind \( \underline{U} \) und \( \underline{I} \) komplexe Größen (Zeiger). Die Impedanz ist ebenfalls eine komplexe Zahl:
+      \[
+      Z = R + iX
+      \]
+      wobei \(X\) die Blindwiderstände repräsentiert.
+    </p>
+  </div>
+</section>
+
+<section id="blindwiderstaende">
+  <div class="container">
+    <h2>2.2 Blindwiderstände</h2>
+    <ul>
+      <li><strong>Ohmscher Widerstand:</strong> 
+        \[
+        Z_R = R, \quad \text{kein Phasenunterschied: } u(t) \parallel i(t)
+        \]
+      </li>
+      <li><strong>Induktiver Blindwiderstand:</strong> 
+        \[
+        X_L = \omega L, \quad Z_L = i\omega L
+        \]
+        Spannung eilt dem Strom um \(90^\circ\) voraus.
+      </li>
+      <li><strong>Kapazitiver Blindwiderstand:</strong> 
+        \[
+        X_C = \frac{1}{\omega C}, \quad Z_C = -\frac{i}{\omega C}
+        \]
+        Strom eilt der Spannung um \(90^\circ\) voraus.
+      </li>
+    </ul>
+    <p>
+      Für einen RLC-Reihenschwingkreis ergibt sich:
+    </p>
+    <div class="highlight">
+      \[
+      Z = R + i(\omega L - \frac{1}{\omega C})
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="phasor-diagramm">
+  <div class="container">
+    <h2>2.3 Zeigerdiagramm</h2>
+    <p>
+      Das Zeigerdiagramm verdeutlicht die Phasenbeziehung:
+    </p>
+    <div style="text-align:center;">
+      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Achsen -->
+        <line x1="200" y1="150" x2="350" y2="150" stroke="#333" stroke-width="2"/>
+        <line x1="200" y1="150" x2="200" y2="50" stroke="#333" stroke-width="2"/>
+        
+        <!-- Zeiger für Spannung -->
+        <line x1="200" y1="150" x2="280" y2="100" stroke="#0066ff" stroke-width="3"/>
+        <text x="285" y="95" font-size="14" fill="#0066ff">U</text>
+        
+        <!-- Zeiger für Strom -->
+        <line x1="200" y1="150" x2="280" y2="150" stroke="#ff0000" stroke-width="3"/>
+        <text x="285" y="155" font-size="14" fill="#ff0000">I</text>
+        
+        <!-- Winkel -->
+        <path d="M220 150 A20 20 0 0 1 225 135" stroke="#333" fill="none"/>
+        <text x="230" y="140" font-size="12" fill="#333">φ</text>
+        
+        <!-- Beschriftungen -->
+        <text x="360" y="150" font-size="14">Re</text>
+        <text x="180" y="40" font-size="14">Im</text>
+      </svg>
+    </div>
+    <p>
+      Der Winkel \( \varphi \) zeigt die Phasenverschiebung: 
+      - Induktiv: \( U \) eilt \( I \) voraus  
+      - Kapazitiv: \( I \) eilt \( U \) voraus
+    </p>
+  </div>
+</section>
+
+<section id="beispiel">
+  <div class="container">
+    <h2>2.4 Rechenbeispiel</h2>
+    <p>
+      Gegeben: \( R = 50 \Omega \), \( L = 0{,}2 \,\text{H} \), \( f = 50 \,\text{Hz} \).
+    </p>
+    <ul>
+      <li>\( \omega = 2\pi f = 314 \,\text{s}^{-1} \)</li>
+      <li>\( X_L = \omega L = 314 \cdot 0{,}2 \approx 62{,}8 \,\Omega \)</li>
+      <li>\( Z = \sqrt{R^2 + (X_L)^2} = \sqrt{50^2 + 62{,}8^2} \approx 80 \,\Omega \)</li>
+      <li>\( \varphi = \arctan\left(\frac{X_L}{R}\right) \approx 51^\circ \)</li>
+    </ul>
+    <p>
+      Bei \( U = 230 \,\text{V} \) gilt:
+      \[
+      I = \frac{U}{Z} \approx \frac{230}{80} \approx 2{,}88 \,\text{A}
+      \]
+    </p>
+  </div>
+</section>
+
+<section id="kapitel-3">
+  <div class="container">
+    <h2>Kapitel 3: RLC-Kreise & Resonanz</h2>
+    <p>
+      Ein RLC-Kreis besteht aus einem <strong>Widerstand (R)</strong>, einer <strong>Induktivität (L)</strong> und einem <strong>Kondensator (C)</strong>. 
+      Diese Elemente können in Reihe oder parallel geschaltet sein. Die Kombination führt zu frequenzabhängigem Verhalten, das besonders bei der Resonanz wichtig ist.
+    </p>
+  </div>
+</section>
+
+<section id="rlc-grundlagen">
+  <div class="container">
+    <h2>3.1 Impedanz im RLC-Kreis</h2>
+    <p>
+      Für einen RLC-Reihenschwingkreis ergibt sich die Gesamtimpedanz:
+    </p>
+    <div class="highlight">
+      \[
+      Z = \sqrt{R^2 + \left(\omega L - \frac{1}{\omega C}\right)^2}
+      \]
+    </div>
+    <p>
+      Die Phasenverschiebung zwischen Spannung und Strom ist:
+    </p>
+    <div class="highlight">
+      \[
+      \varphi = \arctan\left( \frac{\omega L - \frac{1}{\omega C}}{R} \right)
+      \]
+    </div>
+    <p>
+      Je nach Frequenz ist der Kreis induktiv (\(X_L > X_C\)) oder kapazitiv (\(X_C > X_L\)).
+    </p>
+  </div>
+</section>
+
+<section id="resonanz">
+  <div class="container">
+    <h2>3.2 Resonanzfrequenz</h2>
+    <p>
+      Bei der <strong>Resonanzfrequenz</strong> gilt:
+    </p>
+    <div class="highlight">
+      \[
+      \omega_0 L = \frac{1}{\omega_0 C} \quad \Rightarrow \quad \omega_0 = \frac{1}{\sqrt{LC}}
+      \]
+    </div>
+    <p>
+      Damit:
+    </p>
+    <div class="highlight">
+      \[
+      f_0 = \frac{\omega_0}{2\pi} = \frac{1}{2\pi \sqrt{LC}}
+      \]
+    </div>
+    <p>
+      Bei Resonanz ist der Blindanteil null und die Impedanz minimal (\(Z = R\)), der Strom maximal. 
+      Dies ist entscheidend für Schwingkreise, Filter und Hochfrequenztechnik.
+    </p>
+  </div>
+</section>
+
+<section id="beispiel-rlc">
+  <div class="container">
+    <h2>3.3 Rechenbeispiel</h2>
+    <p>
+      Gegeben: \( L = 0{,}2 \,\text{H}, C = 50 \,\mu\text{F} \).
+    </p>
+    <ul>
+      <li>\( f_0 = \dfrac{1}{2\pi \sqrt{LC}} = \dfrac{1}{2\pi \sqrt{0{,}2 \cdot 50 \cdot 10^{-6}}} \approx 50{,}3 \,\text{Hz} \)</li>
+      <li>\( \omega_0 = 2\pi f_0 \approx 316 \,\text{s}^{-1} \)</li>
+    </ul>
+    <p>
+      Bei \( f_0 \) verhält sich der Kreis rein ohmsch, und der Strom ist am größten.
+    </p>
+  </div>
+</section>
+<section id="kapitel-4">
+  <div class="container">
+    <h2>Kapitel 4: Leistung im Wechselstromkreis</h2>
+    <p>
+      Im Wechselstromkreis unterscheidet man drei wichtige Leistungsarten: 
+      <strong>Wirkleistung</strong>, <strong>Blindleistung</strong> und <strong>Scheinleistung</strong>. 
+      Diese sind entscheidend für die Auslegung elektrischer Anlagen.
+    </p>
+  </div>
+</section>
+
+<section id="leistungsarten">
+  <div class="container">
+    <h2>4.1 Leistungsarten</h2>
+    <ul>
+      <li><strong>Scheinleistung \( S \):</strong> Die gesamte übertragene Leistung:
+        \[
+        S = U_\text{eff} \cdot I_\text{eff} \quad [\text{VA}]
+        \]
+      </li>
+      <li><strong>Wirkleistung \( P \):</strong> Tatsächlich in Wärme oder Arbeit umgesetzte Leistung:
+        \[
+        P = U_\text{eff} \cdot I_\text{eff} \cdot \cos\varphi \quad [\text{W}]
+        \]
+      </li>
+      <li><strong>Blindleistung \( Q \):</strong> Pendelnde Energie zwischen Quelle und Last:
+        \[
+        Q = U_\text{eff} \cdot I_\text{eff} \cdot \sin\varphi \quad [\text{var}]
+        \]
+      </li>
+    </ul>
+    <p>
+      Hierbei ist \( \varphi \) der Phasenwinkel zwischen Strom und Spannung.
+    </p>
+  </div>
+</section>
+
+<section id="zeigerdiagramm">
+  <div class="container">
+    <h2>4.2 Zeigerdiagramm der Leistungen</h2>
+    <p>
+      Im Leistungsdreieck gilt:
+      \[
+      S^2 = P^2 + Q^2
+      \]
+      Das folgende Diagramm verdeutlicht die Zusammenhänge:
+    </p>
+    <div style="text-align:center;">
+      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Achsen -->
+        <line x1="100" y1="250" x2="300" y2="250" stroke="#333" stroke-width="2"/>
+        <line x1="100" y1="250" x2="100" y2="80" stroke="#333" stroke-width="2"/>
+        
+        <!-- Wirkleistung -->
+        <line x1="100" y1="250" x2="250" y2="250" stroke="#4CAF50" stroke-width="4"/>
+        <text x="170" y="265" font-size="14" fill="#4CAF50">P</text>
+        
+        <!-- Blindleistung -->
+        <line x1="250" y1="250" x2="250" y2="150" stroke="#FF9800" stroke-width="4"/>
+        <text x="255" y="200" font-size="14" fill="#FF9800">Q</text>
+        
+        <!-- Scheinleistung -->
+        <line x1="100" y1="250" x2="250" y2="150" stroke="#2196F3" stroke-width="4"/>
+        <text x="160" y="180" font-size="14" fill="#2196F3">S</text>
+        
+        <!-- Winkel -->
+        <path d="M130 250 A30 30 0 0 1 140 235" stroke="#333" fill="none"/>
+        <text x="145" y="240" font-size="12">φ</text>
+        
+        <!-- Beschriftung Achsen -->
+        <text x="310" y="250" font-size="14">P</text>
+        <text x="85" y="90" font-size="14">Q</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="beispiel">
+  <div class="container">
+    <h2>4.3 Rechenbeispiel</h2>
+    <p>
+      Gegeben: \( U_\text{eff} = 230 \,\text{V}, I_\text{eff} = 5 \,\text{A}, \varphi = 36{,}87^\circ \).
+    </p>
+    <ul>
+      <li>\( S = 230 \cdot 5 = 1150 \,\text{VA} \)</li>
+      <li>\( P = 1150 \cdot \cos(36{,}87^\circ) \approx 920 \,\text{W} \)</li>
+      <li>\( Q = 1150 \cdot \sin(36{,}87^\circ) \approx 690 \,\text{var} \)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bedeutung">
+  <div class="container">
+    <div class="highlight">
+      <strong>Warum wichtig?</strong>  
+      Das Verständnis der Leistungsarten ist zentral für die Dimensionierung elektrischer Anlagen und die Reduzierung von Blindleistung, um Netzverluste zu minimieren.
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-5">
+  <div class="container">
+    <h2>Kapitel 5: Schwingkreise & Energieaustausch</h2>
+    <p>
+      Ein Schwingkreis besteht aus einer <strong>Induktivität (L)</strong> und einem <strong>Kondensator (C)</strong>. 
+      Er kann elektrische Energie in Form von elektrischen und magnetischen Feldern speichern und zwischen diesen hin- und herschwingen.
+    </p>
+  </div>
+</section>
+
+<section id="grundprinzip">
+  <div class="container">
+    <h2>5.1 Grundprinzip des LC-Schwingkreises</h2>
+    <p>
+      Zu Beginn ist der Kondensator aufgeladen (\( Q = Q_0 \)), die Spule ist stromlos. 
+      Sobald der Stromkreis geschlossen wird, entlädt sich der Kondensator, der Strom steigt an und erzeugt ein Magnetfeld in der Spule.
+    </p>
+    <p>
+      Nach einiger Zeit ist der Kondensator entladen, der Strom maximal und das Magnetfeld in der Spule am größten. 
+      Danach lädt die Spule den Kondensator mit umgekehrter Polarität wieder auf. 
+      Dieser Vorgang wiederholt sich periodisch, solange keine Energieverluste auftreten.
+    </p>
+  </div>
+</section>
+
+<section id="differentialgleichung">
+  <div class="container">
+    <h2>5.2 Mathematische Beschreibung</h2>
+    <p>
+      Für den idealen LC-Schwingkreis gilt:
+    </p>
+    <div class="highlight">
+      \[
+      U_C + U_L = 0 \quad \Rightarrow \quad \frac{Q}{C} + L \frac{d^2Q}{dt^2} = 0
+      \]
+    </div>
+    <p>
+      Dies ist eine harmonische Schwingung mit der Lösung:
+    </p>
+    <div class="highlight">
+      \[
+      Q(t) = Q_0 \cos(\omega t), \quad I(t) = -Q_0 \omega \sin(\omega t)
+      \]
+    </div>
+    <p>
+      Mit der Kreisfrequenz:
+    </p>
+    <div class="highlight">
+      \[
+      \omega = \frac{1}{\sqrt{LC}}, \quad f = \frac{\omega}{2\pi} = \frac{1}{2\pi \sqrt{LC}}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="energieaustausch">
+  <div class="container">
+    <h2>5.3 Energieaustausch</h2>
+    <p>
+      Die Gesamtenergie bleibt konstant (idealer Fall ohne Verluste):
+    </p>
+    <div class="highlight">
+      \[
+      W_\text{ges} = W_C + W_L = \frac{Q^2}{2C} + \frac{1}{2} L I^2
+      \]
+    </div>
+    <p>
+      Energie schwingt zwischen dem elektrischen Feld des Kondensators und dem magnetischen Feld der Spule:
+    </p>
+    <ul>
+      <li>Bei maximaler Kondensatorladung: \( W_C \) maximal, \( W_L = 0 \)</li>
+      <li>Bei maximalem Strom: \( W_L \) maximal, \( W_C = 0 \)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="diagramm">
+  <div class="container">
+    <h2>5.4 Diagramm: Energieverlauf</h2>
+    <p>
+      Das folgende Diagramm zeigt den Energieaustausch zwischen Kondensator und Spule:
+    </p>
+    <div style="text-align:center;">
+      <svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Achsen -->
+        <line x1="50" y1="250" x2="550" y2="250" stroke="#333" stroke-width="2"/>
+        <line x1="50" y1="50" x2="50" y2="250" stroke="#333" stroke-width="2"/>
+        <text x="560" y="255" font-size="14">t</text>
+        <text x="30" y="40" font-size="14">Energie</text>
+        
+        <!-- W_C Kurve -->
+        <path d="M50,150 Q150,50 250,150 T450,150" stroke="#4CAF50" stroke-width="3" fill="none"/>
+        <text x="460" y="140" fill="#4CAF50" font-size="14">W_C</text>
+        
+        <!-- W_L Kurve -->
+        <path d="M50,150 Q150,250 250,150 T450,150" stroke="#FF9800" stroke-width="3" fill="none"/>
+        <text x="460" y="180" fill="#FF9800" font-size="14">W_L</text>
+      </svg>
+    </div>
+    <p>
+      Grün: Energie im Kondensator (\( W_C \)), Orange: Energie in der Spule (\( W_L \)).
+    </p>
+  </div>
+</section>
+
+<section id="beispiel">
+  <div class="container">
+    <h2>5.5 Rechenbeispiel</h2>
+    <p>
+      Gegeben: \( L = 0{,}1 \,\text{H}, C = 100 \,\mu\text{F}, Q_0 = 0{,}01 \,\text{C} \).
+    </p>
+    <ul>
+      <li>\( f = \dfrac{1}{2\pi\sqrt{LC}} = \dfrac{1}{2\pi\sqrt{0{,}1 \cdot 100 \cdot 10^{-6}}} \approx 50{,}3 \,\text{Hz} \)</li>
+      <li>Maximale Energie:
+        \[
+        W_\text{max} = \frac{Q_0^2}{2C} = \frac{(0{,}01)^2}{2 \cdot 100 \cdot 10^{-6}} = 0{,}5 \,\text{J}
+        \]
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+ <a href="quiz.html" class="quiz-btn">Quiz zu Wechselstrom starten</a>
+<footer>
+    &copy; 2025 PhysikNow | Wechselstrom
+</footer>
+
+</body>
+</html>
