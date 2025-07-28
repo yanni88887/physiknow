@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thermodynamik | Kapitel 1 Einführung</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .toc-box {
+        background: #ffffff;
+        border: 2px solid #0073e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 25px auto;
+        max-width: 800px;
+    }
+    .toc-box h3 {
+        font-size: 18px;
+        color: #0073e6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .toc-box ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        columns: 2;
+    }
+    .toc-box li { margin-bottom: 8px; }
+    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+
+    section {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #0066ff; }
+    h2 { font-size: 1.5rem; margin-top: 1rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    ul { padding-left: 20px; }
+    .highlight {
+        background: #f7f7f7;
+        padding: 15px;
+        border-left: 5px solid #0073e6;
+        margin: 20px 0;
+    }
+    .quiz-btn {
+        display: block;
+        text-align: center;
+        background: #0066ff;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 3rem auto;
+        max-width: 300px;
+        text-decoration: none;
+    }
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero-Bereich -->
+<section class="hero">
+    <h2>Magnetismus</h2>
+    <p>Grundlagen, Kräfte und Induktion – kompakt für dein Studium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+   <ul>
+    <li><a href="#kapitel-1">1. Einführung in den Magnetismus</a></li>
+    <li><a href="#kapitel-2">2. Magnetische Felder & Feldlinien</a></li>
+    <li><a href="#kapitel-3">3. Kräfte im Magnetfeld (Lorentzkraft)</a></li>
+    <li><a href="#kapitel-4">4. Elektromagnetische Induktion</a></li>
+    <li><a href="#kapitel-5">5. Selbstinduktion & Induktivität</a></li>
+    <li><a href="#kapitel-6">6. Magnetische Materialien & Hysterese</a></li>
+  </ul>
+</div>
+
+<!-- Kapitel 1 -->
+<section id="kapitel-1">
+  <div class="container">
+    <h2>1. Einführung in den Magnetismus</h2>
+    <p>
+      <strong>Magnetismus</strong> beschreibt die physikalische Wechselwirkung zwischen bewegten elektrischen Ladungen oder magnetischen Momenten.
+      Er ist eng mit der Elektrizität verknüpft: Beide Phänomene sind verschiedene Erscheinungsformen des elektromagnetischen Feldes.
+    </p>
+    <p>
+      Magnetismus tritt in vielen Formen auf – vom natürlichen Magnetgestein bis hin zu den elektromagnetischen Effekten in Generatoren, Motoren und elektronischen Bauteilen.
+      Er spielt eine fundamentale Rolle in Technik, Energieumwandlung und Kommunikation.
+    </p>
+  </div>
+</section>
+
+<section id="grundbegriffe">
+  <div class="container">
+    <h2>1.1 Grundbegriffe des Magnetismus</h2>
+    <ul>
+      <li><strong>Magnetisches Feld \((\vec{B})\):</strong> Beschreibt den Raum, in dem magnetische Kräfte wirken; Einheit: Tesla (T).</li>
+      <li><strong>Magnetischer Fluss \((\Phi_B)\):</strong> Maß für die Gesamtheit der Feldlinien durch eine Fläche; Einheit: Weber (Wb).</li>
+      <li><strong>Permeabilität \((\mu)\):</strong> Materialeigenschaft, die die Durchlässigkeit für magnetische Felder angibt.</li>
+      <li><strong>Magnetische Spannung & Reluktanz:</strong> Größen des magnetischen Kreises, analog zu Spannung und Widerstand im elektrischen Kreis.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="groessen">
+  <div class="container">
+    <h2>1.2 Wichtige Größen & Einheiten</h2>
+    <p>Im Magnetismus sind folgende physikalische Größen zentral:</p>
+    <ul>
+      <li>Magnetische Flussdichte \( B \) [Tesla (T)]</li>
+      <li>Magnetischer Fluss \( \Phi_B \) [Weber (Wb)]</li>
+      <li>Stromstärke \( I \) [Ampere (A)]</li>
+      <li>Kraft \( F \) [Newton (N)] (z. B. Lorentzkraft)</li>
+    </ul>
+    <div class="highlight">
+      <strong>Formelbeispiele:</strong><br>
+      \[
+      \Phi_B = B \cdot A \cdot \cos\theta, \quad
+      F = q \cdot v \cdot B \cdot \sin\alpha
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="bedeutung">
+  <div class="container">
+    <div class="highlight">
+      <strong>1.3 Warum wichtig?</strong><br>
+      Magnetismus bildet die Grundlage für Generatoren, Motoren, Transformatoren, drahtlose Energieübertragung und viele weitere Technologien.
+      Ohne ihn wären moderne Elektrotechnik und Kommunikation nicht denkbar.
+    </div>
+  </div>
+</section>
+
+<section id="kapitel-2">
+  <div class="container">
+    <h2>2. Magnetische Felder & Feldlinien</h2>
+    <p>
+      Magnetische Felder sind grundlegende Erscheinungen in der Physik und treten überall dort auf, wo sich elektrische Ladungen bewegen oder wo sich elektrische Felder zeitlich ändern.
+      Sie sind eine von zwei Komponenten des elektromagnetischen Feldes (neben dem elektrischen Feld) und bilden zusammen die Grundlage der Elektrodynamik.
+    </p>
+    <p>
+      Im Alltag begegnen uns magnetische Felder in Permanentmagneten, in der Erde (Erdmagnetfeld), in Elektromotoren, Generatoren, Transformatoren und vielen elektronischen Geräten.
+      Technisch werden sie zur Energieübertragung, zur Datenspeicherung und in der medizinischen Bildgebung (MRT) genutzt.
+    </p>
+  </div>
+</section>
+
+<!-- 2.1 Feldlinien -->
+<section id="feldlinien">
+  <div class="container">
+    <h2>2.1 Magnetische Feldlinien & Eigenschaften</h2>
+    <p>
+      Um magnetische Felder anschaulich darzustellen, werden Feldlinien genutzt. Sie zeigen die Richtung des Feldes (Tangente an die Linie) und die Stärke des Feldes (Linien­dichte).
+      Anders als elektrische Feldlinien sind magnetische Feldlinien immer geschlossen. Das bedeutet:
+    </p>
+    <ul>
+      <li>Es gibt keine isolierten Nord- oder Südpol-Ladungen (keine magnetischen Monopole).</li>
+      <li>Außerhalb eines Magneten verlaufen die Feldlinien vom Nordpol zum Südpol, im Inneren des Magneten in umgekehrter Richtung – ein durchgehender geschlossener Kreis.</li>
+      <li>Die Dichte der Feldlinien ist ein Maß für die Stärke des Magnetfeldes.</li>
+    </ul>
+    <div class="highlight">
+      <strong>Physikalische Größe:</strong><br>
+      \[
+      \vec{B} = \text{magnetische Flussdichte in Tesla (T)}
+      \]
+    </div>
+    <p>
+      Je dichter die Feldlinien, desto größer ist die magnetische Flussdichte \( \vec{B} \). 
+      Feldlinien schneiden sich nie und können nicht enden – sie verlaufen immer in geschlossenen Bahnen.
+    </p>
+  </div>
+</section>
+
+<!-- 2.2 Magnetischer Fluss -->
+<section id="flussdichte">
+  <div class="container">
+    <h2>2.2 Magnetischer Fluss & Flussdichte</h2>
+    <p>
+      Der magnetische Fluss \( \Phi_B \) beschreibt, wie viele magnetische Feldlinien durch eine gegebene Fläche treten.
+      Er ist definiert als das Oberflächenintegral der magnetischen Flussdichte \( \vec{B} \) über eine Fläche \( A \):
+    </p>
+    <div class="formula">
+      \[
+      \Phi_B = \int_A \vec{B} \cdot d\vec{A} \quad
+      \]
+    </div>
+    <p>
+      Für ein homogenes Magnetfeld und eine ebene Fläche vereinfacht sich das Integral zu:
+    </p>
+    <div class="formula">
+      \[
+      \Phi_B = B \cdot A \cdot \cos\theta
+      \]
+    </div>
+    <p>
+      wobei:
+    </p>
+    <ul>
+      <li>\( B \): magnetische Flussdichte (Tesla)</li>
+      <li>\( A \): Fläche, durch die das Feld tritt</li>
+      <li>\( \theta \): Winkel zwischen Feldrichtung und Flächennormale</li>
+    </ul>
+    <p>
+      Je größer der Winkel (bis 90°), desto kleiner der Fluss. Bei \(\theta = 90^\circ\) tritt kein Fluss durch die Fläche.
+    </p>
+  </div>
+</section>
+
+<!-- 2.3 Biot-Savart-Gesetz -->
+<section id="biot-savart">
+  <div class="container">
+    <h2>2.3 Biot-Savart-Gesetz</h2>
+    <p>
+      Das Biot-Savart-Gesetz ist das magnetische Analogon zum Coulomb-Gesetz für elektrische Felder.
+      Es beschreibt, wie ein stromdurchflossener Leiter ein Magnetfeld erzeugt. Jeder kleine Leiterabschnitt \( d\vec{s} \) trägt zum Magnetfeld an einem Punkt bei:
+    </p>
+    <div class="formula">
+      \[
+      d\vec{B} = \frac{\mu_0}{4\pi} \frac{I \, d\vec{s} \times \vec{r}}{r^3}
+      \]
+    </div>
+    <p>
+      <strong>Bedeutung der Größen:</strong>
+    </p>
+    <ul>
+      <li>\( I \): Stromstärke [A]</li>
+      <li>\( d\vec{s} \): Vektor entlang des Leiters</li>
+      <li>\( \vec{r} \): Verbindungsvektor vom Leiterabschnitt zum Punkt</li>
+      <li>\( \mu_0 = 4\pi \cdot 10^{-7}\,\text{H/m} \): magnetische Feldkonstante</li>
+    </ul>
+    <p>
+      Das Kreuzprodukt \( d\vec{s} \times \vec{r} \) zeigt, dass die Richtung von \( \vec{B} \) nach der <strong>Rechte-Hand-Regel</strong> bestimmt wird:
+      Daumen in Richtung des Stroms, gekrümmte Finger geben die Richtung der Feldlinien an.
+    </p>
+  </div>
+</section>
+
+<!-- 2.4 Ampèresches Gesetz -->
+<section id="ampere-gesetz">
+  <div class="container">
+    <h2>2.4 Ampèresches Gesetz</h2>
+    <p>
+      Das Ampèresche Gesetz stellt eine wichtige Beziehung zwischen elektrischen Strömen und Magnetfeldern her.
+      Es besagt, dass das Linienintegral des Magnetfeldes entlang einer geschlossenen Kurve proportional zum Strom ist, der diese Kurve durchsetzt:
+    </p>
+    <h4>Integralform:</h4>
+    <div class="formula">
+      \[
+      \oint \vec{B} \cdot d\vec{s} = \mu_0 \cdot I_{\text{eingeschlossen}}
+      \]
+    </div>
+    <p>
+      Für einen langen geraden Leiter ergibt sich:
+    </p>
+    <div class="formula">
+      \[
+      B = \frac{\mu_0 I}{2\pi r}
+      \]
+    </div>
+    <h4>Differentialform:</h4>
+    <div class="formula">
+      \[
+      \nabla \times \vec{B} = \mu_0 \vec{J}
+      \]
+    </div>
+    <p>
+      <strong>Bedeutung:</strong> Ein elektrischer Strom (oder, wie Maxwell ergänzte, eine zeitliche Änderung des elektrischen Feldes) erzeugt ein Magnetfeld.
+      Dies ist die Basis aller elektromagnetischen Geräte.
+    </p>
+  </div>
+</section>
+
+<section id="kapitel-3">
+  <div class="container">
+    <h2>3. Kräfte im Magnetfeld</h2>
+    <p>
+      Magnetische Felder üben Kräfte auf bewegte elektrische Ladungen und stromdurchflossene Leiter aus. 
+      Diese Kräfte sind die Grundlage für zahlreiche technische Anwendungen wie Elektromotoren, Generatoren oder Teilchenbeschleuniger.
+      Die wichtigste Gleichung für Kräfte im Magnetfeld ist die <strong>Lorentzkraft-Gleichung</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- 3.1 Lorentzkraft -->
+<section id="lorentzkraft">
+  <div class="container">
+    <h2>3.1 Lorentzkraft</h2>
+    <p>
+      Die Lorentzkraft beschreibt die Kraft, die eine bewegte elektrische Ladung im Magnetfeld erfährt:
+    </p>
+    <div class="formula">
+      \[
+      \vec{F} = q \cdot (\vec{v} \times \vec{B})
+      \]
+    </div>
+    <p>
+      <strong>Bedeutung der Größen:</strong>
+    </p>
+    <ul>
+      <li>\( \vec{F} \): Kraft auf die Ladung [N]</li>
+      <li>\( q \): elektrische Ladung [C]</li>
+      <li>\( \vec{v} \): Geschwindigkeit der Ladung [m/s]</li>
+      <li>\( \vec{B} \): Magnetische Flussdichte [T]</li>
+    </ul>
+    <p>
+      Die Richtung von \( \vec{F} \) wird durch das <strong>Rechte-Hand-Prinzip</strong> bestimmt:
+      Daumen = Richtung der Geschwindigkeit \( \vec{v} \), Zeigefinger = Richtung von \( \vec{B} \), Mittelfinger = Richtung der Kraft \( \vec{F} \).
+    </p>
+    <div class="highlight">
+      <strong>Wichtige Eigenschaften:</strong>
+      <ul>
+        <li>\( \vec{F} \) steht senkrecht zu \( \vec{v} \) und \( \vec{B} \).</li>
+        <li>Die Lorentzkraft verrichtet keine Arbeit (nur Richtungsänderung, keine Geschwindigkeitsänderung).</li>
+        <li>Wenn \( \vec{v} \parallel \vec{B} \), dann \( \vec{F} = 0 \).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3.2 Bewegung geladener Teilchen -->
+<section id="bewegung-ladungen">
+  <div class="container">
+    <h2>3.2 Bewegung geladener Teilchen im Magnetfeld</h2>
+    <p>
+      Da die Lorentzkraft senkrecht zur Bewegungsrichtung wirkt, führt ein geladenes Teilchen im Magnetfeld keine Beschleunigung entlang der Bewegungsrichtung aus,
+      sondern bewegt sich auf einer <strong>kreisförmigen oder helixförmigen Bahn</strong>.
+    </p>
+    <h4>Für \( \vec{v} \perp \vec{B} \): Kreisbewegung</h4>
+    <p>
+      Der Betrag der Lorentzkraft liefert die Zentripetalkraft für die Kreisbewegung:
+    </p>
+    <div class="formula">
+      \[
+      q \cdot v \cdot B = \frac{m \cdot v^2}{r}
+      \]
+    </div>
+    <p>
+      Daraus folgt der Bahnradius:
+    </p>
+    <div class="formula">
+      \[
+      r = \frac{m \cdot v}{q \cdot B}
+      \]
+    </div>
+    <p>
+      und die Zyklotronfrequenz:
+    </p>
+    <div class="formula">
+      \[
+      \omega = \frac{q \cdot B}{m}
+      \]
+    </div>
+    <p>
+      Die Bahnfrequenz ist unabhängig von der Geschwindigkeit und hängt nur von \( q \), \( B \) und \( m \) ab – dieses Prinzip wird in Zyklotronen genutzt.
+    </p>
+    <h4>Für \( \vec{v} \) schräg zu \( \vec{B} \): Helixbahn</h4>
+    <p>
+      Die Geschwindigkeit wird in zwei Komponenten zerlegt:
+    </p>
+    <ul>
+      <li>\( v_\parallel \) → Bewegung parallel zu \( \vec{B} \) (keine Kraft, gleichförmige Bewegung)</li>
+      <li>\( v_\perp \) → Kreisbewegung wie oben</li>
+    </ul>
+    <p>
+      Das Teilchen bewegt sich spiralförmig (helikal) um die Feldlinien.
+    </p>
+  </div>
+</section>
+
+<!-- 3.3 Kraft auf stromdurchflossene Leiter -->
+<section id="kraft-stromleiter">
+  <div class="container">
+    <h2>3.3 Kraft auf einen stromdurchflossenen Leiter</h2>
+    <p>
+      Magnetische Felder üben auch Kräfte auf Leiter aus, in denen ein Strom fließt. Dies ist die Grundlage des Elektromotors.
+    </p>
+    <p>
+      Für einen Leiter der Länge \( L \) im Magnetfeld:
+    </p>
+    <div class="formula">
+      \[
+      \vec{F} = I \cdot \vec{L} \times \vec{B}
+      \]
+    </div>
+    <p>
+      Für die Richtung gilt auch hier die Rechte-Hand-Regel. Wenn der Strom senkrecht zum Feld verläuft:
+    </p>
+    <div class="formula">
+      \[
+      F = I \cdot L \cdot B
+      \]
+    </div>
+    <p>
+      Dies wird in Elektromotoren ausgenutzt: Ein Magnetfeld wirkt auf den Strom im Anker und erzeugt ein Drehmoment.
+    </p>
+  </div>
+</section>
+<section id="kapitel-4">
+  <div class="container">
+    <h2>4. Elektromagnetische Induktion</h2>
+    <p>
+      Die elektromagnetische Induktion ist eines der wichtigsten Phänomene der Physik und Grundlage vieler technischer Anwendungen.
+      Sie erklärt, wie Bewegung und Magnetismus elektrische Energie erzeugen.
+    </p>
+  </div>
+</section>
+
+<!-- 4.0.1 Was passiert bei Induktion? -->
+<section id="was-passiert">
+  <div class="container">
+    <h2>4.0.1 Was passiert bei Induktion?</h2>
+    <p>
+    Stell dir eine <strong>Leiterschleife</strong> vor – das ist einfach ein Draht, der zu einem Kreis oder einer Spule geformt ist. 
+    Wenn sich das <strong>Magnetfeld</strong> in dieser Schleife ändert, entsteht darin eine <strong>elektrische Spannung</strong>. 
+    Dadurch können Elektronen im Leiter in Bewegung gesetzt werden, und es fließt Strom – sofern der Kreis geschlossen ist.
+    </p>
+
+    <p>
+    Typisches Beispiel: Du hast eine Spule (also viele Windungen einer Leiterschleife) und bewegst einen Magneten hinein oder hinaus. 
+    Während der Magnet sich bewegt, ändert sich der <strong>magnetische Fluss</strong> in der Spule – und genau diese Änderung erzeugt die Spannung.
+    </p>
+
+    <p>
+    Dieses einfache Prinzip ist die Grundlage für viele Anwendungen: Generatoren in Kraftwerken, Transformatoren und sogar drahtloses Laden beruhen auf elektromagnetischer Induktion.
+    </p>
+  </div>
+</section>
+
+<!-- 4.0.2 Warum passiert das? -->
+<section id="warum-passiert">
+  <div class="container">
+    <h2>4.0.2 Warum passiert das?</h2>
+    <p>
+      Das Magnetfeld wirkt nicht direkt wie eine Batterie, sondern verändert das elektrische Feld im Raum.
+      Nach den Maxwell-Gleichungen erzeugt eine zeitliche Änderung des Magnetfeldes ein elektrisches Feld:
+    </p>
+    <div class="formula">
+      \[
+      \nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+      \]
+    </div>
+    <p>
+      Dieses veränderliche elektrische Feld treibt die Elektronen im Leiter an.
+      Physikalisch folgt dies aus dem Energieerhaltungssatz: Die induzierte Spannung wirkt immer so, dass sie die Änderung des Magnetfeldes „bremst“ (Lenz’sche Regel).
+    </p>
+  </div>
+</section>
+
+<!-- 4.1 Faradaysches Gesetz -->
+<section id="faraday">
+  <div class="container">
+    <h2>4.1 Faradaysches Induktionsgesetz</h2>
+    <p>
+      Die Stärke der induzierten Spannung hängt davon ab, wie schnell sich der magnetische Fluss ändert:
+    </p>
+    <div class="formula">
+      \[
+      \mathcal{E} = - \frac{d\Phi_B}{dt}
+      \]
+    </div>
+    <p>
+      Mit:
+    </p>
+    <ul>
+      <li>\( \mathcal{E} \): Induzierte Spannung [V]</li>
+      <li>\( \Phi_B = \int_A \vec{B} \cdot d\vec{A} \): Magnetischer Fluss</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4.2 Lenz'sche Regel -->
+<section id="lenz">
+  <div class="container">
+    <h2>4.2 Lenz’sche Regel</h2>
+    <p>
+      Die Lenz’sche Regel bestimmt die Richtung des induzierten Stromes: 
+      Der Induktionsstrom wirkt so, dass er der Änderung des magnetischen Flusses entgegenwirkt. 
+      Dies ist ein Spezialfall des Energieerhaltungssatzes.
+    </p>
+    <p>
+      <strong>Praktisches Beispiel:</strong>
+      Wenn ein Magnet in eine Spule hineinfällt, wird ein Strom induziert, der ein Magnetfeld erzeugt, das dem einfallenden Magnetfeld entgegengerichtet ist.
+    </p>
+  </div>
+</section>
+
+<!-- 4.3 Bewegungsinduktion -->
+<section id="bewegungsinduktion">
+  <div class="container">
+    <h2>4.3 Bewegungsinduktion</h2>
+    <p>
+      Wenn sich ein Leiter in einem Magnetfeld bewegt, wird aufgrund der Lorentzkraft auf die Elektronen eine Spannung erzeugt:
+    </p>
+    <div class="formula">
+      \[
+      U = B \cdot l \cdot v
+      \]
+    </div>
+    <p>
+      Dabei ist:
+    </p>
+    <ul>
+      <li>\( B \): magnetische Flussdichte</li>
+      <li>\( l \): Länge des Leiters im Feld</li>
+      <li>\( v \): Geschwindigkeit senkrecht zu \( B \)</li>
+    </ul>
+    <p>
+      <strong>Anwendung:</strong> Generatoren erzeugen Wechselspannung durch Rotation einer Spule im Magnetfeld.
+    </p>
+  </div>
+</section>
+
+<!-- 4.4 Wirbelströme -->
+<section id="wirbelstrom">
+  <div class="container">
+    <h2>4.4 Wirbelströme</h2>
+    <p>
+    Bei <strong>zeitlich veränderlichen Magnetfeldern</strong> werden in leitenden Materialien elektrische Ströme erzeugt. 
+    Diese Ströme fließen nicht in geordneten Leitungen, sondern in kreisförmigen Bahnen innerhalb des Materials – man nennt sie <strong>Wirbelströme</strong> (oder Eddy Currents).
+    </p>
+
+    <p>
+    Die Ursache ist die elektromagnetische Induktion: Ändert sich das Magnetfeld in einem Metallblock oder Eisenkern, entsteht dort ein sich verändernder magnetischer Fluss. 
+    Nach dem Faradayschen Gesetz wird dabei eine Spannung erzeugt, die im leitenden Material kleine Stromkreise bildet. 
+    Diese Ströme wirken wie geschlossene Schleifen im Inneren des Materials.
+    </p>
+
+    <p>
+    Das Problem: Wirbelströme führen zu <strong>Energieverlusten</strong>, weil sie elektrische Energie in Wärme umwandeln (Joule’sche Wärmeverluste). 
+    Diese Erwärmung ist in Transformatoren, Motoren oder Generatoren unerwünscht, da sie die Effizienz mindert.
+    </p>
+
+    <p>
+    Um diese Verluste zu verringern, werden die Eisenkerne in Transformatoren nicht massiv, sondern aus dünnen, elektrisch isolierten Blechen (Lamellen) aufgebaut. 
+    Diese Lamellen begrenzen die Strompfade und verringern so die Stärke der Wirbelströme deutlich. 
+    So bleibt die Wärmeentwicklung gering und die Energieeffizienz hoch.
+    </p>
+
+    <p>
+    <strong>Beispiel im Alltag:</strong> Bei Induktionskochfeldern werden Wirbelströme gezielt genutzt, um Wärme im Topfboden zu erzeugen. 
+    Hier sind die Verluste erwünscht, da sie das Kochen ermöglichen.
+    </p>
+  </div>
+</section>
+
+<section id="kapitel-5">
+  <div class="container">
+    <h2>5. Selbstinduktion & Induktivität</h2>
+    <p>
+      Bei der elektromagnetischen Induktion haben wir bisher betrachtet, dass ein <strong>veränderliches Magnetfeld von außen</strong> eine Spannung in einem Leiter erzeugt. 
+      Aber: Auch in einer Spule, durch die ein <strong>sich ändernder Strom</strong> fließt, tritt Induktion auf – und zwar durch das eigene Magnetfeld der Spule. 
+      Dies nennt man <strong>Selbstinduktion</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- 5.1 Was ist Selbstinduktion? -->
+<section id="selbstinduktion">
+  <div class="container">
+    <h2>5.1 Was ist Selbstinduktion?</h2>
+    <p>
+      Fließt ein Strom durch eine Spule, erzeugt er ein Magnetfeld. Wenn sich dieser Strom ändert (z. B. beim Ein- oder Ausschalten), 
+      ändert sich auch das Magnetfeld in der Spule. Dadurch ändert sich der <strong>magnetische Fluss</strong>, und gemäß Faradays Gesetz 
+      entsteht eine Spannung in der Spule – allerdings mit einer Besonderheit:
+    </p>
+    <p>
+      Die induzierte Spannung wirkt der Stromänderung entgegen (Lenz’sche Regel). 
+      Deshalb „bremst“ die Spule jede schnelle Änderung des Stroms ab.
+    </p>
+    <div class="formula">
+      \[
+      U_{\text{ind}} = - L \cdot \frac{dI}{dt}
+      \]
+    </div>
+    <p>
+      Hierbei ist:
+    </p>
+    <ul>
+      <li>\( U_{\text{ind}} \): induzierte Spannung [V]</li>
+      <li>\( L \): Induktivität der Spule [H = Henry]</li>
+      <li>\( \frac{dI}{dt} \): zeitliche Änderung des Stroms</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5.2 Induktivität -->
+<section id="induktivitaet">
+  <div class="container">
+    <h2>5.2 Induktivität</h2>
+    <p>
+      Die <strong>Induktivität</strong> \( L \) ist eine Material- und Geometrieeigenschaft der Spule und gibt an, wie stark sich bei einer bestimmten Stromänderung eine Spannung aufbaut.
+    </p>
+    <p>
+      Für eine Luftspule:
+    </p>
+    <div class="formula">
+      \[
+      L = \mu_0 \cdot \frac{N^2 \cdot A}{l}
+      \]
+    </div>
+    <p>
+      Mit:
+    </p>
+    <ul>
+      <li>\( N \): Anzahl der Windungen</li>
+      <li>\( A \): Querschnittsfläche der Spule</li>
+      <li>\( l \): Länge der Spule</li>
+      <li>\( \mu_0 \): magnetische Feldkonstante</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5.3 Energie in Magnetfeldern -->
+<section id="energie-magnetfeld">
+  <div class="container">
+    <h2>5.3 Energie im Magnetfeld</h2>
+    <p>
+      Ein Magnetfeld speichert Energie, wenn Strom durch eine Spule fließt. Diese Energie ist:
+    </p>
+    <div class="formula">
+      \[
+      W = \frac{1}{2} L I^2
+      \]
+    </div>
+    <p>
+      Je größer die Induktivität und der Strom, desto mehr Energie ist im Magnetfeld gespeichert. 
+      Diese Energie wird beim Abschalten des Stroms wieder frei – deshalb können Induktionsspitzen auftreten.
+    </p>
+  </div>
+</section>
+
+<!-- 5.4 Anwendungen -->
+<section id="anwendungen-induktivitaet">
+  <div class="container">
+    <h2>5.4 Anwendungen</h2>
+    <p>
+      Selbstinduktion und Induktivität sind in der Elektrotechnik extrem wichtig. Typische Anwendungen sind:
+    </p>
+    <ul>
+      <li><strong>Drosseln:</strong> zur Glättung von Strömen in Netzteilen.</li>
+      <li><strong>Transformatoren:</strong> arbeiten mit Induktionsprinzip und gekoppelten Spulen.</li>
+      <li><strong>Zündspulen:</strong> in Verbrennungsmotoren, um hohe Spannungen zu erzeugen.</li>
+      <li><strong>Relais & Schaltkreise:</strong> bei Abschalten von Spulen können Überspannungen entstehen – Schutz durch Freilaufdioden.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="kapitel-6">
+  <div class="container">
+    <h2>6. Magnetische Materialien</h2>
+    <p>
+      Magnetische Materialien reagieren unterschiedlich auf ein angelegtes Magnetfeld. 
+      Diese Reaktionen hängen von der atomaren Struktur und den magnetischen Momenten der Atome ab. 
+      Man unterscheidet drei Hauptarten: <strong>Diamagnetismus</strong>, <strong>Paramagnetismus</strong> und <strong>Ferromagnetismus</strong>.
+    </p>
+  </div>
+</section>
+
+<section id="suszeptibilitaet">
+  <div class="container">
+    <h2>Magnetische Suszeptibilität</h2>
+    <p>
+      Die magnetische Suszeptibilität \( \chi \) beschreibt, wie stark ein Material auf ein äußeres Magnetfeld reagiert. 
+      Sie ist definiert als das Verhältnis der Magnetisierung \( \vec{M} \) zur magnetischen Feldstärke \( \vec{H} \):
+    </p>
+    <div class="formula">
+      \[
+      \chi = \frac{M}{H}
+      \]
+    </div>
+    <p>
+      Dabei gilt:
+    </p>
+    <ul>
+      <li>\( \chi < 0 \): Diamagnetismus (schwache Abstoßung)</li>
+      <li>\( \chi > 0 \): Paramagnetismus oder Ferromagnetismus (Anziehung)</li>
+    </ul>
+    <p>
+      Je größer der Betrag von \( \chi \), desto stärker ist die Reaktion des Materials auf das Magnetfeld.
+    </p>
+  </div>
+</section>
+
+
+<!-- 6.1 Diamagnetismus -->
+<section id="diamagnetismus">
+  <div class="container">
+    <h2>6.1 Diamagnetismus</h2>
+    <p>
+      Diamagnetische Stoffe werden von einem Magnetfeld schwach abgestoßen. 
+      Sie besitzen <strong>keine permanenten magnetischen Momente</strong>. 
+      Wenn ein äußeres Magnetfeld angelegt wird, entstehen in den Atomen Ströme, die ein Gegenfeld erzeugen (Lenz’sche Regel).
+    </p>
+    <p>
+      <strong>Eigenschaften:</strong>
+    </p>
+    <ul>
+      <li>Magnetische Suszeptibilität \( \chi < 0 \) (klein und negativ)</li>
+      <li>Keine dauerhafte Magnetisierung</li>
+      <li>Beispiele: Kupfer, Wismut, Wasser</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6.2 Paramagnetismus -->
+<section id="paramagnetismus">
+  <div class="container">
+    <h2>6.2 Paramagnetismus</h2>
+    <p>
+      Paramagnetische Stoffe haben <strong>atomare magnetische Momente</strong>, die im Normalzustand ungeordnet sind. 
+      In einem Magnetfeld richten sich diese Momente teilweise aus, sodass die Stoffe <strong>schwach angezogen</strong> werden.
+    </p>
+    <p>
+      <strong>Eigenschaften:</strong>
+    </p>
+    <ul>
+      <li>Magnetische Suszeptibilität \( \chi > 0 \) (klein und positiv)</li>
+      <li>Keine Remanenz (Magnetisierung verschwindet nach Entfernen des Feldes)</li>
+      <li>Beispiele: Aluminium, Platin, Sauerstoff</li>
+    </ul>
+    <p>
+      <strong>Besonderheit:</strong> Die magnetische Wirkung nimmt mit steigender Temperatur ab (Curie-Gesetz).
+    </p>
+  </div>
+</section>
+
+<!-- 6.3 Ferromagnetismus -->
+<section id="ferromagnetismus">
+  <div class="container">
+    <h2>6.3 Ferromagnetismus</h2>
+    <p>
+      Ferromagnetische Stoffe haben <strong>stark wechselwirkende atomare Momente</strong>, die sich auch ohne äußeres Feld parallel ausrichten. 
+      Dies führt zu einer <strong>sehr starken Magnetisierung</strong>.
+    </p>
+    <p>
+      <strong>Eigenschaften:</strong>
+    </p>
+    <ul>
+      <li>Sehr hohe magnetische Suszeptibilität</li>
+      <li>Besitzen <strong>Remanenz</strong> (bleiben nach Entfernen des Feldes magnetisiert)</li>
+      <li>Zeigen Hysterese-Verhalten</li>
+      <li>Beispiele: Eisen, Kobalt, Nickel</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6.4 Hysterese -->
+<section id="hysterese">
+  <div class="container">
+    <h2>6.4 Hysterese</h2>
+    <p>
+      Bei ferromagnetischen Materialien bleibt nach dem Entfernen des Magnetfeldes eine Restmagnetisierung (Remanenz) bestehen. 
+      Um das Material vollständig zu entmagnetisieren, muss ein Feld in entgegengesetzter Richtung angelegt werden (Koerzitivfeld).
+    </p>
+    <p>
+      Dies führt zur <strong>Hysteresekurve</strong>, die den Zusammenhang zwischen Magnetisierung \( B \) und magnetischer Feldstärke \( H \) zeigt.
+    </p>
+    <ul>
+      <li><strong>Weiche ferromagnetische Stoffe:</strong> Kleine Hysterese → gut für Transformatoren (geringe Verluste)</li>
+      <li><strong>Harte ferromagnetische Stoffe:</strong> Große Hysterese → ideal für Dauermagnete</li>
+    </ul>
+  </div>
+</section>
+
+
+
+ <a href="quiz.html" class="quiz-btn">Quiz zu Magnetismus starten</a>
+<footer>
+    &copy; 2025 PhysikNow | Magnetismus
+</footer>
+
+</body>
+</html>

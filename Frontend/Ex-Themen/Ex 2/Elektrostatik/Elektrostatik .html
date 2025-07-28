@@ -68,6 +68,7 @@
         margin: 20px 0;
     }
     ul { margin-left: 20px; margin-bottom: 10px; }
+    
 </style>
 </head>
 <body>
@@ -87,6 +88,54 @@
     <h2>Elektrostatik</h2>
     <p>Grundlagen, Begriffe und mathematische Herleitungen</p>
 </section>
+
+<style>
+    .toc-box {
+        background: #ffffff;
+        border: 2px solid #0073e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 25px auto;
+        max-width: 800px;
+    }
+    .toc-box h3 {
+        font-size: 18px;
+        color: #0073e6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .toc-box ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        columns: 2;
+    }
+    .toc-box li { margin-bottom: 8px; }
+    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+</style>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+   <ul>
+    <li><a href="#kapitel-1">1. Einführung in die Elektrostatik</a></li>
+    <li><a href="#kapitel-2">2. Elektrisches Feld und Feldgrößen</a></li>
+    <li><a href="#kapitel-3">3. Gauß’sches Gesetz und elektrischer Fluss</a></li>
+    <li><a href="#kapitel-4">4. Kapazität und Kondensatoren</a></li>
+    <li><a href="#kapitel-5">5. Elektrische Energie, Potentiale & Netzwerke</a></li>
+    <li><a href="#kapitel-6">6. Gauß’sches Gesetz (Vertiefung)</a></li>
+    <li><a href="#kapitel-7">7. Elektrisches Potential und Energie</a></li>
+    <li><a href="#kapitel-8">8. Leitende Körper und Influenz</a></li>
+    <li><a href="#kapitel-9">9. Kapazität & Kondensatoren (Vertiefung)</a></li>
+    <li><a href="#kapitel-10">10. Elektrische Ströme und Widerstände</a></li>
+    <li><a href="#kapitel-11">11. Joulesche Wärme und Energieverluste</a></li>
+    <li><a href="#kapitel-12">12. Formelsammlung & Zusammenfassung</a></li>
+  </ul>
+</div>
+
 
 <section id="kapitel-1">
 <div class="container">
@@ -1512,16 +1561,73 @@
     </div>
 </div>
 </section>
-<section id="kapitel-11" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+
+<section id="kapitel-11">
+<div class="container">
+    <h2>11. Joulesche Wärme und Energieverluste</h2>
+    <p>
+        Wenn ein elektrischer Strom durch einen Leiter fließt, stoßen die Elektronen mit den Atomen des Materials. 
+        Dabei wird elektrische Energie in Wärme umgewandelt – dieser Effekt wird als <strong>Joulesche Wärme</strong> bezeichnet.
+    </p>
+
+    <h3>11.1 Formel für die Wärmeentwicklung</h3>
+    <div class="highlight">
+        \[
+        W_\text{Joule} = I^2 \cdot R \cdot t
+        \]
+        <ul>
+            <li>\(W_\text{Joule}\): Wärmeenergie (J)</li>
+            <li>\(I\): Stromstärke (A)</li>
+            <li>\(R\): elektrischer Widerstand (\(\Omega\))</li>
+            <li>\(t\): Zeit (s)</li>
+        </ul>
+    </div>
+    <p>
+        Der Effekt ist proportional zum Quadrat der Stromstärke. Verdoppelt sich der Strom, vervierfacht sich die Wärmeentwicklung.
+    </p>
+
+    <h3>11.2 Zusammenhang mit elektrischer Leistung</h3>
+    <p>
+        Da \(P = U \cdot I\) und \(U = R \cdot I\), folgt:
+    </p>
+    <div class="highlight">
+        \[
+        P = I^2 R
+        \]
+    </div>
+    <p>
+        Die umgesetzte Wärme in einem Widerstand:
+    </p>
+    <div class="highlight">
+        \[
+        W = P \cdot t = I^2 R t
+        \]
+    </div>
+
+    <h3>11.3 Anwendungen und Probleme</h3>
+    <ul>
+        <li>Elektroheizungen und Kochplatten (nutzbar).</li>
+        <li>Energieverluste in Stromleitungen (unerwünscht).</li>
+        <li>Sicherungen und Schmelzsicherungen als Schutzmechanismus.</li>
+    </ul>
+
+    <div class="merke">
+        <strong>Merke:</strong> Joulesche Wärme ist ein Energieverlustmechanismus, der proportional zu \(I^2\) ist. 
+        Daher sind hohe Ströme besonders kritisch für Leitungsverluste.
+    </div>
+</div>
+</section>
+
+
+<section id="kapitel-12" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
 <div class="container" style="max-width:900px; margin:auto;">
 
-<h2>Kapitel 11: Formelsammlung & Zusammenfassung</h2>
+<h2>12 Formelsammlung & Zusammenfassung</h2>
 <p>
 Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elektrostatik zusammen. Es dient als Lern- und Prüfungs-Checkliste.
 </p>
-
-<!-- Abschnitt 11.1 -->
-<h2>11.1 Grundlegende Begriffe</h2>
+<!-- Abschnitt 12.1 -->
+<h2>12.1 Grundlegende Begriffe</h2>
 <ul>
     <li><strong>Elektrische Ladung:</strong> 
         \[
@@ -1532,8 +1638,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     <li><strong>Einheit:</strong> Coulomb (C).</li>
 </ul>
 
-<!-- Abschnitt 11.2 -->
-<h2>11.2 Coulomb-Gesetz</h2>
+<!-- Abschnitt 12.2 -->
+<h2>12.2 Coulomb-Gesetz</h2>
 <div class="highlight">
     \[
     F = \frac{1}{4\pi\varepsilon_0} \cdot \frac{|q_1 q_2|}{r^2}, \quad 
@@ -1545,8 +1651,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     \]
 </div>
 
-<!-- Abschnitt 11.3 -->
-<h2>11.3 Elektrisches Feld</h2>
+<!-- Abschnitt 12.3 -->
+<h2>12.3 Elektrisches Feld</h2>
 <ul>
     <li><strong>Definition:</strong>
         \[
@@ -1565,8 +1671,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     </li>
 </ul>
 
-<!-- Abschnitt 11.4 -->
-<h2>11.4 Elektrischer Fluss & Gauss’sches Gesetz</h2>
+<!-- Abschnitt 12.4 -->
+<h2>12.4 Elektrischer Fluss & Gauss’sches Gesetz</h2>
 <div class="highlight">
     \[
     \Phi_E = \oint \mathbf{E} \cdot d\mathbf{A}, \quad 
@@ -1574,8 +1680,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     \]
 </div>
 
-<!-- Abschnitt 11.5 -->
-<h2>11.5 Elektrisches Potential</h2>
+<!-- Abschnitt 12.5 -->
+<h2>12.5 Elektrisches Potential</h2>
 <ul>
     <li>
         <strong>Definition:</strong>
@@ -1597,8 +1703,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     </li>
 </ul>
 
-<!-- Abschnitt 11.6 -->
-<h2>11.6 Energie im elektrischen Feld</h2>
+<!-- Abschnitt 12.6 -->
+<h2>12.6 Energie im elektrischen Feld</h2>
 
 <div class="highlight">
     <strong>Energie in einem Kondensator:</strong>
@@ -1607,8 +1713,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     \]
 </div>
 
-<!-- Abschnitt 11.7 -->
-<h2>11.7 Kapazität & Kondensatoren</h2>
+<!-- Abschnitt 12.7 -->
+<h2>12.7 Kapazität & Kondensatoren</h2>
 <ul>
     <li><strong>Kondensator:</strong>
         \[
@@ -1622,25 +1728,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     </li>
 </ul>
 
-<!-- Abschnitt 11.8 -->
-<h2>11.8 Dielektrika</h2>
-<ul>
-    <li>
-        <strong>Polarisation:</strong>
-        \[
-        \mathbf{P} = \varepsilon_0 \chi_e \mathbf{E}
-        \]
-    </li>
-    <li>
-        <strong>Permittivität:</strong>
-        \[
-        \varepsilon = \varepsilon_0 (1 + \chi_e)
-        \]
-    </li>
-</ul>
-
-<!-- Abschnitt 11.9 -->
-<h2>11.9 Merksätze</h2>
+<!-- Abschnitt 12.8 -->
+<h2>12.8 Merksätze</h2>
 <div class="merke">
     <ul>
         <li>Coulomb-Gesetz und Gauss’sches Gesetz sind äquivalent (für statische Ladungen).</li>
@@ -1650,8 +1739,8 @@ Dieses Kapitel fasst die wichtigsten Konzepte, Definitionen und Formeln der Elek
     </ul>
 </div>
 
-<!-- Abschnitt 11.10 -->
-<h2>11.10 Wichtige Konstanten</h2>
+<!-- Abschnitt 12.9 -->
+<h2>12.9 Wichtige Konstanten</h2>
 <ul>
     <li>\(\varepsilon_0 = 8{,}854 \times 10^{-12}\,\text{C}^2/\text{N·m}^2\)</li>
     <li>\(k = \frac{1}{4\pi\varepsilon_0} \approx 9 \times 10^9 \,\text{N·m}^2/\text{C}^2\)</li>
