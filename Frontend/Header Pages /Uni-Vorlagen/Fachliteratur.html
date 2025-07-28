@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bücher & Lernmaterial | PhysikNow</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff; text-decoration: none; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
+    nav a:hover { color: #00d4ff; }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    /* Grid für Bücher */
+    .container {
+        max-width: 1300px;
+        margin: 2rem auto;
+        padding: 20px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    @media (min-width: 1200px) {
+        .grid {
+            grid-template-columns: repeat(4, 1fr); /* max. 4 Spalten bei großem Screen */
+        }
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 380px;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    .card img {
+        max-width: 130px;
+        margin: 0 auto 10px;
+    }
+    .card h3 {
+        font-size: 18px;
+        margin: 10px 0;
+        flex-grow: 1;
+    }
+    .btn {
+        display: inline-block;
+        background: #ff9900;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        transition: background 0.3s;
+    }
+    .btn:hover { background: #e68a00; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>📚 Empfohlene Bücher & Lernmaterial</h2>
+    <p>Die besten Empfehlungen für Physik & Technik</p>
+</section>
+
+<!-- Bücher Grid -->
+<div class="container">
+    <div class="grid">
+        <!-- Buch 1 -->
+        <div class="card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/41M5N1Xk5bL._SX379_BO1,204,203,200_.jpg" alt="Experimentalphysik 1">
+            <h3>Experimentalphysik 1</h3>
+            <a href="AMAZON-LINK-HIER" class="btn">Jetzt ansehen</a>
+        </div>
+        <!-- Buch 2 -->
+        <div class="card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51kGkGq3cdL._SX379_BO1,204,203,200_.jpg" alt="Experimentalphysik 2">
+            <h3>Experimentalphysik 2</h3>
+            <a href="AMAZON-LINK-HIER" class="btn">Jetzt ansehen</a>
+        </div>
+        <!-- Buch 3 -->
+        <div class="card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51XJwYl6gfL._SX379_BO1,204,203,200_.jpg" alt="Experimentalphysik 3">
+            <h3>Experimentalphysik 3</h3>
+            <a href="AMAZON-LINK-HIER" class="btn">Jetzt ansehen</a>
+        </div>
+        <!-- Buch 4 -->
+        <div class="card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51XJwYl6gfL._SX379_BO1,204,203,200_.jpg" alt="Experimentalphysik 4">
+            <h3>Experimentalphysik 4</h3>
+            <a href="AMAZON-LINK-HIER" class="btn">Jetzt ansehen</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Hinweis: Alle Links führen zu Amazon. Wenn du über diese Links kaufst, können wir eine Provision erhalten.</p>
+</footer>
+
+</body>
+</html>
