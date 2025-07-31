@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydromechanik | PhysikNow</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .content {
+        max-width: 1100px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        line-height: 1.8;
+    }
+    .content h3 {
+        color: #0066ff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem;
+    }
+    .content h4 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        color: #444;
+    }
+    .content p { margin-bottom: 1rem; }
+    .content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .formula {
+        background: #f1f1f1;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .diagram {
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #666;
+        font-style: italic;
+    }
+    .quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto 3rem; /* jetzt oben UND unten Abstand */
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+    header {
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0; /* Standardabstand entfernen */
+        display: flex;
+        align-items: center; /* Logo-Text oder Bild mittig */
+    }
+    header nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0; /* Entfernt Standard-Abstände */
+        padding: 0;
+    }
+    header nav a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    header nav a:hover {
+        color: #00d4ff;
+    }
+</style>
+</head>
+<body>
+
+
+<header>
+    <h1><a href="/physiknow/index.html" style="color:#00d4ff; text-decoration:none;">PhysikNow</a></h1>
+    <nav>
+        <ul>
+            <li><a href="/physiknow/index.html#topics">Alle Themen</a></li>
+            <li><a href="/physiknow/Uni-Vorlagen/Uni-Vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="/physiknow/Quiz.html">Teste dein Wissen</a></li>
+            <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+<section class="hero">
+    <h2>Hydromechanik</h2>
+    <p>Die umfassende Bewegungsbeschreibung in der Thema einführen – für dein Physikstudium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+  <ul>
+    <li><a href="#einleitung">1. Einführung</a></li>
+    <li><a href="#grundlagen">2. Grundlagen</a></li>
+    <li><a href="#bewegung-1d">3. Bewegung in 1D</a></li>
+    <li><a href="#bewegung-2d">4. Bewegung in 2D/3D</a></li>
+    <li><a href="#kreisrotation">5. Kreisbewegung</a></li>
+    <li><a href="#zusammengesetzte-bewegungen">6. Zusammengesetzte Bewegungen</a></li>
+    <li><a href="#starre-koerper">7. Starre Körper</a></li>
+    <li><a href="#diagramme">8. Diagramme</a></li>
+    <li><a href="#gleichungen">9. Gleichungen</a></li>
+    <li><a href="#praxis">10. Anwendungen</a></li>
+    <li><a href="#fehler">11. Fehler</a></li>
+    <li><a href="#fortgeschritten">12. Erweiterte Themen</a></li>
+    <li><a href="#formelsammlung">13. Formelsammlung</a></li>
+  </ul>
+</div>
+
+<style>
+.toc-box {
+  background: #ffffff;
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+}
+
+.toc-box h3 {
+  font-size: 18px;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.toc-box ul {
+  list-style: none; /* eigene Bullets statt Standard */
+  padding-left: 0;
+  margin: 0;
+  columns: 2;
+}
+
+.toc-box li {
+  margin-bottom: 8px;
+  padding-left: 18px; /* Platz für Bullet */
+  position: relative;
+}
+
+/* Eigener Bullet */
+.toc-box li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0073e6;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.toc-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.toc-box a:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .toc-box ul {
+    columns: 1; /* Eine Spalte auf Mobile */
+  }
+}
+/* Blocksatz für den gesamten Content */
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify; /* Blocksatz */
+}
+
+/* Bullets bündig am Rand */
+ul, ol {
+    list-style-type: disc;
+    list-style-position: inside; /* Bullet innerhalb des Textblocks */
+    margin-left: 0; /* Kein zusätzlicher Abstand */
+    padding-left: 0;
+}
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify;       /* Blocksatz */
+    line-height: 1.9;          /* Standard ist 1.4–1.6, hier etwas größer */
+}
+h1, h2, h3 {
+    margin-top: 2rem; /* z. B. 32px */
+    margin-bottom: 0.2rem; /* nur kleiner Abstand nach unten */
+    line-height: 1.3; /* engerer Zeilenabstand für Überschrift */
+}
+</style>
+
+<section id="grundlagen-hydromechanik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>1. Grundlagen der Hydromechanik</h1>
+    <p>
+      Bevor wir komplexe Strömungsmodelle aufstellen, müssen wir einige grundlegende Begriffe und Annahmen kennen. 
+      Diese Grundlagen helfen uns, die Bewegung von Flüssigkeiten in Rohren, Turbinen oder natürlichen Flüssen 
+      mathematisch zu beschreiben.
+    </p>
+
+    <h2>1.1 Wichtige physikalische Größen</h2>
+    <p>Die wichtigsten Größen in der Hydromechanik sind:</p>
+    <ul>
+      <li><strong>Dichte (\(\rho\)):</strong> Masse pro Volumen, Einheit \([ \text{kg}/\text{m}^3 ]\).</li>
+      <li><strong>Druck (\(p\)):</strong> Kraft pro Fläche, Einheit \([ \text{Pa} ]\).</li>
+      <li><strong>Geschwindigkeit (\(\vec{v}\)):</strong> Bewegung des Fluids, Einheit \([ \text{m}/\text{s} ]\).</li>
+      <li><strong>Viskosität (\(\mu\)):</strong> Maß für innere Reibung, Einheit \([ \text{Pa·s} ]\).</li>
+    </ul>
+
+    <h2>1.2 Strömungsarten</h2>
+    <p>
+      Strömungen lassen sich nach verschiedenen Kriterien einteilen:
+    </p>
+    <ul>
+      <li><strong>Stationär:</strong> Strömung ändert sich nicht mit der Zeit.</li>
+      <li><strong>Laminare Strömung:</strong> Flüssigkeit bewegt sich in geordneten Schichten.</li>
+      <li><strong>Turbulente Strömung:</strong> Unregelmäßig, mit Wirbeln (z. B. bei hohen Geschwindigkeiten).</li>
+    </ul>
+
+    <h2>1.3 Die Reynoldszahl</h2>
+    <p>
+      Ob eine Strömung laminar oder turbulent ist, hängt von der <strong>Reynoldszahl</strong> ab. 
+      Sie beschreibt das Verhältnis von Trägheitskräften zu Zähigkeitskräften:
+    </p>
+    <div class="formula">
+      \[
+      Re = \frac{\rho v L}{\mu}
+      \]
+    </div>
+    <p>
+      Typische Werte:
+    </p>
+    <ul>
+      <li><strong>Re &lt; 2300:</strong> Laminar</li>
+      <li><strong>Re &gt; 4000:</strong> Turbulent</li>
+    </ul>
+
+    <h2>1.4 Wichtige Annahmen</h2>
+    <ul>
+      <li><strong>Kontinuumshypothese:</strong> Fluid wird als kontinuierlich betrachtet, obwohl es aus Molekülen besteht.</li>
+      <li><strong>Inkompressibilität:</strong> \(\rho = konstant\), gilt für Wasser und viele Flüssigkeiten.</li>
+      <li><strong>Newtonsche Fluide:</strong> Schubspannung proportional zum Geschwindigkeitsgradienten (\(\tau = \mu \dfrac{\partial u}{\partial y}\)).</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:10px; border-left:5px solid #4caf50; margin:15px 0;">
+      <strong>Beispiel:</strong> Wasser in einer Rohrleitung: Annahmen „Kontinuum“ und „Inkompressibel“ sind gerechtfertigt, 
+      bei Öl zusätzlich Newtonsch.
+    </div>
+  </div>
+</section>
+<section id="grundgleichungen-hydromechanik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>2. Mathematische Grundgleichungen der Hydromechanik</h1>
+    <p>
+      Die Strömungsvorgänge in Fluiden lassen sich nicht nur qualitativ, sondern auch quantitativ beschreiben. 
+      Grundlage sind drei zentrale Erhaltungssätze:
+    </p>
+    <ul>
+      <li><strong>Massenbilanz:</strong> Masse bleibt erhalten.</li>
+      <li><strong>Impulsbilanz:</strong> „Kraft = Masse × Beschleunigung“ für Fluide.</li>
+      <li><strong>Energieerhaltung:</strong> Energie wird in anderer Form weitergegeben, aber nicht vernichtet.</li>
+    </ul>
+    <p>
+      Diese Prinzipien führen zu den bekannten Gleichungen der Hydromechanik, die wir im Folgenden vorstellen.
+    </p>
+
+    <h2>2.1 Kontinuitätsgleichung (Massenbilanz)</h2>
+    <p>
+      Die Kontinuitätsgleichung drückt aus, dass Masse nicht verschwindet: 
+      Was in ein Kontrollvolumen hineinströmt, muss auch wieder hinaus oder die Dichte ändert sich.
+    </p>
+    <div class="formula">
+      \[
+      \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0
+      \]
+    </div>
+    <p>
+      Für <strong>inkompressible Fluide</strong> (\(\rho = konstant\)) vereinfacht sich die Gleichung zu:
+    </p>
+    <div class="formula">
+      \[
+      \nabla \cdot \vec{v} = 0
+      \]
+    </div>
+    <p>
+      Das bedeutet: Das Volumen bleibt konstant, es gibt keine „Ansammlung“ oder „Lücke“ im Fluid.
+    </p>
+
+    <h2>2.2 Impulsbilanz (Navier-Stokes-Gleichung)</h2>
+    <p>
+      Die Impulsbilanz ist die wichtigste Gleichung der Strömungsmechanik. Sie folgt aus Newtons zweitem Gesetz:
+      <em>Kraft = Masse × Beschleunigung</em>. In der allgemeinen Form lautet sie:
+    </p>
+    <div class="formula">
+      \[
+      \frac{\partial (\rho \vec{v})}{\partial t} + \nabla \cdot (\rho \vec{v} \otimes \vec{v}) 
+      = -\nabla p + \nabla \cdot \boldsymbol{\tau} + \rho \vec{g}
+      \]
+    </div>
+    <p>
+      Dabei ist \(\boldsymbol{\tau}\) der Spannungstensor. Für ein newtonsches Fluid ergibt sich:
+    </p>
+    <div class="formula">
+      \[
+      \rho \left( \frac{\partial \vec{v}}{\partial t} + (\vec{v} \cdot \nabla) \vec{v} \right)
+      = -\nabla p + \mu \nabla^2 \vec{v} + \rho \vec{g}
+      \]
+    </div>
+    <ul>
+      <li><strong>\(-\nabla p\):</strong> Druckkräfte</li>
+      <li><strong>\(\mu \nabla^2 \vec{v}\):</strong> Viskose Kräfte (Reibung)</li>
+      <li><strong>\(\rho \vec{g}\):</strong> Schwerkraft</li>
+    </ul>
+    <p>
+      In der Praxis wird häufig diese vereinfachte Form genutzt, weil sie für inkompressible, newtonsche Fluide gilt.
+    </p>
+
+    <h2>2.3 Energiegleichung (Bernoulli-Gleichung)</h2>
+    <p>
+      Für reibungsfreie, stationäre Strömungen entlang einer Stromlinie gilt:
+    </p>
+    <div class="formula">
+      \[
+      p + \frac{\rho v^2}{2} + \rho g z = \text{konstant}
+      \]
+    </div>
+    <p>
+      Diese Gleichung verknüpft drei Energieformen:
+    </p>
+    <ul>
+      <li><strong>Druckenergie:</strong> \(p\)</li>
+      <li><strong>Kinetische Energie:</strong> \(\frac{\rho v^2}{2}\)</li>
+      <li><strong>Lageenergie:</strong> \(\rho g z\)</li>
+    </ul>
+    <p>
+      Sie ist ein wichtiges Werkzeug für Rohrströmungen, Düsen und Pumpen – aber nur unter idealisierten Bedingungen 
+      (keine Reibung, keine Wärmeübertragung).
+    </p>
+
+    <div style="background:#e8f5e9; padding:10px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> 
+      Berechnung des Druckunterschieds in einer Rohrleitung zwischen zwei Höhen:
+      \[
+      \Delta p = \rho g \Delta z
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="stroemungsarten-reynoldszahl" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>3. Strömungsarten und Reynoldszahl</h1>
+    <p>
+      In der Hydromechanik unterscheidet man verschiedene Strömungsarten, die stark vom Strömungsverhalten 
+      und den dominierenden Kräften abhängen. Die zentrale Kenngröße zur Klassifikation ist die 
+      <strong>Reynoldszahl</strong>.
+    </p>
+
+    <h2>3.1 Strömungsarten</h2>
+    <ul>
+      <li>
+        <strong>Laminare Strömung:</strong> 
+        Flüssigkeitsteilchen bewegen sich in parallelen Schichten ohne Durchmischung. 
+        Reibungskräfte dominieren, Strömung ist stabil und berechenbar.
+      </li>
+      <li>
+        <strong>Turbulente Strömung:</strong> 
+        Chaotische Wirbel, starke Impulsaustauschvorgänge. 
+        Trägheitskräfte überwiegen, hohe Energieverluste durch Turbulenz.
+      </li>
+      <li>
+        <strong>Übergangsbereich:</strong> 
+        Mischform zwischen laminar und turbulent; empfindlich auf Störungen.
+      </li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:10px; border-left:5px solid #0073e6; margin:15px 0;">
+      <strong>Merke:</strong> 
+      Laminar = geordnet → einfach berechenbar.  
+      Turbulent = unregelmäßig → oft nur numerisch oder empirisch lösbar.
+    </div>
+
+    <h2>3.2 Reynoldszahl</h2>
+    <p>
+      Die <strong>Reynoldszahl</strong> (\(Re\)) ist eine dimensionslose Kennzahl, die das Verhältnis 
+      von Trägheits- zu Zähigkeitskräften beschreibt:
+    </p>
+    <div class="formula">
+      \[
+      Re = \frac{\rho v L}{\mu} = \frac{v L}{\nu}
+      \]
+    </div>
+    <p>
+      Hierbei gilt:
+    </p>
+    <ul>
+      <li>\(v\) = Strömungsgeschwindigkeit</li>
+      <li>\(L\) = charakteristische Länge (z. B. Rohrdurchmesser)</li>
+      <li>\(\nu = \mu / \rho\) = kinematische Viskosität</li>
+    </ul>
+
+    <h3>Klassifikation für Rohrströmungen:</h3>
+    <ul>
+      <li><strong>Laminare Strömung:</strong> \(Re < 2300\)</li>
+      <li><strong>Übergangsbereich:</strong> \(2300 \le Re \le 4000\)</li>
+      <li><strong>Turbulente Strömung:</strong> \(Re > 4000\)</li>
+    </ul>
+
+    <h2>3.3 Physikalische Bedeutung</h2>
+    <p>
+      Kleine Reynoldszahl → Zähigkeit bremst Bewegung → laminar.  
+      Große Reynoldszahl → Trägheit dominiert → turbulent.
+    </p>
+
+    <h2>3.4 Beispiele</h2>
+    <ul>
+      <li>Blutströmung in Kapillaren: \(Re \approx 1\) → laminar</li>
+      <li>Wasser in Haushaltsleitungen: \(Re \approx 10^4\) → turbulent</li>
+      <li>Luftströmung über Auto: \(Re \approx 10^6\) → turbulent</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:10px; border-left:5px solid #4caf50; margin:15px 0;">
+      <strong>Beispielrechnung:</strong>
+      Für Wasser in einem Rohr (Durchmesser \(D = 0{,}05\) m, \(v = 1\) m/s, \(\nu = 1{,}0 \times 10^{-6}\) m²/s):
+      \[
+      Re = \frac{v \cdot D}{\nu} = \frac{1 \cdot 0{,}05}{10^{-6}} = 50\,000 \quad \Rightarrow \text{turbulent}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="hydrostatik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:950px; margin:auto;">
+    <h1>4. Hydrostatik</h1>
+    <p>
+      Die <strong>Hydrostatik</strong> befasst sich mit <strong>Flüssigkeiten in Ruhe</strong>. 
+      Im Gegensatz zur Hydrodynamik, die Strömungen untersucht, betrachtet die Hydrostatik die Kräfte und Drücke in ruhenden Fluiden. 
+      Typische Fragestellungen:
+    </p>
+    <ul>
+      <li>Wie ändert sich der Druck mit der Tiefe in einer Flüssigkeit?</li>
+      <li>Welche Kraft wirkt auf eine Fläche unter Wasser?</li>
+      <li>Warum schwimmen Schiffe und warum steigt ein Ballon auf?</li>
+    </ul>
+
+    <h2>4.1 Grundannahmen</h2>
+    <ul>
+      <li><strong>Flüssigkeit in Ruhe:</strong> Keine Scherkräfte, nur Normalspannungen (Druck).</li>
+      <li><strong>Kontinuumshypothese:</strong> Dichte ist stetig definiert.</li>
+      <li><strong>Inkompressibilität:</strong> Dichte \(\rho\) konstant für Flüssigkeiten.</li>
+    </ul>
+
+    <h2>4.2 Hydrostatiches Grundgesetz</h2>
+    <p>
+      Betrachten wir ein Fluid in Ruhe in einem Gravitationsfeld. Die Kräfte im Gleichgewicht ergeben:
+    </p>
+    <div class="formula">
+      \[
+      \frac{\partial p}{\partial z} = -\rho g
+      \]
+    </div>
+    <p>
+      <strong>Herleitung:</strong> 
+      Ein Flüssigkeitselement mit Höhe \(\Delta z\) erfährt:
+    </p>
+    <ul>
+      <li>Oben: Kraft \(p(z) \cdot A\)</li>
+      <li>Unten: Kraft \((p(z)+\Delta p) \cdot A\)</li>
+      <li>Gewicht: \(\rho g A \Delta z\)</li>
+    </ul>
+    <p>Im Gleichgewicht: \((p+\Delta p)A - pA - \rho g A \Delta z = 0\) → \(\Delta p = -\rho g \Delta z\)</p>
+    <div class="formula">
+      \[
+      \frac{dp}{dz} = -\rho g
+      \]
+    </div>
+    <p>
+      Integration (bei \(z\) nach unten positiv):
+    </p>
+    <div class="formula">
+      \[
+      p(z) = p_0 + \rho g h
+      \]
+    </div>
+    <p>
+      <strong>Interpretation:</strong> Der Druck steigt linear mit der Tiefe. 
+      An der Oberfläche: \(p_0 = p_{atm}\), also:
+    </p>
+    <div class="formula">
+      \[
+      p = p_{atm} + \rho g h
+      \]
+    </div>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Der hydrostatische Druck hängt <u>nur</u> von der Tiefe ab – nicht von Gefäßform oder Flüssigkeitsmenge (kommunizierende Röhren!).
+    </div>
+
+    <h2>4.3 Pascal’sches Gesetz</h2>
+    <p>
+      Ein in einer ruhenden Flüssigkeit wirkender Druck breitet sich <strong>gleichmäßig in alle Richtungen</strong> aus:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = \text{überall gleich}
+      \]
+    </div>
+    <p>
+      Anwendung: <strong>Hydraulische Presse</strong>. Verhältnis der Kräfte:
+    </p>
+    <div class="formula">
+      \[
+      \frac{F_1}{A_1} = \frac{F_2}{A_2}
+      \]
+    </div>
+
+    <h2>4.4 Kräfte auf eingetauchte Flächen</h2>
+    <p>
+      Die Kraft auf eine Fläche ergibt sich aus:
+    </p>
+    <div class="formula">
+      \[
+      F = p_{Schwerpunkt} \cdot A
+      \]
+    </div>
+    <p>
+      Druck variiert mit der Tiefe → resultierende Kraft wirkt im <strong>Druckzentrum</strong>.
+    </p>
+
+    <h2>4.5 Auftrieb und Archimedisches Prinzip</h2>
+    <p>
+      Ein in eine Flüssigkeit eingetauchtes Objekt erfährt eine Auftriebskraft:
+    </p>
+    <div class="formula">
+      \[
+      F_A = \rho_{Fl} \cdot g \cdot V_{\text{verdrängt}}
+      \]
+    </div>
+    <p>
+      Diese Kraft ist gleich dem Gewicht der verdrängten Flüssigkeit.
+    </p>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel:</strong> Warum schwimmt ein Schiff?<br>
+      Schiff verdrängt Wasservolumen → Auftrieb = Gewicht Wasser → Schiff sinkt, bis Gleichgewicht erreicht ist.
+    </div>
+
+    <h3>Beispiel: Ballonauftrieb</h3>
+    <p>
+      Heliumballon (Volumen 0,1 m³, Luftdichte 1,2 kg/m³, Helium 0,18 kg/m³):
+    </p>
+    <div class="formula">
+      \[
+      F_A = \rho_{Luft} \cdot g \cdot V = 1,2 \cdot 9,81 \cdot 0,1 \approx 1,18 \text{ N}
+      \]
+    </div>
+    <p>
+      Gewicht des Heliums: \(0,18 \cdot 9,81 = 1,77 \text{ N}\). 
+      Ergebnis: Der Ballon steigt, solange Auftrieb > Gewicht + Hülle.
+    </p>
+
+    <h2>4.6 Beispielrechnung: Druck in einem Tank</h2>
+    <p>
+      Wassertank, Höhe \(h = 5\) m, Dichte \(1000\) kg/m³, \(p_{atm} = 101325\) Pa:
+    </p>
+    <div class="formula">
+      \[
+      p = p_{atm} + \rho g h = 101325 + 1000 \cdot 9,81 \cdot 5 \approx 150325 \text{ Pa} \ (\approx 1,5 \text{ bar})
+      \]
+    </div>
+
+    <h2>4.7 Anwendungen der Hydrostatik</h2>
+    <ul>
+      <li>Staudämme: Berechnung von Wasserdruck</li>
+      <li>Hydraulische Bremsen & Pressen</li>
+      <li>Schiffbau und U-Boot-Konstruktion</li>
+      <li>Ballon- und Luftfahrttechnik (Auftrieb in Gasen)</li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Hydrostatik ist Grundlage für viele Ingenieur-Anwendungen. Druck = Tiefe × Dichte × g. Auftrieb = verdrängtes Volumen × Dichte.
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="druckverlust-rohrstroemung" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>4. Druckverlust in Rohrleitungen</h1>
+    <p>
+      In technischen Anwendungen wie Rohrleitungssystemen ist die Berechnung des <strong>Druckverlustes</strong> entscheidend. 
+      Dieser Verlust entsteht durch <strong>Reibung</strong> zwischen Fluid und Rohrwand sowie durch <strong>Strömungswirbel</strong>.
+      Je nach Strömungsart werden unterschiedliche Ansätze verwendet.
+    </p>
+
+    <h2>4.1 Ursachen des Druckverlusts</h2>
+    <ul>
+      <li>Reibung an der Rohrwand → viskose Effekte</li>
+      <li>Wirbel und Turbulenzen → zusätzliche Energieverluste</li>
+      <li>Einbauten, Ventile, Bögen → örtliche Verluste</li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:10px; border-left:5px solid #0073e6; margin:15px 0;">
+      <strong>Merke:</strong> Druckverlust = Energieverlust → muss durch Pumpen oder Gefälle ausgeglichen werden.
+    </div>
+
+    <h2>4.2 Hagen-Poiseuille-Gesetz (laminare Strömung)</h2>
+    <p>
+      Für laminare Strömung in einem Rohr (Re &lt; 2300) gilt:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = \frac{8 \mu L Q}{\pi R^4}
+      \]
+    </div>
+    <p>
+      <strong>Bedeutung der Parameter:</strong>
+    </p>
+    <ul>
+      <li>\(\Delta p\) = Druckverlust [Pa]</li>
+      <li>\(\mu\) = dynamische Viskosität [Pa·s]</li>
+      <li>\(L\) = Rohrlänge [m], \(R\) = Rohradius [m]</li>
+      <li>\(Q\) = Volumenstrom [m³/s]</li>
+    </ul>
+    <p>
+      Interpretation: Druckverlust steigt linear mit Rohrlänge und Viskosität, aber extrem stark mit kleiner werdendem Radius (\(R^4\)).
+    </p>
+
+    <h2>4.3 Darcy-Weisbach-Gleichung (turbulente Strömung)</h2>
+    <p>
+      Für turbulente Strömungen wird der Druckverlust über die <strong>Darcy-Weisbach-Gleichung</strong> berechnet:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = \lambda \cdot \frac{L}{D} \cdot \frac{\rho v^2}{2}
+      \]
+    </div>
+    <p>
+      Hierbei ist:
+    </p>
+    <ul>
+      <li>\(\lambda\) = Reibungsbeiwert (abhängig von Reynoldszahl und Rauigkeit)</li>
+      <li>\(D\) = Rohrdurchmesser, \(v\) = mittlere Strömungsgeschwindigkeit</li>
+      <li>\(\rho\) = Dichte des Fluids</li>
+    </ul>
+    <p>
+      <strong>Bestimmung von \(\lambda\):</strong> empirisch aus Moody-Diagramm oder Colebrook-Gleichung.
+    </p>
+    
+
+
+    <ul>
+      <li>Laminare Strömung → Hagen-Poiseuille (nur bei Re &lt; 2300!)</li>
+      <li>Turbulente Strömung → Darcy-Weisbach (Standard in der Praxis)</li>
+    </ul>
+
+    <section id="druckverlust-beispiel" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h2>4.5 Beispielrechnung: Druckverlust in einem Rohr</h2>
+    <p>
+      Gegeben: Wasser (20 °C) in einem Rohr mit:
+    </p>
+    <ul>
+      <li>Durchmesser: \( D = 0{,}05 \,\text{m} \)</li>
+      <li>Länge: \( L = 10 \,\text{m} \)</li>
+      <li>Strömungsgeschwindigkeit: \( v = 1 \,\text{m/s} \)</li>
+      <li>Dichte: \( \rho = 1000 \,\text{kg/m}^3 \)</li>
+      <li>Kinematische Viskosität: \( \nu = 1{,}0 \times 10^{-6} \,\text{m}^2/\text{s} \)</li>
+    </ul>
+
+    <h3>Schritt 1: Reynoldszahl</h3>
+    <p>
+      \[
+      \text{Re} = \frac{v \cdot D}{\nu} = \frac{1 \cdot 0{,}05}{1{,}0 \times 10^{-6}} = 50{,}000
+      \]
+    </p>
+    <p>
+      Damit haben wir eine turbulente Strömung (Re &gt; 4000).
+    </p>
+
+    <h3>Schritt 2: Reibungsbeiwert \(\lambda\)</h3>
+    <p>
+      Für glatte Rohre und turbulente Strömung kann die Blasius-Näherung verwendet werden:
+    </p>
+    <div class="formula">
+      \[
+      \lambda = 0{,}3164 \cdot \text{Re}^{-0{,}25}
+      \]
+    </div>
+    <p>
+      Einsetzen:
+    </p>
+    <div class="formula">
+      \[
+      \lambda = 0{,}3164 \cdot (50{,}000)^{-0{,}25} \approx 0{,}031
+      \]
+    </div>
+
+    <h3>Schritt 3: Druckverlustberechnung</h3>
+    <p>
+      Die Darcy-Weisbach-Gleichung:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = \lambda \cdot \frac{L}{D} \cdot \frac{\rho v^2}{2}
+      \]
+    </div>
+    <p>
+      Einsetzen der Werte:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = 0{,}031 \cdot \frac{10}{0{,}05} \cdot \frac{1000 \cdot 1^2}{2}
+      \]
+    </div>
+    <p>
+      Berechnung:
+    </p>
+    <div class="formula">
+      \[
+      \Delta p = 0{,}031 \cdot 200 \cdot 500 = 3100 \,\text{Pa} \approx 0{,}031 \,\text{bar}
+      \]
+    </div>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Ergebnis:</strong> Der Druckverlust beträgt ca. <strong>3100 Pa (≈ 0,031 bar)</strong>.
+    </div>
+  </div>
+</section>
+
+
+    <div style="background:#e8f5e9; padding:10px; border-left:5px solid #4caf50; margin:15px 0;">
+      <strong>Interpretation:</strong> Schon bei kleinen Rohrdurchmessern entstehen erhebliche Druckverluste → Pumpenleistung beachten!
+    </div>
+  </div>
+</section>
+
+
+
+    <a href="quiz.html" class="quiz-btn">Quiz zu Hydromechanik starten</a>
+</main>
+
+<footer>
+    &copy; 2025 PhysikNow | Hydromechanik
+</footer>
+
+</body>
+</html>
