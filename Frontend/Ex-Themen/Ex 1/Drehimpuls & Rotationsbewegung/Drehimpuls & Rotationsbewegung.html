@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drehimpuls & Rotationsbewegung | PhysikNow</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background: #1e1e2f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        text-decoration: none;
+    }
+    header h1 { font-size: 1.5rem; color: #00d4ff;text-decoration: none; }
+    nav ul { display: flex; gap: 1rem; list-style: none; text-decoration: none;}
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none;}
+    nav a:hover { color: #00d4ff; text-decoration: none;}
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .content {
+        max-width: 1100px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        line-height: 1.8;
+    }
+    .content h3 {
+        color: #0066ff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem;
+    }
+    .content h4 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        color: #444;
+    }
+    .content p { margin-bottom: 1rem; }
+    .content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .formula {
+        background: #f1f1f1;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .diagram {
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #666;
+        font-style: italic;
+    }
+    .quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto 3rem; /* jetzt oben UND unten Abstand */
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <h2>Drehimpuls & Rotationsbewegung</h2>
+    <p>Die umfassende Bewegungsbeschreibung in der Mechanik – für dein Physikstudium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+  <ul>
+    <li><a href="#einleitung">1. Einführung in den Drehimpuls</a></li>
+    <li><a href="#grundlagen">2. Grundlagen der Rotationsbewegung</a></li>
+    <li><a href="#drehimpuls">3. Der Drehimpuls und seine Eigenschaften</a></li>
+    <li><a href="#traegheitsmoment">4. Trägheitsmoment und seine Berechnung</a></li>
+    <li><a href="#dynamik-der-rotation">5. Dynamik der Rotationsbewegung</a></li>
+    <li><a href="#energie-in-rotation">6. Energie in Rotationsbewegungen</a></li>
+    <li><a href="#praxis">7. Anwendungen und Beispiele</a></li>
+    <li><a href="#fehler">8. Häufige Fehler</a></li>
+</div>
+
+<style>
+.toc-box {
+  background: #ffffff;
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+}
+.toc-box h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.toc-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  columns: 2; /* 2 Spalten für Desktop */
+}
+.toc-box li {
+  margin-bottom: 8px;
+}
+.toc-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.toc-box a:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .toc-box ul {
+    columns: 1; /* Eine Spalte auf Mobile */
+  }
+}
+</style>
+<section id="einleitung" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>1. Einführung in den Drehimpuls</h1>
+    <p>Der Drehimpuls ist eine grundlegende physikalische Größe, die die Drehbewegung eines Körpers beschreibt. Er ist ein Vektor, der sowohl die Größe als auch die Richtung der Drehbewegung eines Objekts bestimmt. Der Drehimpuls wird oft als das „rotierende Pendant“ zum linearen Impuls angesehen.</p>
+
+    <h2>1.1 Was ist Drehimpuls?</h2>
+    <p>Der Drehimpuls \(\vec{L}\) eines Teilchens ist definiert als das Kreuzprodukt des Ortsvektors \(\vec{r}\) und des Impulsvektors \(\vec{p}\):</p>
+    <p>
+      \[
+      \vec{L} = \vec{r} \times \vec{p} = \vec{r} \times m \cdot \vec{v}
+      \]
+    </p>
+    <p>Der Drehimpuls ist eine vektorielle Größe und seine Richtung wird durch die Rechte-Hand-Regel bestimmt. Er beschreibt die „Drehneigung“ eines Körpers relativ zu einer Achse.</p>
+
+    <h2>1.2 Einheit und Dimensionen</h2>
+    <p>Die Dimension des Drehimpulses ist \(\text{kg} \cdot \text{m}^2/\text{s}\). Der Drehimpuls wird in SI-Einheiten als Produkt der Masse, der Geschwindigkeit und des quadratischen Abstands zur Drehachse beschrieben.</p>
+
+    <h2>1.3 Drehimpuls als Erhaltungsgröße</h2>
+    <p>Ein zentrales Konzept im Zusammenhang mit dem Drehimpuls ist das **Erhaltungsgesetz des Drehimpulses**. In einem geschlossenen System, in dem keine äußeren Drehmomente wirken, bleibt der Gesamt-Drehimpuls erhalten:</p>
+    <p>
+      \[
+      \frac{d\vec{L}}{dt} = \vec{\tau}
+      \]
+    </p>
+    <p>Das bedeutet, dass der Drehimpuls nur dann verändert wird, wenn ein äußeres Drehmoment (\(\vec{\tau}\)) auf das System wirkt.</p>
+  </div>
+</section>
+<section id="grundlagen" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>2. Grundlagen der Rotationsbewegung</h1>
+    <p>Die Rotationsbewegung eines Körpers wird durch verschiedene Größen beschrieben, die analog zur translatorischen Bewegung sind, aber in Bezug auf Winkelgrößen formuliert sind. Zu diesen Größen gehören die Winkelgeschwindigkeit \(\omega\), die Winkelbeschleunigung \(\alpha\) und das Trägheitsmoment \(I\).</p>
+
+    <h2>2.1 Winkelgeschwindigkeit und Winkelbeschleunigung</h2>
+    <p>Die **Winkelgeschwindigkeit** \(\omega\) gibt an, wie schnell sich ein Körper um eine Achse dreht:</p>
+    <p>
+      \[
+      \omega = \frac{d\varphi}{dt}
+      \]
+    </p>
+    <p>Die **Winkelbeschleunigung** \(\alpha\) beschreibt die Änderung der Winkelgeschwindigkeit über die Zeit:</p>
+    <p>
+      \[
+      \alpha = \frac{d\omega}{dt}
+      \]
+    </p>
+
+    <h2>2.2 Das Trägheitsmoment</h2>
+    <p>Das Trägheitsmoment \(I\) eines Körpers beschreibt dessen Widerstand gegen eine Änderung der Rotationsbewegung. Es ist das rotatorische Äquivalent der Masse in der linearen Bewegung:</p>
+    <p>
+      \[
+      I = \sum m_i r_i^2
+      \]
+    </p>
+    <p>Das Trägheitsmoment hängt von der **Masse** des Körpers sowie der **Geometrie** des Körpers ab. Bei starren Körpern mit einfacher Geometrie gibt es standardisierte Formeln für \(I\). Zum Beispiel:</p>
+    <ul>
+      <li>Für eine dünne Stange mit Länge \(L\) und Masse \(m\), die um ihre Mitte rotiert: \( I = \frac{1}{12} m L^2 \)</li>
+      <li>Für eine Solid-Scheibe mit Radius \(R\) und Masse \(m\), die um ihre zentrale Achse rotiert: \( I = \frac{1}{2} m R^2 \)</li>
+    </ul>
+
+    <h2>2.3 Drehmoment</h2>
+    <p>Das **Drehmoment** \(\tau\) ist die rotatorische Entsprechung der Kraft und beschreibt die Wirkung einer Kraft auf die Drehbewegung eines Körpers:</p>
+    <p>
+      \[
+      \tau = r \times F
+      \]
+    </p>
+    <p>Es ist der Vektor, der die Drehwirkung einer Kraft beschreibt und hängt sowohl von der Größe der Kraft als auch von ihrem Abstand zur Drehachse ab.</p>
+  </div>
+</section>
+<section id="drehimpuls" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>3. Der Drehimpuls und seine Eigenschaften</h1>
+    <p>Der Drehimpuls ist eine zentrale Größe der Rotationsbewegung und eng mit anderen Konzepten wie dem Trägheitsmoment und der Winkelgeschwindigkeit verknüpft. In diesem Kapitel werden die wichtigsten Eigenschaften des Drehimpulses sowie seine Berechnungen erläutert.</p>
+
+    <h2>3.1 Berechnung des Drehimpulses</h2>
+    <p>Der Drehimpuls eines Punktes mit Masse \(m\) und Geschwindigkeit \(\vec{v}\), der sich in einem Abstand \(r\) von der Drehachse befindet, ist gegeben durch:</p>
+    <p>
+      \[
+      \vec{L} = \vec{r} \times m \cdot \vec{v}
+      \]
+    </p>
+    <p>Für ein System von Teilchen wird der Drehimpuls als Summe der Drehimpulse aller Teilchen berechnet:</p>
+    <p>
+      \[
+      \vec{L} = \sum_i (\vec{r}_i \times m_i \cdot \vec{v}_i)
+      \]
+    </p>
+
+    <h2>3.2 Drehimpuls eines starren Körpers</h2>
+    <p>Für einen starren Körper, der mit einer Winkelgeschwindigkeit \(\omega\) rotiert, kann der Drehimpuls als Produkt des Trägheitsmoments \(I\) und der Winkelgeschwindigkeit beschrieben werden:</p>
+    <p>
+      \[
+      \vec{L} = I \cdot \omega
+      \]
+    </p>
+    <p>Das Trägheitsmoment hängt von der Massenverteilung des Körpers ab und ist ein Maß dafür, wie viel Drehimpuls der Körper bei einer gegebenen Winkelgeschwindigkeit besitzt.</p>
+
+    <h2>3.3 Erhaltung des Drehimpulses</h2>
+    <p>Der Drehimpuls eines geschlossenen Systems bleibt erhalten, solange keine äußeren Drehmomente auf das System wirken. Dies ist ein fundamentales Gesetz der Mechanik und gilt für rotierende Systeme. Es kann mathematisch ausgedrückt werden als:</p>
+    <p>
+      \[
+      \frac{d\vec{L}}{dt} = \vec{\tau}
+      \]
+    </p>
+    <p>Wenn das System frei von äußeren Drehmomenten ist (\(\vec{\tau} = 0\)), bleibt der Drehimpuls konstant:</p>
+    <p>
+      \[
+      \vec{L} = \text{konstant}
+      \]
+    </p>
+
+    <h2>3.4 Beispiel: Drehimpuls bei der Kollision von Rotierenden Körpern</h2>
+    <p>Ein klassisches Beispiel für die Anwendung des Drehimpulses ist die Betrachtung von Kollisionen zwischen rotierenden Körpern, wie bei einem Kreisel oder rotierenden Satelliten. Dabei bleibt der Drehimpuls vor und nach der Kollision erhalten, wenn keine äußeren Drehmomente auf das System wirken.</p>
+  </div>
+</section>
+<section id="traegheitsmoment" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>4. Trägheitsmoment und seine Berechnung</h1>
+    <p>Das **Trägheitsmoment** \(I\) ist eine geometrische und materialbedingte Größe, die das Widerstandspotential eines Körpers gegen Drehbewegung beschreibt. Es ist das rotatorische Äquivalent der Masse in der Translation.</p>
+
+    <h2>4.1 Definition des Trägheitsmoments</h2>
+    <p>Das Trägheitsmoment eines Körpers wird als Summe der Massen aller Teilchen im Körper, gewichtet mit dem Quadrat des Abstandes zur Rotationsachse, beschrieben:</p>
+    <p>
+      \[
+      I = \sum_i m_i r_i^2
+      \]
+    </p>
+    <p>Für einen kontinuierlichen Körper wird das Trägheitsmoment durch ein Integral ersetzt:</p>
+    <p>
+      \[
+      I = \int r^2 dm
+      \]
+    </p>
+
+    <h2>4.2 Berechnung des Trägheitsmoments für einfache Körper</h2>
+    <p>Für gängige Geometrien gibt es standardisierte Formeln, die das Trägheitsmoment beschreiben:</p>
+    <ul>
+      <li>Für eine **dünne Stange** der Länge \(L\) und Masse \(m\), die um ihre Mitte rotiert: \(I = \frac{1}{12} m L^2\)</li>
+      <li>Für eine **massive Scheibe** der Masse \(m\) und des Radius \(R\), die um ihre zentrale Achse rotiert: \(I = \frac{1}{2} m R^2\)</li>
+      <li>Für eine **Hohlkugel** (dünnwandig) der Masse \(m\) und des Radius \(R\): \(I = \frac{2}{3} m R^2\)</li>
+    </ul>
+
+    <h2>4.3 Das Parallelachsen-Theorem</h2>
+    <p>Das **Parallelachsen-Theorem** ermöglicht es, das Trägheitsmoment eines Körpers bezüglich einer beliebigen Achse zu berechnen, wenn das Trägheitsmoment bezüglich einer parallelen Achse durch den Körpermittelpunkt bekannt ist:</p>
+    <p>
+      \[
+      I = I_{\text{cm}} + m d^2
+      \]
+    </p>
+    <p>Dabei ist \(I_{\text{cm}}\) das Trägheitsmoment bezüglich der Achse durch den Körpermittelpunkt, \(m\) die Masse des Körpers und \(d\) der Abstand zwischen den beiden Achsen.</p>
+
+    <h2>4.4 Beispiel: Trägheitsmoment einer Kreisbahn</h2>
+    <p>Für ein **rotierendes Rad** mit Masse \(m\) und Radius \(R\) lautet das Trägheitsmoment für die Achse durch den Mittelpunkt des Rades:</p>
+    <p>
+      \[
+      I = \frac{1}{2} m R^2
+      \]
+    </p>
+    <p>Für eine **drehende Scheibe** um ihre Achse gilt ebenfalls diese Formel, was den Zusammenhang zwischen der Form des Körpers und seinem Widerstand gegen Rotation verdeutlicht.</p>
+  </div>
+</section>
+<section id="dynamik-der-rotation" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>5. Dynamik der Rotationsbewegung</h1>
+    <p>Die **Dynamik der Rotationsbewegung** untersucht, wie Kräfte und Drehmomente die Rotation eines Körpers beeinflussen. Ähnlich wie bei der translationalen Bewegung beschreibt das **drehmoment** die Veränderung des Drehimpulses.</p>
+
+    <h2>5.1 Drehmoment und das 2. Newtonsche Gesetz</h2>
+    <p>Das **Drehmoment** \(\tau\) ist die Ursache für eine Änderung des Drehimpulses. Es ist definiert als:</p>
+    <p>
+      \[
+      \tau = r \times F
+      \]
+    </p>
+    <p>Das **zweite Newtonsche Gesetz** für Rotationen lautet dann:</p>
+    <p>
+      \[
+      \tau = I \alpha
+      \]
+    </p>
+    <p>Hierbei ist \(I\) das Trägheitsmoment des Körpers und \(\alpha\) die Winkelbeschleunigung. Diese Gleichung beschreibt, wie das Drehmoment die Rotation beeinflusst.</p>
+
+    <h2>5.2 Das Drehimpuls-Kraft-Gesetz</h2>
+    <p>Analog zum linearen Impuls gilt auch für den Drehimpuls das Gesetz der Veränderung des Drehimpulses durch Drehmomente:</p>
+    <p>
+      \[
+      \frac{d\vec{L}}{dt} = \vec{\tau}
+      \]
+    </p>
+    <p>Das bedeutet, dass die Änderung des Drehimpulses durch das Drehmoment bestimmt wird, das auf das rotierende Objekt wirkt.</p>
+
+    <h2>5.3 Berechnungen mit Drehmomenten</h2>
+    <p>Wenn ein konstantes Drehmoment auf einen Körper wirkt, so kann die Änderung der Rotationsgeschwindigkeit berechnet werden. Wenn \( \tau = \text{konstant} \), ergibt sich:</p>
+    <p>
+      \[
+      \alpha = \frac{\tau}{I}
+      \]
+    </p>
+    <p>In diesem Fall steigt die Winkelgeschwindigkeit des Körpers linear an.</p>
+
+    <h2>5.4 Beispiel: Rotationsbewegung eines Rades</h2>
+    <p>Ein Rad mit dem Trägheitsmoment \(I\) und dem Drehmoment \(\tau\) wird aus dem Ruhezustand beschleunigt. Die Winkelbeschleunigung \(\alpha\) des Rades ist:</p>
+    <p>
+      \[
+      \alpha = \frac{\tau}{I}
+      \]
+    </p>
+    <p>Dies lässt sich für praktische Anwendungen, wie z.B. die Berechnung der Beschleunigung von Fahrzeugen oder Maschinen, nutzen.</p>
+  </div>
+</section>
+<section id="energie-in-rotation" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>6. Energie in Rotationsbewegungen</h1>
+    <p>Die **Energie** eines rotierenden Körpers setzt sich aus der **kinetischen Energie** der Translation und der **kinetischen Energie** der Rotation zusammen. Die gesamte Rotationsenergie ist eine Funktion des Trägheitsmoments und der Winkelgeschwindigkeit.</p>
+
+    <h2>6.1 Rotationsenergie</h2>
+    <p>Die **kinetische Energie** eines rotierenden Körpers ist gegeben durch:</p>
+    <p>
+      \[
+      E_{\text{rot}} = \frac{1}{2} I \omega^2
+      \]
+    </p>
+    <p>Dies ist analog zur translationalen kinetischen Energie \(E_{\text{kin}} = \frac{1}{2} m v^2\), wobei der lineare Impuls \(m v\) durch den Rotationsimpuls \(I \omega\) ersetzt wird.</p>
+
+    <h2>6.2 Energieerhaltung in Rotationsbewegungen</h2>
+    <p>Die **Energieerhaltung** gilt auch in der Rotation. Wenn keine äußeren Kräfte oder Drehmomente wirken, bleibt die Gesamte Energie des Systems konstant. In einem solchen Fall gilt:</p>
+    <p>
+      \[
+      E_{\text{rot}} = \text{konstant}
+      \]
+    </p>
+
+    <h2>6.3 Beispiel: Rutsche eines Körpers</h2>
+    <p>Ein Körper, der ohne äußere Kräfte rotiert, hat eine konstante Rotationsenergie. Wenn beispielsweise ein Rad von einem festen Punkt aus gestartet wird, kann die Energiemenge durch das Trägheitsmoment und die Winkelgeschwindigkeit bestimmt werden.</p>
+  </div>
+</section>
+<section id="praxis" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>7. Anwendungen und Beispiele</h1>
+    <p>Die Konzepte des Drehimpulses und der Rotationsbewegung finden weitreichende Anwendung in der Technik, der Astronomie, der Mechanik und vielen anderen Disziplinen. In diesem Kapitel betrachten wir einige praktische Anwendungen.</p>
+
+    <h2>7.1 Planetarische Bewegung</h2>
+    <p>Planeten in unserem Sonnensystem bewegen sich auf elliptischen Bahnen, die durch die Gravitationskraft beeinflusst werden. Der Drehimpuls eines Planeten um die Sonne bleibt während der gesamten Umlaufbahn erhalten, was durch Keplers Gesetze beschrieben wird.</p>
+
+    <h2>7.2 Maschinenbau</h2>
+    <p>Im Maschinenbau werden Rotationsbewegungen häufig in Motoren, Rädern und Zahnrädern genutzt. Die Berechnung des Drehimpulses und des Trägheitsmoments ist entscheidend für das Design von effizienten Maschinen.</p>
+
+    <h2>7.3 Satelliten und Raumfahrt</h2>
+    <p>Satelliten im Orbit erfahren keine äußeren Drehmomente, daher bleibt ihr Drehimpuls während ihrer Bahn konstant. Dies ist ein wichtiger Aspekt der **Stabilisierung** und **Ausrichtung** von Satelliten.</p>
+  </div>
+</section>
+<section id="fehler" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>8. Häufige Fehler</h1>
+    <p>Bei der Arbeit mit Drehimpuls und Rotationsbewegungen gibt es einige häufige Fehlerquellen, die es zu vermeiden gilt. In diesem Kapitel gehen wir auf die wichtigsten Missverständnisse und deren Korrektur ein.</p>
+
+    <h2>8.1 Trägheitsmoment falsch anwenden</h2>
+    <p>Ein häufiger Fehler ist die fehlerhafte Anwendung des Trägheitsmoments. Beispielsweise wird oft angenommen, dass das Trägheitsmoment unabhängig von der Achse der Rotation ist. Dabei kann das Trägheitsmoment je nach Achse stark variieren, wie das **Parallelachsen-Theorem** zeigt.</p>
+
+    <h2>8.2 Drehimpuls bei Kollisionen</h2>
+    <p>In Kollisionen muss der Drehimpuls sowohl in der linearen als auch in der rotierenden Richtung berücksichtigt werden. Ein häufiges Missverständnis besteht darin, dass der Drehimpuls wie der lineare Impuls bei inelastischen Kollisionen verloren geht, was jedoch nicht der Fall ist.</p>
+  </div>
+</section>
+<div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Bei allen Berechnungen Einheiten prüfen!
+    </div>
+
+    <div class="cta-box" style="background:#f1f8ff; padding:15px; border-left:5px solid #2196f3; margin:20px 0;">
+      <strong>Gratulation!</strong> Du hast den gesamten Drehimpuls & Rotationsbewegung durchgearbeitet. Weiterführend: ?.
+    </div>
+  </div>
+</section>
+
+
+    <a href="quiz.html" class="quiz-btn">Quiz zur Drehimpuls & Rotationsbewegung starten</a>
+</main>
+
+<footer>
+    &copy; 2025 PhysikNow | Drehimpuls & Rotationsbewegung
+</footer>
+
+</body>
+</html>
+
