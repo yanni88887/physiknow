@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thermodynamik | Kapitel 1 Einführung</title>
+<title>Thema einführen | PhysikNow</title>
 
 <!-- MathJax für Formeldarstellung -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -19,21 +19,6 @@
         flex-direction: column;
         min-height: 100vh;
     }
-    header {
-        background: #1e1e2f;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-    header h1 { font-size: 1.5rem; color: #00d4ff; }
-    nav ul { display: flex; gap: 1rem; list-style: none; }
-    nav a { color: #fff; font-weight: bold; transition: color 0.3s; text-decoration: none; }
-    nav a:hover { color: #00d4ff; }
 
     .hero {
         text-align: center;
@@ -44,64 +29,55 @@
     .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.3rem; }
 
-    .toc-box {
-        background: #ffffff;
-        border: 2px solid #0073e6;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 20px;
-        margin: 25px auto;
-        max-width: 800px;
+    .content {
+        max-width: 1100px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        line-height: 1.8;
     }
-    .toc-box h3 {
-        font-size: 18px;
-        color: #0073e6;
-        text-align: center;
-        margin-bottom: 15px;
+    .content h3 {
+        color: #0066ff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem;
     }
-    .toc-box ul {
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-        columns: 2;
+    .content h4 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        color: #444;
     }
-    .toc-box li { margin-bottom: 8px; }
-    .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
-    .toc-box a:hover { color: #0073e6; text-decoration: underline; }
-    @media (max-width: 768px) { .toc-box ul { columns: 1; } }
-
-    section {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        padding: 20px;
-    }
-    .container {
-        max-width: 900px;
-        margin: auto;
-    }
-    h1 { font-size: 2rem; margin-bottom: 1rem; color: #0066ff; }
-    h2 { font-size: 1.5rem; margin-top: 1rem; }
-    p, ul, ol { margin-bottom: 1rem; }
-    ul { padding-left: 20px; }
-    .highlight {
-        background: #f7f7f7;
-        padding: 15px;
-        border-left: 5px solid #0073e6;
-        margin: 20px 0;
-    }
-    .quiz-btn {
-        display: block;
-        text-align: center;
-        background: #0066ff;
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: bold;
+    .content p { margin-bottom: 1rem; }
+    .content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .formula {
+        background: #f1f1f1;
         padding: 1rem;
         border-radius: 8px;
-        margin: 3rem auto;
-        max-width: 300px;
-        text-decoration: none;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        text-align: center;
     }
+    .diagram {
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #666;
+        font-style: italic;
+    }
+    .quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto 3rem; /* jetzt oben UND unten Abstand */
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
     .quiz-btn:hover { background: #004bbd; }
 
     footer {
@@ -112,124 +88,237 @@
         font-size: 0.9rem;
         margin-top: auto;
     }
+    header {
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0; /* Standardabstand entfernen */
+        display: flex;
+        align-items: center; /* Logo-Text oder Bild mittig */
+    }
+    header nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0; /* Entfernt Standard-Abstände */
+        padding: 0;
+    }
+    header nav a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    header nav a:hover {
+        color: #00d4ff;
+    }
 </style>
 </head>
 <body>
 
+
 <header>
-    <h1>PhysikNow</h1>
+    <h1><a href="/physiknow/index.html" style="color:#00d4ff; text-decoration:none;">PhysikNow</a></h1>
     <nav>
         <ul>
-            <li><a href="index.html#topics">Alle Themen</a></li>
-            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
-            <li><a href="quiz.html">Teste dein Wissen</a></li>
+            <li><a href="/physiknow/index.html#topics">Alle Themen</a></li>
+            <li><a href="/physiknow/Uni-Vorlagen/Uni-Vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="/physiknow/Quiz.html">Teste dein Wissen</a></li>
+            <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
         </ul>
     </nav>
 </header>
 
+
+
 <section class="hero">
-    <h2>Thermodynamik</h2>
-    <p>Grundlagen, Begriffe und Konzepte für dein Studium</p>
+    <h2>Thema einführen</h2>
+    <p>Die umfassende Bewegungsbeschreibung in der Thema einführen – für dein Physikstudium</p>
 </section>
 
 <!-- Inhaltsübersicht -->
 <div class="toc-box">
   <h3>Inhaltsübersicht</h3>
-   <ul>
-    <li><a href="#kapitel-1">1. Einführung in die Thermodynamik</a></li>
-    <li><a href="#kapitel-2">2. Grundlagen und Zustandsgrößen</a></li>
-    <li><a href="#kapitel-3">3. Ideale Gase und Gasgesetze</a></li>
-    <li><a href="#kapitel-4">4. Arbeit und Wärme</a></li>
-    <li><a href="#kapitel-5">5. Erster Hauptsatz der Thermodynamik</a></li>
-    <li><a href="#kapitel-6">6. Zweiter Hauptsatz und Entropie</a></li>
-    <li><a href="#kapitel-7">7. Entropie im Detail & T-S-Diagramme</a></li>
-    <li><a href="#kapitel-8">8. Thermodynamische Kreisprozesse</a></li>
-    <li><a href="#kapitel-9">9. Reale Gase & Zustandsgleichungen</a></li>
-    <li><a href="#kapitel-10">10. Mischungen, Feuchte Luft & Partialdruck</a></li>
-    <li><a href="#kapitel-11">11. Wärmeübertragung</a></li>
-    <li><a href="#kapitel-12">12. Wärmekraftmaschinen & Energieumwandlung</a></li>
-    <li><a href="#kapitel-13">13. Technische Anwendungen & Beispiele</a></li>
-    <li><a href="#kapitel-14">14. Typische Fehler & Prüfungsfallen</a></li>
-    <li><a href="#kapitel-15">15. Formelsammlung & Zusammenfassung</a></li>
+  <ul>
+    <li><a href="#einleitung">1. Einführung</a></li>
+    <li><a href="#grundlagen">2. Grundlagen</a></li>
+    <li><a href="#bewegung-1d">3. Bewegung in 1D</a></li>
+    <li><a href="#bewegung-2d">4. Bewegung in 2D/3D</a></li>
+    <li><a href="#kreisrotation">5. Kreisbewegung</a></li>
+    <li><a href="#zusammengesetzte-bewegungen">6. Zusammengesetzte Bewegungen</a></li>
+    <li><a href="#starre-koerper">7. Starre Körper</a></li>
+    <li><a href="#diagramme">8. Diagramme</a></li>
+    <li><a href="#gleichungen">9. Gleichungen</a></li>
+    <li><a href="#praxis">10. Anwendungen</a></li>
+    <li><a href="#fehler">11. Fehler</a></li>
+    <li><a href="#fortgeschritten">12. Erweiterte Themen</a></li>
+    <li><a href="#formelsammlung">13. Formelsammlung</a></li>
   </ul>
 </div>
 
-<!-- Kapitel-Abschnitte -->
-<section id="einleitung">
-  <div class="container">
-    <h2>Einführung in die Thermodynamik</h2>
-    <p><strong>Thermodynamik</strong> ist die Lehre von Energieumwandlungen und den Naturgesetzen, die diese Prozesse bestimmen. Sie spielt eine zentrale Rolle in Technik, Naturwissenschaften und Energiewirtschaft.</p>
-  </div>
-</section>
+<style>
+.toc-box {
+  background: #ffffff;
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+}
 
-<section id="grundbegriffe">
-  <div class="container">
-    <h2>1.1 Grundbegriffe & Systemarten</h2>
-    <ul>
-      <li><strong>System:</strong> Der untersuchte Bereich (z. B. Gas im Zylinder).</li>
-      <li><strong>Umgebung:</strong> Alles außerhalb des Systems.</li>
-      <li><strong>Systemarten:</strong>
-        <ul>
-          <li>Offenes System: Austausch von Masse und Energie.</li>
-          <li>Geschlossenes System: Nur Energieaustausch, keine Masse.</li>
-          <li>Isoliertes System: Kein Austausch von Energie oder Masse.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</section>
+.toc-box h3 {
+  font-size: 18px;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 15px;
+}
 
-<section id="groessen">
-  <div class="container">
-    <h2>1.2 Thermodynamische Größen</h2>
-    <p>Wichtige Größen sind:</p>
+.toc-box ul {
+  list-style: none; /* eigene Bullets statt Standard */
+  padding-left: 0;
+  margin: 0;
+  columns: 2;
+}
+
+.toc-box li {
+  margin-bottom: 8px;
+  padding-left: 18px; /* Platz für Bullet */
+  position: relative;
+}
+
+/* Eigener Bullet */
+.toc-box li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0073e6;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.toc-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.toc-box a:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .toc-box ul {
+    columns: 1; /* Eine Spalte auf Mobile */
+  }
+}
+/* Blocksatz für den gesamten Content */
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify; /* Blocksatz */
+}
+
+/* Bullets bündig am Rand */
+ul, ol {
+    list-style-type: disc;
+    list-style-position: inside; /* Bullet innerhalb des Textblocks */
+    margin-left: 0; /* Kein zusätzlicher Abstand */
+    padding-left: 0;
+}
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify;       /* Blocksatz */
+    line-height: 1.9;          /* Standard ist 1.4–1.6, hier etwas größer */
+}
+h1, h2, h3 {
+    margin-top: 2rem; /* z. B. 32px */
+    margin-bottom: 0.2rem; /* nur kleiner Abstand nach unten */
+    line-height: 1.3; /* engerer Zeilenabstand für Überschrift */
+}
+
+
+
+</style>
+
+
+<section id="einleitung-kinematik" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Einführung in die Kinematik</h1>
+    <p><strong>Kinematik</strong> ist ein Teilgebiet der Mechanik, das die <strong>Beschreibung von Bewegungen</strong> untersucht – unabhängig von den Kräften, die diese Bewegung verursachen. Im Gegensatz zur Dynamik beschäftigt sich die Kinematik also ausschließlich mit dem „Wie“ einer Bewegung, nicht mit dem „Warum“.</p>
+
+    <h2>1.1 Was ist Kinematik?</h2>
+    <p>Kinematik beantwortet Fragen wie:</p>
     <ul>
-      <li>Temperatur \(T\) [K]</li>
-      <li>Druck \(p\) [Pa]</li>
-      <li>Volumen \(V\) [m³]</li>
-      <li>Energieformen:
-        <ul>
-          <li>Innere Energie \(U\)</li>
-          <li>Arbeit \(W\)</li>
-          <li>Wärme \(Q\)</li>
-        </ul>
-      </li>
+      <li>Wie ändert sich die Position eines Körpers im Laufe der Zeit?</li>
+      <li>Mit welcher Geschwindigkeit bewegt sich ein Punkt?</li>
+      <li>Wie groß ist seine Beschleunigung?</li>
     </ul>
-    <div class="highlight">
-      <strong>Formeln:</strong><br>
-      \[
-      W = \int p \, dV, \quad \Delta U = Q - W
-      \]
+    <p>Zur Beschreibung werden drei Grundgrößen verwendet:</p>
+    <ol>
+      <li><strong>Ort</strong> (Position): <span style="font-family: 'Courier New', monospace;">s(t)</span></li>
+      <li><strong>Geschwindigkeit</strong>: <span style="font-family: 'Courier New', monospace;">v(t) = \(\frac{ds}{dt}\)</span></li>
+      <li><strong>Beschleunigung</strong>: <span style="font-family: 'Courier New', monospace;">a(t) = \(\frac{dv}{dt} = \frac{d^2s}{dt^2}\)</span></li>
+    </ol>
+    
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong> Die Kinematik arbeitet mit Zeitableitungen:
+      <ul>
+        <li>\(v(t) = \dfrac{ds}{dt}\)</li>
+        <li>\(a(t) = \dfrac{d^2 s}{dt^2}\)</li>
+      </ul>
+    </div>
+
+    <h2>1.2 Abgrenzung zu Dynamik und Statik</h2>
+    <p>
+      Die Mechanik gliedert sich in drei Hauptbereiche:
+    </p>
+    <ul>
+      <li><strong>Kinematik:</strong> Beschreibung der Bewegung.</li>
+      <li><strong>Dynamik:</strong> Erklärung der Bewegung durch Kräfte (<em>Newton: F = m·a</em>).</li>
+      <li><strong>Statik:</strong> Gleichgewichtszustände ohne Bewegung.</li>
+    </ul>
+
+    <h2>1.3 Grundbegriffe</h2>
+    <ul>
+      <li><strong>Punkt:</strong> Idealisierte Masse ohne Ausdehnung.</li>
+      <li><strong>Körper:</strong> Reales Objekt mit Ausdehnung und Masse.</li>
+      <li><strong>Bezugssystem:</strong> Koordinatensystem, in dem Bewegung gemessen wird.</li>
+    </ul>
+
+    <h2>1.4 Beispiele für kinematische Anwendungen</h2>
+    <ul>
+      <li>Bremsweg-Berechnung im Straßenverkehr</li>
+      <li>Wurfbewegungen im Sport</li>
+      <li>Robotersteuerung</li>
+      <li>Planetenbahnen in der Astronomie</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Beispiel für eine typische Formel in der Kinematik:</strong>
+      <p>Bei gleichmäßig beschleunigter Bewegung gilt:</p>
+      <p>
+        \[
+        s(t) = s_0 + v_0 \cdot t + \frac{1}{2} a t^2
+        \]
+      </p>
     </div>
   </div>
 </section>
 
-<section id="zustand">
-  <div class="container">
-    <h2>1.3 Zustandsgrößen & Prozesse</h2>
-    <p>Zustandsgrößen wie \(p, V, T, U\) beschreiben den Zustand. Prozessgrößen (Arbeit, Wärme) hängen vom Weg ab.</p>
-    <p>Typische Zustandsänderungen:</p>
-    <ul>
-      <li>isobar (p = konstant)</li>
-      <li>isochor (V = konstant)</li>
-      <li>isotherm (T = konstant)</li>
-      <li>adiabatisch (kein Wärmeaustausch)</li>
-    </ul>
-  </div>
-</section>
+    <a href="quiz.html" class="quiz-btn">Quiz zu Thema einführen starten</a>
+</main>
 
-<section id="bedeutung">
-  <div class="container">
-    <div class="highlight">
-      <strong>1.4 Warum wichtig?</strong>  
-      Ohne die Grundlagen der Thermodynamik können die Hauptsätze nicht verstanden werden. Dieses Kapitel ist die Basis für alle weiteren Themen.
-    </div>
-  </div>
-</section>
-
- <a href="quiz.html" class="quiz-btn">Quiz zu Thermodynamik starten</a>
 <footer>
-    &copy; 2025 PhysikNow | Thermodynamik
+    &copy; 2025 PhysikNow | Thema einführen
 </footer>
 
 </body>
