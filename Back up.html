@@ -184,7 +184,6 @@ footer {
             <li><a href="#">Start</a></li>
             <li><a href="#">Vorlage</a></li>
             <li><a href="#">Quiz</a></li>
-            <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
         </ul>
     </nav>
 </header>
@@ -200,21 +199,67 @@ footer {
     <ul>
         <li><a href="#einleitung">1. Einführung</a></li>
         <li><a href="#newtonsche-axiome">2. Newtonsche Axiome</a></li>
-        <li><a href="#bewegungsgesetze">3. Bewegungsgesetze</a></li>
-        <li><a href="#kraefte">4. Kräfte</a></li>
+        <li><a href="#kraefte">3. Kräfte</a></li>
+        <li><a href="#bewegungsgesetze">4. Bewegungsgesetze</a></li>
         <li><a href="#hangabtrieb">5. Hangabtrieb</a></li>
         <li><a href="#rotation">6. Rotation und Drehmoment</a></li>
         <li><a href="#mehrkoerpersysteme">7. Mehrkörpersysteme und Seilkräfte</a></li>
         <li><a href="#impuls">8. Impuls und Impulserhaltung</a></li>
         <li><a href="#zentrale-stoesse">9. ZentraleStöße</a></li>
         <li><a href="#kreisbewegung">10. Kreisbewegung und Zentralkräfte</a></li>
-        <li><a href="#gesamtzusammenfassung">11. Gesamte Zusammenfassung und Überblick</a></li>
-        <li><a href="#veraenderliche-masse">12. Bonus: Systeme mit veränderlicher Masse</a></li>
+        <li><a href="#arbeit-und-energie">11. Arbeit, Energie und Energieerhaltung</a></li>
+        <li><a href="#schwingungen">12. Schwingungen</a></li>
+        <li><a href="#wellen">13. Wellen</a></li>
+        <li><a href="#gesamtzusammenfassung">14. Gesamte Zusammenfassung und Überblick</a></li>
     </ul>
 </div>
 
-<section id="einleitung">
-  <h1>Kapitel 1: Einführung in die Dynamik</h1>
+<style>
+.toc-box {
+  background: #ffffff;
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+}
+.toc-box h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.toc-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  columns: 2; /* 2 Spalten für Desktop */
+}
+.toc-box li {
+  margin-bottom: 8px;
+}
+.toc-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.toc-box a:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .toc-box ul {
+    columns: 1; /* Eine Spalte auf Mobile */
+  }
+}
+</style>
+
+<section id="einleitung" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+  <h3>Kapitel 1: Einführung in die Dynamik</h3>
   <p><strong>Dynamik</strong> untersucht, wie Kräfte auf Körper wirken und wie sie Bewegungen hervorrufen oder verändern. Sie ergänzt die Kinematik, die nur beschreibt, nicht erklärt.</p>
   <div class="formel-box">
     <strong>Grundgleichung:</strong>
@@ -229,7 +274,8 @@ footer {
   </ul>
 
 </section>
-<section id="newtonsche-axiome">
+<section id="newtonsche-axiome" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
   <h1>Kapitel 2: Newtonsche Axiome & Inertialsysteme</h1>
   <p>Die Newtonschen Axiome bilden das Fundament der klassischen Mechanik. Sie beschreiben, wie Körper auf Kräfte reagieren. Voraussetzung für ihre Gültigkeit ist ein sogenanntes <strong>Inertialsystem</strong>.</p>
 
@@ -266,69 +312,15 @@ footer {
   <p>Diese Kräfte treten <strong>immer paarweise</strong> auf und sind grundlegend für jede Wechselwirkung.</p>
   <p><strong>Beispiele:</strong> Rückstoß beim Abschuss eines Projektils, Standfestigkeit beim Gehen, Kräfte zwischen Magneten.</p>
 
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#kraefte">Kapitel 3: Kräftearten</a>
+  </div>
 </section>
-
-<section id="bewegungsgesetze">
-  <h1>Kapitel 3: Bewegungsgesetze</h1>
-  <p>Die Bewegungsgesetze beschreiben, wie sich ein Körper unter dem Einfluss einer konstanten Kraft verhält. Grundlage ist das zweite Newtonsche Axiom.</p>
-
-  <h2>3.1 Gleichmäßig beschleunigte Bewegung</h2>
-  <p>Wenn die auf einen Körper wirkende Kraft konstant ist, erfährt er eine konstante Beschleunigung:</p>
-  <div class="formel-box">
-    \[
-    a = \frac{F}{m}
-    \]
-  </div>
-  <p>Daraus ergeben sich die folgenden Bewegungsgleichungen:</p>
-  <div class="formel-box">
-    \[
-    v(t) = v_0 + a \cdot t
-    \]
-    \[
-    s(t) = s_0 + v_0 \cdot t + \frac{1}{2} a \cdot t^2
-    \]
-    \[
-    v^2 = v_0^2 + 2a(s - s_0)
-    \]
-  </div>
-
-  <h2>3.2 Bedeutung der Größen</h2>
-  <ul>
-    <li><strong>\( s(t) \):</strong> Ort zur Zeit t</li>
-    <li><strong>\( v(t) \):</strong> Geschwindigkeit zur Zeit t</li>
-    <li><strong>\( a \):</strong> konstante Beschleunigung</li>
-    <li><strong>\( v_0 \):</strong> Anfangsgeschwindigkeit</li>
-    <li><strong>\( s_0 \):</strong> Startposition</li>
-  </ul>
-
-  <h2>3.3 Beispiel – Bremsweg berechnen</h2>
-  <p><strong>Gegeben:</strong> Ein Auto fährt mit \( v_0 = 20\,\text{m/s} \), es wird mit \( a = -5\,\text{m/s}^2 \) gebremst. Wie weit fährt es, bis es steht?</p>
-  <p><strong>Lösung:</strong> Geschwindigkeit am Ende = 0, also nutzen wir:</p>
-  <div class="formel-box">
-    \[
-    0 = v_0^2 + 2a(s - s_0) \Rightarrow s - s_0 = -\frac{v_0^2}{2a}
-    \]
-    \[
-    s = -\frac{(20)^2}{2 \cdot (-5)} = 40\,\text{m}
-    \]
-  </div>
-
-  <h2>3.4 Bewegung mit veränderlicher Kraft</h2>
-  <p>Wenn die Kraft nicht konstant ist, müssen Differentialgleichungen verwendet werden:</p>
-  <div class="formel-box">
-    \[
-    F(t) = m \cdot a(t) \quad \Rightarrow \quad a(t) = \frac{dv}{dt},\quad v(t) = \frac{ds}{dt}
-    \]
-  </div>
-  <p>Daraus ergibt sich ein System gekoppelter Gleichungen, das meist nur numerisch lösbar ist.</p>
-
-</section>
-
 <section id="kraefte">
-  <h1>Kapitel 4: Kräftearten</h1>
-  <p>Kräfte sind Wechselwirkungen, die Bewegungen ändern oder aufrechterhalten können. Sie wirken durch Kontakt oder über ein Feld (z. B. Gravitation). Jede Kraft hat eine Richtung und eine Angriffslinie. Ihre SI-Einheit ist das Newton (N).</p>
+  <h1>Kapitel 3: Kräftearten</h1>
+  <p>Es gibt unterschiedliche Arten von Kräften, die auf einen Körper wirken können. Jede hat typische Merkmale, Wirkungsrichtungen und Formeln. Dieses Kapitel gibt einen systematischen Überblick.</p>
 
-  <h2>4.1 Gewichtskraft (Schwerkraft)</h2>
+  <h2>3.1 Gewichtskraft (Schwerkraft)</h2>
   <p>Die Gewichtskraft ist die Anziehungskraft, die die Erde auf einen Körper mit Masse ausübt:</p>
   <div class="formel-box">
     \[
@@ -337,7 +329,7 @@ footer {
   </div>
   <p>Sie zeigt stets senkrecht nach unten (Richtung Erdmittelpunkt).</p>
 
-  <h2>4.2 Normalkraft</h2>
+  <h2>3.2 Normalkraft</h2>
   <p>Die Normalkraft ist die Reaktionskraft einer Unterlage und wirkt senkrecht zur Kontaktfläche:</p>
   <ul>
     <li>Waagrechte Fläche: \( F_N = m \cdot g \)</li>
@@ -349,7 +341,7 @@ footer {
     \]
   </div>
 
-  <h2>4.2.1 Interaktive Darstellung – Kräfte am Hang</h2>
+  <h2>3.2.1 Interaktive Darstellung – Kräfte am Hang</h2>
   <p>Nutze die Simulation, um zu sehen, wie sich Neigungswinkel und Masse auf die wirkenden Kräfte auswirken.</p>
 
   <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
@@ -449,39 +441,16 @@ footer {
     updateValues();
   </script>
 
- <h2>4.3 Reibungskräfte – vertieft</h2>
-  <p>Reibungskräfte entstehen zwischen Körpern in Kontakt:</p>
-  <ul>
-    <li><strong>Haftreibung:</strong> Verhindert Bewegung, wirkt bis zu einem Maximalwert:</li>
-    <div class="formel-box">
-      \[
-      F_R \leq \mu_H \cdot F_N
-      \]
-    </div>
-    <li><strong>Gleitreibung:</strong> Wirkt bei Bewegung, immer gleich groß:</li>
-    <div class="formel-box">
-      \[
-      F_R = \mu_G \cdot F_N
-      \]
-    </div>
-    <li><strong>Rollreibung:</strong> Tritt bei rollenden Körpern auf, meist deutlich kleiner:</li>
-    <div class="formel-box">
-      \[
-      F_R = \mu_R \cdot F_N
-      \]
-    </div>
-  </ul>
-  <p>\( \mu_H, \mu_G, \mu_R \) sind die jeweiligen Reibungskoeffizienten.</p>
-
-  <h2>4.4 Hangabtriebskraft</h2>
-  <p>Ein Körper auf einer geneigten Ebene erfährt eine Komponente der Gewichtskraft entlang der Neigung:</p>
+  <h2>3.3 Reibungskraft</h2>
+  <p>Reibung wirkt der Bewegung entgegen. Es gibt Haft-, Gleit- und Rollreibung. Für Gleitreibung gilt:</p>
   <div class="formel-box">
     \[
-    F_\text{Hang} = m \cdot g \cdot \sin(\alpha)
+    F_R = \mu \cdot F_N
     \]
   </div>
+  <p>Der Reibungskoeffizient \( \mu \) ist abhängig vom Materialpaar (z. B. Holz auf Beton: ca. 0,5).</p>
 
-  <h2>4.5 Federkraft – Hooke’sches Gesetz</h2>
+  <h2>3.4 Federkraft – Hooke’sches Gesetz</h2>
   <p>Federn wirken einer Dehnung oder Stauchung proportional entgegen:</p>
   <div class="formel-box">
     \[
@@ -490,7 +459,7 @@ footer {
   </div>
   <p>\( k \): Federkonstante (N/m), \( \vec{x} \): Auslenkung von der Ruhelage.</p>
 
-  <h2>4.6 Zentripetalkraft (Kreisbewegung)</h2>
+  <h2>3.5 Zentripetalkraft (Kreisbewegung)</h2>
   <p>Ein Körper in einer Kreisbahn benötigt eine zur Mitte gerichtete Kraft:</p>
   <div class="formel-box">
     \[
@@ -499,21 +468,7 @@ footer {
   </div>
   <p>Diese Kraft sorgt für die kontinuierliche Richtungsänderung der Geschwindigkeit.</p>
 
-  <h2>4.7 Kraft, Impuls und Energie im Vergleich</h2>
-  <p>Diese drei Größen beschreiben Bewegung auf unterschiedliche Weise:</p>
-  <ul>
-    <li><strong>Kraft:</strong> verursacht Beschleunigung (zeitlich lokal)</li>
-    <li><strong>Impuls:</strong> Maß für Bewegungsmenge (Vektor)</li>
-    <li><strong>Energie:</strong> Fähigkeit, Arbeit zu verrichten (Skalar)</li>
-  </ul>
-  <p>Formelbezüge:</p>
-  <div class="formel-box">
-    \[
-    \vec{F} = m \cdot \vec{a} \quad ; \quad \vec{p} = m \cdot \vec{v} \quad ; \quad E_\text{kin} = \frac{1}{2} m v^2
-    \]
-  </div>
-
-  <h2>4.8 Beispielaufgabe – Reibungskraft berechnen</h2>
+  <h2>3.6 Beispielaufgabe – Reibungskraft berechnen</h2>
   <p><strong>Gegeben:</strong> Masse \( m = 3\,\text{kg} \), Reibungskoeffizient \( \mu = 0{,}25 \)</p>
   <div class="formel-box">
     \[
@@ -523,8 +478,70 @@ footer {
     F_R = \mu \cdot F_N = 0{,}25 \cdot 29{,}43 = 7{,}36\,\text{N}
     \]
   </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#bewegungsgesetze">Kapitel 4: Bewegungsgesetze</a>
+  </div>
 </section>
 
+<section id="bewegungsgesetze">
+  <h1>Kapitel 4: Bewegungsgesetze</h1>
+  <p>Die Bewegungsgesetze beschreiben, wie sich ein Körper unter dem Einfluss einer konstanten Kraft verhält. Grundlage ist das zweite Newtonsche Axiom.</p>
+
+  <h2>4.1 Gleichmäßig beschleunigte Bewegung</h2>
+  <p>Wenn die auf einen Körper wirkende Kraft konstant ist, erfährt er eine konstante Beschleunigung:</p>
+  <div class="formel-box">
+    \[
+    a = \frac{F}{m}
+    \]
+  </div>
+  <p>Daraus ergeben sich die folgenden Bewegungsgleichungen:</p>
+  <div class="formel-box">
+    \[
+    v(t) = v_0 + a \cdot t
+    \]
+    \[
+    s(t) = s_0 + v_0 \cdot t + \frac{1}{2} a \cdot t^2
+    \]
+    \[
+    v^2 = v_0^2 + 2a(s - s_0)
+    \]
+  </div>
+
+  <h2>4.2 Bedeutung der Größen</h2>
+  <ul>
+    <li><strong>\( s(t) \):</strong> Ort zur Zeit t</li>
+    <li><strong>\( v(t) \):</strong> Geschwindigkeit zur Zeit t</li>
+    <li><strong>\( a \):</strong> konstante Beschleunigung</li>
+    <li><strong>\( v_0 \):</strong> Anfangsgeschwindigkeit</li>
+    <li><strong>\( s_0 \):</strong> Startposition</li>
+  </ul>
+
+  <h2>4.3 Beispiel – Bremsweg berechnen</h2>
+  <p><strong>Gegeben:</strong> Ein Auto fährt mit \( v_0 = 20\,\text{m/s} \), es wird mit \( a = -5\,\text{m/s}^2 \) gebremst. Wie weit fährt es, bis es steht?</p>
+  <p><strong>Lösung:</strong> Geschwindigkeit am Ende = 0, also nutzen wir:</p>
+  <div class="formel-box">
+    \[
+    0 = v_0^2 + 2a(s - s_0) \Rightarrow s - s_0 = -\frac{v_0^2}{2a}
+    \]
+    \[
+    s = -\frac{(20)^2}{2 \cdot (-5)} = 40\,\text{m}
+    \]
+  </div>
+
+  <h2>4.4 Bewegung mit veränderlicher Kraft</h2>
+  <p>Wenn die Kraft nicht konstant ist, müssen Differentialgleichungen verwendet werden:</p>
+  <div class="formel-box">
+    \[
+    F(t) = m \cdot a(t) \quad \Rightarrow \quad a(t) = \frac{dv}{dt},\quad v(t) = \frac{ds}{dt}
+    \]
+  </div>
+  <p>Daraus ergibt sich ein System gekoppelter Gleichungen, das meist nur numerisch lösbar ist.</p>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#hangabtrieb">Kapitel 5: Bewegung am geneigten Hang</a>
+  </div>
+</section>
 <section id="hangabtrieb">
   <h1>Kapitel 5: Bewegung am geneigten Hang</h1>
   <p>Ein Körper auf einer schiefen Ebene wird durch die Hangabtriebskraft beschleunigt. Diese ergibt sich aus der Zerlegung der Gewichtskraft entlang der geneigten Fläche.</p>
@@ -653,7 +670,9 @@ footer {
   </div>
 
   <p>Der Körper beschleunigt also mit etwa 3,22 m/s² die Rampe hinab.</p>
-
+<div class="cta-box">
+    <strong>Weiter:</strong> <a href="#rotation">Kapitel 6: Rotation und Drehmoment</a>
+  </div>
 </section>
 <section id="rotation">
   <h1>Kapitel 6: Rotation und Drehmoment</h1>
@@ -702,6 +721,9 @@ footer {
     \]
   </div>
 
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#mehrkoerpersysteme">Kapitel 7: Mehrkörpersysteme</a>
+  </div>
 </section>
 <section id="mehrkoerpersysteme">
   <h1>Kapitel 7: Mehrkörpersysteme und Seilkräfte</h1>
@@ -748,6 +770,9 @@ footer {
     \]
   </div>
 
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#impuls">Kapitel 8: Impuls und Impulserhaltung</a>
+  </div>
 </section>
 
 <section id="impuls">
@@ -767,25 +792,7 @@ footer {
     \]
   </div>
 
-  <h2>8.1 Differenzierung</h2>
-  <p>Zur Klarheit die systematische Trennung zentraler physikalischer Begriffe:</p>
-  <ul>
-    <li><strong>Kraft (F):</strong> Verursacht eine Änderung des Bewegungszustands (z. B. Beschleunigung).</li>
-    <li><strong>Impuls (p):</strong> Maß für die Bewegungsmenge eines Körpers: \( \vec{p} = m \cdot \vec{v} \)</li>
-    <li><strong>Energie (E):</strong> Fähigkeit, Arbeit zu verrichten. Kinetische Energie: \( E_{kin} = \frac{1}{2}mv^2 \)</li>
-  </ul>
-  </div>
-
-  <h2>8.2 Systeme: Offen vs. geschlossen</h2>
-  <p>Für die Impulserhaltung ist es entscheidend, ob ein System <strong>geschlossen</strong> ist:</p>
-  <ul>
-    <li><strong>Geschlossenes System:</strong> Keine äußeren Kräfte → Gesamtimpuls bleibt erhalten.</li>
-    <li><strong>Offenes System:</strong> Äußere Kräfte wirken → Gesamtimpuls ändert sich.</li>
-  </ul>
-  <p><strong>Innere Kräfte</strong> wirken nur zwischen den Bestandteilen des Systems (z. B. Stoßkräfte). Nur <strong>äußere Kräfte</strong> können den Gesamtimpuls verändern.</p>
-
-
-  <h2>8.3 Impulserhaltungssatz</h2>
+  <h2>8.1 Impulserhaltungssatz</h2>
   <p>In einem abgeschlossenen System bleibt der Gesamtimpuls erhalten – unabhängig von inneren Kräften:</p>
   <div class="formel-box">
     \[
@@ -794,7 +801,7 @@ footer {
   </div>
   <p>Dies gilt besonders bei Stößen und Explosionen.</p>
 
-  <h2>8.4 Beispiel – Zwei Körper prallen zusammen</h2>
+  <h2>8.2 Beispiel – Zwei Körper prallen zusammen</h2>
   <p><strong>Gegeben:</strong> \( m_1 = 2\,\text{kg}, v_1 = 4\,\text{m/s}, m_2 = 3\,\text{kg}, v_2 = -2\,\text{m/s} \)</p>
   <p><strong>Elastischer Stoß – gesuchte Geschwindigkeit nach dem Stoß</strong></p>
 
@@ -812,6 +819,9 @@ footer {
     \]
   </div>
 
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#zentrale-stoesse">Kapitel 9: Zentrale Stöße</a>
+  </div>
 </section>
 
 <section id="zentrale-stoesse">
@@ -870,6 +880,9 @@ footer {
     <li><strong>Vollkommen inelastisch:</strong> Körper haften aneinander, maximaler Energieverlust</li>
   </ul>
 
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#kreisbewegung">Kapitel 10: Kreisbewegung und Zentralkräfte</a>
+  </div>
 </section>
 
 <section id="kreisbewegung">
@@ -945,6 +958,511 @@ footer {
     <li>Loopings in Achterbahnen</li>
     <li>Kurvenfahrt mit Reibung (z. B. Rallye)</li>
   </ul>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#arbeit-und-energie">Kapitel 11: Arbeit, Energie und Energieerhaltung</a>
+  </div>
+</section>
+
+<section id="arbeit-und-energie">
+  <h1>Kapitel 11: Arbeit, Energie und Energieerhaltung</h1>
+  <p>Arbeit und Energie beschreiben die Fähigkeit, Kräfte zu übertragen oder Bewegungen zu verursachen. Der Energieerhaltungssatz ist eines der grundlegendsten physikalischen Prinzipien.</p>
+
+  <h2>11.1 Mechanische Arbeit</h2>
+  <p>Mechanische Arbeit entsteht, wenn eine Kraft längs eines Weges wirkt:</p>
+  <div class="formel-box">
+    \[
+    W = F \cdot s \cdot \cos(\alpha)
+    \]
+  </div>
+  <ul>
+    <li>\( W \): Arbeit [J]</li>
+    <li>\( F \): Kraft [N]</li>
+    <li>\( s \): Weg [m]</li>
+    <li>\( \alpha \): Winkel zwischen Kraft und Weg</li>
+  </ul>
+  <p>Wenn die Kraft in Bewegungsrichtung wirkt (\( \alpha = 0 \)), vereinfacht sich die Formel zu \( W = F \cdot s \).</p>
+
+  <h2>11.2 Energieformen</h2>
+  <ul>
+    <li><strong>Kinetische Energie:</strong> \( E_\text{kin} = \frac{1}{2}mv^2 \)</li>
+    <li><strong>Potenzielle Energie:</strong> \( E_\text{pot} = mgh \)</li>
+    <li><strong>Federenergie:</strong> \( E_\text{feder} = \frac{1}{2}Dx^2 \)</li>
+    <li><strong>Thermische Energie:</strong> entsteht z. B. durch Reibung</li>
+  </ul>
+
+  <h2>11.3 Arbeit-Energie-Satz</h2>
+  <p>Die Änderung der kinetischen Energie eines Körpers ist gleich der verrichteten Arbeit:</p>
+  <div class="formel-box">
+    \[
+    W = \Delta E_\text{kin} = \frac{1}{2} m v^2 - \frac{1}{2} m v_0^2
+    \]
+  </div>
+
+  <h2>11.4 Energieerhaltungssatz</h2>
+  <p>In einem abgeschlossenen System bleibt die Gesamtenergie erhalten:</p>
+  <div class="formel-box">
+    \[
+    E_\text{gesamt} = E_\text{kin} + E_\text{pot} + E_\text{feder} + E_\text{therm} + \dots = \text{konstant}
+    \]
+  </div>
+  <p>Die mechanische Energie kann durch Reibung oder Umwandlung in andere Energieformen wie Wärme reduziert werden, aber die Gesamtenergie bleibt erhalten.</p>
+
+  <h2>12.5 Leistung und Wirkungsgrad</h2>
+  <ul>
+    <li><strong>Leistung:</strong> \( P = \frac{W}{t} \) [Watt], auch \( P = F \cdot v \)</li>
+    <li><strong>Wirkungsgrad:</strong> \( \eta = \frac{\text{Nutzenergie}}{\text{zugeführte Energie}} \leq 1 \)</li>
+  </ul>
+
+  <h2>11.6 Beispiel – Energieumwandlung beim Freien Fall</h2>
+  <p><strong>Gegeben:</strong> \( m = 2\,\text{kg}, h = 5\,\text{m} \)</p>
+  <p><strong>Gesucht:</strong> Geschwindigkeit kurz vor Aufprall (ohne Reibung)</p>
+  <div class="formel-box">
+    \[
+    E_\text{pot} = mgh = 2 \cdot 9{,}81 \cdot 5 = 98{,}1\,\text{J}
+    \]
+    \[
+    E_\text{kin} = E_\text{pot} \Rightarrow v = \sqrt{\frac{2E}{m}} = \sqrt{\frac{2 \cdot 98{,}1}{2}} = \sqrt{98{,}1} \approx 9{,}9\,\text{m/s}
+    \]
+  </div>
+
+  <h2>11.7 Beispiel – Energie mit Reibungsverlust</h2>
+  <p><strong>Gegeben:</strong> \( m = 1\,\text{kg}, h = 2\,\text{m}, W_\text{Reib} = 5\,\text{J} \)</p>
+  <p><strong>Gesucht:</strong> Geschwindigkeit beim Aufprall unter Berücksichtigung der Reibung</p>
+  <div class="formel-box">
+    \[
+    E_\text{pot} = mgh = 1 \cdot 9{,}81 \cdot 2 = 19{,}62\,\text{J}
+    \]
+    \[
+    E_\text{kin} = E_\text{pot} - W_\text{Reib} = 19{,}62 - 5 = 14{,}62\,\text{J}
+    \]
+    \[
+    v = \sqrt{\frac{2 E_\text{kin}}{m}} = \sqrt{2 \cdot 14{,}62} \approx 5{,}4\,\text{m/s}
+    \]
+  </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#schwingungen">Kapitel 12: Schwingungen</a>
+  </div>
+</section>
+
+<section id="schwingungen">
+  <h1>Kapitel 12: Schwingungen</h1>
+  <p>Eine <strong>Schwingung</strong> ist eine periodische Bewegung eines Körpers um eine Ruhelage. Die einfachste Form ist die harmonische Schwingung.</p>
+
+  <h2>12.1 Harmonische Schwingung</h2>
+  <p>Ein Körper erfährt eine rücktreibende Kraft proportional zur Auslenkung:</p>
+  <div class="formel-box">
+    \[
+    F = -k \cdot x
+    \]
+  </div>
+  <p>Dies führt zu einer Bewegung mit sinusförmigem Verlauf:</p>
+  <div class="formel-box">
+    \[
+    x(t) = \hat{x} \cdot \sin(\omega t + \varphi)
+    \]
+  </div>
+  <ul>
+    <li>\( \hat{x} \): Amplitude (maximale Auslenkung)</li>
+    <li>\( \omega \): Kreisfrequenz \( = 2\pi f \)</li>
+    <li>\( f \): Frequenz der Schwingung</li>
+    <li>\( \varphi \): Phasenwinkel</li>
+  </ul>
+
+  <h2>12.2 Federpendel</h2>
+  <p>Ein Körper an einer Feder schwingt harmonisch, wenn nur die Federkraft wirkt. Die Periodendauer ist:</p>
+  <div class="formel-box">
+    \[
+    T = 2\pi \sqrt{\frac{m}{k}}, \quad f = \frac{1}{T}
+    \]
+  </div>
+  <p>Die Rückstellkraft ergibt sich aus dem Hooke’schen Gesetz \( F = -k \cdot x \).</p>
+
+  <h2>12.3 Fadenpendel</h2>
+  <p>Ein Pendel mit Masse \( m \) und Länge \( l \) führt bei kleinen Auslenkungen ebenfalls eine harmonische Schwingung aus:</p>
+  <div class="formel-box">
+    \[
+    T = 2\pi \sqrt{\frac{l}{g}}, \quad f = \frac{1}{T}
+    \]
+  </div>
+
+  <h2>12.4 Energie der Schwingung</h2>
+  <ul>
+    <li><strong>Gesamtenergie:</strong> bleibt konstant (ohne Dämpfung)</li>
+    <li><strong>Kinetische Energie:</strong> \( E_\text{kin} = \frac{1}{2}mv^2 \)</li>
+    <li><strong>Potenzielle Energie:</strong> \( E_\text{pot} = \frac{1}{2}kx^2 \)</li>
+  </ul>
+  <p>Die Energie wandelt sich periodisch zwischen \( E_\text{kin} \) und \( E_\text{pot} \).</p>
+
+  <h2>12.5 Gedämpfte Schwingung</h2>
+  <p>Reibung oder Luftwiderstand führt zu Energieverlust, wodurch die Amplitude abnimmt. Die Bewegung ist dann:</p>
+  <div class="formel-box">
+    \[
+    x(t) = \hat{x} \cdot e^{-\delta t} \cdot \sin(\omega_d t)
+    \]
+  </div>
+  <p>\( \delta \): Dämpfungskonstante, \( \omega_d \): gedämpfte Kreisfrequenz</p>
+
+  <h2>12.6 Beispiel – Federpendel</h2>
+  <p><strong>Gegeben:</strong> \( m = 0{,}2\,\text{kg}, \; k = 10\,\text{N/m} \)</p>
+  <p><strong>Gesucht:</strong> Periodendauer \( T \)</p>
+  <div class="formel-box">
+    \[
+    T = 2\pi \sqrt{\frac{m}{k}} = 2\pi \sqrt{\frac{0{,}2}{10}} = 2\pi \cdot \sqrt{0{,}02} \approx 0{,}89\,\text{s}
+    \]
+  </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#wellen">Kapitel 13: Wellen</a>
+  </div>
+</section>
+
+<section id="wellen">
+  <h1>Kapitel 13: Wellen</h1>
+  <p><strong>Wellen</strong> sind Ausbreitungen von Schwingungen im Raum. Es wird Energie, aber keine Materie transportiert.</p>
+
+  <h2>13.1 Arten von Wellen</h2>
+  <ul>
+    <li><strong>Mechanische Wellen:</strong> brauchen ein Medium (z. B. Schall, Wasserwellen)</li>
+    <li><strong>Elektromagnetische Wellen:</strong> benötigen kein Medium (z. B. Licht, Funk)</li>
+    <li><strong>Transversalwellen:</strong> Auslenkung senkrecht zur Ausbreitungsrichtung</li>
+    <li><strong>Longitudinalwellen:</strong> Auslenkung parallel zur Ausbreitungsrichtung</li>
+  </ul>
+
+  <h2>13.2 Wellengleichung</h2>
+  <p>Die allgemeine Form einer harmonischen Welle lautet:</p>
+  <div class="formel-box">
+    \[
+    y(x, t) = \hat{y} \cdot \sin(kx - \omega t + \varphi)
+    \]
+  </div>
+  <ul>
+    <li>\( \hat{y} \): Amplitude</li>
+    <li>\( k = \frac{2\pi}{\lambda} \): Wellenzahl</li>
+    <li>\( \omega = 2\pi f \): Kreisfrequenz</li>
+    <li>\( \lambda \): Wellenlänge</li>
+    <li>\( f \): Frequenz</li>
+    <li>\( v = \lambda f \): Ausbreitungsgeschwindigkeit</li>
+  </ul>
+
+  <h2>13.3 Reflexion und Transmission</h2>
+  <p>Trifft eine Welle auf ein Hindernis oder Mediumwechsel, so wird sie teilweise reflektiert und teilweise übertragen:</p>
+  <ul>
+    <li><strong>Reflexion:</strong> Welle wird zurückgeworfen</li>
+    <li><strong>Transmission:</strong> Welle durchdringt das neue Medium</li>
+    <li><strong>Brechung:</strong> Änderung der Ausbreitungsrichtung im neuen Medium</li>
+  </ul>
+
+  <h2>13.4 Überlagerung und Interferenz</h2>
+  <p>Treffen zwei Wellen aufeinander, addieren sich ihre Auslenkungen:</p>
+  <ul>
+    <li><strong>Konstruktive Interferenz:</strong> Verstärkung</li>
+    <li><strong>Destruktive Interferenz:</strong> Abschwächung oder Auslöschung</li>
+  </ul>
+
+  <h2>13.5 Stehende Wellen</h2>
+  <p>Entstehen durch Überlagerung von Hin- und Rücklauf, z. B. bei reflektierten Wellen:</p>
+  <ul>
+    <li><strong>Knoten:</strong> keine Auslenkung</li>
+    <li><strong>Bäuche:</strong> maximale Auslenkung</li>
+  </ul>
+  <div class="formel-box">
+    \[
+    L = n \cdot \frac{\lambda}{2} \quad \text{(für feste Enden)}
+    \]
+  </div>
+
+  <h2>13.6 Beispiel – Ausbreitungsgeschwindigkeit</h2>
+  <p><strong>Gegeben:</strong> \( \lambda = 0{,}5\,\text{m}, \; f = 200\,\text{Hz} \)</p>
+  <p><strong>Gesucht:</strong> Ausbreitungsgeschwindigkeit \( v \)</p>
+  <div class="formel-box">
+    \[
+    v = \lambda \cdot f = 0{,}5 \cdot 200 = 100\,\text{m/s}
+    \]
+  </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#gesamtzusammenfassung">Kapitel 14: Gesamte Zusammenfassung und Überblick</a>
+  </div>
+</section>
+
+<section id="gesamtzusammenfassung">
+  <h1>Kapitel 14: Gesamte Zusammenfassung und Überblick</h1>
+  <p>Die Dynamik beschreibt die Wirkung von Kräften auf Körper in Bewegung und in Ruhe. Die Inhalte umfassen zentrale mechanische Konzepte:</p>
+
+  <h2>14.1 Grundgleichung der Dynamik</h2>
+  <div class="formel-box">
+    \[
+    \vec{F} = m \cdot \vec{a}
+    \]
+  </div>
+  <p>Kräfte erzeugen Beschleunigung. Die Masse bestimmt, wie stark ein Körper auf eine gegebene Kraft reagiert.</p>
+
+  <h2>14.2 Überblick Kräftearten</h2>
+  <ul>
+    <li>Gewichtskraft: \( F_G = m \cdot g \)</li>
+    <li>Normalkraft: senkrecht zur Kontaktfläche</li>
+    <li>Reibungskraft: \( F_R = \mu \cdot F_N \)</li>
+    <li>Federkraft: \( F = -k \cdot x \)</li>
+    <li>Zentripetalkraft: \( F_Z = m \cdot \frac{v^2}{r} \)</li>
+    <li>Drehmoment: \( M = J \cdot \alpha \)</li>
+    <li>Seilkraft: gleichmäßig verteilt im idealen Seil</li>
+  </ul>
+
+  <h2>14.3 Bewegungsgesetze</h2>
+  <ul>
+    <li>Gleichförmig: \( v = \text{konstant} \)</li>
+    <li>Gleichmäßig beschleunigt: \( s = s_0 + v_0 t + \frac{1}{2} a t^2 \)</li>
+    <li>Veränderliche Kräfte: Integration nötig, oft numerisch</li>
+    <li>Kreisbewegung: Zentripetalbeschleunigung \( a = \frac{v^2}{r} \)</li>
+    <li>Rotation: \( \omega = \frac{d\varphi}{dt},\quad M = J \cdot \alpha \)</li>
+  </ul>
+
+  <h2>14.4 Energie und Arbeit</h2>
+  <ul>
+    <li>Mechanische Arbeit: \( W = F \cdot s \cdot \cos(\alpha) \)</li>
+    <li>Kinetische Energie: \( E_\text{kin} = \frac{1}{2}mv^2 \)</li>
+    <li>Potenzielle Energie: \( E_\text{pot} = mgh \)</li>
+    <li>Federenergie: \( E = \frac{1}{2}Dx^2 \)</li>
+    <li>Energieerhaltung: Gesamtenergie bleibt konstant (abgeschlossenes System)</li>
+    <li>Wirkungsgrad: \( \eta = \frac{\text{Nutzenergie}}{\text{zugeführte Energie}} \)</li>
+  </ul>
+
+  <h2>14.5 Impuls und Stoß</h2>
+  <ul>
+    <li>Impuls: \( \vec{p} = m \cdot \vec{v} \)</li>
+    <li>Impulserhaltung: \( \sum \vec{p}_\text{vorher} = \sum \vec{p}_\text{nachher} \)</li>
+    <li>Stoßarten:
+      <ul>
+        <li>Elastisch: Impuls + Energie erhalten</li>
+        <li>Inelastisch: nur Impuls erhalten</li>
+        <li>Vollkommen inelastisch: Körper verbinden sich</li>
+      </ul>
+    </li>
+  </ul>
+
+  <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
+
+  <div class="cta-box">
+    <strong>Ende der Gesamtdarstellung</strong><br>
+    Du hast jetzt einen vollständigen Überblick über die Dynamik, inklusive Impuls, Energie und Rotation.
+  </div>
+</section>
+
+<section id="kraefte">
+  <h1>Kapitel 3: Kräftearten</h1>
+  <p>Kräfte sind Wechselwirkungen, die Bewegungen ändern oder aufrechterhalten können. Sie wirken durch Kontakt oder über ein Feld (z. B. Gravitation). Jede Kraft hat eine Richtung und eine Angriffslinie. Ihre SI-Einheit ist das Newton (N).</p>
+
+  <h2>3.1 Gewichtskraft (Schwerkraft)</h2>
+  <p>Die Gewichtskraft ist die Kraft, mit der ein Körper von der Erde angezogen wird:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_G = m \cdot \vec{g} \quad \text{mit } \vec{g} \approx 9{,}81 \; \text{m/s}^2
+    \]
+  </div>
+
+  <h2>3.2 Normalkraft</h2>
+  <p>Die Normalkraft ist die Reaktionskraft einer Fläche, senkrecht zur Oberfläche:</p>
+  <div class="formel-box">
+    \[
+    F_N = m \cdot g \cdot \cos(\alpha)
+    \]
+  </div>
+
+  <h2>3.3 Hangabtriebskraft</h2>
+  <p>Ein Körper auf einer geneigten Ebene erfährt eine Komponente der Gewichtskraft entlang der Neigung:</p>
+  <div class="formel-box">
+    \[
+    F_\text{Hang} = m \cdot g \cdot \sin(\alpha)
+    \]
+  </div>
+
+  <h2>3.4 Reibungskräfte – vertieft</h2>
+  <p>Reibungskräfte entstehen zwischen Körpern in Kontakt:</p>
+  <ul>
+    <li><strong>Haftreibung:</strong> Verhindert Bewegung, wirkt bis zu einem Maximalwert:</li>
+    <div class="formel-box">
+      \[
+      F_R \leq \mu_H \cdot F_N
+      \]
+    </div>
+    <li><strong>Gleitreibung:</strong> Wirkt bei Bewegung, immer gleich groß:</li>
+    <div class="formel-box">
+      \[
+      F_R = \mu_G \cdot F_N
+      \]
+    </div>
+    <li><strong>Rollreibung:</strong> Tritt bei rollenden Körpern auf, meist deutlich kleiner:</li>
+    <div class="formel-box">
+      \[
+      F_R = \mu_R \cdot F_N
+      \]
+    </div>
+  </ul>
+  <p>\( \mu_H, \mu_G, \mu_R \) sind die jeweiligen Reibungskoeffizienten.</p>
+
+  <h2>3.5 Federkraft (Hooke’sches Gesetz)</h2>
+  <p>Ein Körper an einer Feder erfährt eine rücktreibende Kraft:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_\text{Feder} = -k \cdot \vec{x}
+    \]
+  </div>
+  <p>\( k \): Federkonstante, \( x \): Auslenkung.</p>
+
+  <h2>3.6 Zentripetalkraft</h2>
+  <p>Für eine gleichförmige Kreisbewegung ist eine zur Mitte gerichtete Kraft nötig:</p>
+  <div class="formel-box">
+    \[
+    F_Z = m \cdot \frac{v^2}{r} = m \cdot \omega^2 \cdot r
+    \]
+  </div>
+
+  <h2>3.7 Kraft, Impuls und Energie im Vergleich</h2>
+  <p>Diese drei Größen beschreiben Bewegung auf unterschiedliche Weise:</p>
+  <ul>
+    <li><strong>Kraft:</strong> verursacht Beschleunigung (zeitlich lokal)</li>
+    <li><strong>Impuls:</strong> Maß für Bewegungsmenge (Vektor)</li>
+    <li><strong>Energie:</strong> Fähigkeit, Arbeit zu verrichten (Skalar)</li>
+  </ul>
+  <p>Formelbezüge:</p>
+  <div class="formel-box">
+    \[
+    \vec{F} = m \cdot \vec{a} \quad ; \quad \vec{p} = m \cdot \vec{v} \quad ; \quad E_\text{kin} = \frac{1}{2} m v^2
+    \]
+  </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#bewegungsgesetze">Kapitel 4: Bewegungsgesetze</a>
+  </div>
+</section>
+
+<section id="impuls">
+  <h1>Kapitel 8: Impuls und Impulserhaltung</h1>
+  <p>Der <strong>Impuls</strong> ist ein grundlegender physikalischer Begriff, der beschreibt, wie viel Bewegung ein Körper hat. Er ist das Produkt aus Masse und Geschwindigkeit.</p>
+
+  <h2>8.1 Definitionen und Unterscheidung</h2>
+  <p>Zur Klarheit die systematische Trennung zentraler physikalischer Begriffe:</p>
+  <ul>
+    <li><strong>Kraft (F):</strong> Verursacht eine Änderung des Bewegungszustands (z. B. Beschleunigung).</li>
+    <li><strong>Impuls (p):</strong> Maß für die Bewegungsmenge eines Körpers: \( \vec{p} = m \cdot \vec{v} \)</li>
+    <li><strong>Energie (E):</strong> Fähigkeit, Arbeit zu verrichten. Kinetische Energie: \( E_{kin} = \frac{1}{2}mv^2 \)</li>
+  </ul>
+  <p>Beziehung Kraft–Impuls: Eine Kraft ist die zeitliche Änderung des Impulses:</p>
+  <div class="formel-box">
+    
+    \[ \vec{F} = \frac{d\vec{p}}{dt} \]
+  </div>
+
+  <h2>8.2 Systeme: Offen vs. geschlossen</h2>
+  <p>Für die Impulserhaltung ist es entscheidend, ob ein System <strong>geschlossen</strong> ist:</p>
+  <ul>
+    <li><strong>Geschlossenes System:</strong> Keine äußeren Kräfte → Gesamtimpuls bleibt erhalten.</li>
+    <li><strong>Offenes System:</strong> Äußere Kräfte wirken → Gesamtimpuls ändert sich.</li>
+  </ul>
+  <p><strong>Innere Kräfte</strong> wirken nur zwischen den Bestandteilen des Systems (z. B. Stoßkräfte). Nur <strong>äußere Kräfte</strong> können den Gesamtimpuls verändern.</p>
+
+  <h2>8.3 Impulserhaltungssatz</h2>
+  <p>In einem geschlossenen System bleibt der Gesamtimpuls erhalten – unabhängig von inneren Kräften:</p>
+  <div class="formel-box">
+    \[ \sum \vec{p}_\text{vorher} = \sum \vec{p}_\text{nachher} \]
+  </div>
+  <p>Dies gilt besonders bei Stößen und Explosionen.</p>
+
+  <h2>8.4 Beispiel – Zwei Körper prallen zusammen</h2>
+  <p><strong>Gegeben:</strong> \( m_1 = 2\,\text{kg}, v_1 = 4\,\text{m/s}, m_2 = 3\,\text{kg}, v_2 = -2\,\text{m/s} \)</p>
+  <p><strong>Elastischer Stoß – gesuchte Geschwindigkeit nach dem Stoß</strong></p>
+
+  <p>Gesamtimpuls vorher:</p>
+  <div class="formel-box">
+    \[ p_\text{gesamt} = m_1 v_1 + m_2 v_2 = 2 \cdot 4 + 3 \cdot (-2) = 8 - 6 = 2\,\text{kg·m/s} \]
+  </div>
+
+  <p><strong>Wenn beide Körper nach dem Stoß zusammenkleben (unelastisch):</strong></p>
+  <div class="formel-box">
+    \[ v_\text{nachher} = \frac{p_\text{gesamt}}{m_1 + m_2} = \frac{2}{5} = 0{,}4\,\text{m/s} \]
+  </div>
+
+  <div class="cta-box">
+    <strong>Weiter:</strong> <a href="#zentrale-stoesse">Kapitel 9: Zentrale Stöße</a>
+  </div>
+</section>
+
+<section id="kreisbewegung">
+  <h1>Kapitel 10: Kreisbewegung und Zentralkräfte</h1>
+  <p>Bei einer Kreisbewegung ändert sich zwar der Betrag der Geschwindigkeit nicht, aber ihre Richtung ständig. Diese Richtungsänderung erfordert eine Kraft: die <strong>Zentripetalkraft</strong>.</p>
+
+  <p>Die <strong>Zentripetalbeschleunigung</strong> ergibt sich aus der Änderung der Bewegungsrichtung:</p>
+  <div class="formel-box">
+    \[
+    a_Z = \frac{v^2}{r} = \omega^2 \cdot r
+    \quad \Rightarrow \quad F_Z = m \cdot a_Z
+    \]
+  </div>
+  <p>Dies ist direkt aus dem zweiten Newtonschen Axiom \( F = m \cdot a \) abgeleitet.</p>
+
+  <h2>10.1 Gleichförmige Kreisbewegung</h2>
+  <p>Ein Körper bewegt sich mit konstanter Geschwindigkeit \( v \) auf einer Kreisbahn mit Radius \( r \). Die Geschwindigkeit ist stets tangential, die Zentripetalkraft radial gerichtet.</p>
+  <div class="formel-box">
+    \[
+    a_Z = \frac{v^2}{r}, \quad F_Z = m \cdot a_Z = m \cdot \frac{v^2}{r}
+    \]
+  </div>
+
+  <h2>10.2 Winkelgrößen und Bahngeschwindigkeit</h2>
+  <ul>
+    <li>Winkelgeschwindigkeit: \( \omega = \frac{\varphi}{t} \)</li>
+    <li>Beziehung: \( v = \omega \cdot r \)</li>
+    <li>Zentripetalkraft alternativ: \( F_Z = m \cdot \omega^2 \cdot r \)</li>
+  </ul>
+
+  <h2>10.3 Zentrifugalkraft – Trägheitskraft</h2>
+  <p>In rotierenden Bezugssystemen erscheint eine Trägheitskraft, die nach außen wirkt – die sogenannte <em>Zentrifugalkraft</em>. Sie ist keine echte Kraft, sondern eine Scheinkraft:</p>
+  <div class="formel-box">
+    \[
+    F_\text{Zentrifugal} = -F_Z = -m \cdot \frac{v^2}{r} = -m \cdot \omega^2 \cdot r
+    \]
+  </div>
+  <p>Sie ist nur in beschleunigten (rotierenden) Bezugssystemen relevant.</p>
+
+  <h2>10.4 Beispiel – Kugel an Schnur</h2>
+  <p><strong>Gegeben:</strong> \( m = 0{,}5\,\text{kg}, \; v = 3\,\text{m/s}, \; r = 0{,}6\,\text{m} \)</p>
+  <p><strong>Gesucht:</strong> Zentripetalkraft</p>
+  <div class="formel-box">
+    \[
+    F_Z = m \cdot \frac{v^2}{r} = 0{,}5 \cdot \frac{3^2}{0{,}6} = 0{,}5 \cdot \frac{9}{0{,}6} = 0{,}5 \cdot 15 = 7{,}5\,\text{N}
+    \]
+  </div>
+
+  <h2>10.5 Beispiel – Kurvenfahrt mit Reibung</h2>
+  <p><strong>Gegeben:</strong> Auto mit \( m = 1000\,\text{kg} \), Radius \( r = 50\,\text{m} \), Haftreibungskoeffizient \( \mu = 0{,}4 \).</p>
+  <p><strong>Gesucht:</strong> Maximale Geschwindigkeit ohne Schleudern</p>
+  <p>Reibung stellt die nötige Zentripetalkraft bereit:</p>
+  <div class="formel-box">
+    \[
+    F_R = \mu \cdot m \cdot g = 0{,}4 \cdot 1000 \cdot 9{,}81 = 3924\,\text{N}
+    \]
+    \[
+    F_R = F_Z = m \cdot \frac{v^2}{r}
+    \Rightarrow v = \sqrt{\mu \cdot g \cdot r}
+    \]
+    \[
+    v = \sqrt{0{,}4 \cdot 9{,}81 \cdot 50} \approx 14{,}0\,\text{m/s}
+    \]
+  </div>
+
+  <h2>10.6 Anwendungen Zentralkraft</h2>
+  <ul>
+    <li>Kurvenfahrt (Auto, Rad)</li>
+    <li>Kettenkarussell</li>
+    <li>Waschmaschine (Trommelrotation)</li>
+    <li>Zentrifuge im Labor</li>
+    <li>Loopings in Achterbahnen</li>
+    <li>Planetenbahnen – Gravitationskraft als Zentralkraft</li>
+    <li>Satelliten auf Umlaufbahnen</li>
+  </ul>
+
   <h2>10.7 Zentralkräfte allgemein</h2>
   <p>Eine <strong>Zentralkraft</strong> ist eine Kraft, die immer entlang der Verbindungslinie zweier Körper wirkt und deren Richtung stets zum Zentrum zeigt. Sie tritt in vielen physikalischen Kontexten auf:</p>
   <ul>
@@ -967,117 +1485,9 @@ footer {
     F_G = G \cdot \frac{m_1 m_2}{r^2}
     \]
   </div>
-</section>
-
-<section id="gesamtzusammenfassung">
-  <h1>Kapitel 11: Gesamte Zusammenfassung und Überblick</h1>
-  <p>Die Dynamik untersucht, wie Kräfte auf Körper wirken und deren Bewegung beeinflussen. Die wichtigsten Konzepte aus diesem Themenbereich sind hier kompakt zusammengefasst.</p>
-
-  <h2>11.1 Grundgleichung der Dynamik</h2>
-  <div class="formel-box">
-    \[
-    \vec{F} = m \cdot \vec{a}
-    \]
-  </div>
-  <p>Die Beschleunigung eines Körpers ist proportional zur resultierenden Kraft und umgekehrt proportional zur Masse.</p>
-
-  <h2>11.2 Übersicht Kräftearten</h2>
-  <ul>
-    <li>Gewichtskraft: \( F_G = m \cdot g \)</li>
-    <li>Normalkraft: Reaktionskraft senkrecht zur Oberfläche</li>
-    <li>Reibungskraft: \( F_R = \mu \cdot F_N \)</li>
-    <li>Federkraft: \( F = -k \cdot x \)</li>
-    <li>Zentripetalkraft: \( F_Z = m \cdot \frac{v^2}{r} \)</li>
-    <li>Seilkraft: Kräfteübertragung über ein ideales Seil</li>
-    <li>Drehmoment: \( M = J \cdot \alpha \)</li>
-  </ul>
-
-  <h2>11.3 Bewegungsgesetze</h2>
-  <ul>
-    <li>Gleichförmige Bewegung: \( v = \text{konstant} \)</li>
-    <li>Gleichmäßig beschleunigt: \( s = s_0 + v_0 t + \frac{1}{2} a t^2 \)</li>
-    <li>Bewegung unter veränderlicher Kraft: Integration notwendig</li>
-    <li>Kreisbewegung: \( a_Z = \frac{v^2}{r} \)</li>
-    <li>Rotation: \( \omega = \frac{d\varphi}{dt},\quad \alpha = \frac{d\omega}{dt} \)</li>
-  </ul>
-
-  <h2>11.4 Impuls und Stoß</h2>
-  <ul>
-    <li>Impuls: \( \vec{p} = m \cdot \vec{v} \)</li>
-    <li>Impulserhaltung: \( \sum \vec{p}_\text{vorher} = \sum \vec{p}_\text{nachher} \)</li>
-    <li>Stoßtypen:
-      <ul>
-        <li>Elastisch: Impuls und Energie erhalten</li>
-        <li>Inelastisch: nur Impuls erhalten</li>
-        <li>Vollkommen inelastisch: Körper haften nach Stoß aneinander</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h2>11.5 Typische Anwendungen</h2>
-  <ul>
-    <li>Bewegung auf schiefer Ebene (Hangabtriebskraft)</li>
-    <li>Mehrkörpersysteme mit Seilen und Rollen</li>
-    <li>Rotierende Körper mit Trägheitsmoment</li>
-    <li>Kreisbahnen und Zentralkraftsysteme</li>
-    <li>Systeme mit zeitabhängiger Masse (z. B. Raketen)</li>
-  </ul>
-</section>
-
-<section id="veraenderliche-masse">
-  <h1>Bonus Kapitel 12: Systeme mit veränderlicher Masse</h1>
-  <p>In vielen physikalischen Anwendungen ändert sich die Masse eines Systems mit der Zeit – z.&nbsp;B. bei Raketen oder Sand, der aus einem Behälter fällt. Solche Systeme erfordern eine Erweiterung der klassischen Bewegungsgleichung.</p>
-
-  <h2>12.1 Prinzip der Impulsänderung</h2>
-  <p>Die klassische Formulierung \( \vec{F} = m \cdot \vec{a} \) gilt nur für konstante Masse. Für Systeme mit veränderlicher Masse muss man den Impuls ableiten:</p>
-  <div class="formel-box">
-    \[
-    \vec{F}_\text{ext} = \frac{d\vec{p}}{dt} = \frac{d}{dt}(m \cdot \vec{v}) = m \cdot \frac{d\vec{v}}{dt} + \vec{v} \cdot \frac{dm}{dt}
-    \]
-  </div>
-  <p>Die letzte Terme zeigen: Auch eine reine Massenänderung erzeugt eine Impulsänderung – selbst bei konstanter Geschwindigkeit.</p>
-
-  <h2>12.2 Raketenformel (Tsiolkovsky–Gleichung)</h2>
-  <p>Ein klassisches Beispiel ist die Rakete, die durch Rückstoßmasse beschleunigt wird:</p>
-  <ul>
-    <li>System: Rakete plus ausgestoßene Gase</li>
-    <li>Annahme: Kein äußerer Widerstand, \( \vec{F}_\text{ext} = 0 \)</li>
-  </ul>
-  <p>Die Impulserhaltung führt zur Tsiolkovsky-Gleichung:</p>
-  <div class="formel-box">
-    \[
-    v(t) = v_0 + v_e \cdot \ln\left(\frac{m_0}{m(t)}\right)
-    \]
-  </div>
-  <p>
-    \( v_e \): Ausströmgeschwindigkeit der Gase<br>
-    \( m_0 \): Anfangsmasse<br>
-    \( m(t) \): aktuelle Masse der Rakete
-  </p>
-
-  <h2>12.3 Beispiel – Raketenstart im Vakuum</h2>
-  <p><strong>Gegeben:</strong> \( m_0 = 5000\,\text{kg},\ m(t) = 2500\,\text{kg},\ v_e = 2500\,\text{m/s} \)</p>
-  <div class="formel-box">
-    \[
-    v = 2500 \cdot \ln\left(\frac{5000}{2500}\right) = 2500 \cdot \ln(2) \approx 1732\,\text{m/s}
-    \]
-  </div>
-  <p>Die Rakete erreicht bei Halbierung ihrer Masse eine Geschwindigkeit von etwa 1732 m/s.</p>
-
-  <h2>12.4 Weitere Anwendungen</h2>
-  <ul>
-    <li>Tropfender Wagen (Masseverlust)</li>
-    <li>Sand auf Förderband (Massezuwachs)</li>
-    <li>Brennstoffverbrauch bei Triebwerken</li>
-  </ul>
-
-</section>
-
-</section>
-  <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
+  <p>Diese Themen werden in einem späteren Kapitel vertieft.</p>
 
   <div class="cta-box">
-    <strong>Ende der Gesamtdarstellung</strong><br>
-    Du hast jetzt einen vollständigen Überblick über die Dynamik, inklusive Impuls, Energie und Rotation.
+    <strong>Weiter:</strong> <a href="#arbeit-und-energie">Kapitel 11: Arbeit, Energie und Energieerhaltung</a>
   </div>
 </section>
