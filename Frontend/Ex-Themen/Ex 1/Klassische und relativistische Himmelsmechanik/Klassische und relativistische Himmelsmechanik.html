@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Klassische und relativistische Himmelsmechanik | PhysikNow</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  /* Reset & Grundlayout */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body {
+    background: #f8f9fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Header & Navigation */
+  header {
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 { font-size: 1.5rem; margin: 0; display: flex; align-items: center; }
+  header nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  header nav a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  header nav a:hover { color: #00d4ff; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #00d4ff, #0066ff);
+    color: #fff;
+  }
+  .hero h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .hero p { font-size: 1.2rem; max-width: 900px; margin: 0 auto; opacity: .95; }
+
+  /* Inhaltsbereich */
+  .content {
+    max-width: 1100px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    line-height: 1.9;
+  }
+  .content p, .content ul, .content ol, .container p, .container ul, .container ol { text-align: justify; }
+
+  /* Überschriften-Basis */
+  .content h1, .content h2, .content h3 { margin-top: 2rem; margin-bottom: 0.2rem; line-height: 1.3; }
+
+  /* Wunsch: h2 (z.B. 1.5) größer & blau, h3 (z.B. 1.2.1) kleiner & schwarz */
+  .content h2 { font-size: 2.3rem; color: #0066ff; font-weight: 800; }
+  .content h3 { font-size: 1.12rem; color: #000; font-weight: 600; }
+
+  /* Listen-Optik */
+  ul, ol { list-style-position: inside; margin-left: 0; padding-left: 0; }
+  ul { list-style-type: disc; }
+
+  /* Info-Boxen */
+  .note { background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0; }
+  .success { background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0; }
+  .warn { background:#fff3cd; padding:15px; border-left:5px solid #ffca2c; margin:20px 0; }
+
+  /* Formeln & Diagramme */
+  .formula {
+    background: #f1f1f1;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .diagram { text-align: center; margin: 1.5rem 0; color: #666; font-style: italic; }
+
+  /* TOC */
+  .toc-box {
+    background: #ffffff;
+    border: 2px solid #0073e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 25px auto;
+    max-width: 800px;
+  }
+  .toc-box h3 {
+    font-size: 18px; color: #0073e6; text-align: center; margin-bottom: 15px;
+  }
+  .toc-box ul { list-style: none; padding-left: 0; margin: 0; columns: 2; }
+  .toc-box li { margin-bottom: 8px; padding-left: 18px; position: relative; }
+  .toc-box li::before { content: "•"; position: absolute; left: 0; color: #0073e6; font-size: 18px; line-height: 1; }
+  .toc-box a { text-decoration: none; color: #333; font-weight: 500; }
+  .toc-box a:hover { color: #0073e6; text-decoration: underline; }
+  @media (max-width: 768px) { .toc-box ul { columns: 1; } }
+
+  /* Quiz-Button */
+  .quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin: 3rem auto;
+    max-width: 320px;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+  .quiz-btn:hover { background: #004bbd; }
+
+  /* Footer */
+  footer {
+    background: #1e1e2f;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  /* Mobile Tuning */
+  @media (max-width: 768px) {
+    .content { padding: 1.25rem 1.25rem; }
+    .content h2 { font-size: 1.85rem; }
+    .content h3 { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><a href="/physiknow/index.html" style="color:#00d4ff; text-decoration:none;">PhysikNow</a></h1>
+  <nav>
+    <ul>
+      <li><a href="/physiknow/index.html#topics">Alle Themen</a></li>
+      <li><a href="/physiknow/Uni-Vorlagen/Uni-Vorlage.html">Universitäre Vorlage</a></li>
+      <li><a href="/physiknow/Quiz.html">Teste dein Wissen</a></li>
+      <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Klassische und relativistische Himmelsmechanik</h2>
+  <p>Von Kepler und Newton bis zur Raumzeit</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+  <ul>
+    <li><a href="#einleitung-kinematik">Einführung in die Kinematik</a></li>
+    <li><a href="#abschnitt-1-grundlagen">1. Grundlagen und historische Entwicklung</a></li>
+  </ul>
+</div>
+
+<!-- (0) Einführung in die Kinematik – ausführlicher -->
+<section id="einleitung-kinematik" class="content">
+  <h1>Einführung in die Kinematik</h1>
+  <p>
+    Die <strong>Kinematik</strong> beschreibt Bewegungen von Punkten und Körpern losgelöst von den verursachenden Kräften. 
+    Sie liefert die mathematische Sprache, mit der Trajektorien, Geschwindigkeiten und Beschleunigungen präzise formuliert werden. 
+    Diese Trennung ist didaktisch und praktisch sinnvoll: Wir können Bewegungen exakt parametrisieren und analysieren, 
+    bevor wir in der Dynamik die zugehörigen Kräftegesetze heranziehen. 
+    Für die Himmelsmechanik ist Kinematik unverzichtbar, da Bahnkurven (z.&nbsp;B. Ellipsen) kinematisch beschrieben werden, 
+    während die Dynamik erst erklärt, <em>warum</em> gerade diese Bahnen zustande kommen.
+  </p>
+
+  <h1>1.1 Was ist Kinematik?</h1>
+  <p>
+    Kinematik beantwortet Fragen des <em>Wie</em>: Wie verläuft die Position eines Partikels als Funktion der Zeit? 
+    Wie schnell ändert sie sich (<em>Geschwindigkeit</em>) und wie stark krümmt sich der zeitliche Verlauf (<em>Beschleunigung</em>)?
+    Im einfachsten Fall betrachten wir eine eindimensionale Bewegung auf einer Geraden mit der Wegfunktion \( s(t) \).
+    In mehreren Dimensionen arbeiten wir mit Ortsvektoren \( \vec r(t) = (x(t), y(t), z(t)) \).
+  </p>
+  <ul>
+    <li><strong>Position:</strong> \( s(t) \) bzw. \( \vec r(t) \) beschreibt den Aufenthaltsort eines Punktes zur Zeit \( t \).</li>
+    <li><strong>Geschwindigkeit:</strong> \( v(t)=\dfrac{ds}{dt} \) bzw. \( \vec v(t)=\dfrac{d\vec r}{dt} \) ist die erste Zeitableitung (momentane Änderungsrate).</li>
+    <li><strong>Beschleunigung:</strong> \( a(t)=\dfrac{dv}{dt}=\dfrac{d^2 s}{dt^2} \) bzw. \( \vec a(t)=\dfrac{d\vec v}{dt} \) ist die zweite Zeitableitung.</li>
+  </ul>
+  <p>
+    Wir unterscheiden stets <em>mittlere</em> Größen (z.&nbsp;B. mittlere Geschwindigkeit \( \bar v = \Delta s / \Delta t \)) 
+    von <em>momentanen</em> Größen (Grenzwert für \( \Delta t\to 0\)), was im Experiment (finite Abtastrate) und in der Theorie 
+    (Differentialrechnung) eine wichtige Rolle spielt. Einheiten sind SI-konform: \( [s]=\mathrm{m} \), \( [t]=\mathrm{s} \), 
+    \( [v]=\mathrm{m/s} \), \( [a]=\mathrm{m/s^2} \).
+  </p>
+  <div class="note">
+    <strong>Merke:</strong>
+    <ul>
+      <li>\( \vec v(t) = \dfrac{d\vec r}{dt} \), &nbsp; \( \vec a(t) = \dfrac{d\vec v}{dt} = \dfrac{d^2 \vec r}{dt^2} \).</li>
+      <li>Skalar vs. Vektor: In 1D genügt \( s(t) \); in 2D/3D ist die Richtungsinformation über \( \vec r(t) \) essenziell.</li>
+    </ul>
+  </div>
+
+  <h1>1.2 Abgrenzung zu Dynamik und Statik</h1>
+  <p>
+    Die klassische Mechanik gliedert sich in <em>Kinematik</em> (Beschreibung), <em>Dynamik</em> (Erklärung durch Kräfte) 
+    und <em>Statik</em> (Gleichgewicht). Während die Kinematik Orts-, Geschwindigkeits- und Beschleunigungsgrößen definiert und 
+    berechnet, verknüpft die Dynamik diese mit Kräften, etwa über die Newtonsche Grundgleichung \( \vec F = m \vec a \). 
+    Die Statik ist der Grenzfall verschwindender Beschleunigungen (\( \vec a = \vec 0 \)), in dem Kräfte- und Momentengleichgewichte 
+    erfüllt sein müssen.
+  </p>
+  <ul>
+    <li><strong>Kinematik:</strong> <em>Wie</em> bewegen sich Objekte? (Trajektorien, Zeitableitungen, Kurvenparameter).</li>
+    <li><strong>Dynamik:</strong> <em>Warum</em> bewegen sie sich so? (Kräfte, Potentiale, Energieansatz).</li>
+    <li><strong>Statik:</strong> Welche Bedingungen gelten im Gleichgewicht? (Resultierende \(=0\), Momente \(=0\)).</li>
+  </ul>
+
+  <h1>1.3 Grundbegriffe</h1>
+  <ul>
+    <li><strong>Massenpunkt:</strong> Idealisierung, bei der die gesamte Masse in einem Punkt konzentriert ist; keine Ausdehnung, keine Rotation.</li>
+    <li><strong>Starrer Körper:</strong> Endliche Ausdehnung, interne Abstände sind zeitlich invariant; erlaubt Übersetzung und Rotation.</li>
+    <li><strong>Bezugssystem:</strong> Ein Koordinatensystem (kartesisch, zylindrisch, sphärisch), in dem Größen gemessen und abgeleitet werden. 
+        Inertial- vs. nicht-inertiale (rotierende) Systeme sind in der Himmelsmechanik besonders wichtig.</li>
+  </ul>
+
+  <h1>1.4 Beispiele für kinematische Anwendungen</h1>
+  <ul>
+    <li><strong>Bremsweg im Verkehr:</strong> \( s = v_0 t + \tfrac12 a t^2 \) mit \( a&lt;0 \); wichtig: Reaktionszeit additiv.</li>
+    <li><strong>Wurfbewegung:</strong> Zerlegung in horizontale/vertikale Bewegung; Flugzeit, Maximalhöhe, Reichweite.</li>
+    <li><strong>Robotik:</strong> Trajektorienplanung, Bahn- und Geschwindigkeitsprofile, Jerk-Minimierung.</li>
+    <li><strong>Planetenbahnen:</strong> Kinematische Beschreibung als Kegelschnitt; Dynamik liefert die Ursache.</li>
+  </ul>
+
+  <div class="success">
+    <strong>Beispiel (gleichmäßig beschleunigte Bewegung in 1D):</strong>
+    <div class="formula">
+      \[
+      s(t) = s_0 + v_0\, t + \frac{1}{2} a t^2,\qquad
+      v(t) = v_0 + a t,\qquad
+      v^2 = v_0^2 + 2 a (s - s_0).
+      \]
+    </div>
+    <p>
+      Die Formeln folgen direkt aus der Integration \( a = \tfrac{dv}{dt} \) und \( v=\tfrac{ds}{dt} \). 
+      In Messdaten ist zu beachten: Rauschen und endliche Abtastung erfordern Filterung (z.&nbsp;B. Savitzky–Golay), 
+      um numerische Ableitungen stabil zu bestimmen.
+    </p>
+  </div>
+</section>
+
+<!-- (1) Grundlagen & Historie – ausführlicher -->
+<section id="abschnitt-1-grundlagen" class="content">
+  <h1>1 Grundlagen und historische Entwicklung</h1>
+
+  <h1>1.1 Historischer Kontext</h1>
+  <p>
+    Die Himmelsmechanik entwickelte sich aus sorgfältigsten Beobachtungen und dem Wunsch, scheinbar komplexe 
+    Himmelsbewegungen durch einfache, universelle Regeln zu verstehen. 
+    Vom geozentrischen Bild mit Epizykeln über die kopernikanische Wende bis hin zu Keplers präzisen 
+    Bahnrelationen spannt sich ein Bogen, der schließlich in Newtons dynamischer Erklärung kulminiert: 
+    Aus Kinematik wird Dynamik, aus Beschreibung wird Ursache.
+  </p>
+
+  <h3>1.1.1 Antike bis Mittelalter</h3>
+  <ul>
+    <li><strong>Ptolemäisches System:</strong> Planeten bewegen sich auf Epizykeln (kleine Kreise) auf Deferenten (größere Kreise) um die Erde. 
+        Die Konstruktion bildet Schleifen und retrograde Bewegungen nach, ist jedoch rein geometrisch-kinematisch motiviert.</li>
+    <li><strong>Hipparch &amp; Präzession:</strong> Langsame Verschiebung der Tagundnachtgleichen (≈ 26 000 Jahre Zyklus); 
+        frühe systematische Sternkataloge legten die Basis präziser Astrometrie.</li>
+    <li><strong>Islamische Astronomie:</strong> Verfeinerung sphärischer Trigonometrie, Observatorien (Maragha), 
+        <em>zij</em>-Tabellen mit präzisen Ephemeriden – entscheidend für Navigation und Kalenderwesen.</li>
+  </ul>
+
+  <h3>1.1.2 Renaissance und Keplers Wende</h3>
+  <ul>
+    <li><strong>Kopernikus (1543):</strong> Heliozentrik ordnet die Planetenbahnen eleganter; 
+        relative Schleifen entstehen aus der Überlagerung von Eigen- und Erdbahnbewegung.</li>
+    <li><strong>Tycho Brahe:</strong> Unübertroffene Messgenauigkeit vor der Teleskopära; 
+        geoheliozentrisches Kompromissmodell, aber Datengrundlage für Keplers Analysen.</li>
+    <li><strong>Galilei:</strong> Teleskopische Entdeckungen (Jupitermonde, Venusphasen) widersprechen der Geozentrik 
+        und stützen die Heliozentrik empirisch.</li>
+    <li><strong>Kepler (1609–1619):</strong> Drei Gesetze: Ellipsenbahnen, Flächensatz, \(T^2\propto a^3\); 
+        rein empirisch aus Brahes Daten, noch ohne dynamische Ursache.</li>
+  </ul>
+
+  <h3>1.1.3 Von Newton zur Klassik</h3>
+  <ul>
+    <li><strong>Newton (1687):</strong> Vereinigt Mechanik (Bewegungsgesetze) und Gravitation 
+        \( F = G \tfrac{m_1 m_2}{r^2} \) zur dynamischen Herleitung der Kepler-Gesetze.</li>
+    <li><strong>Huygens, Leibniz:</strong> Zentripetalkraftbegriffe und Infinitesimalrechnung als Werkzeuge zur Lösung 
+        der Bahnprobleme.</li>
+    <li><strong>Euler, Lagrange, Laplace:</strong> Störungsrechnung, Formulierung des Drei-Körper-Problems; 
+        Lagrange-Punkte \( L_1 \dots L_5 \) als besondere Gleichgewichtslösungen in rotierenden Bezugssystemen.</li>
+  </ul>
+
+  <div class="note">
+    <strong>Merke:</strong> Keplers Gesetze sind kinematische Bahnaussagen. Newton erklärt sie dynamisch 
+    über ein Zentralkraftgesetz und Erhaltungsgrößen.
+  </div>
+
+  <h1>1.2 Von Kepler zu Newton</h1>
+  <p>
+    Die Brücke von Kepler zu Newton schlägt die Einsicht, dass Keplers Gesetze aus einer 
+    Zentralkraft mit \( F(r)\propto r^{-2} \) folgen. 
+    Drehimpulserhaltung impliziert den Flächensatz, und die Bahnform ergibt sich aus der Lösung des 
+    Zweikörperproblems in Polarkoordinaten. Damit werden die zuvor empirischen Beziehungen zu 
+    Konsequenzen eines universellen Kraftgesetzes.
+  </p>
+
+  <h3>1.2.1 Newtonsche Axiome und Zentralkräfte</h3>
+  <ul>
+    <li><strong>1. Axiom (Trägheit):</strong> In Inertialsystemen bleibt der Bewegungszustand ohne äußere Kraft erhalten.</li>
+    <li><strong>2. Axiom:</strong> \( \vec F = m \vec a \) verknüpft Dynamik und Kinematik über die Masse \( m \).</li>
+    <li><strong>3. Axiom:</strong> Wechselwirkungspaare (Actio = Reactio) sind für Impuls- und Drehimpulssätze zentral.</li>
+    <li><strong>Zentralkraft:</strong> \( \vec F = f(r)\,\hat r \Rightarrow \) Drehimpulserhaltung 
+        \( \dot{\vec L}=\vec 0 \Rightarrow \) Flächensatz (areolare Geschwindigkeit konstant).</li>
+  </ul>
+
+  <h3>1.2.2 Newtons Gravitationsgesetz</h3>
+  <p>
+    Die universelle Gravitation lautet
+    \[
+      F(r)=G\,\frac{m_1 m_2}{r^2}, \qquad \vec F = -\,G\,\frac{m_1 m_2}{r^2}\,\hat r,
+    \]
+    atrraktiv, radial und richtungsgebend entlang \( \hat r \). 
+    Das Superpositionsprinzip erlaubt die Summation über viele Quellen und bildet die Grundlage für 
+    Mehrkörpermodelle (Sonnensystem, Galaxien).
+  </p>
+
+  <h3>1.2.3 Herleitung der Keplerschen Gesetze</h3>
+  <ul>
+    <li><strong>1. Gesetz (Ellipse/Kegelschnitt):</strong> Lösung der Bahn­gleichung im Kepler-Potential 
+        liefert Ellipse/Parabel/Hyperbel abhängig von der Gesamtenergie.</li>
+    <li><strong>2. Gesetz (Flächensatz):</strong> Aus \( \vec L = \vec r \times m\vec v = \text{const} \) 
+        folgt konstante Flächenrate \( \dot A = \tfrac{L}{2m} \).</li>
+    <li><strong>3. Gesetz:</strong> 
+      \[
+        T^2 = \frac{4\pi^2}{G(M+m)}\,a^3 \;\;\approx\;\; \frac{4\pi^2}{GM}\,a^3 \quad (m\ll M),
+      \]
+      das die Skalenrelation zwischen Umlaufzeit \( T \) und großer Halbachse \( a \) fixiert.</li>
+  </ul>
+
+  <div class="success">
+    <strong>Vis-Viva-Gleichung:</strong>
+    <div class="formula">
+      \[
+        v^2 = G(M+m)\left(\frac{2}{r} - \frac{1}{a}\right).
+      \]
+    </div>
+    <p>
+      Sie verknüpft Radius \( r \), große Halbachse \( a \) und momentane Bahngeschwindigkeit \( v \) 
+      unabhängig vom Bahnwinkel und ist daher für Transfermanöver, Fluchtbedingungen und 
+      Flugbahnauslegung unmittelbar nutzbar.
+    </p>
+  </div>
+
+  <h3>1.2.4 Messkonstanten und Kalibrierungen</h3>
+  <ul>
+    <li><strong>Gravitationskonstante \( G \):</strong> Präzisionsmessungen (Cavendish-Typ) liefern absolute Skalen; 
+        in der Himmelsmechanik wird häufig \( \mu = GM \) (Standardgravitationsparameter) verwendet, 
+        da \( \mu \) orbital besonders genau bestimmt werden kann.</li>
+    <li><strong>Sonnenmasse \( M_\odot \):</strong> Aus Planetendaten via drittem Gesetz; 
+        verbessert mit Radardistanzmessungen und Raumsonden-Tracking.</li>
+    <li><strong>Astronomische Einheit (AE):</strong> Historisch aus Venus-Transiten, heute millimetergenau durch Radiometrie.</li>
+  </ul>
+
+  <h1>1.3 Mathematische Grundbausteine</h1>
+  <p>
+    Die Kepler-Lösungen beruhen auf Vektorrechnung, Kegelschnitten und Erhaltungsgrößen. 
+    Zentral sind die Bahn­elemente, die eine eindeutige Beschreibung von Orientierung, Form und 
+    momentaner Lage eines Körpers auf seiner Bahn liefern.
+  </p>
+
+  <h3>1.3.1 Kegelschnitte und Bahnelemente</h3>
+  <ul>
+    <li><strong>Bahnform:</strong> Ellipse (\(0\le e&lt;1\)), Parabel (\(e=1\)), Hyperbel (\(e&gt;1\)).</li>
+    <li><strong>Sechs klassische Elemente:</strong> \( a \) (große Halbachse), \( e \) (Exzentrizität), 
+        \( i \) (Bahnneigung), \( \Omega \) (Länge des aufsteigenden Knotens), \( \omega \) (Argument des Periapsis), 
+        \( M \) (mittlere Anomalie).</li>
+    <li><strong>Anomalien:</strong> wahre \( \nu \), exzentrische \( E \), mittlere \( M \) mit 
+      \[
+        M = E - e\sin E, \qquad \tan\frac{\nu}{2} = \sqrt{\frac{1+e}{1-e}}\;\tan\frac{E}{2}.
+      \]
+      Die <em>Kepler-Gleichung</em> \( M(E,e) \) ist transzendent und wird numerisch gelöst (z.&nbsp;B. Newton-Iteration).</li>
+  </ul>
+
+  <h3>1.3.2 Erhaltungsgrößen</h3>
+  <ul>
+    <li><strong>Energie:</strong> \( \mathcal E = \tfrac12 \mu v^2 - \dfrac{G M \mu}{r} \) (mit reduzierter Masse \( \mu \)); 
+        \( \mathcal E&lt;0 \) (gebunden), \( \mathcal E=0 \) (parabolisch), \( \mathcal E&gt;0 \) (hyperbolisch).</li>
+    <li><strong>Drehimpuls:</strong> \( \vec L = \mu\,\vec r \times \vec v \) (konstant bei Zentralkräften), 
+        bestimmt Bahnebene und Flächenrate.</li>
+    <li><strong>Laplace–Runge–Lenz-Vektor:</strong> zeigt auf das Periapsis; Betrag \(|\vec A| = \mu G M e\) kodiert \( e \).</li>
+  </ul>
+
+  <h3>1.3.3 Reduktion auf das Zweikörperproblem</h3>
+  <ul>
+    <li><strong>Schwerpunktzerlegung:</strong> Gesamtbewegung = Schwerpunktsbewegung + Relativbewegung.</li>
+    <li><strong>Reduzierte Masse:</strong> \( \mu = \dfrac{m_1 m_2}{m_1+m_2} \) ⇒ Relativbewegung wie Einteilchenproblem 
+        im Kepler-Potential \( -GM\mu/r \) mit \( M=m_1+m_2 \).</li>
+  </ul>
+
+  <h3>1.3.4 Potentiale und Felder</h3>
+  <ul>
+    <li><strong>Gravitationspotential:</strong> 
+      \[
+        \Phi(\vec r) = -G\int \frac{\rho(\vec r')}{|\vec r-\vec r'|}\,d^3 r'.
+      \]
+      Für Punktmassen \( \Phi = -GM/r \).</li>
+    <li><strong>Poisson-Gleichung:</strong> \( \nabla^2 \Phi = 4\pi G \rho \) verknüpft Masseverteilung und Potential.</li>
+    <li><strong>Multipolentwicklung:</strong> Abweichungen von der Kugelsymmetrie (z.&nbsp;B. J2 der Erde) 
+        erzeugen Bahnpräzessionen (Knoten/Perizentrum).</li>
+  </ul>
+
+  <h1>1.4 Beobachtung, Zeitmessung und Bezugssysteme</h1>
+  <p>
+    Für die Rückführung von Messdaten auf Bahnelemente sind konsistente Zeit- und Raumbezüge essenziell. 
+    Moderne Ephemeriden nutzen atomare Zeitstandards und präzise Erd- und Himmelsreferenzrahmen 
+    (Präzession, Nutation, Polbewegung, Erdrotation).
+  </p>
+
+  <h3>1.4.1 Zeit- und Winkelsysteme</h3>
+  <ul>
+    <li><strong>Sonnen- und Sternzeit:</strong> historisch für Beobachtungsplanung; Sternzeit koppelt an Erdrotation relativ zur Sternsphäre.</li>
+    <li><strong>Ephemeridenzeit → TT:</strong> Terrestrische Zeit (TT) als glatte, dynamiknahe Zeitskala für Bahnberechnungen.</li>
+    <li><strong>UTC/UT1:</strong> UTC mit Schaltsekunden vs. UT1 (wahre Erdrotation); wichtig für Tracking und Synchronisation.</li>
+  </ul>
+
+  <h3>1.4.2 Bezugssysteme und Koordinaten</h3>
+  <ul>
+    <li><strong>Himmelsbezugsrahmen:</strong> Ekliptik-/Äquatorsystem, Internationale Himmelsreferenzrahmen (ICRF).</li>
+    <li><strong>Erdfeste Systeme:</strong> ITRF/ETRF für geodätische Anwendungen und erdnahe Satellitenbahnen.</li>
+    <li><strong>Transformationen:</strong> Präzession/Nutation, Polbewegung, Erdrotation (Greenwich-Stundenwinkel), 
+        plus Lichtaberration und Parallaxe für präzise Astrometrie.</li>
+  </ul>
+
+  <h3>1.4.3 Beobachtungsmeilensteine</h3>
+  <ul>
+    <li><strong>Rømers Lichtlaufzeit:</strong> Periodenänderungen der Jupitermond-Finsternisse ⇒ endliche Lichtgeschwindigkeit.</li>
+    <li><strong>Bradley-Aberration:</strong> scheinbare Positionsverschiebung durch Erdbahngeschwindigkeit.</li>
+    <li><strong>Parallaxen (Bessel):</strong> Fundament der kosmischen Entfernungsleiter.</li>
+    <li><strong>Neptun-Entdeckung:</strong> Störungsanalyse von Uranusbahndaten (Le Verrier/Adams) ⇒ Vorhersage neuer Planet.</li>
+  </ul>
+
+  <div class="warn">
+    <strong>Hinweis (Daten ↔ Modell):</strong> Ohne konsistente Zeit- und Referenzrahmen lassen sich selbst 
+    hochpräzise Messungen nicht korrekt in Bahnelemente überführen.
+  </div>
+
+  <h1>1.5 Grenzen der klassischen Theorie und Weg zur Relativität</h1>
+  <p>
+    Trotz ihres Erfolgs stößt die Newtontheorie bei Präzisionstests und in starken Gravitationsfeldern an Grenzen. 
+    Die folgenden Phänomene markieren die Notwendigkeit relativistischer Erweiterungen, die später in der 
+    allgemeinen Relativitätstheorie (ART) systematisch bereitgestellt werden.
+  </p>
+
+  <h3>1.5.1 Anomalien und Präzisionstests</h3>
+  <ul>
+    <li><strong>Perihelforschritt des Merkur:</strong> Der beobachtete zusätzliche Vorschub (≈ 43″/Jh.) ist 
+        klassisch (Störungen, Abplattung) nicht vollständig erklärbar; ART liefert den korrekten Zusatzterm.</li>
+    <li><strong>Lichtablenkung an der Sonne:</strong> Newtons Theorie sagt keine korrekte Ablenkung für Licht voraus; 
+        ART stimmt mit Sonnenfinsternis-Messungen und VLBI überein.</li>
+    <li><strong>Gravitationsrotverschiebung &amp; Shapiro-Delay:</strong> Zeitdilatation im Potential und zusätzliche 
+        Laufzeitverzögerung von Signalen bestätigen das relativistische Zeit-/Geodätenbild.</li>
+  </ul>
+
+  <h3>1.5.2 Störungs- und Mehrkörpergrenzen</h3>
+  <ul>
+    <li><strong>Resonanzen &amp; Chaos:</strong> Langzeitstabilität im Sonnensystem ist empfindlich gegenüber 
+        Anfangsbedingungen; Resonanzüberlappung kann chaotisches Verhalten induzieren.</li>
+    <li><strong>Zusatzkräfte:</strong> Erdabplattung (J2), Strahlungsdruck, Gezeiten und Atmosphärenwiderstand 
+        führen zu säkularen und periodischen Bahnänderungen – klassisch modellierbar, aber komplex.</li>
+  </ul>
+
+  <h3>1.5.3 Übergang zur relativistischen Himmelsmechanik</h3>
+  <ul>
+    <li><strong>Äquivalenzprinzip:</strong> Lokale Ununterscheidbarkeit von Gravitation und Beschleunigung; 
+        Gleichheit von träger und schwerer Masse.</li>
+    <li><strong>Geodäten in gekrümmter Raumzeit:</strong> Freie Bewegung folgt Geodäten der Metrik statt Kraftbahnen.</li>
+    <li><strong>Post-Newtonsche (PN) Näherung:</strong> Systematische Erweiterung in Potenzen von \( v/c \) und \( \Phi/c^2 \) 
+        für schwache Felder – liefert Korrekturen (z.&nbsp;B. Perihelrotation) als Brücke zwischen Newton und ART.</li>
+  </ul>
+
+  <div class="success">
+    <strong>Zusammenfassung Abschnitt&nbsp;1:</strong>
+    Aus der Bahnempirie (Kepler) wird über Newtons Zentralkraftgesetz eine kohärente Dynamik. 
+    Beobachtungs- und Referenzrahmen sichern die Präzision. 
+    Abweichungen auf höchstem Genauigkeitsniveau bereiten den Übergang zur relativistischen Himmelsmechanik vor.
+  </div>
+</section>
+
+<a href="/physiknow/Quiz.html" class="quiz-btn">Quiz zu „Klassische und relativistische Himmelsmechanik“ starten</a>
+
+<footer>
+  &copy; 2025 PhysikNow | Klassische und relativistische Himmelsmechanik
+</footer>
+
+</body>
+</html>
