@@ -179,331 +179,1658 @@
   </ul>
 </div>
 
-<!-- (0) Einführung in die Kinematik – ausführlicher -->
-<section id="einleitung-kinematik" class="content">
-  <h1>Einführung in die Kinematik</h1>
+<!-- Teil A – Klassische Grundlagen & Motivation -->
+<section id="teil-a-klassische-grundlagen" class="content">
+  <h1>Teil A · Klassische Grundlagen &amp; Motivation</h1>
   <p>
-    Die <strong>Kinematik</strong> beschreibt Bewegungen von Punkten und Körpern losgelöst von den verursachenden Kräften. 
-    Sie liefert die mathematische Sprache, mit der Trajektorien, Geschwindigkeiten und Beschleunigungen präzise formuliert werden. 
-    Diese Trennung ist didaktisch und praktisch sinnvoll: Wir können Bewegungen exakt parametrisieren und analysieren, 
-    bevor wir in der Dynamik die zugehörigen Kräftegesetze heranziehen. 
-    Für die Himmelsmechanik ist Kinematik unverzichtbar, da Bahnkurven (z.&nbsp;B. Ellipsen) kinematisch beschrieben werden, 
-    während die Dynamik erst erklärt, <em>warum</em> gerade diese Bahnen zustande kommen.
+    Dieser Einstieg liefert die klassische Basis, auf der die relativistische Mechanik aufbaut.
+    Ziel ist eine leicht zugängliche, aber vollständige Übersicht: von Keplers Bahnempirie über Newtons
+    dynamische Begründung bis hin zu den Präzisionseffekten, die den Schritt zur Relativität motivieren.
+    Nichts wird entfernt; wo sinnvoll, ergänzen kurze Intuitionsblöcke, Beispiele und typische Fallstricke.
   </p>
 
-  <h1>1.1 Was ist Kinematik?</h1>
+  <h3>A.1 Historischer Bogen &amp; Motivation</h3>
   <p>
-    Kinematik beantwortet Fragen des <em>Wie</em>: Wie verläuft die Position eines Partikels als Funktion der Zeit? 
-    Wie schnell ändert sie sich (<em>Geschwindigkeit</em>) und wie stark krümmt sich der zeitliche Verlauf (<em>Beschleunigung</em>)?
-    Im einfachsten Fall betrachten wir eine eindimensionale Bewegung auf einer Geraden mit der Wegfunktion \( s(t) \).
-    In mehreren Dimensionen arbeiten wir mit Ortsvektoren \( \vec r(t) = (x(t), y(t), z(t)) \).
-  </p>
-  <ul>
-    <li><strong>Position:</strong> \( s(t) \) bzw. \( \vec r(t) \) beschreibt den Aufenthaltsort eines Punktes zur Zeit \( t \).</li>
-    <li><strong>Geschwindigkeit:</strong> \( v(t)=\dfrac{ds}{dt} \) bzw. \( \vec v(t)=\dfrac{d\vec r}{dt} \) ist die erste Zeitableitung (momentane Änderungsrate).</li>
-    <li><strong>Beschleunigung:</strong> \( a(t)=\dfrac{dv}{dt}=\dfrac{d^2 s}{dt^2} \) bzw. \( \vec a(t)=\dfrac{d\vec v}{dt} \) ist die zweite Zeitableitung.</li>
-  </ul>
-  <p>
-    Wir unterscheiden stets <em>mittlere</em> Größen (z.&nbsp;B. mittlere Geschwindigkeit \( \bar v = \Delta s / \Delta t \)) 
-    von <em>momentanen</em> Größen (Grenzwert für \( \Delta t\to 0\)), was im Experiment (finite Abtastrate) und in der Theorie 
-    (Differentialrechnung) eine wichtige Rolle spielt. Einheiten sind SI-konform: \( [s]=\mathrm{m} \), \( [t]=\mathrm{s} \), 
-    \( [v]=\mathrm{m/s} \), \( [a]=\mathrm{m/s^2} \).
-  </p>
-  <div class="note">
-    <strong>Merke:</strong>
-    <ul>
-      <li>\( \vec v(t) = \dfrac{d\vec r}{dt} \), &nbsp; \( \vec a(t) = \dfrac{d\vec v}{dt} = \dfrac{d^2 \vec r}{dt^2} \).</li>
-      <li>Skalar vs. Vektor: In 1D genügt \( s(t) \); in 2D/3D ist die Richtungsinformation über \( \vec r(t) \) essenziell.</li>
-    </ul>
-  </div>
-
-  <h1>1.2 Abgrenzung zu Dynamik und Statik</h1>
-  <p>
-    Die klassische Mechanik gliedert sich in <em>Kinematik</em> (Beschreibung), <em>Dynamik</em> (Erklärung durch Kräfte) 
-    und <em>Statik</em> (Gleichgewicht). Während die Kinematik Orts-, Geschwindigkeits- und Beschleunigungsgrößen definiert und 
-    berechnet, verknüpft die Dynamik diese mit Kräften, etwa über die Newtonsche Grundgleichung \( \vec F = m \vec a \). 
-    Die Statik ist der Grenzfall verschwindender Beschleunigungen (\( \vec a = \vec 0 \)), in dem Kräfte- und Momentengleichgewichte 
-    erfüllt sein müssen.
-  </p>
-  <ul>
-    <li><strong>Kinematik:</strong> <em>Wie</em> bewegen sich Objekte? (Trajektorien, Zeitableitungen, Kurvenparameter).</li>
-    <li><strong>Dynamik:</strong> <em>Warum</em> bewegen sie sich so? (Kräfte, Potentiale, Energieansatz).</li>
-    <li><strong>Statik:</strong> Welche Bedingungen gelten im Gleichgewicht? (Resultierende \(=0\), Momente \(=0\)).</li>
-  </ul>
-
-  <h1>1.3 Grundbegriffe</h1>
-  <ul>
-    <li><strong>Massenpunkt:</strong> Idealisierung, bei der die gesamte Masse in einem Punkt konzentriert ist; keine Ausdehnung, keine Rotation.</li>
-    <li><strong>Starrer Körper:</strong> Endliche Ausdehnung, interne Abstände sind zeitlich invariant; erlaubt Übersetzung und Rotation.</li>
-    <li><strong>Bezugssystem:</strong> Ein Koordinatensystem (kartesisch, zylindrisch, sphärisch), in dem Größen gemessen und abgeleitet werden. 
-        Inertial- vs. nicht-inertiale (rotierende) Systeme sind in der Himmelsmechanik besonders wichtig.</li>
-  </ul>
-
-  <h1>1.4 Beispiele für kinematische Anwendungen</h1>
-  <ul>
-    <li><strong>Bremsweg im Verkehr:</strong> \( s = v_0 t + \tfrac12 a t^2 \) mit \( a&lt;0 \); wichtig: Reaktionszeit additiv.</li>
-    <li><strong>Wurfbewegung:</strong> Zerlegung in horizontale/vertikale Bewegung; Flugzeit, Maximalhöhe, Reichweite.</li>
-    <li><strong>Robotik:</strong> Trajektorienplanung, Bahn- und Geschwindigkeitsprofile, Jerk-Minimierung.</li>
-    <li><strong>Planetenbahnen:</strong> Kinematische Beschreibung als Kegelschnitt; Dynamik liefert die Ursache.</li>
-  </ul>
-
-  <div class="success">
-    <strong>Beispiel (gleichmäßig beschleunigte Bewegung in 1D):</strong>
-    <div class="formula">
-      \[
-      s(t) = s_0 + v_0\, t + \frac{1}{2} a t^2,\qquad
-      v(t) = v_0 + a t,\qquad
-      v^2 = v_0^2 + 2 a (s - s_0).
-      \]
-    </div>
-    <p>
-      Die Formeln folgen direkt aus der Integration \( a = \tfrac{dv}{dt} \) und \( v=\tfrac{ds}{dt} \). 
-      In Messdaten ist zu beachten: Rauschen und endliche Abtastung erfordern Filterung (z.&nbsp;B. Savitzky–Golay), 
-      um numerische Ableitungen stabil zu bestimmen.
-    </p>
-  </div>
-</section>
-
-<!-- (1) Grundlagen & Historie – ausführlicher -->
-<section id="abschnitt-1-grundlagen" class="content">
-  <h1>1 Grundlagen und historische Entwicklung</h1>
-
-  <h1>1.1 Historischer Kontext</h1>
-  <p>
-    Die Himmelsmechanik entwickelte sich aus sorgfältigsten Beobachtungen und dem Wunsch, scheinbar komplexe 
-    Himmelsbewegungen durch einfache, universelle Regeln zu verstehen. 
-    Vom geozentrischen Bild mit Epizykeln über die kopernikanische Wende bis hin zu Keplers präzisen 
-    Bahnrelationen spannt sich ein Bogen, der schließlich in Newtons dynamischer Erklärung kulminiert: 
-    Aus Kinematik wird Dynamik, aus Beschreibung wird Ursache.
+    Himmelsmechanik begann mit genauer Beobachtung und der Suche nach einfachen Regeln.
+    Kepler destillierte aus Brahes Daten drei kinematische Gesetze (Ellipse, Flächensatz, \(T^2\propto a^3\)).
+    Newton zeigte: Diese Bahnen folgen aus einem universellen Zentralkraftgesetz \( \vec F = -\dfrac{G m_1 m_2}{r^2}\,\hat r \).
+    Mit wachsender Messgenauigkeit traten Abweichungen auf (z.&nbsp;B. Merkurs Perihelforschritt), die klassisch nur
+    unvollständig erklärbar waren – der Startpunkt für relativistische Korrekturen.
   </p>
 
-  <h3>1.1.1 Antike bis Mittelalter</h3>
+  <h4>A.1.1 Von Kepler zu Newton</h4>
   <ul>
-    <li><strong>Ptolemäisches System:</strong> Planeten bewegen sich auf Epizykeln (kleine Kreise) auf Deferenten (größere Kreise) um die Erde. 
-        Die Konstruktion bildet Schleifen und retrograde Bewegungen nach, ist jedoch rein geometrisch-kinematisch motiviert.</li>
-    <li><strong>Hipparch &amp; Präzession:</strong> Langsame Verschiebung der Tagundnachtgleichen (≈ 26 000 Jahre Zyklus); 
-        frühe systematische Sternkataloge legten die Basis präziser Astrometrie.</li>
-    <li><strong>Islamische Astronomie:</strong> Verfeinerung sphärischer Trigonometrie, Observatorien (Maragha), 
-        <em>zij</em>-Tabellen mit präzisen Ephemeriden – entscheidend für Navigation und Kalenderwesen.</li>
+    <li><strong>Kepler (1609–1619):</strong> Ellipsenbahnen mit der Sonne in einem Fokus; gleich schnelle Flächenüberstreichung; Perioden–Halbachsen–Gesetz.</li>
+    <li><strong>Newton (1687):</strong> Trägheitsprinzip, \( \vec F = m\vec a \), Actio=Reactio + \(1/r^2\)-Gravitation ⇒ dynamische Herleitung von Keplers Gesetzen.</li>
   </ul>
 
-  <h3>1.1.2 Renaissance und Keplers Wende</h3>
+  <h4>A.1.2 Präzisionseffekte &amp; offene Fragen</h4>
   <ul>
-    <li><strong>Kopernikus (1543):</strong> Heliozentrik ordnet die Planetenbahnen eleganter; 
-        relative Schleifen entstehen aus der Überlagerung von Eigen- und Erdbahnbewegung.</li>
-    <li><strong>Tycho Brahe:</strong> Unübertroffene Messgenauigkeit vor der Teleskopära; 
-        geoheliozentrisches Kompromissmodell, aber Datengrundlage für Keplers Analysen.</li>
-    <li><strong>Galilei:</strong> Teleskopische Entdeckungen (Jupitermonde, Venusphasen) widersprechen der Geozentrik 
-        und stützen die Heliozentrik empirisch.</li>
-    <li><strong>Kepler (1609–1619):</strong> Drei Gesetze: Ellipsenbahnen, Flächensatz, \(T^2\propto a^3\); 
-        rein empirisch aus Brahes Daten, noch ohne dynamische Ursache.</li>
-  </ul>
-
-  <h3>1.1.3 Von Newton zur Klassik</h3>
-  <ul>
-    <li><strong>Newton (1687):</strong> Vereinigt Mechanik (Bewegungsgesetze) und Gravitation 
-        \( F = G \tfrac{m_1 m_2}{r^2} \) zur dynamischen Herleitung der Kepler-Gesetze.</li>
-    <li><strong>Huygens, Leibniz:</strong> Zentripetalkraftbegriffe und Infinitesimalrechnung als Werkzeuge zur Lösung 
-        der Bahnprobleme.</li>
-    <li><strong>Euler, Lagrange, Laplace:</strong> Störungsrechnung, Formulierung des Drei-Körper-Problems; 
-        Lagrange-Punkte \( L_1 \dots L_5 \) als besondere Gleichgewichtslösungen in rotierenden Bezugssystemen.</li>
+    <li><strong>Merkur-Perihelforschritt:</strong> residuelle ~\(43''\)/Jh. (klassische Störungen reichen nicht aus).</li>
+    <li><strong>Lichtablenkung an der Sonne, Shapiro-Delay, gravitative Rotverschiebung:</strong> Effekte, die eine Raumzeitbeschreibung nahelegen.</li>
   </ul>
 
   <div class="note">
-    <strong>Merke:</strong> Keplers Gesetze sind kinematische Bahnaussagen. Newton erklärt sie dynamisch 
-    über ein Zentralkraftgesetz und Erhaltungsgrößen.
+    <strong>Merke:</strong> Keplers Gesetze sind <em>kinematisch</em>; Newton liefert die <em>dynamische</em> Ursache. Präzisionsanomalien motivieren die Relativität.
   </div>
 
-  <h1>1.2 Von Kepler zu Newton</h1>
+  <!-- A.2 – Kinematik & Dynamik (vollständiges Recap, ohne Vorgriffe auf spätere Lösungen) -->
+<h3>A.2 Kinematik &amp; Dynamik — vollständiges Recap</h3>
+<p>
+  Dieser Abschnitt sammelt alle <em>Begriffe, Gleichungen und Notationen</em>, die wir im Kurs verwenden. 
+  Ziel: <strong>vollständig</strong> und zugleich <strong>leicht zugänglich</strong>. 
+  Wir erklären hier <em>keine</em> späteren Relativitäts-Phänomene, sondern legen nur die klassische Werkzeugbasis.
+</p>
+
+<h4>A.2.1 Grundgrößen &amp; Einheiten</h4>
+<ul>
+  <li><strong>Ort/Position:</strong> \( \vec r(t) = (x(t),y(t),z(t)) \in \mathbb{R}^3 \), Einheit: m.</li>
+  <li><strong>Geschwindigkeit:</strong> \( \vec v(t) = \dfrac{d\vec r}{dt} \), Einheit: m/s; Betrag \(v=\|\vec v\|\).</li>
+  <li><strong>Beschleunigung:</strong> \( \vec a(t) = \dfrac{d\vec v}{dt} = \dfrac{d^2\vec r}{dt^2} \), Einheit: m/s\(^2\).</li>
+  <li><strong>Masse:</strong> \( m \), Einheit: kg. <strong>Kraft:</strong> \( \vec F \), Einheit: N.</li>
+  <li><strong>Impuls:</strong> \( \vec p = m\vec v \). <strong>Drehimpuls:</strong> \( \vec L = \vec r \times \vec p \).</li>
+  <li><strong>Energie (klassisch):</strong> \( E = T + V = \tfrac12 m v^2 + V(\vec r) \).</li>
+</ul>
+
+<h4>A.2.2 Ableitungen &amp; Integrale (Kinematik pur)</h4>
+<p>
+  Kinematik verknüpft Größen über Ableitungen/Integrale (ohne Kräfteannahmen):
+</p>
+<div class="formula">
+  \[
+  \vec v(t) = \frac{d\vec r}{dt},\qquad 
+  \vec a(t) = \frac{d\vec v}{dt},\qquad
+  \vec r(t) = \vec r(t_0) + \int_{t_0}^{t} \vec v(\tau)\,d\tau.
+  \]
+</div>
+<p>
+  Bei <em>konstanter</em> Beschleunigung (Modellfall!) gelten:
+</p>
+<div class="formula">
+  \[
+  \vec v(t)=\vec v_0+\vec a\,t,\qquad 
+  \vec r(t)=\vec r_0+\vec v_0\,t+\tfrac12\vec a\,t^2,\qquad
+  v^2 = v_0^2 + 2\,\vec a\cdot(\vec r-\vec r_0).
+  \]
+</div>
+<div class="tip"><strong>Intuition:</strong> Ableiten = lokale Änderungsrate; Integrieren = „Fläche“ unter Kurven (Akkumulation).</div>
+
+<h4>A.2.3 Kurvengeometrie (Frenet-Serret, Tangential/Normal)</h4>
+<ul>
+  <li><strong>Bogenlänge:</strong> \( s(t)=\int_{t_0}^t \|\vec v(\tau)\|\,d\tau \); Tangente \( \vec T=\dfrac{d\vec r}{ds} \) mit \(\|\vec T\|=1\).</li>
+  <li><strong>Krümmung:</strong> \( \kappa = \left\|\dfrac{d\vec T}{ds}\right\| = 1/\rho \) (Krümmungsradius \( \rho \)).</li>
+  <li><strong>Frenet-Zerlegung der Beschleunigung:</strong> 
+    \( \vec a = a_t\,\vec T + a_n\,\vec N \) mit \( a_t=\dot v \) und \( a_n = \dfrac{v^2}{\rho} = v^2 \kappa \).</li>
+</ul>
+<div class="note"><strong>Merke:</strong> \(a_t\) ändert den Betrag der Geschwindigkeit, \(a_n\) die Richtung.</div>
+
+<h4>A.2.4 Koordinaten &amp; kinematische Formeln</h4>
+<ul>
+  <li><strong>Kartesisch:</strong> \( \vec r=(x,y,z) \Rightarrow \vec v=(\dot x,\dot y,\dot z) \Rightarrow \vec a=(\ddot x,\ddot y,\ddot z) \).</li>
+  <li><strong>Ebene Polarcoords \((r,\theta)\):</strong> 
+    \( \vec v = \dot r\,\hat r + r\dot\theta\,\hat\theta \), 
+    \( \vec a = (\ddot r - r\dot\theta^2)\,\hat r + (r\ddot\theta + 2\dot r\dot\theta)\,\hat\theta \).</li>
+  <li><strong>Sphärisch \((r,\theta,\phi)\):</strong> Standardformeln (nur als Vokabular; Herleitungen später bei Bedarf).</li>
+</ul>
+<div class="tip"><strong>Praxis:</strong> In Zentralkraftproblemen sind Polarformen meist kürzer und einsichtiger.</div>
+
+<h4>A.2.5 Inertiale vs. rotierende Bezugssysteme</h4>
+<p>
+  In nicht-inertialen (rotierenden) Rahmen treten Zusatzterme auf. Für einen beliebigen Vektor \( \vec A \):
+</p>
+<div class="formula">
+  \[
+  \left(\frac{d\vec A}{dt}\right)_{\!inert} = 
+  \left(\frac{d\vec A}{dt}\right)_{\!rot} + \boldsymbol{\Omega} \times \vec A.
+  \]
+</div>
+<p>
+  Für die Ortsvektoren folgt die Beschleunigungsbeziehung:
+</p>
+<div class="formula">
+  \[
+  \vec a_{\!inert} = \vec a_{\!rot} 
+  + 2\,\boldsymbol{\Omega}\times \vec v_{\!rot}
+  + \boldsymbol{\Omega}\times(\boldsymbol{\Omega}\times \vec r)
+  + \dot{\boldsymbol{\Omega}}\times \vec r.
+  \]
+</div>
+<ul>
+  <li><strong>Begriffe:</strong> Coriolis \(2\,\boldsymbol{\Omega}\times \vec v\), Zentrifugal \(\boldsymbol{\Omega}\times(\boldsymbol{\Omega}\times \vec r)\), Euler \(\dot{\boldsymbol{\Omega}}\times \vec r\).</li>
+</ul>
+<div class="warn"><strong>Achtung:</strong> Diese Terme sind <em>kinematisch</em> (rahmenbedingt), nicht „neue Kräfte“ der Natur.</div>
+
+<h4>A.2.6 Dynamik: Newton-Axiome &amp; Erhaltungssätze</h4>
+<ul>
+  <li><strong>Newton I–III:</strong> Trägheit · \( \vec F = m\vec a \) · Actio=Reactio.</li>
+  <li><strong>Impuls:</strong> \( \dfrac{d\vec p}{dt} = \sum \vec F \). <strong>Drehimpuls:</strong> \( \dfrac{d\vec L}{dt} = \sum \vec \tau \).</li>
+  <li><strong>Energie:</strong> konservativ \( \Rightarrow \) \( E=T+V=\text{const} \).</li>
+</ul>
+<div class="note"><strong>Symmetrie ↔ Erhaltung:</strong> Homogenität (Ort/Zeit) → Impuls/Energie, Isotropie → Drehimpuls.</div>
+
+<h4>A.2.7 Zentralkraft-Notation &amp; Bahnebene</h4>
+<ul>
+  <li><strong>Zentralkraft:</strong> \( \vec F = f(r)\,\hat r \) (nur radial).</li>
+  <li><strong>Drehimpuls erhalten:</strong> \( \dot{\vec L}=\vec 0 \Rightarrow \) Bewegung in einer Ebene (Bahnebene).</li>
+  <li><strong>Effektives Potential (nur Begriff):</strong> \( V_{\!eff}(r) = V(r) + \dfrac{L^2}{2mr^2} \) als 1D-Intuition für Radialbewegung.</li>
+</ul>
+
+<h4>A.2.8 Kepler-Geometrie (ohne Herleitung)</h4>
+<p>
+  Für das \(1/r^2\)-Gesetz (Gravitation) sind Bahnen Kegelschnitte:
+</p>
+<div class="formula">
+  \[
+  r(\nu)=\frac{p}{1+e\cos\nu},\qquad 
+  p=\frac{h^2}{\mu},\quad h=\|\vec r\times \vec v\|/m,\quad \mu=G(M+m).
+  \]
+</div>
+<ul>
+  <li><strong>Klassen:</strong> Ellipse \(0\le e&lt;1\), Parabel \(e=1\), Hyperbel \(e&gt;1\).</li>
+  <li><strong>Vis-Viva:</strong> \( v^2 = \mu\!\left(\dfrac{2}{r} - \dfrac{1}{a}\right) \).</li>
+  <li><strong>Ellipse:</strong> \(T=2\pi\sqrt{\dfrac{a^3}{\mu}}\), \(r_p=a(1-e)\), \(r_a=a(1+e)\).</li>
+</ul>
+<div class="tip"><strong>Intuition:</strong> Kleinere Abstände \(r\) ⇒ höhere \(v\); Perizentrum ist „schnell“, Apozentrum „langsam“.</div>
+
+<h4>A.2.9 Bahnelemente &amp; Anomalien (Vokabular)</h4>
+<ul>
+  <li><strong>Sechs Elemente:</strong> \( (a,e,i,\Omega,\omega,M) \) — Form, Lage, Position auf der Bahn.</li>
+  <li><strong>Kepler-Gleichungen:</strong> Ellipse \( M=E-e\sin E \), 
+    \( \tan\dfrac{\nu}{2}=\sqrt{\dfrac{1+e}{1-e}}\tan\dfrac{E}{2} \);
+    Hyperbel \( M_h=e\sinh H - H \), Parabel (Barker) \( t-\tau \propto D + \tfrac13 D^3 \) mit \( D=\tan \dfrac{\nu}{2} \).</li>
+  <li><strong>Zeitgesetz:</strong> \( M(t)=n(t-\tau) \), \( n=\sqrt{\mu/a^3} \).</li>
+</ul>
+
+<h4>A.2.10 Zustandsvektoren ↔ Elemente (Umrechnung)</h4>
+<ul>
+  <li><strong>State → Elemente:</strong> aus \( (\vec r,\vec v) \) erhält man \( (a,e,i,\Omega,\omega,M) \) via \( \vec h, \vec e \) (Exzentrizitätsvektor), Winkelrelationen.</li>
+  <li><strong>Elemente → State:</strong> \(M \to E/H \to \nu \to r\); Rotation der Bahnebene ins Inertialsystem via \(\Omega,i,\omega\).</li>
+</ul>
+<div class="note"><strong>Oszulierend vs. gemittelt:</strong> Oskulierende Elemente „küssen“ die reale Bahn sofort; gemittelte glätten kurzperiodische Störungen.</div>
+
+<h4>A.2.11 Dimensionsanalyse &amp; Skalierung</h4>
+<ul>
+  <li><strong>Gravitationsskala:</strong> \( [\mu]=\mathrm{m}^3/\mathrm{s}^2 \Rightarrow T \sim a^{3/2}\mu^{-1/2} \) (Grund für \(T^2\propto a^3\)).</li>
+  <li><strong>Pi-Theorem:</strong> sinnvolle Kombinationen prüfen (Plausibilität &amp; Fehlersuche).</li>
+</ul>
+
+<h4>A.2.12 Numerik-Grundlagen (ohne Spezialfälle)</h4>
+<ul>
+  <li><strong>Integratoren:</strong> RK4/5 (allgemein), adaptiv (Dormand–Prince); symplektisch für Langzeitenergie.</li>
+  <li><strong>Schrittweite &amp; Ereignisse:</strong> Perizentren, Schattenein-/austritt, Grenzwerte.</li>
+  <li><strong>Qualitätschecks:</strong> Energie- und Drehimpulsdrift als Diagnostik.</li>
+</ul>
+
+<h4>A.2.13 Messketten &amp; Fehlerquellen (für spätere Kapitel benötigt)</h4>
+<ul>
+  <li><strong>Messgrößen:</strong> Winkel (Az/El), Range, Range-Rate; Sampling-/Quantisierungsfehler, Bias.</li>
+  <li><strong>Kovarianz:</strong> Unsicherheiten propagieren; Geometrie bestimmt Beobachtbarkeit einzelner Elemente.</li>
+  <li><strong>Standard-Irrtümer:</strong> Zeitskala verwechselt (UTC vs. TT), Rahmen verwechselt (ITRF vs. ICRF), Grad↔Radiant.</li>
+</ul>
+
+<div class="warn">
+  <strong>Stolpersteine:</strong> Rahmenwechsel ohne Zusatzterme (Coriolis &amp; Co.), falsche Einheiten, 
+  falsche Winkelorientierung (Reihenfolge \(\Omega,i,\omega\)), numerische Toleranzen zu „großzügig“ gewählt.
+</div>
+
+<div class="success">
+  <strong>Mini-Zusammenfassung A.2:</strong> 
+  Wir haben alle <em>klassischen</em> Bausteine (Kinematik, Dynamik, Zentralkraft, Kepler-Vokabular, Rahmen, Numerik) 
+  vollständig definiert — ohne die offenen Probleme aus A.0 zu lösen. 
+  Damit sind wir sprachlich und rechnerisch gerüstet für die kommenden Teile.
+</div>
+
+
+  <h3>A.3 Mess- &amp; Bezugssysteme</h3>
   <p>
-    Die Brücke von Kepler zu Newton schlägt die Einsicht, dass Keplers Gesetze aus einer 
-    Zentralkraft mit \( F(r)\propto r^{-2} \) folgen. 
-    Drehimpulserhaltung impliziert den Flächensatz, und die Bahnform ergibt sich aus der Lösung des 
-    Zweikörperproblems in Polarkoordinaten. Damit werden die zuvor empirischen Beziehungen zu 
-    Konsequenzen eines universellen Kraftgesetzes.
+    Präzise Bahnen erfordern konsistente Zeit- und Raumbezüge. Diese Ebene ist oft unsichtbar, aber entscheidend:
+    Falsche Zeitskala oder falscher Rahmen → falsche Bahn.
   </p>
 
-  <h3>1.2.1 Newtonsche Axiome und Zentralkräfte</h3>
+  <h4>A.3.1 Zeitskalen</h4>
   <ul>
-    <li><strong>1. Axiom (Trägheit):</strong> In Inertialsystemen bleibt der Bewegungszustand ohne äußere Kraft erhalten.</li>
-    <li><strong>2. Axiom:</strong> \( \vec F = m \vec a \) verknüpft Dynamik und Kinematik über die Masse \( m \).</li>
-    <li><strong>3. Axiom:</strong> Wechselwirkungspaare (Actio = Reactio) sind für Impuls- und Drehimpulssätze zentral.</li>
-    <li><strong>Zentralkraft:</strong> \( \vec F = f(r)\,\hat r \Rightarrow \) Drehimpulserhaltung 
-        \( \dot{\vec L}=\vec 0 \Rightarrow \) Flächensatz (areolare Geschwindigkeit konstant).</li>
+    <li><strong>TT (Terrestrische Zeit):</strong> glatte dynamische Skala für Bahnberechnungen.</li>
+    <li><strong>UTC/UT1:</strong> zivil/rotationsbezogen (Schaltsekunden bei UTC; UT1 folgt der Erdrotation).</li>
+    <li><strong>Eigenzeit vs. Koordinatenzeit (Vorschau SRT/ART):</strong> „Zeit“ ist nicht absolut; Uhren in Bewegung/Gravitation ticken anders.</li>
   </ul>
 
-  <h3>1.2.2 Newtons Gravitationsgesetz</h3>
-  <p>
-    Die universelle Gravitation lautet
-    \[
-      F(r)=G\,\frac{m_1 m_2}{r^2}, \qquad \vec F = -\,G\,\frac{m_1 m_2}{r^2}\,\hat r,
-    \]
-    atrraktiv, radial und richtungsgebend entlang \( \hat r \). 
-    Das Superpositionsprinzip erlaubt die Summation über viele Quellen und bildet die Grundlage für 
-    Mehrkörpermodelle (Sonnensystem, Galaxien).
-  </p>
-
-  <h3>1.2.3 Herleitung der Keplerschen Gesetze</h3>
+  <h4>A.3.2 Raumbezugsrahmen</h4>
   <ul>
-    <li><strong>1. Gesetz (Ellipse/Kegelschnitt):</strong> Lösung der Bahn­gleichung im Kepler-Potential 
-        liefert Ellipse/Parabel/Hyperbel abhängig von der Gesamtenergie.</li>
-    <li><strong>2. Gesetz (Flächensatz):</strong> Aus \( \vec L = \vec r \times m\vec v = \text{const} \) 
-        folgt konstante Flächenrate \( \dot A = \tfrac{L}{2m} \).</li>
-    <li><strong>3. Gesetz:</strong> 
-      \[
-        T^2 = \frac{4\pi^2}{G(M+m)}\,a^3 \;\;\approx\;\; \frac{4\pi^2}{GM}\,a^3 \quad (m\ll M),
-      \]
-      das die Skalenrelation zwischen Umlaufzeit \( T \) und großer Halbachse \( a \) fixiert.</li>
+    <li><strong>ICRF (inertial, fern zu Sternen):</strong> für Himmelsmechanik/Ephemeriden.</li>
+    <li><strong>ITRF (erdfest):</strong> für geodätische Anwendungen/LEO-Satelliten.</li>
+    <li><strong>Transformationen:</strong> Präzession/Nutation, Polbewegung, Erdrotation; Aberration und Parallaxe für Astrometrie.</li>
   </ul>
 
-  <div class="success">
-    <strong>Vis-Viva-Gleichung:</strong>
-    <div class="formula">
-      \[
-        v^2 = G(M+m)\left(\frac{2}{r} - \frac{1}{a}\right).
-      \]
-    </div>
-    <p>
-      Sie verknüpft Radius \( r \), große Halbachse \( a \) und momentane Bahngeschwindigkeit \( v \) 
-      unabhängig vom Bahnwinkel und ist daher für Transfermanöver, Fluchtbedingungen und 
-      Flugbahnauslegung unmittelbar nutzbar.
-    </p>
-  </div>
-
-  <h3>1.2.4 Messkonstanten und Kalibrierungen</h3>
+  <h4>A.3.3 Messgrößen &amp; Kalibrierung</h4>
   <ul>
-    <li><strong>Gravitationskonstante \( G \):</strong> Präzisionsmessungen (Cavendish-Typ) liefern absolute Skalen; 
-        in der Himmelsmechanik wird häufig \( \mu = GM \) (Standardgravitationsparameter) verwendet, 
-        da \( \mu \) orbital besonders genau bestimmt werden kann.</li>
-    <li><strong>Sonnenmasse \( M_\odot \):</strong> Aus Planetendaten via drittem Gesetz; 
-        verbessert mit Radardistanzmessungen und Raumsonden-Tracking.</li>
-    <li><strong>Astronomische Einheit (AE):</strong> Historisch aus Venus-Transiten, heute millimetergenau durch Radiometrie.</li>
-  </ul>
-
-  <h1>1.3 Mathematische Grundbausteine</h1>
-  <p>
-    Die Kepler-Lösungen beruhen auf Vektorrechnung, Kegelschnitten und Erhaltungsgrößen. 
-    Zentral sind die Bahn­elemente, die eine eindeutige Beschreibung von Orientierung, Form und 
-    momentaner Lage eines Körpers auf seiner Bahn liefern.
-  </p>
-
-  <h3>1.3.1 Kegelschnitte und Bahnelemente</h3>
-  <ul>
-    <li><strong>Bahnform:</strong> Ellipse (\(0\le e&lt;1\)), Parabel (\(e=1\)), Hyperbel (\(e&gt;1\)).</li>
-    <li><strong>Sechs klassische Elemente:</strong> \( a \) (große Halbachse), \( e \) (Exzentrizität), 
-        \( i \) (Bahnneigung), \( \Omega \) (Länge des aufsteigenden Knotens), \( \omega \) (Argument des Periapsis), 
-        \( M \) (mittlere Anomalie).</li>
-    <li><strong>Anomalien:</strong> wahre \( \nu \), exzentrische \( E \), mittlere \( M \) mit 
-      \[
-        M = E - e\sin E, \qquad \tan\frac{\nu}{2} = \sqrt{\frac{1+e}{1-e}}\;\tan\frac{E}{2}.
-      \]
-      Die <em>Kepler-Gleichung</em> \( M(E,e) \) ist transzendent und wird numerisch gelöst (z.&nbsp;B. Newton-Iteration).</li>
-  </ul>
-
-  <h3>1.3.2 Erhaltungsgrößen</h3>
-  <ul>
-    <li><strong>Energie:</strong> \( \mathcal E = \tfrac12 \mu v^2 - \dfrac{G M \mu}{r} \) (mit reduzierter Masse \( \mu \)); 
-        \( \mathcal E&lt;0 \) (gebunden), \( \mathcal E=0 \) (parabolisch), \( \mathcal E&gt;0 \) (hyperbolisch).</li>
-    <li><strong>Drehimpuls:</strong> \( \vec L = \mu\,\vec r \times \vec v \) (konstant bei Zentralkräften), 
-        bestimmt Bahnebene und Flächenrate.</li>
-    <li><strong>Laplace–Runge–Lenz-Vektor:</strong> zeigt auf das Periapsis; Betrag \(|\vec A| = \mu G M e\) kodiert \( e \).</li>
-  </ul>
-
-  <h3>1.3.3 Reduktion auf das Zweikörperproblem</h3>
-  <ul>
-    <li><strong>Schwerpunktzerlegung:</strong> Gesamtbewegung = Schwerpunktsbewegung + Relativbewegung.</li>
-    <li><strong>Reduzierte Masse:</strong> \( \mu = \dfrac{m_1 m_2}{m_1+m_2} \) ⇒ Relativbewegung wie Einteilchenproblem 
-        im Kepler-Potential \( -GM\mu/r \) mit \( M=m_1+m_2 \).</li>
-  </ul>
-
-  <h3>1.3.4 Potentiale und Felder</h3>
-  <ul>
-    <li><strong>Gravitationspotential:</strong> 
-      \[
-        \Phi(\vec r) = -G\int \frac{\rho(\vec r')}{|\vec r-\vec r'|}\,d^3 r'.
-      \]
-      Für Punktmassen \( \Phi = -GM/r \).</li>
-    <li><strong>Poisson-Gleichung:</strong> \( \nabla^2 \Phi = 4\pi G \rho \) verknüpft Masseverteilung und Potential.</li>
-    <li><strong>Multipolentwicklung:</strong> Abweichungen von der Kugelsymmetrie (z.&nbsp;B. J2 der Erde) 
-        erzeugen Bahnpräzessionen (Knoten/Perizentrum).</li>
-  </ul>
-
-  <h1>1.4 Beobachtung, Zeitmessung und Bezugssysteme</h1>
-  <p>
-    Für die Rückführung von Messdaten auf Bahnelemente sind konsistente Zeit- und Raumbezüge essenziell. 
-    Moderne Ephemeriden nutzen atomare Zeitstandards und präzise Erd- und Himmelsreferenzrahmen 
-    (Präzession, Nutation, Polbewegung, Erdrotation).
-  </p>
-
-  <h3>1.4.1 Zeit- und Winkelsysteme</h3>
-  <ul>
-    <li><strong>Sonnen- und Sternzeit:</strong> historisch für Beobachtungsplanung; Sternzeit koppelt an Erdrotation relativ zur Sternsphäre.</li>
-    <li><strong>Ephemeridenzeit → TT:</strong> Terrestrische Zeit (TT) als glatte, dynamiknahe Zeitskala für Bahnberechnungen.</li>
-    <li><strong>UTC/UT1:</strong> UTC mit Schaltsekunden vs. UT1 (wahre Erdrotation); wichtig für Tracking und Synchronisation.</li>
-  </ul>
-
-  <h3>1.4.2 Bezugssysteme und Koordinaten</h3>
-  <ul>
-    <li><strong>Himmelsbezugsrahmen:</strong> Ekliptik-/Äquatorsystem, Internationale Himmelsreferenzrahmen (ICRF).</li>
-    <li><strong>Erdfeste Systeme:</strong> ITRF/ETRF für geodätische Anwendungen und erdnahe Satellitenbahnen.</li>
-    <li><strong>Transformationen:</strong> Präzession/Nutation, Polbewegung, Erdrotation (Greenwich-Stundenwinkel), 
-        plus Lichtaberration und Parallaxe für präzise Astrometrie.</li>
-  </ul>
-
-  <h3>1.4.3 Beobachtungsmeilensteine</h3>
-  <ul>
-    <li><strong>Rømers Lichtlaufzeit:</strong> Periodenänderungen der Jupitermond-Finsternisse ⇒ endliche Lichtgeschwindigkeit.</li>
-    <li><strong>Bradley-Aberration:</strong> scheinbare Positionsverschiebung durch Erdbahngeschwindigkeit.</li>
-    <li><strong>Parallaxen (Bessel):</strong> Fundament der kosmischen Entfernungsleiter.</li>
-    <li><strong>Neptun-Entdeckung:</strong> Störungsanalyse von Uranusbahndaten (Le Verrier/Adams) ⇒ Vorhersage neuer Planet.</li>
+    <li><strong>Positions-/Geschwindigkeitsmessung:</strong> Winkel (Az/El), Reichweite, Doppler; Rauschen &amp; Bias beachten.</li>
+    <li><strong>Standardparameter:</strong> \( \mu=GM \), Referenzradius, \(J_2\ldots\), Flächen-Masse-Verhältnis, \(C_D\).</li>
   </ul>
 
   <div class="warn">
-    <strong>Hinweis (Daten ↔ Modell):</strong> Ohne konsistente Zeit- und Referenzrahmen lassen sich selbst 
-    hochpräzise Messungen nicht korrekt in Bahnelemente überführen.
+    <strong>Typische Fehler:</strong> UTC statt TT integriert; falscher Rahmen (ITRF statt ICRF); fehlende EOP-Korrekturen → scheinbar „mysteriöse“ Bahnabweichungen.
   </div>
 
-  <h1>1.5 Grenzen der klassischen Theorie und Weg zur Relativität</h1>
+  <h3>A.4 Brücke zur Relativität</h3>
   <p>
-    Trotz ihres Erfolgs stößt die Newtontheorie bei Präzisionstests und in starken Gravitationsfeldern an Grenzen. 
-    Die folgenden Phänomene markieren die Notwendigkeit relativistischer Erweiterungen, die später in der 
-    allgemeinen Relativitätstheorie (ART) systematisch bereitgestellt werden.
+    Die klassische Theorie erklärt fast alles – bis die Genauigkeit steigt. Dann zählen Lichtgeschwindigkeit, Zeitdilatation
+    und Raumzeitgeometrie. Dieser Abschnitt verbindet die klassische Intuition mit den relativistischen Grundideen.
   </p>
 
-  <h3>1.5.1 Anomalien und Präzisionstests</h3>
+  <h4>A.4.1 Warum „absolute Zeit“ scheitert</h4>
   <ul>
-    <li><strong>Perihelforschritt des Merkur:</strong> Der beobachtete zusätzliche Vorschub (≈ 43″/Jh.) ist 
-        klassisch (Störungen, Abplattung) nicht vollständig erklärbar; ART liefert den korrekten Zusatzterm.</li>
-    <li><strong>Lichtablenkung an der Sonne:</strong> Newtons Theorie sagt keine korrekte Ablenkung für Licht voraus; 
-        ART stimmt mit Sonnenfinsternis-Messungen und VLBI überein.</li>
-    <li><strong>Gravitationsrotverschiebung &amp; Shapiro-Delay:</strong> Zeitdilatation im Potential und zusätzliche 
-        Laufzeitverzögerung von Signalen bestätigen das relativistische Zeit-/Geodätenbild.</li>
+    <li><strong>Finites \(c\):</strong> Synchronisation über Lichtsignale ist rahmenabhängig.</li>
+    <li><strong>Experimentelle Evidenz:</strong> Michelson–Morley (Nullresultat), Myon-Lebensdauer, Ives–Stilwell (Doppler).</li>
   </ul>
 
-  <h3>1.5.2 Störungs- und Mehrkörpergrenzen</h3>
+  <h4>A.4.2 Vorschau SRT (Spezielle Relativität)</h4>
   <ul>
-    <li><strong>Resonanzen &amp; Chaos:</strong> Langzeitstabilität im Sonnensystem ist empfindlich gegenüber 
-        Anfangsbedingungen; Resonanzüberlappung kann chaotisches Verhalten induzieren.</li>
-    <li><strong>Zusatzkräfte:</strong> Erdabplattung (J2), Strahlungsdruck, Gezeiten und Atmosphärenwiderstand 
-        führen zu säkularen und periodischen Bahnänderungen – klassisch modellierbar, aber komplex.</li>
+    <li><strong>Postulate:</strong> Relativitätsprinzip + \(c=\) konstant ⇒ Lorentz- statt Galilei-Transformation.</li>
+    <li><strong>Konsequenzen:</strong> Zeitdilatation \( \Delta t = \gamma \,\Delta \tau \), Längenkontraktion \( L=L_0/\gamma \), relativistische Geschwindigkeitsaddition.</li>
+    <li><strong>Minkowski-Bild:</strong> invariantes Intervall, Lichtkegel, Kausalität.</li>
   </ul>
 
-  <h3>1.5.3 Übergang zur relativistischen Himmelsmechanik</h3>
+  <h4>A.4.3 Vorschau ART (Allgemeine Relativität)</h4>
   <ul>
-    <li><strong>Äquivalenzprinzip:</strong> Lokale Ununterscheidbarkeit von Gravitation und Beschleunigung; 
-        Gleichheit von träger und schwerer Masse.</li>
-    <li><strong>Geodäten in gekrümmter Raumzeit:</strong> Freie Bewegung folgt Geodäten der Metrik statt Kraftbahnen.</li>
-    <li><strong>Post-Newtonsche (PN) Näherung:</strong> Systematische Erweiterung in Potenzen von \( v/c \) und \( \Phi/c^2 \) 
-        für schwache Felder – liefert Korrekturen (z.&nbsp;B. Perihelrotation) als Brücke zwischen Newton und ART.</li>
+    <li><strong>Äquivalenzprinzip:</strong> lokal ist Gravitation ununterscheidbar von Beschleunigung.</li>
+    <li><strong>Geometrie statt Kraft:</strong> freie Bewegung folgt Geodäten der Metrik \( g_{\mu\nu} \).</li>
+    <li><strong>Schwaches Feld → Newton:</strong> \( g_{00}\approx 1+2\varphi/c^2 \), Perihel-Vorschub &amp; Lichtablenkung als Präzisionskorrekturen klassischer Bahnen.</li>
   </ul>
 
   <div class="success">
-    <strong>Zusammenfassung Abschnitt&nbsp;1:</strong>
-    Aus der Bahnempirie (Kepler) wird über Newtons Zentralkraftgesetz eine kohärente Dynamik. 
-    Beobachtungs- und Referenzrahmen sichern die Präzision. 
-    Abweichungen auf höchstem Genauigkeitsniveau bereiten den Übergang zur relativistischen Himmelsmechanik vor.
+    <strong>Take-away Teil A:</strong>
+    Klassik liefert Struktur &amp; Intuition (Kepler, Newton, Referenzrahmen). Die beobachteten Präzisionseffekte verlangen
+    eine Theorie mit konstanter Lichtgeschwindigkeit und gekrümmter Raumzeit – genau dort setzt Teil&nbsp;B (SRT) an.
+  </div>
+
+  <div class="diagram">
+    (Skizze-Idee: Zeitachse nach oben, Kepler-Ellipse in der Ebene; daneben ein Minkowski-Diagramm mit Lichtkegeln – klassische Bahn vs. relativistische Geodäte.)
   </div>
 </section>
+
+<!-- Teil B – Spezielle Relativitätstheorie I: Relativitätsprinzip (neu, wissenschaftlich sauber & zugänglich) -->
+<section id="teil-b-relativitaetsprinzip" class="content">
+  <h1>Teil B · Spezielle Relativitätstheorie I: Relativitätsprinzip</h1>
+  <p>
+    Ziel dieses Abschnitts ist es, die <strong>Problemstellung</strong> präzise zu formulieren, die <strong>Ursachen</strong> der Spannungen
+    im klassischen (galileischen) Rahmen zu benennen und die <strong>Lösungsidee</strong> Einsteins klar zu umreißen. 
+    Alle verwendeten Begriffe werden <em>vor</em> der ersten Nutzung definiert. Mathematische Herleitungen (Lorentz-Transformation,
+    Minkowski-Geometrie) erfolgen erst in Teil&nbsp;C – hier geht es um die wissenschaftlich saubere <em>Begründungslinie</em>.
+  </p>
+
+  <!-- B.0 BEGRIFFSGRUNDLAGEN -->
+  <h3>B.0 Begriffliche Grundlagen (Definitionen vorab)</h3>
+  <ul>
+    <li><strong>Inertialsystem:</strong> Bezugssystem, in dem sich kräftefreie Teilchen geradlinig und gleichförmig bewegen.</li>
+    <li><strong>c (Lichtgeschwindigkeit im Vakuum):</strong> exakter SI-Wert <em>c = 299 792 458 m/s</em>. 
+        Dieser Wert ist per Definition fest; Messverfahren und Einheitenwahl sind so gewählt, dass er exakt ist.</li>
+    <li><strong>Isotropie:</strong> Richtungsunabhängigkeit einer Messgröße (hier: gleiche gemessene Lichtgeschwindigkeit in alle Richtungen).</li>
+    <li><strong>Äther (historischer Begriff):</strong> angenommener ruhender Träger elektromagnetischer Wellen; 
+        sollte wie ein „Medium“ wirken, durch das sich die Erde bewegt.</li>
+    <li><strong>Interferometer (Michelson-Typ):</strong> Messgerät, das Licht in zwei senkrechte Arme aufteilt, zurückspiegelt und überlagert. 
+        Aus der Verschiebung der Interferenzstreifen (Fransen) lässt sich eine winzige Laufzeitdifferenz der beiden Wege bestimmen.</li>
+    <li><strong>Gleichzeitigkeit:</strong> Zwei Ereignisse sind „gleichzeitig“, wenn sie im <em>selben</em> Bezugssystem dieselbe Zeitkoordinate besitzen. 
+        Wie man Uhren in einem System synchronisiert, ist ein <em>Messprotokoll</em> (Einstein-Synchronisation, s. B.2.2).</li>
+  </ul>
+
+  <!-- B.1 EMPIRIE: WAS GENAU WURDE GEMESSEN UND ERWARTET? -->
+  <h3>B.1 Empirische Lage: Was, warum, was bedeutet es?</h3>
+
+  <h4>B.1.1 Michelson–Morley-Experiment (präzise Einordnung)</h4>
+  <p><strong>Fragestellung:</strong> Bewegt sich die Erde durch einen ruhenden Äther, sollte Licht entlang und quer zur Erdbewegung verschieden schnell gemessen werden.
+     Das würde eine <em>messbare</em> Laufzeitdifferenz zwischen den Interferometerarmen erzeugen.</p>
+  <p><strong>Versuchsaufbau (Michelson-Interferometer):</strong> Ein Strahlteiler erzeugt zwei Lichtwege der Länge \(L\), 
+     zueinander rechtwinklig. Nach Reflexion an Spiegeln werden beide Teilstrahlen wieder vereinigt. 
+     Eine Laufzeitdifferenz \(\Delta t\) erzeugt eine verschobene Interferenzfigur (Fransenverschiebung).</p>
+  <p><strong>Erwartung im Ätherbild:</strong> Ist die Erdgeschwindigkeit \(v\) relativ zum Äther ungleich null, 
+     ist der „mit dem Wind“ laufende Strahl effektiv anders schnell als der quer laufende. Aus einfachen Näherungen folgt eine 
+     <em>vorhergesagte Fransenverschiebung</em> proportional zu \(\frac{v^2}{c^2}\) und zur Armlänge \(L\) (genaue Ableitung in Fachliteratur/Teil&nbsp;C-Randnotiz).</p>
+  <p><strong>Beobachtung (Nullresultat):</strong> Es wurde <em>keine</em> systematische Fransenverschiebung gefunden, 
+     die der erwarteten Größe entsprach. Die gemessene Lichtgeschwindigkeit erscheint <em>isotrop</em> und offenbar 
+     <em>unabhängig von der Erdbewegung</em>.</p>
+  <div class="note">
+    <strong>Aussagekraft:</strong> Das Nullresultat spricht gegen einen bevorzugten Ruhestand des Äthers und gegen eine 
+    galileische Geschwindigkeitsaddition für Licht. Verbesserte Wiederholungen (rotierende Tische, längere Arme, andere Medien) haben das Bild gestützt.
+  </div>
+
+  <h4>B.1.2 Kennedy–Thorndike &amp; Ives–Stilwell (komplementäre Tests)</h4>
+  <p><strong>Kennedy–Thorndike:</strong> Variation der Interferometer-Geometrie (unterschiedliche Armlängen) und Beobachtung über längere Zeiten. 
+     Ergebnis: Auch mit veränderter Erdgeschwindigkeit im Jahreslauf bleibt \(c\) konstant. 
+     → Eine reine <em>Längenkontraktion</em> (ohne Zeitdilatation) kann die Gesamtheit der Befunde nicht erklären.</p>
+  <p><strong>Ives–Stilwell:</strong> Messung des relativistischen Doppler-Effekts schnell bewegter Atome/Strahlen. 
+     Beobachtet wird die <em>Frequenzverschiebung</em>, die direkt auf den Lorentzfaktor \(\gamma\) (Zeitdilatation) verweist.</p>
+
+  <!-- B.2 WARUM KLEMMT ES IM KLASSISCHEN RAHMEN? -->
+  <h3>B.2 Theoretische Spannungen im galileischen Rahmen</h3>
+  <ul>
+    <li><strong>Galilei-Transformation:</strong> \(\vec r'=\vec r-\vec v t,\; t'=t\). Daraus folgt die lineare Geschwindigkeitsaddition 
+        \(u'=u-v\). Für Licht ergäbe das \(c' = c \pm v\) – im Widerspruch zu B.1.</li>
+    <li><strong>Absolute Zeit:</strong> Galilei setzt eine globale, beobachterunabhängige Zeit voraus. 
+        Mit endlicher Signalausbreitung ist „gleichzeitig“ jedoch ein <em>experimentelles</em> Konzept (Synchronisation), 
+        das vom Bewegungszustand abhängt.</li>
+    <li><strong>Maxwell &amp; Galilei:</strong> Maxwells Gleichungen besitzen eine ausgezeichnete
+        Lichtgeschwindigkeit \(c\). Unter Galilei-Boosts behalten sie ihre Form <em>nicht</em> bei (fehlende Galilei-Kovarianz). 
+        Das deutet darauf hin, dass die <em>richtige</em> Transformationsgruppe nicht die Galilei-, sondern eine andere (Lorentz-)Gruppe ist.</li>
+  </ul>
+
+  <!-- B.3 EINSTEINS LÖSUNG: POSTULATE + MESSPROTOKOLL -->
+  <h3>B.3 Einsteins Lösung: Relativitätsprinzip + Konstanz von c</h3>
+  <p>
+    Einstein ersetzt das klassische Bild durch zwei Postulate und ein <em>operatives</em> Messprotokoll für Zeit und Länge. 
+    So wird die Kinematik selbst geändert, nicht nur ein einzelnes Gesetz.
+  </p>
+
+  <h4>B.3.1 Die beiden Postulate</h4>
+  <ol>
+    <li><strong>Relativitätsprinzip:</strong> Alle physikalischen Gesetze haben in allen Inertialsystemen dieselbe Form.</li>
+    <li><strong>Konstanz der Lichtgeschwindigkeit:</strong> Licht im Vakuum hat in allen Inertialsystemen dieselbe Geschwindigkeit <em>c</em>, 
+        unabhängig von Quelle und Empfänger.</li>
+  </ol>
+
+  <h4>B.3.2 Wie misst man „Zeit“ und „Länge“? (Einstein-Synchronisation)</h4>
+  <ul>
+    <li><strong>Uhren:</strong> Eine Uhr ist ein reproduzierbares Periodensignal; sie misst die <em>Eigenzeit</em> entlang ihrer Weltlinie.</li>
+    <li><strong>Synchronisation in einem System S:</strong> Uhr A sendet zum Zeitpunkt \(t_A\) einen Lichtpuls zu B, 
+        B reflektiert ihn bei \(t_B\), A empfängt bei \(t_A'\). Synchronisationsbedingung: 
+        \(t_B - t_A = t_A' - t_B\). Damit ist „gleichzeitig in S“ <em>operational</em> definiert.</li>
+    <li><strong>Längenmessung:</strong> Die Länge eines bewegten Stabs ist der Abstand seiner Enden, 
+        <em>gleichzeitig in S</em> gemessen. „Ruheslänge“ \(L_0\) ist die Länge im Ruhesystem des Stabs.</li>
+  </ul>
+  <div class="note">
+    <strong>Schlüsselpunkt:</strong> Wenn Gleichzeitigkeit ein systemabhängiges Messprotokoll ist, 
+    müssen Raum- und Zeitkoordinaten beim Systemwechsel <em>gemeinsam</em> transformieren. 
+    → Das führt zu den <em>Lorentz-Transformationen</em> (Herleitung in Teil&nbsp;C).
+  </div>
+
+  <!-- B.4 UNMITTELBARE KONSEQUENZEN (FORMELN KLAR BENANNT; BEWEISE IN TEIL C) -->
+  <h3>B.4 Unmittelbare Konsequenzen (Beweise in Teil&nbsp;C)</h3>
+
+  <h4>B.4.1 Zeitdilatation (Bewegte Uhren gehen langsamer)</h4>
+  <p>
+    Eine Uhr, die relativ zu einem Beobachter mit Geschwindigkeit \(v\) bewegt ist, zeigt größere Zeitabstände im Beobachtersystem:
+  </p>
+  <div class="formula">
+    \[
+      \Delta t = \gamma\,\Delta \tau, \qquad 
+      \gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}, \quad \Delta\tau:\ \text{Eigenzeit der Uhr}.
+    \]
+  </div>
+  <p>
+    <em>Experimentelle Bestätigung:</em> verlängerte Myonen-Lebensdauer, Luft-/Satellitenuhren vs. Bodenuhren.
+  </p>
+
+  <h4>B.4.2 Längenkontraktion (Bewegte Objekte erscheinen kürzer)</h4>
+  <p>
+    Ein Stab der Ruheslänge \(L_0\) wird im System, in dem er mit \(v\) bewegt ist, kürzer gemessen:
+  </p>
+  <div class="formula">
+    \[
+      L = \frac{L_0}{\gamma}.
+    \]
+  </div>
+  <p>
+    <em>Wichtig:</em> Die Endpunkte müssen im Messsystem <em>gleichzeitig</em> abgelesen werden.
+  </p>
+
+  <h4>B.4.3 Relativistische Geschwindigkeitsaddition (kollinear)</h4>
+  <p>
+    Geschwindigkeiten addieren nicht linear; für Bewegungen entlang derselben Linie gilt:
+  </p>
+  <div class="formula">
+    \[
+      u' = \frac{u - v}{1 - \frac{u\,v}{c^2}}, \qquad |u'|<c\ \text{für}\ |u|,|v|<c.
+    \]
+  </div>
+  <p>
+    Dadurch bleibt <em>c</em> bei jedem Systemwechsel unverändert.
+  </p>
+
+  <h4>B.4.4 Kausalität &amp; Lichtkegel (Vorschau)</h4>
+  <p>
+    Ereignisse lassen sich in zeitartig, lichtartig und raumartig getrennt klassifizieren. 
+    Diese Struktur (Lichtkegel) ist unabhängig vom Inertialsystem und legt fest, ob ein kausaler Einfluss möglich ist.
+    Die präzise Invarianz (Minkowski-Intervall) zeigen wir in Teil&nbsp;C.
+  </p>
+
+  <!-- B.5 MISSVERSTÄNDNISSE & METHODIK -->
+  <h3>B.5 Häufige Missverständnisse & methodische Hinweise</h3>
+  <ul>
+    <li><strong>„Alles ist relativ“:</strong> Falsch. <em>c</em> und das Raumzeit-Intervall sind invariant; die Kausalstruktur ist absolut.</li>
+    <li><strong>„Zeitdilatation ist nur scheinbar“:</strong> Nein. Eigenzeit ist eine <em>physikalische Messgröße</em>; 
+        unterschiedliche Bewegungszustände → unterschiedliche Eigenzeiten (Zwillingsparadoxon folgt später).</li>
+    <li><strong>„Länge ist unveränderlich“:</strong> Nur im Ruhesystem des Objekts; Messung in bewegten Systemen erfordert Simultanität im <em>Messsystem</em>.</li>
+    <li><strong>Methodik:</strong> Begriffe operativ definieren (wie wird gemessen?), erst dann Gesetze formulieren. 
+        Einsteins Ansatz ist genau so aufgebaut.</li>
+  </ul>
+
+  <!-- B.6 FAZIT & AUSBLICK -->
+  <h3>B.6 Fazit &amp; Ausblick auf Teil&nbsp;C</h3>
+  <div class="success">
+    <p>
+      <strong>Probleme:</strong> Isotrope, konstante Lichtgeschwindigkeit; Interferometer-Nullresultate; 
+      Inkohärenz von Maxwell mit Galilei; unhaltbare absolute Gleichzeitigkeit.<br/>
+      <strong>Warum:</strong> Der galileische Transformationsrahmen (lineare Geschwindigkeitsaddition, absolute Zeit) 
+      passt nicht zu elektromagnetischen Phänomenen und moderner Präzisionsmesstechnik.<br/>
+      <strong>Lösung:</strong> Einsteins Postulate + operatives Zeit-/Längenprotokoll ⇒ neue Kinematik 
+      (Lorentz statt Galilei) mit Zeitdilatation, Längenkontraktion und nichtlinearer Geschwindigkeitsaddition.
+    </p>
+    <p>
+      In <strong>Teil&nbsp;C</strong> leiten wir daraus <em>systematisch</em> die <strong>Lorentz-Transformation</strong> ab,
+      führen das <strong>Minkowski-Intervall</strong> und <strong>Vierervektoren</strong> ein 
+      und schaffen damit die Rechenbasis für relativistische Mechanik und Elektrodynamik.
+    </p>
+  </div>
+
+  <div class="diagram">
+    (Skizze-Idee: Michelson-Interferometer mit zwei orthogonalen Armen; daneben ein vereinfachtes ct–x-Diagramm mit Lichtkegeln.)
+  </div>
+</section>
+<!-- Teil C – Lorentz-Transformation, Minkowski-Geometrie & Gruppenstruktur (ausführlich & zugänglich) -->
+<section id="teil-c-lorentz" class="content">
+  <h1>Teil C · Spezielle Relativitätstheorie II: Lorentz-Transformation &amp; Minkowski-Raum</h1>
+  <p>
+    In Teil&nbsp;C liefern wir die <strong>mathematische Basis</strong> der Speziellen Relativität:
+    die Lorentz-Transformation, das <strong>invariante Raumzeit-Intervall</strong>, die <strong>Minkowski-Geometrie</strong>
+    und die <strong>Gruppenstruktur</strong> (Komposition von Boosts/Rotationen). Wir definieren alle
+    Größen <em>vor</em> der ersten Nutzung, leiten die Transformation systematisch her (1D → 3D), erklären die
+    Begriffe (Simultanität, Eigenzeit), und sammeln die wichtigsten kinematischen Sätze (Zeitdilatation, Längenkontraktion,
+    Geschwindigkeitsaddition). Die Resultate werden in Teil&nbsp;D/E für Mechanik und Elektrodynamik verwendet.
+  </p>
+
+  <!-- C.0: BEGRIFFLICHE KONVENTIONEN -->
+  <h3>C.0 Begriffe &amp; Konventionen</h3>
+  <ul>
+    <li><strong>Inertialsystem:</strong> Bezugssystem, in dem kräftefreie Teilchen geradlinig-gleichförmig bewegen.</li>
+    <li><strong>Lichtgeschwindigkeit im Vakuum <em>c</em>:</strong> exakter SI-Wert <em>c = 299&nbsp;792&nbsp;458&nbsp;m/s</em>.
+      Wir schreiben <span style="font-family:'Courier New',monospace;">\(\beta \equiv v/c\)</span> und
+      <span style="font-family:'Courier New',monospace;">\(\gamma \equiv 1/\sqrt{1-\beta^2}\)</span>.</li>
+    <li><strong>Ereignis / Viererkoordinate:</strong> <span style="font-family:'Courier New',monospace;">\(x^\mu=(ct,\,x,\,y,\,z)\)</span>.</li>
+    <li><strong>Minkowski-Metrik (Signatur \(+ - - -\)):</strong>
+      <span style="font-family:'Courier New',monospace;">\(\eta_{\mu\nu}=\mathrm{diag}(+1,-1,-1,-1)\)</span>.</li>
+    <li><strong>Invariantes Intervall:</strong>
+      <span class="formula">\[
+        \Delta s^2 \equiv \eta_{\mu\nu}\,\Delta x^\mu \Delta x^\nu
+        = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2.
+      \]</span>
+      Klassifikation: zeitartig \((\Delta s^2&gt;0)\), lichtartig \((=0)\), raumartig \((&lt;0)\).</li>
+    <li><strong>Rapidität \(\varphi\):</strong> Hyperbel-Parameter eines Boosts, definiert durch
+      <span style="font-family:'Courier New',monospace;">\(\tanh\varphi=\beta\)</span>,
+      <span style="font-family:'Courier New',monospace;">\(\gamma=\cosh\varphi\)</span>,
+      <span style="font-family:'Courier New',monospace;">\(\gamma\beta=\sinh\varphi\)</span>.</li>
+  </ul>
+
+  <!-- C.1: ABLEITUNG 1D -->
+  <h3>C.1 Herleitung der Lorentz-Transformation (1D-Boost)</h3>
+  <p>
+    Zwei Inertialsysteme \(S\) und \(S'\) bewegen sich relativ zueinander mit konstanter Geschwindigkeit \(v\) entlang der \(x\)-Achse.
+    Gesucht ist die lineare Transformation
+    <span style="font-family:'Courier New',monospace;">\(x' = a x + b t,\; t' = c x + d t\)</span>
+    (Homogenität/Isotropie), die (i) das Relativitätsprinzip erfüllt und (ii) <em>c</em> invariant lässt:
+    Lichtkegel <span style="font-family:'Courier New',monospace;">\(x=\pm ct\)</span> sollen wieder <span style="font-family:'Courier New',monospace;">\(x'=\pm ct'\)</span> sein.
+    Einsetzen der beiden Lichtfälle erzwingt
+  </p>
+  <div class="formula">
+    \[
+      x'=\gamma\,(x-vt),\qquad
+      t'=\gamma\!\left(t-\frac{v}{c^2}x\right),\qquad
+      y'=y,\ z'=z,\qquad
+      \gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}.
+    \]
+  </div>
+  <p>
+    Die Inverse erhält man durch \(v\!\to\!-v\). Setzt man \(x=ct\) (bzw. \(x=-ct\)) ein, folgt \(x'=\pm ct'\):
+    <em>c</em> bleibt in allen Inertialsystemen gleich. Dies ist die <strong>Lorentz-Transformation</strong> (Boost in \(x\)-Richtung).
+  </p>
+
+  <!-- C.2: MATRIXFORM & GRUPPE -->
+  <h3>C.2 Matrixform, Invarianz &amp; Lorentz-Gruppe</h3>
+  <p>
+    Als Vierervektor-Transformation \(x'^\mu=\Lambda^\mu{}_\nu x^\nu\) lautet ein Boost in \(x\)-Richtung:
+  </p>
+  <div class="formula">
+    \[
+      \Lambda(\beta\hat x)=
+      \begin{pmatrix}
+        \gamma & -\gamma\beta & 0 & 0\\
+        -\gamma\beta & \gamma & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 1
+      \end{pmatrix},\qquad \beta=\frac{v}{c}.
+    \]
+  </div>
+  <p>
+    Invarianzbedingung:
+    <span style="font-family:'Courier New',monospace;">\(\Lambda^T\eta\,\Lambda=\eta\)</span>.
+    Die Menge aller solcher \(\Lambda\) bildet \(O(1,3)\).
+    Die <em>eigentlich-orthochrone</em> Komponente \(SO^+(1,3)\) (Determinante \(+1\), Zukunftsrichtung erhalten)
+    enthält physikalische Boosts und Rotationstransformationen.
+  </p>
+
+  <!-- C.3: GEOMETRISCHE SICHT -->
+  <h3>C.3 Geometrische Sicht: Minkowski-Raum &amp; Lichtkegel</h3>
+  <p>
+    Die Lorentz-Transformation ist eine „Hyperbel-Rotation“ im \(ct\)–\(x\)-Diagramm, die das Intervall
+    \( \Delta s^2 \) invariant lässt. Lichtkegel (Grenze \(\Delta s^2=0\)) trennen die Ereigniswelt in kausal erreichbare
+    Zukunft/Vergangenheit (innerhalb des Kegels) und raumartig getrennte Bereiche (außerhalb).
+    Keine Lorentz-Transformation vermischt das Innere mit dem Äußeren des Lichtkegels → <strong>Kausalstruktur bleibt erhalten</strong>.
+  </p>
+
+  <!-- C.4: KOMPOSITION, RAPIDITÄT, WIGNER -->
+  <h3>C.4 Komposition von Boosts &amp; Rapidität</h3>
+  <p>
+    Bei kollinearen Boosts addieren sich die Rapiditäten:
+    <span style="font-family:'Courier New',monospace;">\(\varphi_{\rm ges}=\varphi_1+\varphi_2\)</span>.
+    Für die Geschwindigkeiten folgt
+  </p>
+  <div class="formula">
+    \[
+      \beta_{\rm ges}=\tanh(\varphi_1+\varphi_2)=\frac{\beta_1+\beta_2}{1+\beta_1\beta_2}.
+    \]
+  </div>
+  <p>
+    Nichtkollineare Boosts sind <em>nicht kommutativ</em>: Ihre Komposition enthält zusätzlich eine reine Raumdrehung
+    (Wigner-Rotation). In kontinuierlichen Umlaufbewegungen zeigt sich das als <em>Thomas-Präzession</em> (Ausblick).
+  </p>
+
+  <!-- C.5: SIMULTANITÄT, ZEIT, LÄNGE -->
+  <h3>C.5 Relativität der Gleichzeitigkeit, Zeitdilatation &amp; Längenkontraktion</h3>
+
+  <h4>C.5.1 Relativität der Gleichzeitigkeit</h4>
+  <p>
+    Zwei Ereignisse seien in \(S\) gleichzeitig (\(\Delta t=0\)), aber räumlich getrennt (\(\Delta x\neq0\)).
+    Dann ist in \(S'\):
+  </p>
+  <div class="formula">
+    \[
+      \Delta t'=\gamma\!\left(\Delta t-\frac{v}{c^2}\Delta x\right) = -\,\gamma\,\frac{v}{c^2}\Delta x \neq 0.
+    \]
+  </div>
+  <p>
+    „Gleichzeitig“ ist daher kein absoluter, sondern ein <em>rahmenabhängiger</em> Begriff – konsistent mit der
+    Einstein-Synchronisation (Teil&nbsp;B).
+  </p>
+
+  <h4>C.5.2 Zeitdilatation</h4>
+  <p>
+    Eine Uhr ruht in \(S'\) (\(\Delta x'=0\)) und misst ihre Eigenzeit \(\Delta\tau=\Delta t'\).
+    Aus der Lorentz-Transformation folgt:
+  </p>
+  <div class="formula">
+    \[
+      \Delta t=\gamma\,\Delta \tau,\qquad
+      \gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}.
+    \]
+  </div>
+  <p>
+    Bewegte Uhren gehen (aus Sicht des anderen Systems) langsamer. Dies ist experimentell vielfach bestätigt.
+  </p>
+
+  <h4>C.5.3 Längenkontraktion</h4>
+  <p>
+    Ein Stab habe Ruheslänge \(L_0\) (Ruhe in \(S'\)). Misst man in \(S\) die Endpunkte <em>gleichzeitig in \(S\)</em>,
+    erhält man:
+  </p>
+  <div class="formula">
+    \[
+      L=\frac{L_0}{\gamma}.
+    \]
+  </div>
+  <p>
+    Der Simultanitätsbezug ist entscheidend: ohne ihn vergleicht man nicht dieselbe physische Länge.
+  </p>
+
+  <!-- C.6: GESCHWINDIGKEITSADDITION -->
+  <h3>C.6 Relativistische Geschwindigkeitsaddition (allgemein)</h3>
+  <p>
+    Zerlege \(\vec u\) in Komponenten parallel (\(\parallel\)) und senkrecht (\(\perp\)) zur Boost-Richtung (hier \(\hat x\)).
+    Dann gilt:
+  </p>
+  <div class="formula">
+    \[
+      u'_\parallel = \frac{u_\parallel - v}{1-\frac{v u_\parallel}{c^2}},\qquad
+      u'_\perp = \frac{u_\perp}{\gamma\!\left(1-\frac{v u_\parallel}{c^2}\right)}.
+    \]
+  </div>
+  <p>
+    Daraus folgt die <strong>Geschwindigkeitsgrenze</strong>: Ist \(|\vec u|&lt;c\), bleibt auch \(|\vec u'|&lt;c\);
+    für Licht bleibt \(|\vec u|=c\) in allen Systemen erhalten.
+  </p>
+
+  <!-- C.7: VIERERVEKTOREN & ENERGIE-IMPULS -->
+  <h3>C.7 Vierervektoren, Eigenzeit &amp; Energie-Impuls</h3>
+  <ul>
+    <li><strong>Eigenzeit:</strong> Für zeitartige Weltlinien
+      <span class="formula">\[
+        d\tau = \frac{1}{c}\sqrt{ds^2}=\sqrt{dt^2-\frac{1}{c^2}d\vec x^{\,2}}
+        = \frac{dt}{\gamma}.
+      \]</span></li>
+    <li><strong>Vierergeschwindigkeit:</strong> \(u^\mu\equiv dx^\mu/d\tau\) mit
+      <span style="font-family:'Courier New',monospace;">\(\eta_{\mu\nu}u^\mu u^\nu=c^2\)</span>.</li>
+    <li><strong>Viererimpuls:</strong> \(p^\mu\equiv m\,u^\mu=(\gamma mc,\,\gamma m\vec v)\).
+      Energie \(E\equiv p^0 c = \gamma m c^2\), Impuls \(\vec p=\gamma m \vec v\).</li>
+  </ul>
+  <div class="formula">
+    \[
+      E^2 = (pc)^2 + (mc^2)^2,\qquad
+      p \equiv \|\vec p\|.
+    \]
+  </div>
+  <p>
+    Für masselose Teilchen (\(m=0\)) folgt \(E=pc\); für \(v\ll c\) ergibt sich \(E\approx mc^2+\tfrac12 m v^2\)
+    (Ruheenergie plus klassische kinetische Energie).
+  </p>
+
+  <!-- C.8: DOPPLER & ABERRATION -->
+  <h3>C.8 Relativistischer Doppler &amp; Aberration (kurzer Überblick)</h3>
+  <p>
+    Die Phaseninvarianz \(k_\mu x^\mu=\text{const}\) liefert die Transformationsgesetze für Frequenz und Richtung:
+  </p>
+  <div class="formula">
+    \[
+      \nu'=\gamma\,\nu\,(1-\beta\cos\theta),\qquad
+      \tan\theta'=\frac{\sin\theta}{\gamma(\cos\theta-\beta)}.
+    \]
+  </div>
+  <p>
+    Anwendungen: Astrophysik (Jets, Beaming), Präzisionslaser, Teilchenoptik. Ausführlicher in Teil&nbsp;E.
+  </p>
+
+  <!-- C.9: TYPISCHE FEHLER & CHECKS -->
+  <h3>C.9 Häufige Fehlerquellen &amp; Prüfhinweise</h3>
+  <ul>
+    <li><strong>Simultanität übersehen:</strong> Längenmessung ohne „gleichzeitig im Messsystem“ → falsche Ergebnisse.</li>
+    <li><strong>Vorzeichen &amp; Einheiten:</strong> Immer \(ct\) statt \(t\) in Vierergrößen (bei Signatur \(+ - - -\)); Einheiten konsistent halten.</li>
+    <li><strong>Nichtkollineare Boosts:</strong> Boost-Komposition ist nicht kommutativ; Wigner-Rotation/Thomas-Präzession im Hinterkopf behalten.</li>
+    <li><strong>Grenzfälle prüfen:</strong> \(v\to 0\) (Galilei-Grenze) und \(v\to c\) (lichtartig) als Plausibilitätscheck.</li>
+  </ul>
+
+  <!-- C.10: FAZIT & BRÜCKE -->
+  <h3>C.10 Kompaktfazit &amp; Brücke zu Teil&nbsp;D/E</h3>
+  <div class="success">
+    <p>
+      Die Lorentz-Transformation ist die eindeutige lineare Abbildung, die das Relativitätsprinzip erfüllt
+      und <em>c</em> invariant lässt. Sie definiert die Geometrie des Minkowski-Raums (Intervall als Invariante),
+      macht Gleichzeitigkeit rahmenabhängig und liefert Zeitdilatation, Längenkontraktion und die korrekte
+      Geschwindigkeitsaddition. Rapidity addiert sich, nicht die Geschwindigkeit.
+    </p>
+    <p>
+      In <strong>Teil&nbsp;D</strong> formulieren wir Mechanik kovariant (Vierergeschwindigkeit/-impuls, Kräfte),
+      und in <strong>Teil&nbsp;E</strong> schreiben wir die Elektrodynamik manifest kovariant (Feldinvarianten,
+      Energie-Impuls-Tensor, Doppler/Aberration im Detail).
+    </p>
+  </div>
+
+  <div class="diagram">
+    (Skizze-Idee: ct–x-Diagramm mit Lichtkegel, Hyperbel-Bahnen gleicher \(\Delta s^2\);
+    daneben die Boost-Matrix und der Rapiditätswinkel \(\varphi\) als „Hyperbelrotation“.)
+  </div>
+</section>
+
+<!-- Teil D – Relativistische Mechanik (ohne "Was?/Warum?/Wozu?"-Labels, in flüssiger Erklärung) -->
+<section id="teil-d-relativistische-mechanik" class="content">
+  <h1>Teil D · Relativistische Mechanik</h1>
+  <p>
+    Die Mechanik wird hier <em>kovariant</em> formuliert: Zustände erscheinen als Vierergrößen, Gesetze als lorentzinvariante Gleichungen.
+    Es gelten fortlaufend die Konventionen: Lichtgeschwindigkeit im Vakuum <strong>c = 299&nbsp;792&nbsp;458&nbsp;m/s</strong> (exakt),
+    \(\beta=v/c\), \(\gamma=1/\sqrt{1-\beta^2}\), Minkowski-Metrik \(\eta=\mathrm{diag}(+,-,-,-)\).
+    Alle Definitionen sind so gewählt, dass Form und Aussage der Gleichungen in allen Inertialsystemen erhalten bleiben.
+  </p>
+
+  <!-- D.0: EIGENZEIT & WELTLINIEN -->
+  <h3>D.0 Weltlinien, Eigenzeit und invariantes Intervall</h3>
+  <p>
+    Die Bewegung eines Teilchens entspricht einer Weltlinie \(x^\mu(\lambda)\) in der Raumzeit.
+    Für massive Teilchen eignet sich die <em>Eigenzeit</em> \(\tau\) als Parameter, da sie die Anzeige einer mitgeführten Uhr wiedergibt
+    und für alle Inertialsysteme invariant ist. Mit der Metrik
+  </p>
+  <div class="formula">
+    \[
+      ds^2 \equiv \eta_{\mu\nu}\,dx^\mu dx^\nu
+      = c^2\,dt^2 - d\vec x^{\,2},\qquad
+      d\tau = \frac{1}{c}\sqrt{ds^2}=\frac{dt}{\gamma}.
+    \]
+  </div>
+  <p>
+    lässt sich die zeitartige Natur massiver Weltlinien unmittelbar prüfen und der Übergang zwischen Koordinatenzeit \(t\) und Eigenzeit \(\tau\) herstellen.
+  </p>
+
+  <!-- D.1: VIERERGESCHWINDIGKEIT & -BESCHLEUNIGUNG -->
+  <h3>D.1 Vierergeschwindigkeit und Viererbeschleunigung</h3>
+  <p>
+    Die Vierergeschwindigkeit \(u^\mu \equiv dx^\mu/d\tau\) fasst die Bewegung kompakt zusammen:
+    \(u^\mu=\gamma(c,\vec v)\) und \(\eta_{\mu\nu}u^\mu u^\nu=c^2\). Ihre Ableitung nach der Eigenzeit, \(a^\mu \equiv du^\mu/d\tau\),
+    ist die Viererbeschleunigung; aus der Normkonstanz von \(u^\mu\) folgt die Orthogonalität \(u_\mu a^\mu=0\).
+    Auf diese Weise lassen sich Geschwindigkeits- und Beschleunigungseffekte rahmenunabhängig formulieren.
+  </p>
+
+  <!-- D.2: VIERERIMPULS & ENERGIE-IMPULS-RELATION -->
+  <h3>D.2 Viererimpuls, Energie und die Massenschale</h3>
+  <p>
+    Aus \(u^\mu\) entsteht durch Multiplikation mit der invarianten Masse \(m\) der Viererimpuls
+    \(p^\mu \equiv m\,u^\mu=(\gamma mc,\,\gamma m\vec v)\).
+    Die Zeitkomponente liefert die Energie \(E \equiv p^0 c = \gamma m c^2\), die Raumkomponente den Impuls \(\vec p=\gamma m\vec v\).
+    Beide Größen liegen auf der Massenschale
+  </p>
+  <div class="formula">
+    \[
+      E^2 = (pc)^2 + (mc^2)^2,\qquad p \equiv \|\vec p\|.
+    \]
+  </div>
+  <p>
+    Im Grenzfall \(v\ll c\) ergibt sich \(E \approx mc^2+\tfrac12 m v^2\); für masselose Teilchen (\(m=0\)) folgt \(E=pc\).
+  </p>
+
+  <!-- D.3: VIERERKRAFT & DREIVEKTOR-FORM -->
+  <h3>D.3 Viererkraft und Drei-Kraft</h3>
+  <p>
+    Die Dynamik lässt sich als Entwicklung des Viererimpulses entlang der Weltlinie schreiben:
+    \(K^\mu \equiv dp^\mu/d\tau\). In Laborzeit dargestellt,
+  </p>
+  <div class="formula">
+    \[
+      K^\mu = \gamma\!\left(\frac{\vec F\!\cdot\!\vec v}{c},\ \vec F\right),\qquad
+      \frac{dE}{dt} = \vec F\!\cdot\!\vec v,\qquad
+      u_\mu K^\mu = 0.
+    \]
+  </div>
+  <p>
+    Der Energiezuwachs hängt allein von der Komponente der Kraft in Bewegungsrichtung ab; eine rein senkrechte Kraft ändert die Richtung des Impulses,
+    nicht aber den Energiebetrag.
+  </p>
+
+  <!-- D.4: LAGRANGE- & HAMILTON-FORMULIERUNG -->
+  <h3>D.4 Lagrange- und Hamilton-Formulierung</h3>
+  <h4>D.4.1 Freies Teilchen</h4>
+  <p>
+    Die Wirkung eines freien Teilchens entspricht der Weltlinienlänge:
+    \(S=-mc^2\!\int d\tau\). Daraus folgt die Lagrangefunktion
+    \(L=-mc^2\sqrt{1-\tfrac{v^2}{c^2}}\).
+    Die kanonischen Größen erhalten damit ihre relativistische Form:
+  </p>
+  <div class="formula">
+    \[
+      \vec p = \frac{\partial L}{\partial \vec v} = \gamma m \vec v,\qquad
+      H \equiv \vec p\!\cdot\!\vec v - L = \gamma m c^2 = E.
+    \]
+  </div>
+
+  <h4>D.4.2 Externe skalare Potentiale \(V(\vec r)\)</h4>
+  <p>
+    Für schwache, zeitunabhängige äußere Felder wird häufig
+    \(L=-mc^2\sqrt{1-\tfrac{v^2}{c^2}}-V(\vec r)\) genutzt, um Bindungs- und Streuprobleme mit relativistischen Korrekturen zu modellieren.
+    Diese Beschreibung ist eine nützliche Näherung, aber im strengen Sinn nicht lorentzkovariant; konsistente Feldkopplungen werden über E-M-Potentiale oder – später – über die Geometrie der Raumzeit eingeführt.
+  </p>
+
+  <!-- D.5: BEWEGUNG IM ELEKTROMAGNETISCHEN FELD -->
+  <h3>D.5 Geladene Teilchen im elektromagnetischen Feld</h3>
+  <p>
+    Die Wechselwirkung geladener Teilchen mit \(\vec E\) und \(\vec B\) lässt sich kompakt mit dem Faraday-Tensor \(F^{\mu\nu}\) schreiben:
+    \(\displaystyle \frac{dp^\mu}{d\tau} = q\,F^{\mu}{}_{\nu}\,u^\nu\).
+    In Drei-Vektor-Form erscheinen die bekannten Lorentz-Kraft-Gleichungen:
+  </p>
+  <div class="formula">
+    \[
+      \frac{d\vec p}{dt} = q\big(\vec E + \vec v \times \vec B\big),\qquad
+      \frac{dE}{dt} = q\,\vec v\!\cdot\!\vec E.
+    \]
+  </div>
+  <p>
+    Eine praktische Lagrangeform für diese Kopplung lautet
+    \(L = -mc^2\sqrt{1-\tfrac{v^2}{c^2}} + \frac{q}{c}\,\vec v\!\cdot\!\vec A - q\phi\)
+    mit \(F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu\).
+  </p>
+
+  <!-- D.6: STOSSE, ZERFÄLLE & INVARIANTEN -->
+  <h3>D.6 Stöße, Zerfälle und Invarianten</h3>
+  <p>
+    In geschlossenen Systemen bleibt der Gesamt-Viererimpuls \(P^\mu=\sum_i p_i^\mu\) erhalten; die Invariante \(P^2=\eta_{\mu\nu}P^\mu P^\nu\)
+    ist rahmenunabhängig und eignet sich für Schwellen- und Endzustandsrechnungen.
+    Der Schwerpunkt-(CoM-)Frame mit \(\vec P=0\) besitzt Geschwindigkeit \(\displaystyle \vec V_{\mathrm{CoM}}=\frac{\vec P\,c^2}{E}\).
+  </p>
+  <ul>
+    <li><strong>Schwellenbedingung (Beispiel \(a+b\to c+d\)):</strong> Mit \(s\equiv (p_a+p_b)^2=(p_c+p_d)^2\) ergibt sich die minimale Lab-Energie aus
+      \(s_{\min}=(m_c+m_d)^2c^4\).</li>
+    <li><strong>Zerfall \(A\to 1+2\) in Ruhe von \(A\):</strong>
+      <div class="formula">
+        \[
+          p_1 = p_2 = \frac{c}{2M_A}\sqrt{(M_A^2-(m_1+m_2)^2)(M_A^2-(m_1-m_2)^2)}.
+        \]
+      </div>
+    </li>
+  </ul>
+  <p>
+    Für komplexere Prozesse ist es zweckmäßig, die Mandelstam-Variablen \(s,t,u\) zu verwenden und erst danach in Labor- oder CoM-Größen zu wechseln.
+  </p>
+
+  <!-- D.7: DREHIMPULS-TENSOR & CENTER OF ENERGY -->
+  <h3>D.7 Drehimpuls-Tensor und Center-of-Energy</h3>
+  <p>
+    Die raumzeitliche Erhaltung des Drehimpulses wird über den antisymmetrischen Tensor
+    \(M^{\mu\nu}=x^\mu p^\nu - x^\nu p^\mu\) beschrieben. Die rein räumlichen Komponenten fassen den klassischen Drehimpuls
+    \(\vec L=\vec r\times \vec p\), die gemischten Komponenten
+  </p>
+  <div class="formula">
+    \[
+      \vec K = \frac{E}{c}\,\vec r - \frac{t}{c}\,\vec p,
+    \]
+  </div>
+  <p>
+    sind mit Boost-Generatoren und dem Schwerpunkt der Energie verknüpft. Diese Größen bilden zusammen die Erhaltungen der Poincaré-Symmetrie ab.
+  </p>
+
+  <!-- D.8: KONSTANTE EIGENBESCHLEUNIGUNG -->
+  <h3>D.8 Beispiel: Gleichmäßig beschleunigte Bewegung (konstante Eigenbeschleunigung)</h3>
+  <p>
+    Eine Weltlinie mit konstanter Eigenbeschleunigung \(\alpha\) verläuft als Hyperbel im \(ct\)–\(x\)-Diagramm.
+    Die Parametrisierung nach \(\tau\) lautet:
+  </p>
+  <div class="formula">
+    \[
+      \begin{aligned}
+        ct(\tau) &= \frac{c^2}{\alpha}\,\sinh\!\left(\frac{\alpha\tau}{c}\right),\quad
+        x(\tau)  = \frac{c^2}{\alpha}\,\cosh\!\left(\frac{\alpha\tau}{c}\right),\\
+        v(t)     &= \frac{\alpha t}{\sqrt{1+(\alpha t/c)^2}},\quad
+        \gamma(t)= \sqrt{1+(\alpha t/c)^2}.
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Damit nähert sich die Geschwindigkeit asymptotisch \(c\), überschreitet sie jedoch nicht; die Hyperbelgleichung
+    \(x^2 - c^2 t^2 = (c^2/\alpha)^2\) macht die Geometrie sichtbar.
+  </p>
+
+  <!-- D.9: HÄUFIGE MISSVERSTÄNDNISSE -->
+  <h3>D.9 Häufige Missverständnisse und Konsistenzchecks</h3>
+  <ul>
+    <li>Die Transformation von Kräften unterscheidet strikt parallel- und senkrecht-zur-Bewegung-Komponenten; Beschleunigungen transformieren nicht trivial.</li>
+    <li>Leistung ist \(dE/dt=\vec F\!\cdot\!\vec v\); der Betrag der Geschwindigkeit darf nicht anstelle des Skalarprodukts eingesetzt werden.</li>
+    <li>Die Masse bleibt invariant; alle relativistischen Effekte stecken in \(\gamma\) von \(\vec p\) und \(E\), nicht in einer „relativistischen Masse“.</li>
+    <li>Grenzfälle prüfen: \(v\to 0\) reproduziert die klassische Mechanik, \(m\to 0\) liefert \(E=pc\) ohne Ruhezeit und Ruhélänge.</li>
+  </ul>
+
+  <!-- D.10: FAZIT -->
+  <h3>D.10 Kompaktfazit und Brücke zu Teil&nbsp;E/F</h3>
+  <div class="success">
+    <p>
+      Weltlinien und Eigenzeit führen zu Vierergeschwindigkeit; mit der invarianten Masse entsteht der Viererimpuls und die Energie-Impuls-Relation
+      \(E^2=(pc)^2+(mc^2)^2\). Die Formulierung mit Viererkräften garantiert Kovarianz, die elektromagnetische Kopplung erfolgt elegant über
+      den Faraday-Tensor. Invarianten wie \(P^2\) ermöglichen rahmenunabhängige Kinematik von Stößen und Zerfällen.
+    </p>
+    <p>
+      Der nächste Schritt, <strong>Teil&nbsp;E</strong>, schreibt die Elektrodynamik manifest kovariant (Feldinvarianten, Energie-Impuls-Tensor, Doppler/Aberration).
+      <strong>Teil&nbsp;F</strong> erweitert das Prinzip auf Gravitation: freie Bewegung als Geodäten in gekrümmter Raumzeit.
+    </p>
+  </div>
+
+  <div class="diagram">
+    (Skizzenideen: (1) Massenschale im \(p\)–\(E\)-Raum; (2) Hyperbeltrajektorie für konstante Eigenbeschleunigung;
+    (3) Vektorbild eines Zweikörper-Zerfalls im Schwerpunktssystem.)
+  </div>
+</section>
+<!-- Teil E – Kovariante Elektrodynamik (vollständig erklärt, zugänglich formuliert) -->
+<section id="teil-e-kovariante-elektrodynamik" class="content">
+  <h1>Teil E · Kovariante Elektrodynamik</h1>
+  <p>
+    Dieser Teil zeigt, wie sich die Elektrodynamik nahtlos in die spezielle Relativität einfügt: 
+    Maxwell-Gleichungen werden in Vierer- und Tensorform geschrieben, Felder <em>E</em> und <em>B</em> 
+    als Bestandteile eines Feldtensors verstanden, und Energie, Impuls sowie Strahlung über 
+    den Energie-Impuls-Tensor beschrieben. Alle Definitionen werden vor der Verwendung eingeführt.
+  </p>
+
+  <!-- E.0: KONVENTIONEN -->
+  <h3>E.0 Konventionen & Notation</h3>
+  <ul>
+    <li><strong>Lichtgeschwindigkeit im Vakuum:</strong> <em>c = 299&nbsp;792&nbsp;458 m/s</em> (exakt).</li>
+    <li><strong>Viererkoordinate:</strong> \(x^\mu=(ct,\,x,\,y,\,z)\), Metrik \(\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)\).</li>
+    <li><strong>Ableitungen:</strong> \(\partial_\mu \equiv \frac{\partial}{\partial x^\mu}=(\tfrac{1}{c}\partial_t,\,\nabla)\), 
+        D’Alembert-Operator \(\Box \equiv \partial_\mu\partial^\mu = \tfrac{1}{c^2}\partial_t^2-\nabla^2\).</li>
+    <li><strong>Viererstrom:</strong> \(J^\mu=(c\rho,\,\vec J)\) mit Ladungsdichte \(\rho\) und Stromdichte \(\vec J\).</li>
+    <li><strong>Viererpotential:</strong> \(A^\mu=(\tfrac{\phi}{c},\,\vec A)\) mit skalarem Potential \(\phi\) und Vektorpotential \(\vec A\).</li>
+  </ul>
+
+  <!-- E.1: MAXWELL IN 3-Vektor-Form -->
+  <h3>E.1 Maxwell-Gleichungen in Vektorform (SI)</h3>
+  <div class="formula">
+    \[
+      \begin{aligned}
+        &\nabla\cdot \vec E = \frac{\rho}{\varepsilon_0}, \qquad &&\nabla\cdot \vec B = 0,\\
+        &\nabla\times \vec E = -\,\frac{\partial \vec B}{\partial t}, \qquad &&
+        \nabla\times \vec B = \mu_0 \vec J + \mu_0\varepsilon_0\,\frac{\partial \vec E}{\partial t}.
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Die vier Gleichungen kodieren Ladungsquellen (<em>Gauss</em>), Nicht-Existenz isolierter magnetischer Ladungen,
+    Induktion (<em>Faraday</em>) und die Strom- plus Verschiebungsstromquelle (<em>Ampère–Maxwell</em>).
+    Im Vakuum gilt \(c=1/\sqrt{\mu_0\varepsilon_0}\) und elektromagnetische Wellen folgen daraus unmittelbar.
+  </p>
+
+  <!-- E.2: FELDTENSOR & DUAL -->
+  <h3>E.2 Feldtensor, Dual & Gewinn der Tensorform</h3>
+  <p>
+    Der Faraday-Feldtensor fasst \(\vec E\) und \(\vec B\) in einer einzigen geometrischen Größe zusammen:
+  </p>
+  <div class="formula">
+    \[
+      F_{\mu\nu} \;\equiv\; \partial_\mu A_\nu - \partial_\nu A_\mu
+      \;=\;
+      \begin{pmatrix}
+        0 & -E_x/c & -E_y/c & -E_z/c\\
+        E_x/c & 0 & -B_z & B_y\\
+        E_y/c & B_z & 0 & -B_x\\
+        E_z/c & -B_y & B_x & 0
+      \end{pmatrix}.
+    \]
+  </div>
+  <p>
+    Sein Hodge-Dual \(\tilde F^{\mu\nu} \equiv \tfrac{1}{2}\,\varepsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}\) tauscht die Rollen von \(\vec E\) und \(\vec B\) (bis auf Faktoren).
+    Unter Lorentz-Transformationen mischen sich \( \vec E \) und \( \vec B \) genau so, dass der Tensor als Ganzes kovariant bleibt.
+  </p>
+
+  <!-- E.3: MAXWELL KOMPAKT -->
+  <h3>E.3 Maxwell-Gleichungen in Tensorform (kompakt & kovariant)</h3>
+  <div class="formula">
+    \[
+      \boxed{\ \partial_\mu F^{\mu\nu} = \mu_0\,J^\nu\ }\qquad\text{und}\qquad
+      \boxed{\ \partial_{[\lambda}F_{\mu\nu]}=0\ } \;\;\;(\text{äquivalent: } \partial_\mu \tilde F^{\mu\nu}=0).
+    \]
+  </div>
+  <p>
+    Die erste Gleichung sind die <em>inhomogenen</em> Maxwell-Gleichungen (Quellen \(\rho,\vec J\)), 
+    die zweite die <em>homogenen</em> (Induktion und \(\nabla\cdot\vec B=0\)). 
+    Aus \(\partial_\nu\partial_\mu F^{\mu\nu}=0\) folgt automatisch die Kontinuitätsgleichung \(\partial_\mu J^\mu=0\) (Ladungserhaltung).
+  </p>
+
+  <!-- E.4: GAUGEFREIHEIT -->
+  <h3>E.4 Potentiale, Eichfreiheit & Lorenz-Eichung</h3>
+  <p>
+    Eine Eichtransformation \(A_\mu \to A_\mu + \partial_\mu \chi\) verändert \(F_{\mu\nu}\) nicht. 
+    In der <em>Lorenz</em>-Eichung (mit <em>z</em>): \(\partial_\mu A^\mu=0\) entkoppeln sich die Komponenten zu vier wellenartigen Gleichungen
+  </p>
+  <div class="formula">
+    \[
+      \Box A^\mu = -\,\mu_0\,J^\mu \qquad(\Box = \tfrac{1}{c^2}\partial_t^2-\nabla^2).
+    \]
+  </div>
+  <p>
+    Lösungen sind die <em>verzögerten Potentiale</em> (retarded potentials), die Kausalität explizit respektieren: 
+    Felder an einem Ort hängen von Quellen im Vergangenheitslichtkegel ab.
+  </p>
+
+  <!-- E.5: FELDTRANSFORMATIONEN -->
+  <h3>E.5 Transformation von \(\vec E\) und \(\vec B\)</h3>
+  <p>
+    Ein Boost mit Geschwindigkeit \(\vec v\) mischt elektrische und magnetische Felder. Zerlegt in parallel/orthogonal zur Boost-Richtung \(\hat v\):
+  </p>
+  <div class="formula">
+    \[
+      \begin{aligned}
+        &\vec E'_{\parallel} = \vec E_{\parallel}, \qquad &&\vec B'_{\parallel} = \vec B_{\parallel},\\
+        &\vec E'_{\perp} = \gamma\!\left(\vec E_{\perp} + \vec v \times \vec B\right), \qquad
+        &&\vec B'_{\perp} = \gamma\!\left(\vec B_{\perp} - \frac{1}{c^2}\,\vec v \times \vec E\right).
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Daraus wird sichtbar: was im einen System rein elektrisch ist, kann im anderen System teilweise magnetisch erscheinen – 
+    die Trennung in \(\vec E\) und \(\vec B\) ist beobachterabhängig, der Tensor \(F\) nicht.
+  </p>
+
+  <!-- E.6: FELDINVARIANTEN & FELDKLASSIFIKATION -->
+  <h3>E.6 Feldinvarianten & Klassifikation</h3>
+  <p>
+    Zwei skalare Kombinationen des Feldtensors sind in allen Inertialsystemen identisch:
+  </p>
+  <div class="formula">
+    \[
+      \mathcal I_1 \equiv F_{\mu\nu}F^{\mu\nu}\;\propto\; \bigl(E^2 - c^2 B^2\bigr), 
+      \qquad
+      \mathcal I_2 \equiv F_{\mu\nu}\tilde F^{\mu\nu}\;\propto\; \vec E\cdot \vec B.
+    \]
+  </div>
+  <ul>
+    <li>\(\mathcal I_2\neq 0\): Es existiert kein System, in dem das Feld rein elektrisch <em>oder</em> rein magnetisch ist.</li>
+    <li>\(\mathcal I_2=0\) und \(E^2>c^2B^2\): Es gibt ein System mit \(\vec B'=0\) (reines \(\vec E\)).</li>
+    <li>\(\mathcal I_2=0\) und \(E^2<c^2B^2\): Es gibt ein System mit \(\vec E'=0\) (reines \(\vec B\)).</li>
+    <li>\(\mathcal I_2=0\) und \(E^2=c^2B^2\) sowie \(\vec E\perp\vec B\): Ebenes Wellenfeld (reine Strahlung).</li>
+  </ul>
+
+  <!-- E.7: EBENE WELLEN -->
+  <h3>E.7 Ebenen Wellen im Vakuum</h3>
+  <p>
+    Im quellenfreien Raum (\(J^\mu=0\)) gilt \(\Box A^\mu=0\); ebene Wellenlösungen tragen Viererwellenvektor \(k^\mu=(\omega/c,\vec k)\) 
+    mit Lichtartigkeitsbedingung \(k_\mu k^\mu=0\). Felder sind transvers: 
+  </p>
+  <div class="formula">
+    \[
+      \vec k\cdot \vec E = 0,\qquad \vec k\cdot \vec B = 0,\qquad \vec B = \frac{1}{c}\,\hat k \times \vec E.
+    \]
+  </div>
+  <p>
+    Die Invarianten verschwinden: \(E^2-c^2B^2=0\) und \(\vec E\cdot \vec B=0\). 
+    Intensität und Energiefluss liefert der Poynting-Vektor \(\vec S=\frac{1}{\mu_0}\,\vec E\times \vec B\).
+  </p>
+
+  <!-- E.8: ENERGIE-IMPULS-TENSOR -->
+  <h3>E.8 Energie-Impuls-Tensor des elektromagnetischen Feldes</h3>
+  <p>
+    Energie- und Impulsdichten, Flüsse und Druckkräfte werden durch den symmetrischen Tensor
+  </p>
+  <div class="formula">
+    \[
+      T^{\mu\nu} = \frac{1}{\mu_0}\left(F^{\mu\lambda}F^{\nu}{}_{\lambda} - \frac{1}{4}\,\eta^{\mu\nu}\,F^{\alpha\beta}F_{\alpha\beta}\right)
+    \]
+  </div>
+  <p>
+    beschrieben. Seine Divergenz liefert die Feld–Materie-Kopplung:
+  </p>
+  <div class="formula">
+    \[
+      \partial_\mu T^{\mu\nu} = -\,F^{\nu\lambda}J_\lambda.
+    \]
+  </div>
+  <ul>
+    <li><strong>Energiedichte:</strong> \(u=\tfrac12\bigl(\varepsilon_0 E^2 + \tfrac{1}{\mu_0}B^2\bigr)\).</li>
+    <li><strong>Poynting-Vektor:</strong> \(\vec S=\tfrac{1}{\mu_0}\,\vec E\times \vec B\) (Energieflussdichte).</li>
+    <li><strong>Impulsdichte:</strong> \(\vec g = \vec S/c^2\); <strong>Strahlungsdruck:</strong> \(P_{\rm rad}= u\) (voll absorbierend) bzw. \(2u\) (voll reflektierend) auf Fläche senkrecht zur Welle.</li>
+  </ul>
+  <p>
+    Integriert man \(\partial_\mu T^{\mu\nu}\) über ein Volumen, entstehen die Lorentz-Kraftdichte \(\vec f=\rho \vec E + \vec J\times \vec B\) 
+    sowie die Arbeit pro Zeit \(\vec J\cdot\vec E\) an der Materie (Poynting-Theorem).
+  </p>
+
+  <!-- E.9: BESCHLEUNIGTE LADUNGEN & STRAHLUNG -->
+  <h3>E.9 Beschleunigte Ladungen & Strahlung</h3>
+  <p>
+    Zeitlich veränderliche Ströme erzeugen Strahlung. Für ein Punktteilchen mit Ladung \(q\), Geschwindigkeit \(\vec v\) und Beschleunigung \(\vec a\) 
+    liefert die relativistische Liénard-Formel (SI) die abgestrahlte Leistung:
+  </p>
+  <div class="formula">
+    \[
+      P \;=\; \frac{\mu_0\,q^2\,\gamma^6}{6\pi\,c}\left(a^2 - \frac{(\vec v\times \vec a)^2}{c^2}\right),
+      \qquad \gamma=\frac{1}{\sqrt{1-\tfrac{v^2}{c^2}}}.
+    \]
+  </div>
+  <p>
+    Im Grenzfall \(v\ll c\) reduziert sich dies zur Larmor-Formel \(P=\frac{\mu_0 q^2 a^2}{6\pi c}\).
+    Die Felder beschleunigter Ladungen folgen aus den <em>verzögerten</em> Liénard–Wiechert-Potentialen (kausale Abhängigkeit).
+  </p>
+
+  <!-- E.10: GRENZFLÄCHEN, MEDIEN (Kurzüberblick) -->
+  <h3>E.10 Grenzflächen & Medien (Kurzüberblick)</h3>
+  <p>
+    An Materialgrenzen führen die Integralsätze zu Sprungbedingungen (ohne freie Oberflächenladungs/-stromdichte):
+    \([\,\hat n\cdot \vec D\,]=\sigma_{\rm frei}\), \([\,\hat n\cdot \vec B\,]=0\), 
+    \([\,\hat n\times \vec E\,]=0\), \([\,\hat n\times \vec H\,]=\vec K_{\rm frei}\).
+    In linearen, isotropen Medien gelten \(\vec D=\varepsilon \vec E\), \(\vec B=\mu \vec H\), 
+    wodurch sich die Phasengeschwindigkeit \(v_{\rm ph}=1/\sqrt{\mu\varepsilon}\) ändert.
+  </p>
+
+  <!-- E.11: TYPISCHE STOLPERSTEINE -->
+  <h3>E.11 Typische Stolpersteine & Konsistenzchecks</h3>
+  <ul>
+    <li><strong>Lorenz- vs. Lorentz-:</strong> Die <em>Lorenz</em>-Eichung (L. Lorenz) nicht mit <em>Lorentz</em>-Transformation verwechseln.</li>
+    <li><strong>Einheiten & Vorzeichen:</strong> SI-Faktoren (\(\varepsilon_0,\mu_0,c\)) sauber führen; Metrik \((+,-,-,-)\) konsistent halten.</li>
+    <li><strong>E/B-Trennung:</strong> Beobachterabhängig; Entscheidungen stets über den Tensor \(F\) und Invarianten absichern.</li>
+    <li><strong>Kausalität:</strong> Nur verzögerte Lösungen (retarded) verwenden; keine fortgeschrittenen (advanced) für physikalische Felder.</li>
+  </ul>
+
+  <!-- E.12: FAZIT -->
+  <h3>E.12 Kompaktfazit & Brücke zu Teil&nbsp;F</h3>
+  <div class="success">
+    <p>
+      Maxwell-Gleichungen werden in der Sprache der speziellen Relativität elegant und kurz:
+      \( \partial_\mu F^{\mu\nu}=\mu_0 J^\nu \) und \( \partial_{[\lambda}F_{\mu\nu]}=0 \).
+      Das Feld \(F\) ist die beobachterunabhängige Größe; \(\vec E\) und \(\vec B\) sind dessen Projektionen.
+      Energie- und Impulsflüsse sind im Tensor \(T^{\mu\nu}\) vereint; seine Divergenz koppelt Felder an Materie.
+      Invarianten klassifizieren Felder frame-unabhängig; ebene Wellen sind lichtartig, transversal und tragen Energie/Impuls.
+    </p>
+    <p>
+      In <strong>Teil&nbsp;F</strong> verallgemeinern wir das Kovarianzprinzip auf die Gravitation:
+      freie Bewegung folgt Geodäten einer gekrümmten Raumzeit, und in schwachen Feldern taucht die Newton-Dynamik als Näherung wieder auf.
+    </p>
+  </div>
+
+  <div class="diagram">
+    (Skizze-Ideen: (1) Blockdiagramm „Quellen → A → F → T“; (2) E/B-Mischung bei Boost; (3) Lichtkegel mit ebenen Wellen \(k^\mu k_\mu=0\).)
+  </div>
+</section>
+<!-- Teil F – Allgemeine Relativität & relativistische Himmelsmechanik (klar, vollständig, zugänglich) -->
+<section id="teil-f-gravitation-art" class="content">
+  <h1>Teil F · Allgemeine Relativitätstheorie & relativistische Himmelsmechanik</h1>
+  <p>
+    Dieser Teil ersetzt das newtonsche Kraftbild der Gravitation durch ein <em>geometrisches</em> Bild:
+    freie Bewegung folgt <strong>Geodäten</strong> einer gekrümmten Raumzeit. Daraus ergeben sich – im passenden Grenzfall –
+    Newtons Gravitation, und darüber hinaus präzise Vorhersagen wie Perihelpräzession, Lichtablenkung,
+    Shapiro-Laufzeit, gravitative Rotverschiebung, Frame-Dragging, Lensing und Gravitationswellen.
+    Alle verwendeten Größen werden zuerst sauber eingeführt.
+  </p>
+
+  <!-- F.0: KONVENTIONEN & GRUNDIDEEN -->
+  <h3>F.0 Konventionen & Grundideen</h3>
+  <ul>
+    <li><strong>Lichtgeschwindigkeit im Vakuum:</strong> <em>c = 299&nbsp;792&nbsp;458 m/s</em> (exakt).</li>
+    <li><strong>Gravitationskonstante:</strong> \(G\) (SI: \(6{,}674\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\)).</li>
+    <li><strong>Viererkoordinate &amp; Metrik:</strong> \(x^\mu=(ct,x,y,z)\), \(\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)\) in flacher Raumzeit.
+      In gekrümmter Raumzeit ersetzt ein <em>Metriktensor</em> \(g_{\mu\nu}(x)\) die Minkowski-Metrik.</li>
+    <li><strong>Linienelement:</strong> 
+      <div class="formula">\[
+        ds^2 = g_{\mu\nu}(x)\,dx^\mu dx^\nu.
+      \]</div>
+      Für zeitartige Weltlinien definiert \(d\tau=\frac{1}{c}\sqrt{ds^2}\) die Eigenzeit einer Uhr.</li>
+    <li><strong>Äquivalenzprinzip:</strong> In genügend kleinen Raumzeitbereichen sind freie Fallversuche ununterscheidbar von Inertialsystemen ohne Gravitation.
+      Damit wird Gravitation lokal „wegtransformierbar“ und als <em>Krümmung</em> der Raumzeit verstanden.</li>
+  </ul>
+
+  <!-- F.1: GEODÄTEN & CHRISTOFFEL -->
+  <h3>F.1 Freie Bewegung als Geodäten</h3>
+  <p>
+    Freifall folgt Kurven, die Eigenzeit extremisieren. Daraus entstehen die <em>Geodätengleichungen</em> mit Christoffel-Symbolen
+    \(\Gamma^\mu{}_{\alpha\beta}\), die aus der Metrik berechnet werden:
+  </p>
+  <div class="formula">
+    \[
+      \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu{}_{\alpha\beta}(x)\,\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau} = 0,\qquad
+      \Gamma^\mu{}_{\alpha\beta} = \tfrac12 g^{\mu\lambda}\big(\partial_\alpha g_{\lambda\beta}+\partial_\beta g_{\lambda\alpha}-\partial_\lambda g_{\alpha\beta}\big).
+    \]
+  </div>
+  <p>
+    In lokalen frei-fallenden Koordinaten verschwinden \(\Gamma^\mu{}_{\alpha\beta}\) am Expansionspunkt, global jedoch nicht – die Restterme kodieren Krümmung.
+  </p>
+
+  <!-- F.2: KRÜMMUNG & EINSTEIN-GLEICHUNG -->
+  <h3>F.2 Krümmung & Einsteins Feldgleichungen</h3>
+  <p>
+    Die Raumzeitkrümmung wird durch den Riemann-Tensor \(R^\rho{}_{\sigma\mu\nu}\), den Ricci-Tensor \(R_{\mu\nu}\) und den Skalar \(R\) beschrieben.
+    Aus ihnen bildet sich der Einstein-Tensor \(G_{\mu\nu}\equiv R_{\mu\nu}-\tfrac12 g_{\mu\nu}R\).
+    Materie und Felder tragen den Energie-Impuls-Tensor \(T_{\mu\nu}\).
+  </p>
+  <div class="formula">
+    \[
+      \boxed{\,G_{\mu\nu} + \Lambda\,g_{\mu\nu} \;=\; \frac{8\pi G}{c^4}\,T_{\mu\nu}\,}
+    \]
+  </div>
+  <p>
+    Die Bianchi-Identitäten (\(\nabla_\mu G^{\mu\nu}=0\)) implizieren \(\nabla_\mu T^{\mu\nu}=0\) (Energie-Impuls-Erhaltung).
+    \(\Lambda\) ist die kosmologische Konstante (in der Himmelsmechanik meist \(\Lambda=0\)).
+  </p>
+
+  <!-- F.3: NEWTON-GRENZE & SCHWACHES FELD -->
+  <h3>F.3 Schwaches Feld & Newton-Grenze (Post-Newton-Ansatz)</h3>
+  <p>
+    Für langsame Bewegungen \((v\ll c)\) und schwache Felder \((|\Phi|/c^2\ll 1)\) reicht eine metrische Störung:
+  </p>
+  <div class="formula">
+    \[
+      g_{00} \approx 1 + \frac{2\Phi}{c^2},\qquad
+      g_{0i} \approx 0,\qquad
+      g_{ij} \approx -\Big(1 - 2\gamma\,\frac{\Phi}{c^2}\Big)\delta_{ij}.
+    \]
+  </div>
+  <p>
+    Setzt man dies in die Feldgleichungen ein, folgt im führenden Ordnungs­term die Poisson-Gleichung \(\nabla^2\Phi=4\pi G\rho\).
+    Die Zeitdilatation im Potential \(\Phi\) lautet
+  </p>
+  <div class="formula">
+    \[
+      d\tau \;\approx\; dt\,\sqrt{\,1+\frac{2\Phi}{c^2} - \frac{v^2}{c^2}\,}\;\approx\; dt\left(1+\frac{\Phi}{c^2}-\frac{v^2}{2c^2}\right),
+    \]
+  </div>
+  <p>
+    und die gravitative Rotverschiebung \(\Delta\nu/\nu \approx -\Delta\Phi/c^2\).
+    In der <em>parametrisierten post-newtonschen</em> (PPN) Darstellung testen Parameter wie \(\gamma\) und \(\beta\) Abweichungen von GR (in GR gilt \(\gamma=\beta=1\)).
+  </p>
+
+  <!-- F.4: SCHWARZSCHILD-GEOMETRIE -->
+  <h3>F.4 Schwarzschild-Geometrie (sphärisch symmetrische, nicht-rotierende Masse)</h3>
+  <p>
+    Außerhalb einer ruhenden, kugelsymmetrischen Masse \(M\) ist die Raumzeit <em>vakuum</em>-lösbar mit der Schwarzschild-Metrik:
+  </p>
+  <div class="formula">
+    \[
+      ds^2 = \left(1-\frac{r_s}{r}\right)c^2 dt^2 - \left(1-\frac{r_s}{r}\right)^{-1} dr^2 - r^2(d\theta^2+\sin^2\theta\,d\varphi^2),
+      \qquad r_s\equiv \frac{2GM}{c^2}.
+    \]
+  </div>
+  <ul>
+    <li><strong>Gravitatives Potential & Zeitdilatation:</strong> Eine Uhr in größerem \(r\) läuft schneller als eine näher am Zentrum:
+      \(d\tau = \sqrt{1-\tfrac{r_s}{r}}\,dt\) (für ruhende Uhren).</li>
+    <li><strong>Effektives Potential (Geodäten):</strong> Für Testteilchen in der Äquatorebene \((\theta=\pi/2)\) erhält man ein 1D-Problem mit
+      relativistischer Korrektur zum Newton-Potential; stabile Kreisbahnen existieren nur für \(r>r_{\mathrm{ISCO}}=3\,r_s\) (massive Teilchen: \(r_{\mathrm{ISCO}}=6GM/c^2\)).</li>
+    <li><strong>Perihelpräzession (Ellipse dreht sich):</strong> Für schwach exzentrische Bahnen:
+      <div class="formula">\[
+        \Delta\omega_{\text{pro Orbit}} \;=\; \frac{6\pi GM}{a(1-e^2)\,c^2}.
+      \]</div></li>
+    <li><strong>Lichtablenkung:</strong> Ein Strahl mit Nahpassage-Parameter \(b\) wird um
+      <div class="formula">\[
+        \hat\alpha \;=\; \frac{4GM}{b\,c^2}
+      \]</div>
+      abgelenkt (in PPN proportional zu \(1+\gamma\)).</li>
+    <li><strong>Shapiro-Laufzeit:</strong> Zusätzliche Verzögerung eines Signals, das nahe an einer Masse vorbeiläuft:
+      <div class="formula">\[
+        \Delta t \ \approx\ \frac{2GM}{c^3}\,\ln\!\left(\frac{4\,r_E r_S}{b^2}\right)\!,
+      \]</div>
+      mit Sender-/Empfängerabständen \(r_S,r_E\) und Impact-Parameter \(b\).</li>
+    <li><strong>Photonensphäre & Horizont:</strong> Licht kann instabile Kreisbahnen bei \(r=1{,}5\,r_s\) einnehmen; der Ereignishorizont liegt bei \(r=r_s\).</li>
+  </ul>
+
+  <!-- F.5: KERR & FRAME-DRAGGING -->
+  <h3>F.5 Drehung: Kerr-Geometrie & Frame-Dragging</h3>
+  <p>
+    Rotierende Massen „ziehen“ Raumzeit mit. In der Kerr-Lösung (Parameter \(a\equiv J/(Mc)\)) treten gemischte Zeit–Winkel-Terme \(g_{t\varphi}\) auf,
+    die zu Drehimpuls-gekoppelten Präzessionen führen.
+  </p>
+  <ul>
+    <li><strong>Lense–Thirring-Präzession (weit draußen):</strong> Für Bahnradius \(r\) um ein Objekt mit Drehimpuls \(J\)
+      <div class="formula">\[
+        \boldsymbol{\Omega}_{\!LT} \;=\; \frac{2G\,\mathbf J}{c^2\,r^3}.
+      \]</div>
+      Bahn- und Gyroskopachsen präzedieren um \(\boldsymbol{\Omega}_{LT}\).</li>
+    <li><strong>Ergosphäre & Energiegewinn:</strong> Innerhalb der Ergosphäre (außerhalb des Horizonts) sind statische Beobachter unmöglich;
+      Energieentnahme (Penrose-Prozess) ist prinzipiell möglich (Astrophysik: Jets).</li>
+  </ul>
+
+  <!-- F.6: RELATIVISTISCHE HIMMELSMECHANIK – VOM MODELL ZUR ANWENDUNG -->
+  <h3>F.6 Relativistische Himmelsmechanik: Modellierung & Anwendungen</h3>
+  <ul>
+    <li><strong>Post-Newtonsche Bahnen:</strong> Start mit Kepler-Elementen, Ergänzung um pN-Korrekturen (Perizentrumsdrehung, Zeitdilatation, Shapiro-Term).
+      Praktisch: Integration in Baryzentrumskoordinaten (ICRF/TCB) mit konsistenten Zeitskalen (TT/TCG/TDB).</li>
+    <li><strong>GPS & Zeitskalen:</strong> Satellitenuhren erfahren gravitative <em>und</em> kinematische Effekte.
+      Korrekturen werden vorab (Design) und in Echtzeit (Steuersegment) berücksichtigt; ohne SRT/ART-Modelle wäre Navigation ungenau.</li>
+    <li><strong>Lensing:</strong> Schwacher Linseneffekt (Galaxienhaufen) bis starker Lensing (Einsteinringe, Mehrfachbilder) folgt aus Geodäten des Lichts in gekrümmter Raumzeit.</li>
+    <li><strong>Dynamik nah an Kompakten:</strong> ISCO, Perizentrumsvorstoß und Frame-Dragging bestimmen Akretionsscheiben, QPOs und Pulsar-Timings.</li>
+  </ul>
+
+  <!-- F.7: GRAVITATIONSWELLEN (ÜBERBLICK) -->
+  <h3>F.7 Gravitationswellen (linearisiert)</h3>
+  <p>
+    Kleine Störungen \(h_{\mu\nu}\) um die Minkowski-Metrik (\(g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}\), \(|h|\ll 1\)) erfüllen im Vakuum Wellengleichungen.
+    In transversaler-traceloser Eichung (TT) breiten sich zwei Polarisationen \((h_+,h_\times)\) mit Lichtgeschwindigkeit aus.
+    Astrophysikalische Quellen sind beschleunigte Massenverteilungen mit <em>Quadrupolmoment</em> (Doppelsterne, Verschmelzungen kompakter Objekte).
+  </p>
+  <div class="formula">
+    \[
+      \Box\,\bar h_{\mu\nu} \;=\; -\,\frac{16\pi G}{c^4}\,T_{\mu\nu}\ \ \Rightarrow\ \ 
+      h \sim \frac{G}{c^4}\,\frac{\ddot Q}{R},
+    \]
+  </div>
+  <p>
+    Wellen tragen Energie/Impuls; Energieverlust führt zu Bahnschrumpfung in kompakten Binärsystemen (pN-Strahlungsrückwirkung).
+  </p>
+
+  <!-- F.8: TYPISCHE FALLSTRICKE -->
+  <h3>F.8 Typische Fallstricke & Konsistenzchecks</h3>
+  <ul>
+    <li>„Gravitation ist Kraft“: In ART wirkt keine Kraft im Freifall; Abweichungen von Geraden entstehen durch Krümmung (Geodäten).</li>
+    <li>Koordinaten vs. Invarianten: Aussagen über Zeitdilatation, Längen, Geschwindigkeiten stets mit Eigenzeit/Proper-Abständen prüfen.</li>
+    <li>Zeitskalen & Bezugssysteme: TT, TCG, TCB/TDB unterscheiden; erdfeste (ITRF) vs. inertiale (ICRF) Rahmen korrekt transformieren.</li>
+    <li>pN-Ordnung: Effekte konsistent bis zur benötigten Ordnung (1pN, 1.5pN …) führen; gemittelte vs. oskulierende Elemente nicht verwechseln.</li>
+  </ul>
+
+  <!-- F.9: FORMELSAMMLUNG (KERNE) -->
+  <h3>F.9 Kerngleichungen auf einen Blick</h3>
+  <ul>
+    <li>Einstein: \(G_{\mu\nu}+\Lambda g_{\mu\nu}=\dfrac{8\pi G}{c^4}T_{\mu\nu}\), \(\ \nabla_\mu T^{\mu\nu}=0\).</li>
+    <li>Geodäten: \(\dfrac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu{}_{\alpha\beta}\dfrac{dx^\alpha}{d\tau}\dfrac{dx^\beta}{d\tau}=0\).</li>
+    <li>Schwarzschild: \(ds^2=\big(1-\tfrac{r_s}{r}\big)c^2dt^2-\big(1-\tfrac{r_s}{r}\big)^{-1}dr^2-r^2 d\Omega^2\), \(r_s=2GM/c^2\).</li>
+    <li>Perihelvorstoß: \(\Delta\omega= \dfrac{6\pi GM}{a(1-e^2)c^2}\) pro Umlauf.</li>
+    <li>Lichtablenkung: \(\hat\alpha=\dfrac{4GM}{b c^2}\) (GR; PPN \(\propto 1+\gamma\)).</li>
+    <li>Shapiro-Delay: \(\Delta t \approx \dfrac{2GM}{c^3}\ln\!\big(\tfrac{4r_E r_S}{b^2}\big)\).</li>
+    <li>Lense–Thirring: \(\boldsymbol{\Omega}_{LT}=\dfrac{2G\mathbf J}{c^2 r^3}\).</li>
+    <li>pN-Zeitdilatation: \(d\tau \approx dt\,\sqrt{1+\tfrac{2\Phi}{c^2}-\tfrac{v^2}{c^2}}\).</li>
+  </ul>
+
+  <!-- F.10: FAZIT -->
+  <h3>F.10 Kompaktfazit & Brücke zum weiteren Ausbau</h3>
+  <div class="success">
+    <p>
+      Gravitation ist Geometrie: Materie/Strahlung bestimmen über \(T_{\mu\nu}\) die Krümmung \(G_{\mu\nu}\), und Geodäten bestimmen die Bewegung.
+      Im schwachen Feld erscheint Newton als Grenzfall; darüber hinaus erklärt die ART präzise alle getesteten Präzisionseffekte 
+      der Himmelsmechanik und Strahlung. Für reale Bahnberechnungen kombiniert man Kepler-Dynamik mit systematischen pN-Korrekturen
+      und konsistenten Zeit-/Rahmen-Transformationen.
+    </p>
+    <p>
+      Nächste Ausbaustufen (optional): detaillierte pN-Entwicklung (bis 2pN/3pN), Kerr-Geodäten, Lensing-Rechnung (Fermat-Potential),
+      Gravitationswellen-Phasing und Parameter­schätzung in Binärsystemen.
+    </p>
+  </div>
+
+  <div class="diagram">
+    (Skizzenideen: (1) Krümmungsvisualisierung über Geodätenbündel; (2) effektives Potential in Schwarzschild (ISCO, Photonensphäre);
+    (3) Lensing-Geometrie mit Einsteinradius; (4) Frame-Dragging-Vektorfeld um rotierende Masse.)
+  </div>
+</section>
+
+<!-- Teil G – Post-Newtonsche Näherungen & Präzisionstests -->
+<section id="teil-g-post-newton" class="content">
+  <h1>Teil G · Post-Newtonsche Näherungen & Präzisionstests</h1>
+  <p>
+    Dieser Teil verbindet die allgemeine Relativität (Geometrie) mit präziser Bahndynamik in schwachen Feldern und bei
+    niedrigen Geschwindigkeiten. Dazu werden systematische Korrekturen zur newtonschen Mechanik entwickelt
+    (post-newtonsche, pN, Reihen) und an Messungen geprüft. Konventionen: Lichtgeschwindigkeit im Vakuum
+    <strong>c = 299&nbsp;792&nbsp;458 m/s</strong> (exakt), Gravitationskonstante <strong>G</strong>, Metrik-Signatur
+    \(\eta=\mathrm{diag}(+,-,-,-)\).
+  </p>
+
+  <h3>G.0 Grundstruktur der pN-Entwicklung</h3>
+  <p>
+    Die pN-Entwicklung ist eine <em>Doppelentwicklung</em> in kleinen Parametern:
+    \(|\Phi|/c^2 \ll 1\) (schwaches Feld) und \(v^2/c^2 \ll 1\) (langsamer als Licht).
+    Größen werden ordnungsweise ergänzt: \( \mathcal O(c^{-2}) \) (1pN), \( \mathcal O(c^{-3}) \) (1.5pN, z.&nbsp;B. Strahlungsrückwirkung),
+    \( \mathcal O(c^{-4}) \) (2pN), usw.
+  </p>
+
+  <h3>G.1 pN-Metrik & PPN-Parameter</h3>
+  <p>
+    Für isolierte Systeme im schwachen Feld lässt sich die Raumzeit durch eine gestörte Metrik mit
+    <em>parametrisierter post-newtonscher</em> (PPN) Struktur schreiben. Zwei zentrale PPN-Parameter sind
+    \(\gamma\) (Krümmung pro Einheit Potential) und \(\beta\) (Nichtlinearität der Superposition).
+    In der Einsteinschen GR gilt \(\gamma=\beta=1\).
+  </p>
+  <div class="formula">
+    \[
+      \begin{aligned}
+      g_{00} &= 1 - \frac{2U}{c^2} + \frac{2\beta\,U^2}{c^4} + \mathcal O(c^{-6}),\\
+      g_{0i} &= -\,\frac{2(1+\gamma)}{c^3}\,V_i + \mathcal O(c^{-5}),\\
+      g_{ij} &= -\left(1 + \frac{2\gamma U}{c^2}\right)\delta_{ij} + \mathcal O(c^{-4}),
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Hier ist \(U(\mathbf r)\) das Newton-Potential, \(V_i\) ein gravitomagnetischer Potentialterm (Massenströme).
+  </p>
+
+  <h3>G.2 Gleichungen der Bewegung bis 1pN (N-Körper, konservativ)</h3>
+  <p>
+    Für ein System aus Punktmassen \(m_a\) ergibt sich die Beschleunigung von Körper \(A\) bis \(\mathcal O(c^{-2})\) aus
+    Newton plus relativistischen Korrekturen (schematisch):
+  </p>
+  <div class="formula">
+    \[
+      \mathbf a_A = -\sum_{B\neq A}\frac{G m_B}{r_{AB}^3}\,\mathbf r_{AB}
+      \Bigg[
+        1 - \frac{1}{c^2}\big(\alpha_{AB}\,v_A^2 + \beta_{AB}\,v_B^2 + \chi_{AB}\,\mathbf v_A\!\cdot\!\mathbf v_B
+        + \delta_{AB}\,\frac{G m_A}{r_{AB}} + \epsilon_{AB}\,\frac{G m_B}{r_{AB}}\big)
+      \Bigg]
+      + \mathcal O(c^{-4}),
+    \]
+  </div>
+  <p>
+    wobei \( \mathbf r_{AB}=\mathbf r_A-\mathbf r_B \), \( r_{AB}=|\mathbf r_{AB}| \) und die Koeffizienten
+    \(\alpha_{AB},\beta_{AB},\chi_{AB},\delta_{AB},\epsilon_{AB}\) von der zugrunde liegenden Theorie (PPN-Parameter) abhängen.
+    Dissipative 1.5pN-Terme beschreiben <em>Strahlungsrückwirkung</em> (Energieverlust durch Gravitationswellen) in Binärsystemen.
+  </p>
+
+  <h3>G.3 Bahn-Elemente & säkulare Effekte</h3>
+  <p>
+    In der 1pN-Näherung dreht sich die Periapsis einer elliptischen Bahn säkular vor:
+  </p>
+  <div class="formula">
+    \[
+      \Delta\omega_{\text{pro Umlauf}} = \frac{6\pi G M}{a(1-e^2)\,c^2},
+    \]
+  </div>
+  <p>
+    mit Zentralmasse \(M\), großer Halbachse \(a\) und Exzentrizität \(e\). Für Licht (Nullgeodäten) ergibt sich in
+    der PPN-Formulierung ein Ablenkwinkel
+  </p>
+  <div class="formula">
+    \[
+      \hat\alpha = (1+\gamma)\,\frac{2GM}{b\,c^2},
+    \]
+  </div>
+  <p>
+    der in GR zu \(\hat\alpha=4GM/(b c^2)\) wird (\(\gamma=1\)); \(b\) ist der Impact-Parameter. Zeitverzögerungen in
+    Radarsignalen werden durch den Shapiro-Term (logarithmisch in der Näherung) modelliert.
+  </p>
+
+  <h3>G.4 Präzisionstests (Überblick der Messklassen)</h3>
+  <ul>
+    <li><strong>Lichtablenkung &amp; Lensing:</strong> Bestimmung von \(\gamma\), Massenprofile, Mehrfachbilder/Einteilung schwach–stark.</li>
+    <li><strong>Shapiro-Laufzeit:</strong> Verzögerung von Signalen nahe massereichen Objekten; Test von \(\gamma\).</li>
+    <li><strong>Periapsis-Vorstoß:</strong> Planetarische Perihel-Drifts, Sterne nah an kompakten Objekten (S-Sterne).</li>
+    <li><strong>Gravitative Rotverschiebung:</strong> Frequenzverschiebung zwischen Uhren auf unterschiedlichen Potentialniveaus.</li>
+    <li><strong>Binärpulsare / Kompakte Binärsysteme:</strong> pN- und Strahlungstests (Energieverlust, Periastron-Vorstoß, Shapiro innerhalb des Systems).</li>
+    <li><strong>Satelliten-/GNSS-Modelle:</strong> Kombination aus kinematischer und gravitativer Zeitdilatation + J2, SRP, Drag.</li>
+  </ul>
+
+  <h3>G.5 Praxisformeln: Zusätzliche Beschleunigungen</h3>
+  <ul>
+    <li><strong>J2 (Abplattung)–Beschleunigung (Zentralmasse \(M\), Äquatorradius \(R\)):</strong>
+      <div class="formula">
+        \[
+          \mathbf a_{J2} = \frac{3J_2 GM R^2}{2 r^5}
+          \begin{pmatrix}
+            x \left(1 - 5\frac{z^2}{r^2}\right)\\
+            y \left(1 - 5\frac{z^2}{r^2}\right)\\
+            z \left(3 - 5\frac{z^2}{r^2}\right)
+          \end{pmatrix}.
+        \]
+      </div>
+    </li>
+    <li><strong>Sonnenstrahlungsdruck (SRP, einfache Kugel, „C<sub>R</sub>“):</strong>
+      <div class="formula">
+        \[
+          \mathbf a_{\text{SRP}} = C_R\,\frac{P_\odot A}{m}\left(\frac{r_0}{r}\right)^2\,\hat{\mathbf s},
+        \]
+      </div>
+      mit effektiver Fläche \(A\), Masse \(m\), Solarkonstante \(P_\odot\), Richtung \(\hat{\mathbf s}\) zur Sonne.</li>
+    </ul>
+
+  <h3>G.6 Zeit- und Rahmenkonsistenz</h3>
+  <p>
+    Für pN-Präzision müssen Zeitskalen (TT, TAI, UTC, TCB, TDB) und Bezugssysteme (baryzentrisch vs. erdfest) konsistent geführt werden.
+    Uhrenkorrekturen enthalten kinematische (\(v^2/2c^2\)) und gravitative (\(\Phi/c^2\)) Beiträge, die auf den jeweiligen Bahnpunkt bezogen sind.
+  </p>
+
+  <div class="diagram">
+    (Skizze-Ideen: PPN-„Pipeline“: Metrik → Geodäten → säkulare Drift; Perihelvorstoß & Lichtablenkung schematisch.)
+  </div>
+</section>
+
+
+
+<!-- Teil H – Kosmologie (FLRW, Friedmann-Gleichungen, Entfernungen, Rotverschiebung) -->
+<section id="teil-h-kosmologie" class="content">
+  <h1>Teil H · Kosmologie</h1>
+  <p>
+    Die großskalige Struktur des Universums lässt sich mit einer homogenen und isotropen Geometrie modellieren.
+    Unter dieser Annahme ergibt sich die FLRW-Metrik; ihre Dynamik wird von den Friedmann-Gleichungen bestimmt.
+    Zentral sind die Expansion (Hubble-Parameter), die Energiebudgets (Strahlung, Materie, Dunkle Energie) und
+    beobachtbare Größen wie Rotverschiebung und Distanzmaße.
+  </p>
+
+  <h3>H.0 FLRW-Metrik</h3>
+  <div class="formula">
+    \[
+      ds^2 = c^2 dt^2 - a(t)^2\left[\frac{dr^2}{1-k r^2} + r^2(d\theta^2 + \sin^2\theta\,d\varphi^2)\right],
+    \]
+  </div>
+  <p>
+    Der Skalenfaktor \(a(t)\) beschreibt die Expansion; die Krümmung \(k\in\{-1,0,+1\}\) steht für offen, flach, geschlossen.
+  </p>
+
+  <h3>H.1 Friedmann-Gleichungen (mit Zustandsgleichung)</h3>
+  <div class="formula">
+    \[
+      \begin{aligned}
+        H^2 &\equiv \left(\frac{\dot a}{a}\right)^2 = \frac{8\pi G}{3}\rho - \frac{k c^2}{a^2} + \frac{\Lambda c^2}{3},\\[4pt]
+        \frac{\ddot a}{a} &= -\frac{4\pi G}{3}\left(\rho + \frac{3p}{c^2}\right) + \frac{\Lambda c^2}{3},\\[4pt]
+        \dot\rho &+ 3H\left(\rho + \frac{p}{c^2}\right)=0.
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Für Fluide mit \(p=w\rho c^2\) skaliert die Energiedichte als \(\rho \propto a^{-3(1+w)}\):
+    Strahlung \(w=\tfrac{1}{3}\Rightarrow \rho\sim a^{-4}\), Materie \(w=0\Rightarrow \rho\sim a^{-3}\), Dunkle Energie \(w=-1\Rightarrow \rho=\mathrm{const}\).
+  </p>
+
+  <h3>H.2 Rotverschiebung & Distanzmaße</h3>
+  <p>
+    Kosmologische Rotverschiebung ist \(1+z=\dfrac{a_0}{a_{\rm em}}\).
+    Für eine Emission bei Zeit \(t_{\rm em}\) und Beobachtung \(t_0\) gilt \(a(t_{\rm em}) = a_0/(1+z)\).
+  </p>
+  <div class="formula">
+    \[
+      \chi(z)=\int_{0}^{z}\frac{c\,dz'}{H(z')},\qquad
+      D_M = 
+      \begin{cases}
+        \frac{c}{H_0}\frac{1}{\sqrt{\Omega_k}}\sinh\!\left(\sqrt{\Omega_k}\,H_0\chi/c\right),& \Omega_k>0\\[4pt]
+        \chi,& \Omega_k=0\\[4pt]
+        \frac{c}{H_0}\frac{1}{\sqrt{|\Omega_k|}}\sin\!\left(\sqrt{|\Omega_k|}\,H_0\chi/c\right),& \Omega_k<0
+      \end{cases}
+    \]
+  </div>
+  <p>
+    Mit transversaler Komoving-Distanz \(D_M\) lauten Helligkeits- und Winkeldistanzen:
+    \(D_L=(1+z)\,D_M\) und \(D_A=\dfrac{D_M}{1+z}\).
+  </p>
+
+  <h3>H.3 Zusammensetzung von \(H(z)\)</h3>
+  <div class="formula">
+    \[
+      H(z)=H_0\sqrt{\Omega_r(1+z)^4 + \Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda},
+    \]
+  </div>
+  <p>
+    Die \(\Omega\)-Parameter sind Dichteparameter relativ zur kritischen Dichte \(\rho_c=3H_0^2/(8\pi G)\).
+  </p>
+
+  <h3>H.4 Beobachtungen – Brückenschlag</h3>
+  <ul>
+    <li><strong>Supernovae (Ia):</strong> Helligkeitsdistanzen \(D_L(z)\) → Expansion.</li>
+    <li><strong>BAO:</strong> Standardmaßstäbe in der Galaxienverteilung → Geometrie &amp; Wachstum.</li>
+    <li><strong>CMB:</strong> Akustische Peaks → Anfangsbedingungen, \(\Omega\)-Budget, Krümmung.</li>
+  </ul>
+
+  <div class="diagram">
+    (Skizze-Ideen: Lichtkegel in expandierender Raumzeit; Distanzdefinitionen \(D_L, D_A\); \(H(z)\)-Beitragsgrafik.)
+  </div>
+</section>
+
+
+
+<!-- Teil I – Numerik & Praxis (Integration, Elemente, Zeiten, Rahmen) -->
+<section id="teil-i-numerik" class="content">
+  <h1>Teil I · Numerik & Praxis</h1>
+  <p>
+    Reale Bahnen werden integriert, nicht geraten. Dieser Teil sammelt robuste numerische Verfahren,
+    Umrechnungen zwischen Zustandsformen, Störkraftmodelle und die konsistente Führung von Zeiten und Bezugssystemen.
+  </p>
+
+  <h3>I.0 Zustandsformen & Umrechnungen</h3>
+  <ul>
+    <li><strong>Kartesisch ↔ klassische Bahnelemente (COEs):</strong>
+      \((\mathbf r,\mathbf v)\)\(\leftrightarrow\)\((a,e,i,\Omega,\omega,f)\) (mit wahrer Anomalie \(f\)).</li>
+    <li><strong>Kepler-Gleichung (elliptisch):</strong>
+      \( M = E - e\sin E \), mit \(M=n(t-t_0)\), \(n=\sqrt{GM/a^3}\); Lösung via Newton-Verfahren.</li>
+    <li><strong>Hyperbel/Parabel:</strong> Entsprechende Gleichungen mit hyperbolischer/Parabel-Anomalie; Universal-Variable-Formulierung vereinheitlicht Fälle.</li>
+  </ul>
+
+  <h3>I.1 Integrationsverfahren</h3>
+  <ul>
+    <li><strong>Runge–Kutta (adaptiv):</strong> z.&nbsp;B. Dormand–Prince (RK45) mit Schrittweitenkontrolle → flexibel, einfach.</li>
+    <li><strong>Symplektische Integratoren:</strong> Verlet/Leapfrog, Wisdom–Holman → langzeitstabile Energieerhaltung für (nahezu) Hamiltonsche Systeme.</li>
+    <li><strong>Mehrschrittverfahren:</strong> Gauss–Jackson, Adams–Bashforth–Moulton → effizient bei glatten Störkräften.</li>
+  </ul>
+
+  <h3>I.2 Modellierung der Beschleunigungen</h3>
+  <ul>
+    <li><strong>Gravitation:</strong> Newton + pN-Korrekturen (Teil G), Multipole (J2, J4, …, Kaula-Erweiterungen).</li>
+    <li><strong>Nicht-gravitative:</strong> SRP (mit Schattenmodell), Atmosphärischer Widerstand (exponentielles Modell, Dichteklima), Manoeuvren als Impulse/Schubprofile.</li>
+    <li><strong>Dritte Körper:</strong> Sonne, Mond, Planeten – Ephemeriden als Zeitfunktionen.</li>
+  </ul>
+
+  <h3>I.3 J2-Säkularterme (Elementdriften)</h3>
+  <div class="formula">
+    \[
+      \begin{aligned}
+        \dot\Omega &\approx -\,\frac{3}{2}n\,J_2\left(\frac{R}{a}\right)^2\frac{\cos i}{(1-e^2)^2},\\
+        \dot\omega &\approx \;\frac{3}{4}n\,J_2\left(\frac{R}{a}\right)^2\frac{(5\cos^2 i-1)}{(1-e^2)^2},\\
+        \dot M &\approx n + \frac{3}{4}n\,J_2\left(\frac{R}{a}\right)^2\frac{\sqrt{1-e^2}\,(3\cos^2 i-1)}{(1-e^2)^{3/2}}.
+      \end{aligned}
+    \]
+  </div>
+  <p>
+    Diese Näherungen sind nützlich für Entwurfsrechnungen; hochpräzise Anwendungen nutzen direkte Integration.
+  </p>
+
+  <h3>I.4 Zeit- & Rahmenmanagement</h3>
+  <ul>
+    <li><strong>Zeitskalen:</strong> TAI/UTC (zivil), TT (erdgebunden), TCB/TDB (baryzentrisch). Transformationen enthalten feste Offsets und kleine Driften.</li>
+    <li><strong>Bezugssysteme:</strong> ICRF (inertial, baryzentrisch) ↔ ITRF (erdfest). Transformation über Präzession, Nutation, Erdrotation, Polbewegung.</li>
+    <li><strong>Uhrenkorrekturen:</strong> Kinematische und gravitative Beiträge entlang der Bahn; konsistent zur pN-Ordnung führen.</li>
+  </ul>
+
+  <h3>I.5 Numerische Qualitätssicherung</h3>
+  <ul>
+    <li>Lokale & globale Fehlerabschätzung; Energie-/Impulsinvarianten überwachen (bei konservativen Problemen).</li>
+    <li>Konvergenztests (Schrittweitenhalbierung), Vergleich unterschiedlicher Integratoren.</li>
+    <li>Einheitenmanagement (SI konsistent), Toleranzen dokumentieren.</li>
+  </ul>
+
+  <div class="diagram">
+    (Skizze-Ideen: Datenfluss „Kräfte → Integrator → Zustände → Elemente“; Zeit-/Rahmendiagramm TT/TCB, ITRF/ICRF.)
+  </div>
+</section>
+
+
+
+<!-- Teil J – Anhang (Formelsammlung, kurze Beweis-Skizzen, Glossar, Aufgabenideen) -->
+<section id="teil-j-anhang" class="content">
+  <h1>Teil J · Anhang</h1>
+
+  <h3>J.0 Formelsammlung – Kernergebnisse</h3>
+  <ul>
+    <li><strong>Lorentz-Boost (x-Richtung):</strong>
+      \(x'=\gamma(x-vt),\quad t'=\gamma(t-\tfrac{v}{c^2}x)\), \( \gamma=\frac{1}{\sqrt{1-v^2/c^2}} \).</li>
+    <li><strong>Intervall:</strong> \(\Delta s^2=c^2\Delta t^2-\Delta\mathbf x^2\) (invariant).</li>
+    <li><strong>Energie–Impuls:</strong> \(E^2=(pc)^2+(mc^2)^2\); \(p^\mu=mu^\mu\).</li>
+    <li><strong>Maxwell (kovariant):</strong> \(\partial_\mu F^{\mu\nu}=\mu_0 J^\nu\), \(\partial_{[\lambda}F_{\mu\nu]}=0\).</li>
+    <li><strong>EM-Energieimpuls:</strong>
+      \(T^{\mu\nu}=\mu_0^{-1}\big(F^{\mu\lambda}F^\nu{}_\lambda-\tfrac14\eta^{\mu\nu}F^{\alpha\beta}F_{\alpha\beta}\big)\).</li>
+    <li><strong>Einstein-Gleichung:</strong> \(G_{\mu\nu}+\Lambda g_{\mu\nu}=\tfrac{8\pi G}{c^4}T_{\mu\nu}\).</li>
+    <li><strong>Geodäten:</strong> \(\frac{d^2x^\mu}{d\tau^2}+\Gamma^\mu{}_{\alpha\beta}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0\).</li>
+    <li><strong>Schwarzschild:</strong> \(ds^2=(1-\tfrac{r_s}{r})c^2dt^2-(1-\tfrac{r_s}{r})^{-1}dr^2-r^2 d\Omega^2\), \(r_s=2GM/c^2\).</li>
+    <li><strong>Perihelvorstoß:</strong> \(\Delta\omega=\tfrac{6\pi GM}{a(1-e^2)c^2}\) pro Umlauf.</li>
+    <li><strong>Lichtablenkung (PPN):</strong> \(\hat\alpha=(1+\gamma)\tfrac{2GM}{b c^2}\).</li>
+    <li><strong>pN-Zeitdilatation:</strong> \(d\tau\approx dt\,\sqrt{1+\tfrac{2\Phi}{c^2}-\tfrac{v^2}{c^2}}\).</li>
+    <li><strong>Kepler (Vis-Viva):</strong> \(v^2=GM\big(2/r-1/a\big)\).</li>
+  </ul>
+
+  <h3>J.1 Beweis-Skizzen (kurz)</h3>
+  <ul>
+    <li><strong>Lorentz aus Prinzipien:</strong> Linearität + Lichtkugel-Invarianz \(\Rightarrow\) eindeutiger Boost (Teil C).</li>
+    <li><strong>Intervall-Invarianz:</strong> \(\Lambda^T\eta\Lambda=\eta\) \(\Rightarrow\) \(ds^2\) invariant (Teil C).</li>
+    <li><strong>Perihelvorstoß:</strong> Effektives 1D-Potential in Schwarzschild; Lösung als leicht gestörte Ellipse mit zusätzlichem \(\varphi\)-Vorschub (Teil F).</li>
+    <li><strong>Shapiro-Delay:</strong> Radiale Nullgeodäten in Schwarzschild; Integration der Koordinatenzeit liefert Logarithmusterm (Teil F).</li>
+  </ul>
+
+  <h3>J.2 Glossar</h3>
+  <ul>
+    <li><strong>Eigenzeit:</strong> Zeit, die eine Uhr entlang ihrer Weltlinie misst.</li>
+    <li><strong>Inertialsystem:</strong> Bezugssystem ohne Scheinkräfte; frei bewegte Teilchen laufen geradlinig-gleichförmig.</li>
+    <li><strong>PPN:</strong> Parametrisierter Post-Newton-Formalismus zur Theorieprüfung im schwachen Feld.</li>
+    <li><strong>Rapidity (Rapidität):</strong> Hyperbelwinkel eines Boosts (\(\tanh\varphi=\beta\)).</li>
+    <li><strong>ISCO:</strong> Innerste stabile Kreisbahn um ein kompaktes Objekt.</li>
+    <li><strong>Komoving-Distanz:</strong> Entfernungsmaß, das die Expansion herausfaktorisert.</li>
+  </ul>
+
+  <h3>J.3 Aufgabenideen (Kurzskizzen)</h3>
+  <ol>
+    <li><strong>Lorentz-Übung:</strong> Zeige, dass \(\Delta s^2\) unter Boosts invariant bleibt. Wähle zwei nichttriviale Ereignisse und rechne vor.</li>
+    <li><strong>Kepler & 1pN:</strong> Bestimme den säkularen Perihelvorstoß eines Testteilchens und vergleiche mit der Formel \(\Delta\omega\).</li>
+    <li><strong>EM-Tensor:</strong> Leite \(\partial_\mu T^{\mu\nu}=-F^{\nu\lambda}J_\lambda\) her und interpretiere die räumlichen Komponenten.</li>
+    <li><strong>FLRW-Distanzen:</strong> Berechne \(D_L(z)\) für flaches Universum mit \(\Omega_m+\Omega_\Lambda=1\).</li>
+    <li><strong>Numerik:</strong> Implementiere RK45 für ein Zweikörperproblem mit J2 und vergleiche gegen einen symplektischen Integrator.</li>
+  </ol>
+
+  <div class="diagram">
+    (Skizze-Ideen: Mindmap „Formeln ↔ Anwendungen“; Tafel mit Einheitenkasten (SI); Mini-Flowcharts für Beweiswege.)
+  </div>
+</section>
+
+
 
 <a href="/physiknow/Quiz.html" class="quiz-btn">Quiz zu „Klassische und relativistische Himmelsmechanik“ starten</a>
 
