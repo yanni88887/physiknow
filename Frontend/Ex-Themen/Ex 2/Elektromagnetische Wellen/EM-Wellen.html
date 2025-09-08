@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thema einführen | PhysikNow</title>
+
+<!-- MathJax für Formeldarstellung -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #00d4ff, #0066ff);
+        color: #fff;
+    }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; }
+
+    .content {
+        max-width: 1100px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        line-height: 1.8;
+    }
+    .content h3 {
+        color: #0066ff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem;
+    }
+    .content h4 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        color: #444;
+    }
+    .content p { margin-bottom: 1rem; }
+    .content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .formula {
+        background: #f1f1f1;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .diagram {
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #666;
+        font-style: italic;
+    }
+    .quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto 3rem; /* jetzt oben UND unten Abstand */
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+    .quiz-btn:hover { background: #004bbd; }
+
+    footer {
+        background: #1e1e2f;
+        color: #bbb;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+    header {
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0; /* Standardabstand entfernen */
+        display: flex;
+        align-items: center; /* Logo-Text oder Bild mittig */
+    }
+    header nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0; /* Entfernt Standard-Abstände */
+        padding: 0;
+    }
+    header nav a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    header nav a:hover {
+        color: #00d4ff;
+    }
+</style>
+</head>
+<body>
+
+
+<header>
+    <h1><a href="/physiknow/index.html" style="color:#00d4ff; text-decoration:none;">PhysikNow</a></h1>
+    <nav>
+        <ul>
+            <li><a href="/physiknow/index.html#topics">Alle Themen</a></li>
+            <li><a href="/physiknow/Uni-Vorlagen/Uni-Vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="/physiknow/Quiz.html">Teste dein Wissen</a></li>
+            <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+<section class="hero">
+    <h2>Elektromagnetische Wellen</h2>
+    <p>Die umfassende Bewegungsbeschreibung in der Thema einführen – für dein Physikstudium</p>
+</section>
+
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+  <h3>Inhaltsübersicht</h3>
+  <ul>
+    <li><a href="#einleitung">1. Einführung</a></li>
+    <li><a href="#grundlagen">2. Grundlagen</a></li>
+    <li><a href="#bewegung-1d">3. Bewegung in 1D</a></li>
+    <li><a href="#bewegung-2d">4. Bewegung in 2D/3D</a></li>
+    <li><a href="#kreisrotation">5. Kreisbewegung</a></li>
+    <li><a href="#zusammengesetzte-bewegungen">6. Zusammengesetzte Bewegungen</a></li>
+    <li><a href="#starre-koerper">7. Starre Körper</a></li>
+    <li><a href="#diagramme">8. Diagramme</a></li>
+    <li><a href="#gleichungen">9. Gleichungen</a></li>
+    <li><a href="#praxis">10. Anwendungen</a></li>
+    <li><a href="#fehler">11. Fehler</a></li>
+    <li><a href="#fortgeschritten">12. Erweiterte Themen</a></li>
+    <li><a href="#formelsammlung">13. Formelsammlung</a></li>
+  </ul>
+</div>
+
+<style>
+.toc-box {
+  background: #ffffff;
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+}
+
+.toc-box h3 {
+  font-size: 18px;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.toc-box ul {
+  list-style: none; /* eigene Bullets statt Standard */
+  padding-left: 0;
+  margin: 0;
+  columns: 2;
+}
+
+.toc-box li {
+  margin-bottom: 8px;
+  padding-left: 18px; /* Platz für Bullet */
+  position: relative;
+}
+
+/* Eigener Bullet */
+.toc-box li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0073e6;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.toc-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.toc-box a:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .toc-box ul {
+    columns: 1; /* Eine Spalte auf Mobile */
+  }
+}
+/* Blocksatz für den gesamten Content */
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify; /* Blocksatz */
+}
+
+/* Bullets bündig am Rand */
+ul, ol {
+    list-style-type: disc;
+    list-style-position: inside; /* Bullet innerhalb des Textblocks */
+    margin-left: 0; /* Kein zusätzlicher Abstand */
+    padding-left: 0;
+}
+.content p, .content ul, .content ol, .container p, .container ul, .container ol {
+    text-align: justify;       /* Blocksatz */
+    line-height: 1.9;          /* Standard ist 1.4–1.6, hier etwas größer */
+}
+h1, h2, h3 {
+    margin-top: 2rem; /* z. B. 32px */
+    margin-bottom: 0.2rem; /* nur kleiner Abstand nach unten */
+    line-height: 1.3; /* engerer Zeilenabstand für Überschrift */
+}
+
+
+
+</style>
+
+<section id="einleitung-em-wellen" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Einführung in Schwingungen & Wellen (Grundlagen für elektromagnetische Wellen)</h1>
+    <p>
+      Eine <strong>Schwingung</strong> ist eine zeitlich periodische Änderung einer physikalischen Größe um einen Gleichgewichtswert.
+      Eine <strong>Welle</strong> ist eine Schwingung, die sich <em>im Raum</em> ausbreitet. Bei elektromagnetischen (EM) Wellen
+      sind die schwingenden Größen das <strong>elektrische Feld</strong> <span style="font-family:'Courier New', monospace;">\(\vec E\)</span>
+      und das <strong>magnetische Feld</strong> <span style="font-family:'Courier New', monospace;">\(\vec B\)</span>.
+      EM-Wellen benötigen <em>kein materielles Medium</em> und breiten sich im Vakuum mit der <strong>Lichtgeschwindigkeit</strong>
+      <span style="font-family:'Courier New', monospace;">\(c\)</span> aus.
+    </p>
+
+    <h2>1.1 Was ist eine Welle?</h2>
+    <p>
+      Eine Welle beschreibt, <em>wie</em> sich eine Störung (Amplitude) räumlich und zeitlich fortpflanzt. Typische Fragen sind:
+    </p>
+    <ul>
+      <li>Wie ändern sich Ort und Zeit einer Schwingung in einer Ausbreitungsrichtung?</li>
+      <li>Wie schnell läuft eine feste Phase (z.&nbsp;B. ein Wellenberg) durch den Raum?</li>
+      <li>Welche Rolle spielen Wellenlänge, Frequenz und Phase?</li>
+    </ul>
+    <p>
+      Für eine <strong>harmonische</strong> (sinusförmige) Welle werden Raum- und Zeitperiodizität durch die
+      <em>Wellenlänge</em> <span style="font-family:'Courier New', monospace;">\(\lambda\)</span> (räumlich)
+      und die <em>Periode</em> <span style="font-family:'Courier New', monospace;">\(T\)</span> (zeitlich) beschrieben.
+      Die zugehörige <em>Frequenz</em> ist <span style="font-family:'Courier New', monospace;">\(f=1/T\)</span>.
+    </p>
+
+    <h2>1.2 Wichtige Größen & Beziehungen</h2>
+    <ul>
+      <li><strong>Amplitude</strong> <span style="font-family:'Courier New', monospace;">\(A_0\)</span>:
+        maximaler Betrag der schwingenden Größe (z.&nbsp;B. Feldstärke).</li>
+      <li><strong>Wellenlänge</strong> <span style="font-family:'Courier New', monospace;">\(\lambda\)</span>:
+        räumliche Periode (Abstand zwischen zwei gleichen Phasen, z.&nbsp;B. Scheitel–Scheitel).</li>
+      <li><strong>Frequenz</strong> <span style="font-family:'Courier New', monospace;">\(f\)</span> und
+          <strong>Kreisfrequenz</strong> <span style="font-family:'Courier New', monospace;">\(\omega=2\pi f\)</span>.</li>
+      <li><strong>Wellenzahl</strong> <span style="font-family:'Courier New', monospace;">\(k=2\pi/\lambda\)</span> (in 1D)
+          bzw. Wellenvektor <span style="font-family:'Courier New', monospace;">\(\vec k\)</span> (in 3D).</li>
+      <li><strong>Phasengeschwindigkeit</strong> <span style="font-family:'Courier New', monospace;">\(v=\omega/k=\lambda f\)</span>;
+          im Vakuum für EM-Wellen: <span style="font-family:'Courier New', monospace;">\(v=c\)</span>.</li>
+      <li><strong>Phase</strong> <span style="font-family:'Courier New', monospace;">\(\varphi=\vec k\!\cdot\!\vec r-\omega t+\varphi_0\)</span>:
+          bestimmt den „Zustand“ der Schwingung an Ort und Zeit.</li>
+    </ul>
+
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:20px 0;">
+      <strong>Merke:</strong>
+      <ul>
+        <li>\(k=\dfrac{2\pi}{\lambda}\), \(\;\omega=2\pi f\), \(\;v=\dfrac{\omega}{k}=\lambda f\).</li>
+        <li>EM-Wellen im Vakuum: \(c=\dfrac{1}{\sqrt{\varepsilon_0\mu_0}}\) (Fundamentale Konstante).</li>
+        <li>Für ebene EM-Wellen gilt: \(\vec E\perp \vec B\perp \vec k\) und \(|\vec B|=\dfrac{|\vec E|}{c}\).</li>
+      </ul>
+    </div>
+
+    <h2>1.3 Harmonische ebene Welle (Beschreibung)</h2>
+    <p>
+      Eine eindimensionale harmonische Welle entlang der <span style="font-family:'Courier New', monospace;">\(x\)</span>-Achse lässt sich schreiben als
+    </p>
+    <ol>
+      <li>
+        <strong>Allgemeines Feld (Skalarbeispiel):</strong>
+        <span style="font-family:'Courier New', monospace;">
+          \(A(x,t)=A_0\cos(kx-\omega t+\varphi_0)\).
+        </span>
+      </li>
+      <li>
+        <strong>Ebene EM-Welle:</strong>
+        <span style="font-family:'Courier New', monospace;">
+          \(\vec E(\vec r,t)=\mathrm{Re}\{\vec E_0\,e^{i(\vec k\cdot\vec r-\omega t)}\},\quad
+          \vec B(\vec r,t)=\dfrac{1}{c}\,\hat k\times \vec E(\vec r,t)\).
+        </span>
+      </li>
+    </ol>
+    <p>
+      Dabei gibt <span style="font-family:'Courier New', monospace;">\(\hat k=\vec k/|\vec k|\)</span> die Ausbreitungsrichtung an.
+      <span style="font-family:'Courier New', monospace;">\(\vec E\)</span> und <span style="font-family:'Courier New', monospace;">\(\vec B\)</span> sind
+      <em>transversal</em> zur Ausbreitung: weder das elektrische noch das magnetische Feld zeigen in Richtung
+      <span style="font-family:'Courier New', monospace;">\(\vec k\)</span>.
+    </p>
+
+    <h2>1.4 Beispiele & Anwendungen</h2>
+    <ul>
+      <li><strong>Radiowellen</strong> (große \(\lambda\), kleine \(f\)): Rundfunk, Mobilfunk, WLAN (Antennenstrahlung).</li>
+      <li><strong>Sichtbares Licht</strong> (mittlere \(\lambda\)): Optik, Laser, Photonik.</li>
+      <li><strong>Mikrowellen</strong> (cm-Bereich): Mikrowellenherd, Radar, Satellitenkommunikation.</li>
+      <li><strong>Röntgen/γ-Strahlung</strong> (kleine \(\lambda\), große \(f\)): Medizinische Bildgebung, Materialanalyse, Astrophysik.</li>
+    </ul>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:20px 0;">
+      <strong>Typische Grundformeln bei Wellen:</strong>
+      <p>
+        <span style="font-family:'Courier New', monospace;">
+          \(v=\lambda f=\dfrac{\omega}{k}\), \quad
+          c=\dfrac{1}{\sqrt{\varepsilon_0\mu_0}}\).
+        </span>
+      </p>
+      <p>
+        Für die Intensität einer ebenen, linear polarisierten EM-Welle mit Feldamplitude \(E_0\) gilt im Mittel:
+        </p>
+      <p>
+        \[
+          \langle I\rangle \;=\; \frac{1}{2}\,c\,\varepsilon_0\,E_0^2.
+        \]
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="maxwell-wellen-vakuum" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Maxwell-Gleichungen &rarr; Wellen im Vakuum (mit einfachen Beispielen)</h1>
+    <p>
+      Im <strong>Vakuum</strong> (keine freien Ladungen/Ströme) sagen die Maxwell-Gleichungen voraus, dass sich elektrische
+      und magnetische Feldstörungen als <strong>Wellen</strong> mit der Lichtgeschwindigkeit <span style="font-family:'Courier New', monospace;">\(c\)</span> ausbreiten.
+      Unten leiten wir die Wellengleichung her und zeigen an kurzen, greifbaren Beispielen, wie Form, Richtung und Beträge von
+      <span style="font-family:'Courier New', monospace;">\(\vec E\)</span> und <span style="font-family:'Courier New', monospace;">\(\vec B\)</span> zusammenhängen.
+    </p>
+
+    <h2>2.1 Maxwell-Gleichungen im Vakuum (SI)</h2>
+    <div style="background:#f7f7f7; padding:15px; border-left:5px solid #0073e6; margin:16px 0; font-family:'Courier New', monospace;">
+      \[
+      \begin{aligned}
+        \nabla\!\cdot\!\vec E &= 0 \quad &\text{(keine freien Ladungen)}\\
+        \nabla\!\cdot\!\vec B &= 0 \quad &\text{(keine Magnetmonopole)}\\
+        \nabla\!\times\!\vec E &= -\,\frac{\partial \vec B}{\partial t} \quad &\text{(Induktion)}\\
+        \nabla\!\times\!\vec B &= \mu_0\varepsilon_0\,\frac{\partial \vec E}{\partial t} \quad &\text{(Ampère–Maxwell)}
+      \end{aligned}
+      \]
+    </div>
+
+    <div style="background:#eaf4ff; padding:12px; border-left:5px solid #3399ff; margin:16px 0;">
+      <strong>Beispiel 1 (Zahleneinsatz zu \(c\)):</strong>
+      Mit \(\varepsilon_0\approx 8{,}854\cdot10^{-12}\,\mathrm{F/m}\) und \(\mu_0=4\pi\cdot10^{-7}\,\mathrm{H/m}\) ergibt sich
+      \[
+        c=\frac{1}{\sqrt{\mu_0\varepsilon_0}}\approx 2{,}997\,924\,58\cdot10^8\,\mathrm{m/s}.
+      \]
+      Das ist genau die Lichtgeschwindigkeit im Vakuum.
+    </div>
+
+    <h2>2.2 Von Maxwell zur Wellengleichung</h2>
+    <p>
+      Wende den Rotor auf die Induktionsgleichung an und nutze die Vektoridentität
+      <span style="font-family:'Courier New', monospace;">\(\nabla\times(\nabla\times\vec E)=\nabla(\nabla\!\cdot\!\vec E)-\nabla^2\vec E\)</span>.
+      Weil <span style="font-family:'Courier New', monospace;">\(\nabla\!\cdot\!\vec E=0\)</span> ist, folgt:
+    </p>
+    <div style="background:#fff; padding:12px; border-left:5px solid #4caf50; margin:12px 0; font-family:'Courier New', monospace;">
+      \[
+        \nabla^2 \vec E - \mu_0\varepsilon_0\,\frac{\partial^2 \vec E}{\partial t^2}=0
+        \quad\Leftrightarrow\quad
+        \boxed{\ \nabla^2 \vec E - \frac{1}{c^2}\frac{\partial^2 \vec E}{\partial t^2}=0\ }.
+      \]
+    </div>
+    <p>
+      Genauso erhält man für <span style="font-family:'Courier New', monospace;">\(\vec B\)</span>:
+    </p>
+    <div style="background:#fff; padding:12px; border-left:5px solid #4caf50; margin:12px 0; font-family:'Courier New', monospace;">
+      \[
+        \boxed{\ \nabla^2 \vec B - \frac{1}{c^2}\frac{\partial^2 \vec B}{\partial t^2}=0\ }.
+      \]
+    </div>
+    <p>
+      <strong>Interpretation:</strong> Änderungen in einem Feld erzeugen Wirbel im jeweils anderen Feld. Diese gegenseitige Kopplung trägt die Welle durchs Vakuum.
+    </p>
+
+    <h2>2.3 Ebene Vakuumwellen: Form, Richtung, Kopplung</h2>
+    <p>
+      Eine ebene, monochromatische Lösung hat die Form
+      <span style="font-family:'Courier New', monospace;">\(\vec E(\vec r,t)=\mathrm{Re}\{\vec E_0\,e^{i(\vec k\cdot\vec r-\omega t)}\}\)</span>
+      mit <span style="font-family:'Courier New', monospace;">\(\omega=c\,|\vec k|\)</span>. Aus Maxwell folgen:
+    </p>
+    <ul>
+      <li><strong>Transversalität:</strong> \(\vec k\cdot \vec E_0=0\) und \(\vec k\cdot \vec B_0=0\) (beide Felder senkrecht zur Ausbreitung).</li>
+      <li><strong>Richtungsbeziehung:</strong> \(\vec B_0=\frac{1}{\omega}\,\vec k\times \vec E_0\) (rechtshändiges Tripel \(\vec k,\vec E,\vec B\)).</li>
+      <li><strong>Beträge:</strong> \(|\vec B_0|=\dfrac{|\vec E_0|}{c}\).</li>
+    </ul>
+
+    <div style="background:#eaf4ff; padding:12px; border-left:5px solid #3399ff; margin:16px 0;">
+      <strong>Beispiel 2 (Explizite 1D-Welle):</strong>
+      Ausbreitung in \(+\hat x\)-Richtung:
+      \[
+        \vec E(x,t)=E_0\cos(kx-\omega t)\,\hat y,\qquad
+        \vec B(x,t)=\frac{E_0}{c}\cos(kx-\omega t)\,\hat z,\qquad \omega=ck.
+      \]
+      Hier stehen \(\vec E\) und \(\vec B\) senkrecht zueinander und zur Ausbreitungsrichtung \(\hat x\).
+    </div>
+
+    <div style="background:#fff3cd; padding:12px; border-left:5px solid #ffca2c; margin:16px 0;">
+      <strong>Beispiel 3 (Einfache Zahlen):</strong>
+      Angenommen, eine ebene Welle hat die Amplitude \(E_0=100\,\mathrm{V/m}\).
+      Dann ist die Magnetfeld-Amplitude
+      \[
+        B_0=\frac{E_0}{c}\approx \frac{100}{3{,}00\cdot10^8}\ \mathrm{T}\ \approx 3{,}3\cdot10^{-7}\ \mathrm{T}.
+      \]
+      So klein sind typische Magnetfeld-Amplituden von Licht im Vergleich zu elektrischen Feldamplituden.
+    </div>
+
+    <div style="background:#e8f5e9; padding:12px; border-left:5px solid #4caf50; margin:16px 0;">
+      <strong>Beispiel 4 (Richtungen „sehen“):</strong>
+      Zeigt \(\vec E\) nach oben (\(+\hat y\)) und läuft die Welle nach rechts (\(+\hat x\)), dann muss
+      \(\vec B\) nach vorne (\(+\hat z\)) zeigen, denn \(\vec k\times\vec E\propto\vec B\).
+      Handregel: Daumen \(\hat x\), Zeigefinger \(\hat y\), Mittelfinger \(\hat z\).
+    </div>
+
+    <h2>2.4 Kurze Alltags-Analogie (ohne Medium!)</h2>
+    <p>
+      Bei einer Seilwelle „trägt“ das Seil die Welle. Bei Licht übernehmen <em>Felder</em> diese Rolle:
+      Ein zeitlich veränderliches elektrisches Feld erzeugt ein magnetisches Feld und umgekehrt.
+      So kann sich die Störung selbst im leeren Raum fortpflanzen – ganz ohne materielles Medium.
+    </p>
+
+    <h2>2.5 Häufige Denkfehler & Korrekturen</h2>
+    <ul>
+      <li><strong>„Licht braucht ein Medium“:</strong> Falsch. Vakuumwellen sind eine rein elektromagnetische Selbstkopplung.</li>
+      <li><strong>„\(\vec E\) kann längs sein“:</strong> Für <em>ebene Vakuumwellen</em> immer transversal: \(\vec k\cdot\vec E=0\).</li>
+      <li><strong>„\(|\vec E|=|\vec B|\)“:</strong> Im Vakuum gilt \(|\vec B|=|\vec E|/c\).</li>
+    </ul>
+
+    <div style="background:#eef7ff; padding:12px; border-left:5px solid #3f88ff; margin:20px 0;">
+      <strong>Mini-Übung 1:</strong> Eine ebene Welle hat \(\lambda=600\,\mathrm{nm}\). Bestimme \(k\) und \(\omega\).<br/>
+      <em>Lösung:</em> \(k=2\pi/\lambda\approx 1{,}05\cdot10^7\,\mathrm{m^{-1}}\), \(\omega=ck\approx 3{,}14\cdot10^{15}\,\mathrm{s^{-1}}\).
+    </div>
+
+    <div style="background:#eef7ff; padding:12px; border-left:5px solid #3f88ff; margin:12px 0;">
+      <strong>Mini-Übung 2:</strong> Für \(E_0=50\,\mathrm{V/m}\): Berechne \(B_0\) und gib eine mögliche orthogonale Dreierkombination \((\vec k,\vec E,\vec B)\) an.<br/>
+      <em>Lösung:</em> \(B_0=E_0/c\approx 1{,}67\cdot10^{-7}\,\mathrm{T}\). Beispiel: \(\vec k\parallel +\hat x\), \(\vec E\parallel +\hat y\), \(\vec B\parallel +\hat z\).
+    </div>
+
+    <div style="background:#e8f5e9; padding:15px; border-left:5px solid #4caf50; margin:24px 0;">
+      <strong>Ergebnis dieses Abschnitts (mit Takeaways):</strong>
+      Aus Maxwell folgen im Vakuum Wellengleichungen mit Geschwindigkeit \(c=1/\sqrt{\mu_0\varepsilon_0}\).
+      Ebene Lösungen sind <em>transversal</em>, erfüllen \(\omega=ck\) und koppeln \(\vec E\) und \(\vec B\) über
+      \(\vec B=\frac{1}{\omega}\vec k\times\vec E\) sowie \(|\vec B|=|\vec E|/c\).
+      Die Beispiele zeigen, wie man Zahlen einsetzt und Richtungen sicher bestimmt.
+    </div>
+  </div>
+</section>
+
+<section id="polarisation-und-wellentypen" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Allgemeine Wellendarstellungen, Polarisation & Wellentypen (mit bildlichen Erklärbeispielen)</h1>
+    <p>
+      In diesem Abschnitt beschreiben wir elektromagnetische Wellen allgemein (als Überlagerung ebener Wellen und als Wellenpakete),
+      führen die <strong>Polarisation</strong> (linear, zirkular, elliptisch) ein, zeigen Kugel-/Zylinderwellen als Quellfelder
+      und wiederholen kurz Interferenz & Kohärenz. Zu jedem Konzept gibt es leicht vorstellbare, <em>bildliche</em> Beispiele.
+    </p>
+
+    <style>
+      .fig { background:#f9fbff; border-left:5px solid #3f88ff; padding:12px; margin:16px 0; }
+      .ex  { background:#fff3cd; border-left:5px solid #ffca2c; padding:12px; margin:16px 0; }
+      .tip { background:#e8f5e9; border-left:5px solid #4caf50; padding:12px; margin:16px 0; }
+      .frm { background:#f1f1f1; border-radius:6px; padding:12px; margin:14px 0; font-family:"Courier New", monospace; text-align:center; }
+      .warn{ background:#fff0f0; border-left:5px solid #f44336; padding:12px; margin:16px 0; }
+    </style>
+
+    <!-- 3.1 -->
+    <h2>3.1 Allgemeine Lösung der Wellengleichung & Wellenpakete</h2>
+    <p>
+      Jede Lösung der Vakuum-Wellengleichung kann als <strong>Überlagerung ebener Wellen</strong> (Fourier-Ansatz) geschrieben werden:
+    </p>
+    <div class="frm">
+      \[
+        \vec E(\vec r,t)=\mathrm{Re}\!\left\{\int \vec{\mathcal E}(\vec k)\,e^{\,i(\vec k\!\cdot\!\vec r-\omega t)}\,\mathrm d^3k\right\},
+        \qquad \omega=c\,|\vec k|.
+      \]
+    </div>
+    <p>
+      Wählt man ein schmales Spektrum um \(\vec k_0\), erhält man ein <strong>Wellenpaket</strong>. Im Vakuum gilt \(\omega=ck\) (keine Dispersion),
+      daher sind Phasen- und Gruppengeschwindigkeit gleich \(c\):
+    </p>
+    <div class="frm">
+      \[
+        v_{\mathrm{ph}}=\frac{\omega}{k}=c,\qquad v_{\mathrm{gr}}=\frac{\partial\omega}{\partial k}=c.
+      \]
+    </div>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Licht-Paket“:</strong> Denk dir eine kurze Lichtblitz-„Wolke“ (ein paar Wellenberge) auf einer
+      langen Linie. Der „Umschlag“ (Hüllkurve) bewegt sich im Vakuum mit genau derselben Geschwindigkeit wie die einzelnen Wellenberge:
+      beide mit \(c\). In einem Glas-Prisma (dispersives Medium) würden sich Hülle und Berge unterschiedlich schnell bewegen.
+    </div>
+    <div class="ex">
+      <strong>Beispiel:</strong> Ein Laserimpuls hat Dauer \(\Delta t=10\,\text{fs}\). Die <em>Kohärenzlänge</em> (grobe Abschätzung) ist
+      \(L_{\mathrm{coh}}\approx c\,\Delta t \approx 3\,\mu\text{m}\). So lang bleibt die Phase im Paket „geordnet“.
+    </div>
+
+    <!-- 3.2 -->
+    <h2>3.2 Polarisation – Grundidee & Geometrie</h2>
+    <p>
+      Die <strong>Polarisation</strong> beschreibt die <em>Schwingrichtung des elektrischen Feldes</em> \(\vec E\) quer zur Ausbreitung.
+      Für eine ebene Welle mit Richtung \(\hat k\) gilt immer \(\vec E\perp \hat k\). Zerlegt man \(\vec E\) auf zwei senkrechte Richtungen
+      \(\hat e_x,\hat e_y\) in der Ebene senkrecht zu \(\hat k\), erhält man:
+    </p>
+    <div class="frm">
+      \[
+        \begin{aligned}
+          E_x(t) &= E_{0x}\cos(\omega t - \phi_x),\\
+          E_y(t) &= E_{0y}\cos(\omega t - \phi_y) = E_{0y}\cos(\omega t - \phi_x - \delta),\\
+          \delta &\equiv \phi_y-\phi_x\quad\text{(Phasendifferenz).}
+        \end{aligned}
+      \]
+    </div>
+    <ul>
+      <li><strong>Linear polarisiert:</strong> \(\delta=0\) oder \(\pi\). \(\vec E\) schwingt entlang einer <em>festen Linie</em>.</li>
+      <li><strong>Zirkular polarisiert:</strong> \(E_{0x}=E_{0y}\), \(|\delta|=\pi/2\). \(\vec E\) dreht eine <em>Kreisbahn</em> (rechts/links).</li>
+      <li><strong>Elliptisch polarisiert:</strong> allgemeiner Fall; die Spitze von \(\vec E\) zeichnet eine <em>Ellipse</em>.</li>
+    </ul>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Ende des Pfeils“:</strong> Stell dir das Ende des Pfeils \(\vec E(t)\) als leuchtenden Punkt vor,
+      den du im Querschnitt anschaust (senkrecht zur Ausbreitung). Bei linearer Polarisation bewegt sich der Punkt auf einer Linie hin und her,
+      bei zirkularer auf einem Kreis (gleichmäßig drehend), bei elliptischer auf einer Ellipse.
+    </div>
+    <div class="ex">
+      <strong>Beispiel (Laser & Sonnenbrille):</strong> Viele Laser sind linear polarisiert. Eine polarisierende Sonnenbrille lässt nur eine
+      Feldrichtung durch. Drehst du die Brille relativ zur Laser-Polarisation um \(90^\circ\), wird das Licht fast vollständig ausgeblendet
+      (Malus-Gesetz, siehe unten).
+    </div>
+
+    <!-- 3.3 -->
+    <h2>3.3 Polarisation ellipse – kompakte Gleichung</h2>
+    <p>
+      Eliminiert man die Zeit aus \(E_x(t),E_y(t)\), erhält man die <strong>Polarisationellipse</strong>:
+    </p>
+    <div class="frm">
+      \[
+        \left(\frac{E_x}{E_{0x}}\right)^2 + \left(\frac{E_y}{E_{0y}}\right)^2
+        - 2\,\frac{E_x E_y}{E_{0x}E_{0y}}\cos\delta \;=\; \sin^2\delta.
+      \]
+    </div>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Konturlinie“:</strong> Zeichne für mehrere Zeitpunkte die Punkte \((E_x,E_y)\) in der Ebene.
+      Die entstehende Konturlinie ist eine Ellipse (oder Linie/Kreis als Spezialfall). Deren Form hängt vom
+      Amplitudenverhältnis \(E_{0x}/E_{0y}\) und der Phasendifferenz \(\delta\) ab.
+    </div>
+
+    <!-- 3.4 -->
+    <h2>3.4 Jones-Vektoren & Stokes-Parameter (Beschreibung & Messung)</h2>
+    <ul>
+      <li><strong>Jones-Vektor</strong> (kohärent, monochromatisch):
+        <span class="frm" style="display:inline-block;">
+          \(\displaystyle \mathbf J = \begin{pmatrix} E_{0x}\,e^{-i\phi_x} \\ E_{0y}\,e^{-i\phi_y} \end{pmatrix}\).
+        </span>
+      </li>
+      <li><strong>Stokes-Parameter</strong> (auch für teilweise Polarisation):
+        \(I\) Gesamtintensität, \(Q,U\) Linearanteile, \(V\) Zirkularanteil. Polarisationsgrad
+        \(P=\sqrt{Q^2+U^2+V^2}/I\).</li>
+    </ul>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Mess-Panel“:</strong> Man kann Licht nacheinander durch (1) einen linearen Polarisator
+      in x-/y-Richtung, (2) einen um \(45^\circ\) gedrehten Polarisator und (3) einen Zirkular-Analysator senden. Aus den
+      gemessenen Intensitäten konstruiert man \(I,Q,U,V\). So „fotografiert“ man die Polarisation.
+    </div>
+
+    <!-- 3.5 -->
+    <h2>3.5 Polarisation erzeugen & analysieren: Polarisatoren, Malus, Phasenplatten</h2>
+    <ul>
+      <li><strong>Malus-Gesetz (linear):</strong> \(I=I_0\cos^2\theta\) – Intensität hinter einem idealen Polarisator mit Achse,
+        die um \(\theta\) gegen die einfallende lineare Polarisation gedreht ist.</li>
+      <li><strong>λ/2-Plättchen:</strong> Phasenverschiebung \(\pi\) zwischen zwei senkrechten Achsen → dreht lineare Polarisation
+        (wie ein „Polarisation­sdreher“).</li>
+      <li><strong>λ/4-Plättchen:</strong> Phasenverschiebung \(\pi/2\) → macht aus linearer zirkulare Polarisation (und umgekehrt),
+        wenn \(E_{0x}=E_{0y}\) und Achse passend liegt.</li>
+      <li><strong>Brewster-Winkel (an Grenzflächen):</strong> Für p-polarisiertes Licht verschwindet die Reflexion bei einem speziellen
+        Einfallswinkel; reflektiertes Licht ist dann <em>linear polarisiert</em>.</li>
+    </ul>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Drei-Baustein-Setup“:</strong>
+      (1) Linearer Polarisator richtet das Feld aus (nur eine Schwingrichtung bleibt).<br/>
+      (2) λ/4-Plättchen setzt eine senkrechte Komponente um eine Viertelperiode in der Phase nach – die Spitze von \(\vec E\) beginnt zu kreisen (zirkular).<br/>
+      (3) Ein zweiter Polarisator („Analysator“) zeigt über Malus, wie viel von welcher Ausrichtung noch vorhanden ist.
+    </div>
+    <div class="ex">
+      <strong>Beispiel (Malus in Zahlen):</strong> \(I_0=4\,\mathrm{mW/cm^2}\), \(\theta=60^\circ\).
+      Dann \(I=I_0\cos^2 60^\circ=4\cdot(0{,}5)^2=1\,\mathrm{mW/cm^2}\).
+    </div>
+
+    <!-- 3.6 -->
+    <h2>3.6 Kugel- und Zylinderwellen (Quellen & Fernfeld)</h2>
+    <p>
+      Eine <strong>Punktquelle</strong> erzeugt kugelförmige Wellenfronten. Die Feldamplitude fällt wie \(1/r\),
+      die Intensität wie \(1/r^2\). <strong>Linienquellen</strong> liefern Zylinderwellen (Amplitude \(\propto r^{-1/2}\)).
+      Ein oszillierender elektrischer Dipol strahlt im Fernfeld mit Winkelverteilung \(\propto \sin^2\vartheta\).
+    </p>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Zwiebelringe“:</strong> Um die Punktquelle liegen kugelige „Zwiebelringe“ (Wellenfronten).
+      Je größer der Radius, desto größer die Oberfläche → die gleiche Energie verteilt sich auf mehr Fläche → die Intensität nimmt mit \(1/r^2\) ab.
+      Beim Dipol fehlen Strahlen entlang der Dipolachse (Nullen), maximal strahlt er in der Äquatorebene.
+    </div>
+    <div class="ex">
+      <strong>Beispiel (Inverse Quadratgesetz):</strong> Verdoppelst du den Abstand von 1 m auf 2 m, sinkt die Intensität auf ein Viertel.
+    </div>
+
+    <!-- 3.7 -->
+    <h2>3.7 Superposition, Interferenz & Kohärenz</h2>
+    <p>
+      Für zwei kohärente, monochromatische Wellen gleicher Frequenz \(f\) und gleicher Polarisation gilt:
+    </p>
+    <div class="frm">
+      \[
+        I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\Delta\phi,\qquad
+        \Delta\phi=\vec k\!\cdot\!\Delta\vec r - \omega\,\Delta t.
+      \]
+    </div>
+    <p>
+      Unterschiedliche Polarisationen verringern die Sichtbarkeit der Interferenz. Endliche Bandbreite begrenzt die Kohärenzzeit
+      und damit die Kohärenzlänge \(L_{\mathrm{coh}}\approx c\,\tau_{\mathrm{coh}}\).
+    </p>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Regenbogen-Zebrastreifen“:</strong> Auf einem Schirm überlagern sich zwei Lichtzüge:
+      Wo Wellenberge auf Wellenberge treffen, ist es hell (konstruktiv), wo Berg auf Tal trifft, dunkel (destruktiv).
+      Wenn die Quellen nicht mehr kohärent sind, „verwaschen“ die Streifen.
+    </div>
+    <div class="ex">
+      <strong>Beispiel (Doppelspalt mit Polarisation):</strong> Beleuchte beide Spalte mit gleicher Helligkeit, aber setze vor Spalt A
+      einen Polarisator in \(\hat x\)-Richtung und vor Spalt B einen Polarisator in \(\hat y\)-Richtung. Ergebnis: keine sichtbaren
+      Interferenzstreifen (Polarisation inkompatibel). Drehst du einen Polarisator um \(45^\circ\), kehrt das Muster zurück.
+    </div>
+
+    <!-- 3.8 -->
+    <h2>3.8 Häufige Missverständnisse</h2>
+    <ul>
+      <li><strong>„Polarisation ist Ausbreitungsrichtung“:</strong> Nein. Polarisation meint <em>Schwingrichtung von \(\vec E\)</em>, stets quer zur Ausbreitung.</li>
+      <li><strong>„Zirkular ist stärker“:</strong> Polarisation ist Geometrie, nicht Stärke. Die Intensität steckt in der Amplitude.</li>
+      <li><strong>„Interferenz immer sichtbar“:</strong> Sichtbar nur bei ausreichender Kohärenz und kompatibler Polarisation.</li>
+    </ul>
+
+    <!-- 3.9 -->
+    <h2>3.9 Mini-Übungen (mit Lösungsskizze)</h2>
+    <div class="ex">
+      <strong>Übung 1 (Polarisation bestimmen):</strong>
+      Gegeben: \(E_{0x}=E_{0y}\) und \(\delta=\pi/2\). Welche Polarisation? In welche Richtung dreht \(\vec E\)?<br/>
+      <em>Lösungsskizze:</em> Zirkular polarisiert. Vorzeichen der \(\delta\) (und Wahl der Achsen) entscheidet rechts-/linksdrehend.
+    </div>
+    <div class="ex">
+      <strong>Übung 2 (Malus):</strong>
+      Linear polarisiertes Licht \(I_0=2{,}0\,\mathrm{mW/cm^2}\) trifft auf einen Analysator, \(\theta=30^\circ\). Bestimme \(I\).<br/>
+      <em>Lösung:</em> \(I=I_0\cos^2\theta=2{,}0\cdot(0{,}866)^2\approx 1{,}5\,\mathrm{mW/cm^2}\).
+    </div>
+    <div class="ex">
+      <strong>Übung 3 (Kugelwelle):</strong>
+      In 1 m Abstand misst du \(I_1=10\,\mathrm{W/m^2}\). Wie groß ist \(I_2\) in 5 m?<br/>
+      <em>Lösung:</em> \(I\propto 1/r^2\Rightarrow I_2=I_1\,(1/5)^2=0{,}4\,\mathrm{W/m^2}\).
+    </div>
+
+    <div class="tip">
+      <strong>Takeaway:</strong>
+      (1) Jede EM-Welle ist Summe ebener Wellen; Wellenpakete laufen im Vakuum dispersionsfrei mit \(c\).
+      (2) Polarisation ist die Geometrie der \(\vec E\)-Schwingung (linear, zirkular, elliptisch) und lässt sich
+      mit Polarisatoren/Phasenplatten formen und messen.
+      (3) Punkt-/Linienquellen erzeugen Kugel-/Zylinderwellen; Interferenz braucht Kohärenz und passende Polarisation.
+    </div>
+  </div>
+</section>
+
+<section id="energie-impuls-poynting" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Energie, Leistung & Impuls elektromagnetischer Wellen (Poynting-Vektor)</h1>
+    <p>
+      Eine elektromagnetische (EM) Welle transportiert <strong>Energie</strong> und <strong>Impuls</strong>. In diesem Abschnitt
+      fassen wir das präzise: Energiedichte, Energiestrom (Intensität), Impulsdichte und Strahlungsdruck. Dazu kommen
+      <em>bildliche Erklärbeispiele</em> und einfache Zahlenrechnungen.
+    </p>
+
+    <style>
+      .fig { background:#f9fbff; border-left:5px solid #3f88ff; padding:12px; margin:16px 0; }
+      .ex  { background:#fff3cd; border-left:5px solid #ffca2c; padding:12px; margin:16px 0; }
+      .tip { background:#e8f5e9; border-left:5px solid #4caf50; padding:12px; margin:16px 0; }
+      .frm { background:#f1f1f1; border-radius:6px; padding:12px; margin:14px 0; font-family:"Courier New", monospace; text-align:center; }
+      .warn{ background:#fff0f0; border-left:5px solid #f44336; padding:12px; margin:16px 0; }
+    </style>
+
+    <!-- 4.1 -->
+    <h2>4.1 Energiedichte einer EM-Welle</h2>
+    <p>
+      Die im Feld gespeicherte Energiedichte (Energie pro Volumen) setzt sich aus einem elektrischen und einem magnetischen Anteil zusammen:
+    </p>
+    <div class="frm">
+      \[
+        w(t)\;=\;\underbrace{\frac{\varepsilon_0}{2}\,E^2(t)}_{\text{elektrisch}}
+        \;+\;
+        \underbrace{\frac{1}{2\mu_0}\,B^2(t)}_{\text{magnetisch}}.
+      \]
+    </div>
+    <p>
+      Für eine ebene Vakuumwelle gilt \(B=E/c\) und \(c^2=\frac{1}{\varepsilon_0\mu_0}\). Damit ist <em>zu jedem Zeitpunkt</em>
+      \( \frac{1}{2\mu_0}B^2 = \frac{\varepsilon_0}{2}E^2 \), also tragen elektrische und magnetische Energie <strong>gleich viel</strong> bei:
+    </p>
+    <div class="frm">
+      \[
+        w(t)=\varepsilon_0\,E^2(t).
+      \]
+    </div>
+    <p>
+      Für eine harmonische Welle \(E(t)=E_0\cos(\omega t - kx)\) gilt \(\langle E^2\rangle=E_0^2/2\). Die zeitlich gemittelte Energiedichte ist damit
+    </p>
+    <div class="frm">
+      \[
+        \boxed{\ \langle w\rangle \;=\; \varepsilon_0\,\frac{E_0^2}{2}\ }.
+      \]
+    </div>
+
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Energie-Halbe-Halbe“:</strong>
+      Stelle dir die Welle als zwei „Tanks“ vor, die sich ständig wechselseitig füllen: Wenn das elektrische Feld groß ist,
+      ist der E-Tank voll, kurz darauf schwappt die Energie in den B-Tank u.&nbsp;s.&nbsp;w. Im Mittel sind beide Tanks gleich voll.
+    </div>
+
+    <!-- 4.2 -->
+    <h2>4.2 Poynting-Vektor, Intensität & mittlere Leistung</h2>
+    <p>
+      Die <strong>Energiestromdichte</strong> (Energie pro Zeit und Fläche) heißt <em>Poynting-Vektor</em>:
+    </p>
+    <div class="frm">
+      \[
+        \boxed{\ \vec S \;=\; \frac{1}{\mu_0}\,\vec E \times \vec B\ } \qquad (\text{Richtung = Ausbreitung, Betrag = Energiefluss}).
+      \]
+    </div>
+    <p>
+      Für die ebene Vakuumwelle (\(B=E/c\)) ist der Betrag
+    </p>
+    <div class="frm">
+      \[
+        |\vec S| \;=\; \frac{1}{\mu_0}\,EB \;=\; \varepsilon_0\,c\,E^2
+        \quad\Rightarrow\quad
+        \boxed{\ \langle I\rangle \equiv \langle|\vec S|\rangle \;=\; \frac{1}{2}\,\varepsilon_0\,c\,E_0^2\ },
+      \]
+    </div>
+    <p>
+      also die <strong>Intensität</strong> (gemittelte Leistung pro Fläche). Sie ist direkt proportional zu \(E_0^2\).
+    </p>
+
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Energiepfeile“:</strong>
+      Zeichne entlang der Ausbreitungsrichtung kleine Pfeile (Energieflusslinien). Dort, wo das Feld stark ist, sind die Pfeile länger
+      (mehr Energie pro Zeit). Die Vektorkreuzregel \(\vec E\times\vec B\) zeigt die Laufrichtung der Pfeile an.
+    </div>
+
+    <div class="ex">
+      <strong>Beispiel 1 (Intensität aus Feldamplitude):</strong>
+      Eine ebene Welle hat \(E_0=100\,\mathrm{V/m}\).
+      \[
+        \langle I\rangle=\tfrac{1}{2}\varepsilon_0 c E_0^2
+        \approx \tfrac{1}{2}\cdot(8{,}85\!\cdot\!10^{-12})\cdot(3{,}00\!\cdot\!10^8)\cdot(100)^2
+        \approx 13{,}3\,\mathrm{W/m^2}.
+      \]
+      (Ordnungsgemäß gerundet.)
+    </div>
+
+    <div class="ex">
+      <strong>Beispiel 2 (Sonnenlicht am Erdbahnradius):</strong>
+      Für \(\langle I\rangle\approx 1360\,\mathrm{W/m^2}\) folgt die Feldamplitude
+      \[
+        E_0 = \sqrt{\frac{2\langle I\rangle}{\varepsilon_0 c}}
+        \approx 1{,}01\!\cdot\!10^3\,\mathrm{V/m},\quad
+        B_0=\frac{E_0}{c}\approx 3{,}4\,\mu\mathrm{T}.
+      \]
+    </div>
+
+    <!-- 4.3 -->
+    <h2>4.3 Impulsdichte & Strahlungsdruck</h2>
+    <p>
+      Energiefluss trägt Impuls: Die <strong>Impulsdichte</strong> einer EM-Welle ist
+    </p>
+    <div class="frm">
+      \[
+        \vec g \;=\; \frac{\vec S}{c^2} \qquad (\text{Impuls pro Volumen}).
+      \]
+    </div>
+    <p>
+      Trifft Licht auf eine Fläche, übt es einen <strong>Strahlungsdruck</strong> aus. Für senkrechten Einfall:
+    </p>
+    <div class="frm">
+      \[
+        p \;=\; \begin{cases}
+          \dfrac{\langle I\rangle}{c}, & \text{voll absorbierend},\\[6pt]
+          \dfrac{2\,\langle I\rangle}{c}, & \text{ideal spiegelnd}.
+        \end{cases}
+      \]
+    </div>
+
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Photonen-Stoß“:</strong>
+      Sieh Licht als Strom vieler kleiner „Impulspäckchen“. Beim Absorber geben sie ihren Impuls \(U/c\) ab,
+      beim Spiegel kehren sie um und übertragen etwa doppelt so viel (\(2U/c\)).
+    </div>
+
+    <div class="ex">
+      <strong>Beispiel 3 (Solarsegel, 1&nbsp;m²):</strong>
+      Bei \(\langle I\rangle=1360\,\mathrm{W/m^2}\) gilt
+      \[
+        p_{\rm abs}=\frac{I}{c}\approx 4{,}54\,\mu\mathrm{N/m^2},\qquad
+        p_{\rm refl}=\frac{2I}{c}\approx 9{,}07\,\mu\mathrm{N/m^2}.
+      \]
+      Ein Quadratmeter idealer Spiegel erfährt also eine Kraft von \(\approx 9\,\mu\mathrm{N}\).
+    </div>
+
+    <div class="ex">
+      <strong>Beispiel 4 (Taschenlampe):</strong>
+      1 W auf eine Fläche von \(A=10\,\text{cm}^2=10^{-3}\,\mathrm{m^2}\) ergibt
+      \(\langle I\rangle=P/A=1000\,\mathrm{W/m^2}\).
+      Die Amplitude ist
+      \[
+        E_0=\sqrt{\frac{2\cdot 1000}{\varepsilon_0 c}}\approx 8{,}68\!\cdot\!10^2\,\mathrm{V/m}.
+      \]
+    </div>
+
+    <!-- 4.4 -->
+    <h2>4.4 (Optional) Energie-Impuls in kompakter Tensorform</h2>
+    <p>
+      Für fortgeschrittene Anwendungen (z.&nbsp;B. Strahlungsdruck auf komplexe Körper) nutzt man den
+      <strong>Energie-Impuls-Tensor</strong> des EM-Feldes \(T^{\mu\nu}\). Seine zeit-räumlichen Komponenten enthalten
+      Energiedichte (\(T^{00}\)), Energiestrom/Impulsdichte (\(T^{0i}\sim S_i/c\)) und Strahlungsdruck/Spannungen (\(T^{ij}\)).
+      Die Gleichung \(\partial_\mu T^{\mu\nu}=-F^{\nu\lambda}J_\lambda\) beschreibt, wie Felder mit Materie Impuls/Energie austauschen.
+    </p>
+
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Druck-Matrix“:</strong>
+      Stell dir \(T^{ij}\) als kleinen Pfeilfächer an jedem Punkt vor, der zeigt, wie das Feld auf Flächen in x/y/z-Richtung „drückt“.
+      Bei ebenen Lichtwellen ist der Druck entlang der Ausbreitungsrichtung maximal.
+    </div>
+
+    <!-- 4.5 -->
+    <h2>4.5 Häufige Stolpersteine</h2>
+    <ul>
+      <li><strong>„Intensität ∝ E“:</strong> Falsch. \(\langle I\rangle \propto E_0^2\) (quadratisch in der Amplitude).</li>
+      <li><strong>„Betrag von \(\vec B\) so groß wie \(\vec E\)“:</strong> Im Vakuum gilt stets \(B_0=E_0/c\).</li>
+      <li><strong>„Kein Druck von Licht“:</strong> Doch – klein, aber messbar (z.&nbsp;B. Solarsegel, optische Pinzetten).</li>
+    </ul>
+
+    <!-- 4.6 -->
+    <h2>4.6 Mini-Übungen (mit Lösungsskizze)</h2>
+    <div class="ex">
+      <strong>Übung 1:</strong> Eine Welle hat \(\langle I\rangle=500\,\mathrm{W/m^2}\). Bestimme \(E_0\) und \(B_0\).<br/>
+      <em>Lösungsskizze:</em> \(E_0=\sqrt{2I/(\varepsilon_0 c)}\), \(B_0=E_0/c\).
+    </div>
+    <div class="ex">
+      <strong>Übung 2:</strong> Wie groß ist der Strahlungsdruck bei senkrechtem Einfall für \(I=2{,}0\,\mathrm{kW/m^2}\) (Absorber vs. Spiegel)?<br/>
+      <em>Lösungsskizze:</em> \(p_{\rm abs}=I/c\), \(p_{\rm refl}=2I/c\).
+    </div>
+
+    <div class="tip">
+      <strong>Takeaway:</strong>
+      \(\langle w\rangle=\varepsilon_0 E_0^2/2\), \(\langle I\rangle=\tfrac{1}{2}\varepsilon_0 c E_0^2\),
+      \(\vec g=\vec S/c^2\), \(p=I/c\) (Absorber) bzw. \(2I/c\) (Spiegel). Diese Beziehungen verknüpfen Amplituden mit
+      gemessener Leistung und mechanischen Effekten von Licht.
+    </div>
+  </div>
+</section>
+
+<section id="quellen-retardierte-potenziale" style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+  <div class="container" style="max-width:900px; margin:auto;">
+    <h1>Entstehung elektromagnetischer Wellen: Quellen, retardierte Potenziale & Dipolstrahlung</h1>
+    <p>
+      Elektromagnetische Wellen entstehen, wenn sich elektrische Ladungen <strong>zeitlich verändern</strong> – etwa indem sie
+      beschleunigt werden oder ein Wechselstrom fließt. In diesem Abschnitt bauen wir das systematisch auf:
+      von den <em>retardierten (verzögerten) Potenzialen</em> über die <em>Nah-/Fernfeld-Skalierung</em> bis zur
+      <em>Dipolstrahlung</em> samt Leistung und Winkelverteilung. Dazu kommen bildliche Erklärungen und kurze Zahlenbeispiele.
+    </p>
+
+    <style>
+      .fig { background:#f9fbff; border-left:5px solid #3f88ff; padding:12px; margin:16px 0; }
+      .ex  { background:#fff3cd; border-left:5px solid #ffca2c; padding:12px; margin:16px 0; }
+      .tip { background:#e8f5e9; border-left:5px solid #4caf50; padding:12px; margin:16px 0; }
+      .frm { background:#f1f1f1; border-radius:6px; padding:12px; margin:14px 0; font-family:"Courier New", monospace; text-align:center; }
+      .warn{ background:#fff0f0; border-left:5px solid #f44336; padding:12px; margin:16px 0; }
+    </style>
+
+    <!-- 5.1 -->
+    <h2>5.1 Retardierte (verzögerte) Potenziale – „Signale brauchen Zeit“</h2>
+    <p>
+      Die Felder <span style="font-family:'Courier New', monospace;">\(\vec E,\vec B\)</span> lassen sich aus dem skalaren Potenzial
+      <span style="font-family:'Courier New', monospace;">\(\phi\)</span> und dem Vektorpotenzial
+      <span style="font-family:'Courier New', monospace;">\(\vec A\)</span> gewinnen. In der Lorenz-Eichung
+      <span style="font-family:'Courier New', monospace;">\(\nabla\!\cdot\!\vec A + \tfrac{1}{c^2}\,\partial_t \phi=0\)</span>
+      erfüllen die Potenziale <em>inhomogene Wellengleichungen</em>:
+    </p>
+    <div class="frm">
+      \[
+        \nabla^2 \phi - \frac{1}{c^2}\,\frac{\partial^2 \phi}{\partial t^2} = -\,\frac{\rho}{\varepsilon_0},\qquad
+        \nabla^2 \vec A - \frac{1}{c^2}\,\frac{\partial^2 \vec A}{\partial t^2} = -\,\mu_0\,\vec J.
+      \]
+    </div>
+    <p>
+      Ihre Lösungen sind die <strong>retardierten Potenziale</strong> (retarded potentials). Für eine ausgedehnte Quelle:
+    </p>
+    <div class="frm">
+      \[
+        \phi(\vec r,t)=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho(\vec r',\,t_r)}{|\vec r-\vec r'|}\,d^3r',\qquad
+        \vec A(\vec r,t)=\frac{\mu_0}{4\pi}\int\frac{\vec J(\vec r',\,t_r)}{|\vec r-\vec r'|}\,d^3r',
+      \]
+      \[
+        \text{mit}\quad t_r \equiv t - \frac{|\vec r-\vec r'|}{c}\quad\text{(retardierte Zeit).}
+      \]
+    </div>
+    <p>
+      Felder an Ort \(\vec r\) hängen also von der Quelle zu einem <em>früheren</em> Zeitpunkt \(t_r\) ab: Informationen laufen mit höchstens \(c\).
+    </p>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Lichtkegel-Post“:</strong>
+      Stell dir jede Quellstelle als Briefzentrum vor. Eine Änderung „verschickt“ Feld-Information, die erst nach
+      der Laufzeit \(R/c\) am Beobachter ankommt. Kein Express gibt es schneller als \(c\).
+    </div>
+
+    <!-- 5.2 -->
+    <h2>5.2 Nahfeld, Induktionsfeld, Fernfeld – die <em>1/r</em>-Regel</h2>
+    <p>
+      In großem Abstand von einer kompakten Quelle lassen sich die Felder in Beiträge mit unterschiedlicher
+      <em>Abstands-Abhängigkeit</em> zerlegen (hier exemplarisch für einen elektrischen Dipolmomentenverlauf \(p(t)\) entlang \(\hat z\)):
+    </p>
+    <div class="frm">
+      \[
+        E_\theta(r,t)\ \approx\ \frac{\sin\theta}{4\pi\varepsilon_0}
+        \left[
+          \underbrace{\frac{p(t_r)}{r^3}}_{\text{quasi-statisch}}
+          \;+\;
+          \underbrace{\frac{\dot p(t_r)}{c\,r^2}}_{\text{Induktionsfeld}}
+          \;+\;
+          \underbrace{\frac{\ddot p(t_r)}{c^2\,r}}_{\text{Strahlungsfeld}}
+        \right],
+        \qquad B_\varphi \approx \frac{1}{c}\,E_\theta\ \text{(Fernfeld)}.
+      \]
+    </div>
+    <ul>
+      <li><strong>Nahfeld</strong> (\(r\ll \lambda\)): \(1/r^3\)- und \(1/r^2\)-Terme dominieren (energie„speichernd“ um die Quelle).</li>
+      <li><strong>Fernfeld</strong> (\(r\gg \lambda\)): der \(1/r\)-Term dominiert – <em>dieser</em> trägt Energie/Impuls fort (Strahlung).</li>
+    </ul>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Wellenzwiebel“:</strong>
+      Direkt an der Quelle „wirbelt“ Energie hin und her (Nahfeld). Erst weiter draußen löst sich eine saubere
+      <em>Wellenfront</em>, die mit \(1/r\) abnimmt und Energie wirklich wegträgt.
+    </div>
+
+    <!-- 5.3 -->
+    <h2>5.3 Harmonischer elektrischer Dipol („kurze Antenne“)</h2>
+    <p>
+      Ein zentraler Strahler ist der <strong>oszillierende elektrische Dipol</strong>:
+      \(p(t)=p_0\cos(\omega t)\,\hat z\) (z.&nbsp;B. ein kurzer, mit Wechselstrom gespeister Stab). Im Fernfeld
+      (\(kr\gg1\), \(k=\omega/c\)) lauten die Feldamplituden:
+    </p>
+    <div class="frm">
+      \[
+        E_\theta(r,\theta,t)\ \approx\ \frac{k^2\,p_0}{4\pi\varepsilon_0}\,\frac{\sin\theta}{r}\cos(kr-\omega t),\qquad
+        B_\varphi = \frac{1}{c}\,E_\theta.
+      \]
+    </div>
+    <p>
+      Die zeitlich gemittelte Abstrahlungsleistung pro Raumwinkel (\(d\Omega\)) ist
+    </p>
+    <div class="frm">
+      \[
+        \frac{dP}{d\Omega} = \frac{\mu_0\,\omega^4\,p_0^2}{32\pi^2 c}\,\sin^2\!\theta,
+        \qquad
+        \Rightarrow\quad
+        \boxed{\ \langle P\rangle = \frac{\mu_0\,\omega^4\,p_0^2}{12\pi\,c}
+        = \frac{\omega^4\,p_0^2}{12\pi\,\varepsilon_0\,c^3}\ }.
+      \]
+    </div>
+    <ul>
+      <li><strong>Winkelmuster:</strong> „Donut“ \(\propto \sin^2\theta\) – maximale Strahlung in der Äquatorebene, Null auf der Dipolachse.</li>
+      <li><strong>Frequenzskala:</strong> Leistung wächst sehr stark mit \(\omega^4\) (doppelte Frequenz → 16-fache Leistung bei gleichem \(p_0\)).</li>
+    </ul>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Rettungsring“:</strong>
+      Um die Dipolachse liegt ein heller Strahlungsring (Äquator), über/unter den Polen ist ein „Loch“ im Muster.
+    </div>
+
+    <div class="ex">
+      <strong>Zahlenbeispiel (Hertz’scher Kurzdipol):</strong>
+      Kurze Antenne, Stromamplitude \(I_0=1\,\mathrm{A}\), Länge \(\ell=0{,}50\,\mathrm{m}\), Frequenz \(f=100\,\mathrm{MHz}\)
+      (\(\omega=2\pi f\)). Für einen Kurzdipol ist \(p_0 \approx I_0\,\ell/\omega\).
+      \[
+        p_0 \approx \frac{1\cdot 0{,}5}{2\pi\cdot 10^8}\ \mathrm{C\,m} \approx 8{,}0\cdot 10^{-10}\ \mathrm{C\,m}.
+      \]
+      Mittlere Strahlungsleistung:
+      \[
+        \langle P\rangle \approx \frac{\mu_0\,\omega^4\,p_0^2}{12\pi c}
+        \approx 1{,}1\cdot 10^{-2}\ \mathrm{W}\ \ (\approx 11\,\mathrm{mW}).
+      \]
+      Ein Kurzdipol strahlt also bei diesen Werten nur einige Milliwatt ab – deshalb braucht man Resonanzantennen/Anpassung.
+    </div>
+
+    <!-- 5.4 -->
+    <h2>5.4 Von Quellenfeldern zu Wellen: Liénard–Wiechert (Ausblick)</h2>
+    <p>
+      Für punktförmige, <em>bewegte</em> Ladungen ergeben sich Felder aus den <strong>Liénard–Wiechert-Potenzialen</strong>.
+      Im Fernfeld tragen nur die <em>beschleunigungsabhängigen</em> Terme (\(\propto \ddot{\vec r}\)) zur Strahlung bei.
+      Für nichtrelativistische Geschwindigkeiten führt das zur <strong>Larmor-Formel</strong> für die mittlere Leistung:
+    </p>
+    <div class="frm">
+      \[
+        \langle P\rangle = \frac{\mu_0\,q^2\,a^2}{6\pi\,c}
+        \quad\Big(\text{bzw. } \frac{q^2 a^2}{6\pi \varepsilon_0 c^3}\Big),
+      \]
+    </div>
+    <p>
+      die zeigt: <em>gleichförmige</em> Bewegung strahlt nicht – erst <strong>Beschleunigung</strong> (Richtungs- oder Betragsänderung der Geschwindigkeit) erzeugt Strahlung.
+    </p>
+    <div class="fig">
+      <strong>Bildliche Erklärung – „Schütteln macht Wellen“:</strong>
+      Ein Stein, der ruhig durchs Wasser gezogen wird, erzeugt kaum neue Wellen. Erst wenn du ihn ruckelst/beschleunigst,
+      gehen Wellen ab – bei Ladungen ist es analog.
+    </div>
+
+    <!-- 5.5 -->
+    <h2>5.5 Typische Stolpersteine</h2>
+    <ul>
+      <li><strong>DC strahlt nicht:</strong> Konstante Ströme/Ladungen senden keine Fernfeld-Wellen (keine Beschleunigung).</li>
+      <li><strong>Nahfeld ≠ Strahlung:</strong> Starke \(1/r^3,1/r^2\)-Terme nahe der Quelle bedeuten <em>keine</em> Netto-Energieabfuhr in die Ferne.</li>
+      <li><strong>Falscher Fernfeldbereich:</strong> Verwechsle „weit weg“ nicht mit „Fernfeld“ – ein grober Richtwert ist \(r\gg \lambda\) (oder \(kr\gg1\)).</li>
+      <li><strong>Einheiten checken:</strong> \(p\) in \(\mathrm{C\,m}\), \(\omega\) in \(\mathrm{s^{-1}}\); Leistung in Watt.</li>
+    </ul>
+
+    <!-- 5.6 -->
+    <h2>5.6 Mini-Übungen (mit Lösungsskizze)</h2>
+    <div class="ex">
+      <strong>Übung 1:</strong> Ein Dipol habe \(p_0=2\cdot10^{-9}\,\mathrm{C\,m}\), \(f=50\,\mathrm{MHz}\).
+      Bestimme die mittlere Gesamtleistung \(\langle P\rangle\).<br/>
+      <em>Lösungsskizze:</em> \(\omega=2\pi f\); \(\langle P\rangle=\omega^4 p_0^2 /(12\pi\varepsilon_0 c^3)\).
+    </div>
+    <div class="ex">
+      <strong>Übung 2:</strong> Für den gleichen Dipol: Wie hängt die Intensität im Fernfeld vom Winkel \(\theta\) ab?
+      Wo ist sie maximal/minimal?<br/>
+      <em>Lösungsskizze:</em> \(dP/d\Omega \propto \sin^2\theta\). Maximal bei \(\theta=90^\circ\), Null bei \(\theta=0^\circ,180^\circ\).
+    </div>
+    <div class="ex">
+      <strong>Übung 3:</strong> Bei \(\lambda=3\,\mathrm{m}\): Ab welcher Entfernung bist du sicher im Fernfeld? Nenne eine grobe Schwelle.<br/>
+      <em>Lösungsskizze:</em> Faustregel \(r\gtrsim 10\,\lambda \Rightarrow r \gtrsim 30\,\mathrm{m}\) (großzügig). Mindestens \(kr\gg1\).
+    </div>
+
+    <div class="tip">
+      <strong>Takeaway:</strong>
+      (1) Retardierte Potenziale kodieren Kausalität: Felder „wissen“ nur von der Vergangenheit der Quelle.
+      (2) Felder teilen sich in Nah-, Induktions- und Fernfeld – nur der \(1/r\)-Term strahlt Energie ab.
+      (3) Der harmonische Dipol liefert das Grundmuster \(\sin^2\theta\) und \(\langle P\rangle\propto \omega^4 p_0^2\).
+    </div>
+  </div>
+</section>
+
+
+    <a href="quiz.html" class="quiz-btn">Quiz zu Elektromagnetische Wellen starten</a>
+</main>
+
+<footer>
+    &copy; 2025 PhysikNow | Elektromagnetische Wellen
+</footer>
+
+</body>
+</html>
