@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physik Lernen | Deine Uni-Plattform</title>
+    <style>
+        /* RESET & BASIC STYLING */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            background: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER */
+        header {
+            background: #1e1e2f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+        }
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+        nav a {
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease; /* sanfter Übergang */
+        }
+        nav a:hover {
+            color: #00d4ff; /* Hover-Farbe */
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: white;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            background: #fff;
+            color: #0066ff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0066ff;
+            color: #fff;
+        }
+
+        /* TOPIC GRID */
+        .topics {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .topics h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h4 {
+            margin-bottom: 0.5rem;
+            color: #0066ff;
+            font-size: 1.1rem;
+            transition: color 0.3s ease; /* sanfter Übergang für Farbe */
+        }
+        .card:hover h4 {
+            color: #ff6600; /* Überschriftfarbe bei Hover */
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e1e2f;
+            color: #bbb;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>PhysikNow</h1>
+    <nav>
+        <ul>
+            <li><a href="#topics">Alle Themen</a></li>
+            <li><a href="uni-vorlage.html">Universitäre Vorlage</a></li>
+            <li><a href="quiz.html">Teste dein Wissen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Physik verstehen leicht gemacht!</h2>
+        <p>Die komplette Experimentalphysik von A bis Z – kompakt, verständlich und interaktiv.</p>
+        <a href="#topics" class="btn">Anfangen</a>
+    </section>
+
+    <!-- THEMEN -->
+    <section class="topics" id="topics">
+        <h3>Alle Themen im Überblick</h3>
+        <div class="topic-grid">
+    <!-- EXPERIMENTALPHYSIK 1 -->
+    <div class="card"><h4>Grundlagen der Mechanik</h4><p>Kräfte, Bewegung, Bezugssysteme.</p></div>
+    <div class="card"><h4>Kinematik: Bewegungsgesetze</h4><p>Geschwindigkeit, Beschleunigung, Trajektorien.</p></div>
+    <div class="card"><h4>Dynamik: Newtonsche Axiome</h4><p>Kraftwirkung, Impulsänderung, Trägheit.</p></div>
+    <div class="card"><h4>Impuls & Impulserhaltung</h4><p>Impulsdefinition, Stoßprozesse, Systeme.</p></div>
+    <div class="card"><h4>Drehimpuls & Rotationsbewegung</h4><p>Drehmomente, Kreiselbewegung, Erhaltung.</p></div>
+    <div class="card"><h4>Arbeit, Energie & Leistung</h4><p>Arbeitssätze, Energieformen, Energieerhaltung.</p></div>
+    <div class="card"><h4>Schwingungen, Wellen & Schall</h4><p>Harmonische Bewegung, Wellengleichung, Ausbreitung.</p></div>
+    <div class="card"><h4>Gravitation & Keplersche Gesetze</h4><p>Gravitationsgesetz, Planetengesetze.</p></div>
+    <div class="card"><h4>Relativistische Mechanik</h4><p>Spezielle Relativität, Längenkontraktion, Zeitdilatation.</p></div>
+    <div class="card"><h4>Thermodynamik</h4><p>Zustandsgrößen, Hauptsätze, Wärmeübertragung.</p></div>
+
+    <!-- EXPERIMENTALPHYSIK 2 -->
+    <div class="card"><h4>Elektrostatik</h4><p>Ladungen, Coulomb-Gesetz, elektrische Felder.</p></div>
+    <div class="card"><h4>Elektrische Netzwerke & Kirchhoff-Regeln</h4><p>Knotenregel, Maschenregel, Schaltungen.</p></div>
+    <div class="card"><h4>Magnetische Felder & Lorentzkraft</h4><p>Magnetische Kräfte, Bewegungen geladener Teilchen.</p></div>
+    <div class="card"><h4>Induktion & Faradaysches Gesetz</h4><p>Induzierte Spannungen, Wirbelströme.</p></div>
+    <div class="card"><h4>Selbstinduktion & Induktivität</h4><p>Spulen, Magnetische Energie.</p></div>
+    <div class="card"><h4>Maxwell-Gleichungen</h4><p>Elektromagnetische Grundgesetze.</p></div>
+    <div class="card"><h4>Elektromagnetische Wellen</h4><p>Lichtausbreitung, Wellencharakter.</p></div>
+    <div class="card"><h4>Grundlagen der Optik</h4><p>Lichtbrechung, Reflexion, Linsen.</p></div>
+    <div class="card"><h4>Reflexion & Brechung</h4><p>Gesetze der Strahlenoptik.</p></div>
+    <div class="card"><h4>Linsen & Abbildungsgesetze</h4><p>Brennweiten, optische Systeme.</p></div>
+    <div class="card"><h4>Interferenz & Beugung</h4><p>Doppelspalt, Beugungsmuster.</p></div>
+    <div class="card"><h4>Polarisation</h4><p>Licht als transversale Welle.</p></div>
+
+    <!-- EXPERIMENTALPHYSIK 3 -->
+    <div class="card"><h4>Historische Atommodelle</h4><p>Thomson, Rutherford, Bohr.</p></div>
+    <div class="card"><h4>Bohr-Atom & Rydberg-Formel</h4><p>Energiequantisierung, Spektrallinien.</p></div>
+    <div class="card"><h4>Quantenmechanisches Atommodell</h4><p>Orbitale, Schrödingergleichung.</p></div>
+    <div class="card"><h4>Feinstruktur & Hyperfeinstruktur</h4><p>Spin-Bahn-Kopplung, Kernwechselwirkungen.</p></div>
+    <div class="card"><h4>Mehrelektronenatome</h4><p>Schalenmodell, Periodensystem.</p></div>
+    <div class="card"><h4>Atomare Spektroskopie</h4><p>Auswahlregeln, Übergänge.</p></div>
+    <div class="card"><h4>Zeeman- & Stark-Effekt</h4><p>Feldaufspaltungen von Spektrallinien.</p></div>
+    <div class="card"><h4>Molekülbindung & Spektren</h4><p>Kovalent, Ionenbindung, Schwingungen.</p></div>
+    <div class="card"><h4>Rotations- & Vibrationsspektren</h4><p>Molekülbewegungen im IR-Bereich.</p></div>
+    <div class="card"><h4>Festkörper</h4><p>Kristallstrukturen, Bändermodell.</p></div>
+    <div class="card"><h4>Elektrische Leitfähigkeit & Halbleiter</h4><p>Metalle, n- und p-Typ.</p></div>
+    <div class="card"><h4>Magnetismus & Supraleitung</h4><p>Ferromagnetismus, Supraleitende Materialien.</p></div>
+    <div class="card"><h4>Experimentelle Methoden</h4><p>Röntgenbeugung, Spektroskopie.</p></div>
+
+    <!-- EXPERIMENTALPHYSIK 4 -->
+    <div class="card"><h4>Kernaufbau & Kernkräfte</h4><p>Struktur und Wechselwirkungen.</p></div>
+    <div class="card"><h4>Bindungsenergie & Massendefekt</h4><p>Energie pro Nukleon, Stabilität.</p></div>
+    <div class="card"><h4>Radioaktivität & Zerfallsgesetze</h4><p>Alpha-, Beta-, Gamma-Zerfall.</p></div>
+    <div class="card"><h4>Kernreaktionen & Kernfusion</h4><p>Fusionsprozesse in Sternen.</p></div>
+    <div class="card"><h4>Neutronenphysik & Streuung</h4><p>Streuungsexperimente, Neutronenquellen.</p></div>
+    <div class="card"><h4>Teilchenphysik</h4><p>Leptonen, Quarks, Standardmodell.</p></div>
+    <div class="card"><h4>Fundamentale Wechselwirkungen</h4><p>Starke, schwache, EM-Kräfte.</p></div>
+    <div class="card"><h4>Kosmische Strahlung</h4><p>Teilchen aus dem All.</p></div>
+    <div class="card"><h4>Astrophysikalische Prozesse</h4><p>Sternentwicklung, Supernovae.</p></div>
+    <div class="card"><h4>Schwarze Löcher & Kosmologie</h4><p>Urknall, Expansion des Universums.</p></div>
+</div>
+
+    </section>
+</main>
+
+<footer>
+    &copy; 2025 PhysikLern | Dein Weg zur besseren Note
+</footer>
+
+<script>
+    // Smooth Scroll für Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
