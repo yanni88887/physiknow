@@ -192,83 +192,35 @@ footer {
     font-size: 0.9rem;
     margin-top: auto;
 }
-
 /* ===================== */
 /* RESPONSIVE ANPASSUNGEN */
 /* ===================== */
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .hero h2 { font-size: 2.2rem; }
-    .hero p { font-size: 1.1rem; }
-    .toc-box ul { grid-template-columns: 1fr; } /* 1 Spalte */
+  .hero h2 { font-size: 2.2rem; }
+  .hero p { font-size: 1.1rem; }
+  .toc-box ul { grid-template-columns: 1fr; } /* 1 Spalte */
 }
 
 /* Handy */
-/* Handy */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        align-items: center;   /* zentriert statt linksbündig */
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-        margin-top: 0.8rem;    /* Abstand zwischen Logo und Menü */
-        text-align: center;    /* Menüeinträge mittig */
-    }
-    nav a {
-        display: block;
-        padding: 0.5rem;
-    }
-    .hero {
-        padding: 2rem 1rem;
-    }
-    .hero h2 { font-size: 1.8rem; }
-    .hero p { font-size: 1rem; }
-    section { 
-        padding: 15px; 
-        width: 95%;           /* volle Breite auf Handy */
-    }
-    .toc-box ul {
-        grid-template-columns: 1fr; /* nur eine Spalte */
-    }
-    canvas {
-        max-width: 100%;
-        height: auto;
-    }
-}
-    /* --- Fix fürs Handy-Zoomen --- */
-@media (max-width: 600px) {
-  section:not(.hero) {
-    width: 95%;
-    overflow-x: hidden;
+  /* Header: Logo links, Burger rechts */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  img, canvas, .formel-box, mjx-container {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-}
-body {
-  overflow-x: hidden; /* verhindert horizontales Scrollen */
-}
-/* Burger-Button Standard: ausgeblendet */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
 
-/* ----- Handy-Ansicht ----- */
-@media (max-width: 600px) {
-  /* Button anzeigen */
+  /* Burger-Button sichtbar */
   .menu-toggle {
     display: block;
-    margin-left: auto; /* Button rechts */
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
   }
 
   /* Menü ausblenden */
@@ -286,39 +238,53 @@ body {
   nav ul.show {
     display: flex;
   }
+
+  nav a {
+    display: block;
+    padding: 0.5rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+
+  section { 
+    padding: 15px; 
+    width: 95%;           /* volle Breite auf Handy */
+  }
+
+  .toc-box ul {
+    grid-template-columns: 1fr; /* nur eine Spalte */
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section:not(.hero) {
+    width: 95%;
+    overflow-x: hidden;
+  }
+
+  img, canvas, .formel-box, mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
-/* --- Burger-Menü --- */
+
+/* --- Globale Fixes --- */
+body {
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
+}
+
+/* Burger-Button Standard: ausgeblendet (auf PC/Tablet) */
 .menu-toggle {
-  display: none; /* Standard: ausgeblendet (PC) */
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
+  display: none;
 }
-
-/* Handy-Ansicht */
-@media (max-width: 600px) {
-  .menu-toggle {
-    display: block;       /* Button sichtbar */
-    margin-left: auto;    /* Button nach rechts */
-  }
-
-  nav ul {
-    display: none;        /* Navigation standardmäßig versteckt */
-    flex-direction: column;
-    gap: 0.5rem;
-    background: #1e1e2f;
-    width: 100%;
-    padding: 1rem 0;
-    text-align: center;
-  }
-
-  nav ul.show {
-    display: flex;        /* eingeblendet, wenn Button geklickt */
-  }
-}
-
 
 
 </style>
