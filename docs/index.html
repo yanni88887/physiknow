@@ -6,7 +6,29 @@
 <title>Dynamik | PhysikNow</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+    },
+    chtml: {
+      scale: 1,                  // Schriftgröße normal
+      displayAlign: "center",    // Formeln mittig
+      displayIndent: "0"
+    },
+    options: {
+      renderActions: {
+        addMenu: [0, '', '']     // Menü deaktivieren (optional)
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
+    
 <style>
 /* RESET & BASIS */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
