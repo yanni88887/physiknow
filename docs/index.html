@@ -191,12 +191,8 @@ footer {
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .hero h2 {
-    font-size: 2.2rem;
-  }
-  .hero p {
-    font-size: 1.1rem;
-  }
+  .hero h2 { font-size: 2.2rem; }
+  .hero p { font-size: 1.1rem; }
 }
 
 /* ===================== */
@@ -234,63 +230,41 @@ footer {
     left: 0;
     z-index: 99;
   }
-  nav ul.show {
-    display: flex;
-  }
-  nav a {
-    display: block;
-    padding: 0.5rem;
-  }
-  .hero {
-    padding: 2rem 1rem;
-  }
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  section {
-    padding: 15px;
-    width: 95%;
-  }
-  section:not(.hero) {
-    width: 95%;
-    overflow-x: hidden;
-  }
-  canvas {
-    max-width: 100%;
-    height: auto;
-  }
-  img,
-  canvas,
-  .formel-box,
-  mjx-container {
+  nav ul.show { display: flex; }
+  nav a { display: block; padding: 0.5rem; }
+  .hero { padding: 2rem 1rem; }
+  .hero h2 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  section { padding: 15px; width: 95%; }
+  section:not(.hero) { width: 95%; overflow-x: hidden; }
+  canvas { max-width: 100%; height: auto; }
+  img, canvas, .formel-box, mjx-container {
     max-width: 100%;
     overflow-x: auto;
   }
 }
+
+/* Ebenen-Reihenfolge */
+.menu-toggle { z-index: 200; } /* Header-Burger ganz oben */
+.toc-toggle { z-index: 150; } /* TOC-Burger darunter */
 
 /* ===================== */
 /* PC: Sidebar-Inhaltsverzeichnis */
 /* ===================== */
 .toc-box {
   position: fixed;
-  top: 150px; /* startet unter dem Hero (anpassen!) */
+  top: 150px; /* startet unter Hero */
   left: 20px;
   width: 240px;
-  max-height: calc(100% - 370px); /* unterer Abstand */
+  max-height: calc(100% - 170px);
   overflow-y: auto;
-
   background: #fff;
   border: 2px solid #0066ff;
   border-radius: 10px;
   padding: 1rem;
   z-index: 90;
-
   box-shadow: 2px 4px 12px rgba(0,0,0,0.1);
 }
-
 .toc-box h3 {
   font-size: 1.2rem;
   font-weight: bold;
@@ -300,17 +274,8 @@ footer {
   border-bottom: 1px solid #eee;
   padding-bottom: 0.4rem;
 }
-
-.toc-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.toc-box li {
-  margin-bottom: 0.5rem;
-}
-
+.toc-box ul { list-style: none; padding: 0; margin: 0; }
+.toc-box li { margin-bottom: 0.5rem; }
 .toc-box a {
   display: block;
   padding: 0.3rem 0.5rem;
@@ -320,30 +285,20 @@ footer {
   transition: all 0.2s ease;
   font-size: 0.95rem;
 }
-
-.toc-box a:hover {
-  background: #0066ff;
-  color: #fff;
-}
+.toc-box a:hover { background: #0066ff; color: #fff; }
 
 /* Content rückt nach rechts */
-.content {
-  margin-left: 280px;
-  padding: 1rem;
-}
+.content { margin-left: 280px; padding: 1rem; }
 
 /* ===================== */
 /* TOC-Burger-Button */
 /* ===================== */
-.toc-toggle {
-  display: none;
-}
+.toc-toggle { display: none; }
 
 /* ===================== */
 /* Handy / Tablet */
 /* ===================== */
 @media (max-width: 768px) {
-  /* Sidebar ausblenden */
   .toc-box {
     display: none;
     position: fixed;
@@ -354,44 +309,33 @@ footer {
     max-width: 300px;
     background: #fff;
     border-right: 2px solid #0066ff;
-    border-radius: 0;
     z-index: 100;
     padding: 1rem;
     box-shadow: 2px 0 12px rgba(0,0,0,0.2);
   }
-
-  /* sichtbar wenn aktiv */
-  .toc-box.show {
-    display: block;
-  }
+  .toc-box.show { display: block; }
 
   /* Button unter Header */
   .toc-toggle {
     display: block;
     position: fixed;
-    top: 90px; /* etwas unter dem Header */
+    top: 70px;
     left: 1rem;
-
-    background: rgba(255, 255, 255, 0.2); /* nahezu transparent */
+    background: rgba(255, 255, 255, 0.2); /* fast transparent */
     color: #0066ff; /* Burger-Linien blau */
-    border: 2px solid #0066ff;
+    border: none;
     padding: 0.5rem 0.8rem;
     border-radius: 6px;
     font-size: 1.5rem;
     cursor: pointer;
-
     z-index: 101;
   }
-}
-
 
   /* Content wieder volle Breite */
-  .content {
-    margin-left: 0;
-  }
+  .content { margin-left: 0; }
 }
-
 </style>
+
 
 </head>
 <body>
@@ -1335,9 +1279,6 @@ footer {
     }
   });
 </script>
-
-
-
 
 </body>
 </html>
