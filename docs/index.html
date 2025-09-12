@@ -217,6 +217,21 @@ footer {
         height: auto;
     }
 }
+    /* --- Fix fürs Handy-Zoomen --- */
+@media (max-width: 600px) {
+  section:not(.hero) {
+    width: 95%;
+    overflow-x: hidden;
+  }
+  img, canvas, .formel-box, mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+body {
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
+}
+
 
 </style>
 
