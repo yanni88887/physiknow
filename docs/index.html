@@ -393,7 +393,46 @@ body {
   display: none;
 }
 
+/* Standardmäßig TOC-Button ausblenden */
+.toc-toggle {
+  display: none;
+}
 
+/* Handy-Ansicht */
+@media (max-width: 768px) {
+  /* TOC unsichtbar machen */
+  .toc-box {
+    display: none;
+    position: absolute;
+    top: 100px; /* Abstand unter dem Header oder unter dem Button */
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    background: #fff;
+    border: 2px solid #0066ff;
+    padding: 1rem;
+    z-index: 100;
+  }
+
+  .toc-box.show {
+    display: block;
+  }
+
+  /* TOC-Burger sichtbar */
+  .toc-toggle {
+    display: block;
+    margin: 1rem auto;
+    background: #0066ff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+  
 </style>
 
 </head>
@@ -424,45 +463,24 @@ body {
 </section>
 
 
+<!-- Button für Inhaltsverzeichnis (sichtbar nur auf Handy) -->
+<button class="toc-toggle" aria-label="Inhaltsverzeichnis öffnen">&#9776; Inhalt</button>
+
 <main class="page-layout">
-  <!-- Inhaltsverzeichnis -->
   <aside class="toc-box">
     <h3>Inhaltsübersicht</h3>
     <ul>
       <li><a href="#einleitung">1. Einführung</a></li>
       <li><a href="#newtonsche-axiome">2. Newtonsche Axiome</a></li>
       <li><a href="#bewegungsgesetze">3. Bewegungsgesetze</a></li>
-      <li><a href="#kraefte">4. Kräfte</a></li>
-      <li><a href="#hangabtrieb">5. Hangabtrieb</a></li>
-      <li><a href="#rotation">6. Rotation und Drehmoment</a></li>
-      <li><a href="#mehrkoerpersysteme">7. Mehrkörpersysteme und Seilkräfte</a></li>
-      <li><a href="#impuls">8. Impuls und Impulserhaltung</a></li>
-      <li><a href="#zentrale-stoesse">9. Zentrale Stöße</a></li>
-      <li><a href="#kreisbewegung">10. Kreisbewegung</a></li>
+      <!-- usw. -->
     </ul>
   </aside>
 
- <!-- Inhaltsübersicht -->
-<div class="toc-box">
-    <h3>Inhaltsübersicht</h3>
-    <ul>
-        <li><a href="#einleitung">1. Einführung</a></li>
-        <li><a href="#newtonsche-axiome">2. Newtonsche Axiome</a></li>
-        <li><a href="#bewegungsgesetze">3. Bewegungsgesetze</a></li>
-        <li><a href="#kraefte">4. Kräfte</a></li>
-        <li><a href="#hangabtrieb">5. Hangabtrieb</a></li>
-        <li><a href="#rotation">6. Rotation und Drehmoment</a></li>
-        <li><a href="#mehrkoerpersysteme">7. Mehrkörpersysteme und Seilkräfte</a></li>
-        <li><a href="#impuls">8. Impuls und Impulserhaltung</a></li>
-        <li><a href="#zentrale-stoesse">9. ZentraleStöße</a></li>
-        <li><a href="#kreisbewegung">10. Kreisbewegung und Zentralkräfte</a></li>
-        <li><a href="#gesamtzusammenfassung">11. Gesamte Zusammenfassung und Überblick</a></li>
-        <li><a href="#veraenderliche-masse">12. Bonus: Systeme mit veränderlicher Masse</a></li>
-    </ul>
-</div>
+  <div class="content">
+    <!-- dein Text -->
+  </div>
 </main>
-
-  
 
 
 <section id="einleitung">
