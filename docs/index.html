@@ -203,38 +203,50 @@ footer {
   .toc-box ul { grid-template-columns: 1fr; } /* 1 Spalte */
 }
 
-/* Handy */
+/* --- Globale Fixes --- */
+body {
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
+}
+
+/* ========== HEADER-NAVIGATION ========== */
+
+/* Burger-Button Standard: ausgeblendet (auf PC/Tablet) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Handy-Ansicht: Header-Menü als Burger */
 @media (max-width: 600px) {
-  /* Header: Logo links, Burger rechts */
   header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 
-  /* Burger-Button sichtbar */
   .menu-toggle {
-    display: block;
+    display: block;   /* Button sichtbar */
     margin-left: auto;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
   }
 
-  /* Menü ausblenden */
   nav ul {
-    display: none;
+    display: none;    /* ausgeblendet */
     flex-direction: column;
     gap: 0.5rem;
     background: #1e1e2f;
     width: 100%;
     padding: 1rem 0;
     text-align: center;
+    position: absolute;
+    top: 60px;        /* unter dem Header */
+    left: 0;
+    z-index: 99;
   }
 
-  /* Menü sichtbar, wenn aktiv */
   nav ul.show {
     display: flex;
   }
@@ -276,60 +288,9 @@ footer {
   }
 }
 
-/* --- Globale Fixes --- */
-body {
-  overflow-x: hidden; /* verhindert horizontales Scrollen */
-}
+/* ========== LAYOUT MIT TOC ========== */
 
-/* Burger-Button Standard: ausgeblendet (auf PC/Tablet) */
-.menu-toggle {
-  display: none;
-}
-/* Burger-Button Standard: ausgeblendet */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .menu-toggle {
-    display: block;   /* Button sichtbar */
-    margin-left: auto;
-  }
-
-  /* Menü standardmäßig ausblenden */
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: #1e1e2f;
-    width: 100%;
-    padding: 1rem 0;
-    text-align: center;
-
-    position: absolute;   /* Menü löst sich aus dem Header */
-    top: 60px;            /* Höhe unter dem Header (anpassen falls Header höher ist) */
-    left: 0;
-    z-index: 99;
-  }
-
-  /* Menü sichtbar, wenn aktiv */
-  nav ul.show {
-    display: flex;
-  }
-}
-
-/* Layout: TOC links, Inhalt rechts */
+/* Desktop: TOC links, Content rechts */
 .page-layout {
   display: flex;
   gap: 2rem;
@@ -342,7 +303,7 @@ body {
 .toc-box {
   flex: 0 0 250px; /* feste Breite */
   position: sticky;
-  top: 80px;       /* bleibt beim Scrollen sichtbar */
+  top: 80px;
   height: fit-content;
 }
 
@@ -350,61 +311,24 @@ body {
 .content {
   flex: 1;
 }
-@media (max-width: 768px) {
-  .page-layout {
-    display: block;
-  }
 
-  /* TOC verstecken auf Handy */
-  .toc-box {
-    display: none;
-    position: absolute;
-    top: 60px; /* unter dem Header */
-    left: 0;
-    width: 80%;
-    max-width: 300px;
-    background: #fff;
-    border: 2px solid #0066ff;
-    padding: 1rem;
-    z-index: 100;
-  }
-
-  .toc-box.show {
-    display: block;
-  }
-
-  /* Button oben links */
-  .toc-toggle {
-    display: block;
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-    z-index: 101;
-  }
-}
-
-/* Standardmäßig Button ausblenden (nur Handy) */
-.toc-toggle {
-  display: none;
-}
+/* ========== TOC-BURGER ========== */
 
 /* Standardmäßig TOC-Button ausblenden */
 .toc-toggle {
   display: none;
 }
 
-/* Handy-Ansicht */
+/* Handy: TOC als ausklappbares Panel */
 @media (max-width: 768px) {
-  /* TOC unsichtbar machen */
+  .page-layout {
+    display: block;
+  }
+
   .toc-box {
     display: none;
     position: absolute;
-    top: 100px; /* Abstand unter dem Header oder unter dem Button */
+    top: 100px; /* unter Header/TOC-Button */
     left: 0;
     width: 80%;
     max-width: 300px;
@@ -418,7 +342,6 @@ body {
     display: block;
   }
 
-  /* TOC-Burger sichtbar */
   .toc-toggle {
     display: block;
     margin: 1rem auto;
@@ -432,7 +355,6 @@ body {
   }
 }
 
-  
 </style>
 
 </head>
@@ -462,23 +384,119 @@ body {
     <p>Die Lehre von Kräften und ihren Wirkungen – Grundlage der klassischen Mechanik</p>
 </section>
 
-
-<!-- Button für Inhaltsverzeichnis (sichtbar nur auf Handy) -->
+<!-- TOC-Burger nur fürs Handy -->
 <button class="toc-toggle" aria-label="Inhaltsverzeichnis öffnen">&#9776; Inhalt</button>
 
+<!-- Hero -->
+<section class="hero">
+  <h2>Dynamik</h2>
+  <p>Die Lehre von Kräften und ihren Wirkungen – Grundlage der klassischen Mechanik</p>
+</section>
+
+<!-- Hauptbereich mit TOC links + Inhalt rechts -->
 <main class="page-layout">
+  
+  <!-- Inhaltsverzeichnis -->
   <aside class="toc-box">
     <h3>Inhaltsübersicht</h3>
     <ul>
       <li><a href="#einleitung">1. Einführung</a></li>
-      <li><a href="#newtonsche-axiome">2. Newtonsche Axiome</a></li>
+      <li><a href="#newtonsche-axiome">2. Newtonsche Axiome & Inertialsysteme</a></li>
       <li><a href="#bewegungsgesetze">3. Bewegungsgesetze</a></li>
-      <!-- usw. -->
+      <li><a href="#kraefte">4. Kräftearten</a></li>
+      <li><a href="#hangabtrieb">5. Bewegung am geneigten Hang</a></li>
+      <li><a href="#rotation">6. Rotation und Drehmoment</a></li>
+      <li><a href="#mehrkoerpersysteme">7. Mehrkörpersysteme und Seilkräfte</a></li>
+      <li><a href="#impuls">8. Impuls und Impulserhaltung</a></li>
+      <li><a href="#zentrale-stoesse">9. Zentrale Stöße</a></li>
+      <li><a href="#kreisbewegung">10. Kreisbewegung und Zentralkräfte</a></li>
+      <li><a href="#gesamtzusammenfassung">11. Gesamte Zusammenfassung und Überblick</a></li>
+      <li><a href="#veraenderliche-masse">12. Bonus: Systeme mit veränderlicher Masse</a></li>
     </ul>
   </aside>
 
+  <!-- Inhalt -->
   <div class="content">
-    <!-- dein Text -->
+    
+    <!-- Kapitel 1 -->
+    <section id="einleitung">
+      <h1>Kapitel 1: Einführung in die Dynamik</h1>
+      <p><strong>Dynamik</strong> untersucht, wie Kräfte auf Körper wirken und wie sie Bewegungen hervorrufen oder verändern. Sie ergänzt die Kinematik, die nur beschreibt, nicht erklärt.</p>
+      <div class="formel-box">
+        <strong>Grundgleichung:</strong>
+        <p>\[ \vec{F} = m \cdot \vec{a} \]</p>
+      </div>
+    </section>
+
+    <!-- Kapitel 2 -->
+    <section id="newtonsche-axiome">
+      <h1>Kapitel 2: Newtonsche Axiome & Inertialsysteme</h1>
+      <p>Die Newtonschen Axiome bilden das Fundament der klassischen Mechanik …</p>
+    </section>
+
+    <!-- Kapitel 3 -->
+    <section id="bewegungsgesetze">
+      <h1>Kapitel 3: Bewegungsgesetze</h1>
+      <p>Die Bewegungsgesetze beschreiben, wie sich ein Körper unter Einfluss einer konstanten Kraft verhält …</p>
+    </section>
+
+    <!-- Kapitel 4 -->
+    <section id="kraefte">
+      <h1>Kapitel 4: Kräftearten</h1>
+      <p>Kräfte sind Wechselwirkungen …</p>
+    </section>
+
+    <!-- Kapitel 5 -->
+    <section id="hangabtrieb">
+      <h1>Kapitel 5: Bewegung am geneigten Hang</h1>
+      <p>Ein Körper auf einer schiefen Ebene …</p>
+    </section>
+
+    <!-- Kapitel 6 -->
+    <section id="rotation">
+      <h1>Kapitel 6: Rotation und Drehmoment</h1>
+      <p>Bei rotierenden Körpern gelten eigene Gesetze …</p>
+    </section>
+
+    <!-- Kapitel 7 -->
+    <section id="mehrkoerpersysteme">
+      <h1>Kapitel 7: Mehrkörpersysteme und Seilkräfte</h1>
+      <p>Mehrkörpersysteme bestehen aus mehreren verbundenen Massen …</p>
+    </section>
+
+    <!-- Kapitel 8 -->
+    <section id="impuls">
+      <h1>Kapitel 8: Impuls und Impulserhaltung</h1>
+      <p>Der Impuls ist ein grundlegender Begriff …</p>
+    </section>
+
+    <!-- Kapitel 9 -->
+    <section id="zentrale-stoesse">
+      <h1>Kapitel 9: Zentrale Stöße</h1>
+      <p>Ein zentraler Stoß liegt vor, wenn …</p>
+    </section>
+
+    <!-- Kapitel 10 -->
+    <section id="kreisbewegung">
+      <h1>Kapitel 10: Kreisbewegung und Zentralkräfte</h1>
+      <p>Bei einer Kreisbewegung ändert sich zwar der Betrag …</p>
+    </section>
+
+    <!-- Kapitel 11 -->
+    <section id="gesamtzusammenfassung">
+      <h1>Kapitel 11: Gesamte Zusammenfassung und Überblick</h1>
+      <p>Die Dynamik untersucht, wie Kräfte auf Körper wirken …</p>
+    </section>
+
+    <!-- Kapitel 12 -->
+    <section id="veraenderliche-masse">
+      <h1>Kapitel 12: Systeme mit veränderlicher Masse</h1>
+      <p>In vielen physikalischen Anwendungen ändert sich die Masse …</p>
+    </section>
+
+    <!-- Quiz -->
+    <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
+  
   </div>
 </main>
 
