@@ -285,6 +285,43 @@ body {
 .menu-toggle {
   display: none;
 }
+/* Burger-Button Standard: ausgeblendet */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Handy */
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;   /* Button wird auf Handy eingeblendet */
+    margin-left: auto;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #1e1e2f;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
 
 
 </style>
