@@ -1,239 +1,1079 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physik Lernen | Deine Uni-Plattform</title>
-    <style>
-        /* RESET & BASIC STYLING */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        html, body {
-            height: 100%;
-        }
-        body {
-            background: #f8f9fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-        }
-        a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamik | PhysikNow</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-        /* HEADER */
-        header {
-            background: #1e1e2f;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        header h1 {
-            font-size: 1.5rem;
-            color: #00d4ff;
-        }
-        nav ul {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-        nav a {
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease; /* sanfter Übergang */
-        }
-        nav a:hover {
-            color: #00d4ff; /* Hover-Farbe */
-        }
+<style>
+/* RESET & BASIS */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body {
+    background: #f8f9fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        /* MAIN CONTENT */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+/* HEADER */
+header {
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1 {
+    font-size: 1.5rem;
+    color: #00d4ff;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+nav a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #00d4ff;
+}
 
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #00d4ff, #0066ff);
-            color: white;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .btn {
-            background: #fff;
-            color: #0066ff;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #0066ff;
-            color: #fff;
-        }
+/* HERO (volle Breite) */
+.hero {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #00d4ff, #0066ff);
+    color: #fff;
+    text-align: center;
+}
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.3rem;
+}
 
-        /* TOPIC GRID */
-        .topics {
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        .topics h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: left;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-        }
-        .card h4 {
-            margin-bottom: 0.5rem;
-            color: #0066ff;
-            font-size: 1.1rem;
-            transition: color 0.3s ease; /* sanfter Übergang für Farbe */
-        }
-        .card:hover h4 {
-            color: #ff6600; /* Überschriftfarbe bei Hover */
-        }
-        .card p {
-            font-size: 0.95rem;
-            color: #555;
-        }
+/* TOC-BOX (Inhaltsübersicht) */
+.toc-box {
+    background: #fff;
+    padding: 20px;
+    border: 2px solid #0066ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 900px;
+}
+.toc-box h3 {
+    color: #0066ff;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+.toc-box ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
+    gap: 0.8rem 2rem; /* vertikal | horizontal */
+    padding-left: 0;
+    list-style: none;
+    margin: 0 auto;
+}
+.toc-box li {
+    font-size: 1rem;
+}
+.toc-box a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.toc-box a:hover {
+    color: #0066ff;
+}
 
-        /* FOOTER */
-        footer {
-            background: #1e1e2f;
-            color: #bbb;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            margin-top: auto;
-        }
-    </style>
+/* SECTIONS */
+section:not(.hero) {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+    padding: 20px;
+    line-height: 1.8;
+}
+section h3 {
+    font-size: 1.8rem;
+    color: #0066ff;
+    margin-top: 2rem;
+}
+section h4 {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    color: #444;
+}
+section p {
+    margin-bottom: 1rem;
+}
+section ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* CTA-BOX & FORMEL */
+.cta-box, .formel-box {
+    background: #f1f8ff;
+    padding: 15px;
+    border-left: 5px solid #2196f3;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+.formel-box {
+    border-left: 5px solid #0073e6;
+    background: #f7f7f7;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* QUIZ-BUTTON */
+.quiz-btn {
+    display: block;
+    text-align: center;
+    background: #0066ff;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 3rem auto;
+    max-width: 300px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+.quiz-btn:hover { background: #004bbd; }
+
+/* FOOTER */
+footer {
+    background: #1e1e2f;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+</style>
 </head>
 <body>
+
 <header>
-    <h1><a href="/physiknow/index.html" style="color:#00d4ff; text-decoration:none;">PhysikNow</a></h1>
+    <h1>PhysikNow</h1>
     <nav>
         <ul>
-            <li><a href="index.html#topics">Alle Themen</a></li>
-            <li><a href="/physiknow/docs/Frontend/Uni-Vorlage/Uni-Vorlage.html">Uni Vorlage</a></li>
-            <li><a href="/physiknow/Quiz.html">Quiz</a></li>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Vorlage</a></li>
+            <li><a href="#">Quiz</a></li>
             <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
         </ul>
     </nav>
 </header>
 
-<main>
-    <!-- HERO -->
-    <section class="hero">
-        <h2>Physik verstehen leicht gemacht!</h2>
-        <p>Die komplette Experimentalphysik von A bis Z – kompakt, verständlich und interaktiv.</p>
-        <a href="#topics" class="btn">Anfangen</a>
-    </section>
+<section class="hero">
+    <h2>Dynamik</h2>
+    <p>Die Lehre von Kräften und ihren Wirkungen – Grundlage der klassischen Mechanik</p>
+</section>
 
-    <!-- THEMEN -->
-    <section class="topics" id="topics">
-        <h3>Alle Themen im Überblick</h3>
-        <div class="topic-grid">
-    <!-- EXPERIMENTALPHYSIK 1 -->
-    <div class="card"><h4>Grundlagen der Mechanik</h4><p>Kräfte, Bewegung, Bezugssysteme.</p></div>
-    <div class="card"><h4>Kinematik: Bewegungsgesetze</h4><p>Geschwindigkeit, Beschleunigung, Trajektorien.</p></div>
-    <div class="card"><h4>Dynamik: Newtonsche Axiome</h4><p>Kraftwirkung, Impulsänderung, Trägheit.</p></div>
-    <div class="card"><h4>Impuls & Impulserhaltung</h4><p>Impulsdefinition, Stoßprozesse, Systeme.</p></div>
-    <div class="card"><h4>Drehimpuls & Rotationsbewegung</h4><p>Drehmomente, Kreiselbewegung, Erhaltung.</p></div>
-    <div class="card"><h4>Arbeit, Energie & Leistung</h4><p>Arbeitssätze, Energieformen, Energieerhaltung.</p></div>
-    <div class="card"><h4>Schwingungen, Wellen & Schall</h4><p>Harmonische Bewegung, Wellengleichung, Ausbreitung.</p></div>
-    <div class="card"><h4>Gravitation & Keplersche Gesetze</h4><p>Gravitationsgesetz, Planetengesetze.</p></div>
-    <div class="card"><h4>Relativistische Mechanik</h4><p>Spezielle Relativität, Längenkontraktion, Zeitdilatation.</p></div>
-    <div class="card"><h4>Thermodynamik</h4><p>Zustandsgrößen, Hauptsätze, Wärmeübertragung.</p></div>
-
-    <!-- EXPERIMENTALPHYSIK 2 -->
-    <div class="card"><h4>Elektrostatik</h4><p>Ladungen, Coulomb-Gesetz, elektrische Felder.</p></div>
-    <div class="card"><h4>Elektrische Netzwerke & Kirchhoff-Regeln</h4><p>Knotenregel, Maschenregel, Schaltungen.</p></div>
-    <div class="card"><h4>Magnetische Felder & Lorentzkraft</h4><p>Magnetische Kräfte, Bewegungen geladener Teilchen.</p></div>
-    <div class="card"><h4>Induktion & Faradaysches Gesetz</h4><p>Induzierte Spannungen, Wirbelströme.</p></div>
-    <div class="card"><h4>Selbstinduktion & Induktivität</h4><p>Spulen, Magnetische Energie.</p></div>
-    <div class="card"><h4>Maxwell-Gleichungen</h4><p>Elektromagnetische Grundgesetze.</p></div>
-    <div class="card"><h4>Elektromagnetische Wellen</h4><p>Lichtausbreitung, Wellencharakter.</p></div>
-    <div class="card"><h4>Grundlagen der Optik</h4><p>Lichtbrechung, Reflexion, Linsen.</p></div>
-    <div class="card"><h4>Reflexion & Brechung</h4><p>Gesetze der Strahlenoptik.</p></div>
-    <div class="card"><h4>Linsen & Abbildungsgesetze</h4><p>Brennweiten, optische Systeme.</p></div>
-    <div class="card"><h4>Interferenz & Beugung</h4><p>Doppelspalt, Beugungsmuster.</p></div>
-    <div class="card"><h4>Polarisation</h4><p>Licht als transversale Welle.</p></div>
-
-    <!-- EXPERIMENTALPHYSIK 3 -->
-    <div class="card"><h4>Historische Atommodelle</h4><p>Thomson, Rutherford, Bohr.</p></div>
-    <div class="card"><h4>Bohr-Atom & Rydberg-Formel</h4><p>Energiequantisierung, Spektrallinien.</p></div>
-    <div class="card"><h4>Quantenmechanisches Atommodell</h4><p>Orbitale, Schrödingergleichung.</p></div>
-    <div class="card"><h4>Feinstruktur & Hyperfeinstruktur</h4><p>Spin-Bahn-Kopplung, Kernwechselwirkungen.</p></div>
-    <div class="card"><h4>Mehrelektronenatome</h4><p>Schalenmodell, Periodensystem.</p></div>
-    <div class="card"><h4>Atomare Spektroskopie</h4><p>Auswahlregeln, Übergänge.</p></div>
-    <div class="card"><h4>Zeeman- & Stark-Effekt</h4><p>Feldaufspaltungen von Spektrallinien.</p></div>
-    <div class="card"><h4>Molekülbindung & Spektren</h4><p>Kovalent, Ionenbindung, Schwingungen.</p></div>
-    <div class="card"><h4>Rotations- & Vibrationsspektren</h4><p>Molekülbewegungen im IR-Bereich.</p></div>
-    <div class="card"><h4>Festkörper</h4><p>Kristallstrukturen, Bändermodell.</p></div>
-    <div class="card"><h4>Elektrische Leitfähigkeit & Halbleiter</h4><p>Metalle, n- und p-Typ.</p></div>
-    <div class="card"><h4>Magnetismus & Supraleitung</h4><p>Ferromagnetismus, Supraleitende Materialien.</p></div>
-    <div class="card"><h4>Experimentelle Methoden</h4><p>Röntgenbeugung, Spektroskopie.</p></div>
-
-    <!-- EXPERIMENTALPHYSIK 4 -->
-    <div class="card"><h4>Kernaufbau & Kernkräfte</h4><p>Struktur und Wechselwirkungen.</p></div>
-    <div class="card"><h4>Bindungsenergie & Massendefekt</h4><p>Energie pro Nukleon, Stabilität.</p></div>
-    <div class="card"><h4>Radioaktivität & Zerfallsgesetze</h4><p>Alpha-, Beta-, Gamma-Zerfall.</p></div>
-    <div class="card"><h4>Kernreaktionen & Kernfusion</h4><p>Fusionsprozesse in Sternen.</p></div>
-    <div class="card"><h4>Neutronenphysik & Streuung</h4><p>Streuungsexperimente, Neutronenquellen.</p></div>
-    <div class="card"><h4>Teilchenphysik</h4><p>Leptonen, Quarks, Standardmodell.</p></div>
-    <div class="card"><h4>Fundamentale Wechselwirkungen</h4><p>Starke, schwache, EM-Kräfte.</p></div>
-    <div class="card"><h4>Kosmische Strahlung</h4><p>Teilchen aus dem All.</p></div>
-    <div class="card"><h4>Astrophysikalische Prozesse</h4><p>Sternentwicklung, Supernovae.</p></div>
-    <div class="card"><h4>Schwarze Löcher & Kosmologie</h4><p>Urknall, Expansion des Universums.</p></div>
+<!-- Inhaltsübersicht -->
+<div class="toc-box">
+    <h3>Inhaltsübersicht</h3>
+    <ul>
+        <li><a href="#einleitung">1. Einführung</a></li>
+        <li><a href="#newtonsche-axiome">2. Newtonsche Axiome</a></li>
+        <li><a href="#bewegungsgesetze">3. Bewegungsgesetze</a></li>
+        <li><a href="#kraefte">4. Kräfte</a></li>
+        <li><a href="#hangabtrieb">5. Hangabtrieb</a></li>
+        <li><a href="#rotation">6. Rotation und Drehmoment</a></li>
+        <li><a href="#mehrkoerpersysteme">7. Mehrkörpersysteme und Seilkräfte</a></li>
+        <li><a href="#impuls">8. Impuls und Impulserhaltung</a></li>
+        <li><a href="#zentrale-stoesse">9. ZentraleStöße</a></li>
+        <li><a href="#kreisbewegung">10. Kreisbewegung und Zentralkräfte</a></li>
+        <li><a href="#gesamtzusammenfassung">11. Gesamte Zusammenfassung und Überblick</a></li>
+        <li><a href="#veraenderliche-masse">12. Bonus: Systeme mit veränderlicher Masse</a></li>
+    </ul>
 </div>
 
-    </section>
-</main>
+<section id="einleitung">
+  <h1>Kapitel 1: Einführung in die Dynamik</h1>
+  <p><strong>Dynamik</strong> untersucht, wie Kräfte auf Körper wirken und wie sie Bewegungen hervorrufen oder verändern. Sie ergänzt die Kinematik, die nur beschreibt, nicht erklärt.</p>
+  <div class="formel-box">
+    <strong>Grundgleichung:</strong>
+    <p>\[ \vec{F} = m \cdot \vec{a} \]</p>
+    <p>Die Kraft ist proportional zur Beschleunigung. Die Proportionalitätskonstante ist die Masse.</p>
+  </div>
+  <p>Die Dynamik ist in drei Bereiche unterteilt:</p>
+  <ul>
+    <li><strong>Translation</strong> – lineare Bewegung eines Körpers</li>
+    <li><strong>Rotation</strong> – Drehung um eine Achse</li>
+    <li><strong>Schwingungen</strong> – periodische Bewegungen</li>
+  </ul>
 
-<footer>
-    &copy; 2025 PhysikLern | Dein Weg zur besseren Note
-</footer>
+</section>
+<section id="newtonsche-axiome">
+  <h1>Kapitel 2: Newtonsche Axiome & Inertialsysteme</h1>
+  <p>Die Newtonschen Axiome bilden das Fundament der klassischen Mechanik. Sie beschreiben, wie Körper auf Kräfte reagieren. Voraussetzung für ihre Gültigkeit ist ein sogenanntes <strong>Inertialsystem</strong>.</p>
+
+  <h2>2.1 Inertialsysteme und das Trägheitsprinzip</h2>
+  <p>Ein <strong>Inertialsystem</strong> ist ein Bezugssystem, in dem ein kräftefreier Körper in Ruhe bleibt oder sich mit konstanter Geschwindigkeit geradlinig bewegt. Nur in solchen Systemen gelten die Newtonschen Gesetze uneingeschränkt.</p>
+  <p>Das <strong>erste Newtonsche Axiom</strong>, auch Trägheitsprinzip genannt, lautet:</p>
+  <p>Ein Körper bleibt in Ruhe oder bewegt sich geradlinig mit konstanter Geschwindigkeit, solange keine resultierende Kraft auf ihn wirkt.</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_\text{res} = 0 \Rightarrow \vec{a} = 0
+    \]
+  </div>
+  <p>Dies ist Ausdruck der <strong>Massenträgheit</strong>: Körper "wollen" ihren Bewegungszustand beibehalten. Das Trägheitsprinzip ist experimentell bestätigt und kennzeichnet Inertialsysteme.</p>
+  <p><strong>Beispiel:</strong> Ein fahrender Zug bremst plötzlich – stehende Passagiere kippen nach vorne. Ursache ist die Massenträgheit ihres Körpers, nicht eine aktive Kraft.</p>
+
+  <h2>2.2 Zweites Axiom – Aktionsprinzip</h2>
+  <p>Das zweite Newtonsche Gesetz beschreibt den Zusammenhang zwischen Kraft, Masse und Beschleunigung:</p>
+  <div class="formel-box">
+    \[
+    \vec{F} = m \cdot \vec{a}
+    \]
+  </div>
+  <p>Die Richtung der Kraft bestimmt die Richtung der Beschleunigung. Die Masse bestimmt, wie stark der Körper auf die Kraft reagiert.</p>
+  <p>Es ist das zentrale Gesetz der Mechanik: Aus Kraft folgt Beschleunigung – abhängig von der Trägheit des Körpers.</p>
+  <p><strong>Hinweis:</strong> Diese Gleichung ist nur gültig in Inertialsystemen. In beschleunigten Systemen müssen zusätzliche Trägheitskräfte berücksichtigt werden.</p>
+
+  <h2>2.3 Drittes Axiom – Wechselwirkungsprinzip</h2>
+  <p>Übt ein Körper A eine Kraft auf Körper B aus, so übt B gleichzeitig eine gleich große, aber entgegengesetzt gerichtete Kraft auf A aus:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_{A \rightarrow B} = -\vec{F}_{B \rightarrow A}
+    \]
+  </div>
+  <p>Diese Kräfte treten <strong>immer paarweise</strong> auf und sind grundlegend für jede Wechselwirkung.</p>
+  <p><strong>Beispiele:</strong> Rückstoß beim Abschuss eines Projektils, Standfestigkeit beim Gehen, Kräfte zwischen Magneten.</p>
+
+</section>
+
+<section id="bewegungsgesetze">
+  <h1>Kapitel 3: Bewegungsgesetze</h1>
+  <p>Die Bewegungsgesetze beschreiben, wie sich ein Körper unter dem Einfluss einer konstanten Kraft verhält. Grundlage ist das zweite Newtonsche Axiom.</p>
+
+  <h2>3.1 Gleichmäßig beschleunigte Bewegung</h2>
+  <p>Wenn die auf einen Körper wirkende Kraft konstant ist, erfährt er eine konstante Beschleunigung:</p>
+  <div class="formel-box">
+    \[
+    a = \frac{F}{m}
+    \]
+  </div>
+  <p>Daraus ergeben sich die folgenden Bewegungsgleichungen:</p>
+  <div class="formel-box">
+    \[
+    v(t) = v_0 + a \cdot t
+    \]
+    \[
+    s(t) = s_0 + v_0 \cdot t + \frac{1}{2} a \cdot t^2
+    \]
+    \[
+    v^2 = v_0^2 + 2a(s - s_0)
+    \]
+  </div>
+
+  <h2>3.2 Bedeutung der Größen</h2>
+  <ul>
+    <li><strong>\( s(t) \):</strong> Ort zur Zeit t</li>
+    <li><strong>\( v(t) \):</strong> Geschwindigkeit zur Zeit t</li>
+    <li><strong>\( a \):</strong> konstante Beschleunigung</li>
+    <li><strong>\( v_0 \):</strong> Anfangsgeschwindigkeit</li>
+    <li><strong>\( s_0 \):</strong> Startposition</li>
+  </ul>
+
+  <h2>3.3 Beispiel – Bremsweg berechnen</h2>
+  <p><strong>Gegeben:</strong> Ein Auto fährt mit \( v_0 = 20\,\text{m/s} \), es wird mit \( a = -5\,\text{m/s}^2 \) gebremst. Wie weit fährt es, bis es steht?</p>
+  <p><strong>Lösung:</strong> Geschwindigkeit am Ende = 0, also nutzen wir:</p>
+  <div class="formel-box">
+    \[
+    0 = v_0^2 + 2a(s - s_0) \Rightarrow s - s_0 = -\frac{v_0^2}{2a}
+    \]
+    \[
+    s = -\frac{(20)^2}{2 \cdot (-5)} = 40\,\text{m}
+    \]
+  </div>
+
+  <h2>3.4 Bewegung mit veränderlicher Kraft</h2>
+  <p>Wenn die Kraft nicht konstant ist, müssen Differentialgleichungen verwendet werden:</p>
+  <div class="formel-box">
+    \[
+    F(t) = m \cdot a(t) \quad \Rightarrow \quad a(t) = \frac{dv}{dt},\quad v(t) = \frac{ds}{dt}
+    \]
+  </div>
+  <p>Daraus ergibt sich ein System gekoppelter Gleichungen, das meist nur numerisch lösbar ist.</p>
+
+</section>
+
+<section id="kraefte">
+  <h1>Kapitel 4: Kräftearten</h1>
+  <p>Kräfte sind Wechselwirkungen, die Bewegungen ändern oder aufrechterhalten können. Sie wirken durch Kontakt oder über ein Feld (z. B. Gravitation). Jede Kraft hat eine Richtung und eine Angriffslinie. Ihre SI-Einheit ist das Newton (N).</p>
+
+  <h2>4.1 Gewichtskraft (Schwerkraft)</h2>
+  <p>Die Gewichtskraft ist die Anziehungskraft, die die Erde auf einen Körper mit Masse ausübt:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_G = m \cdot \vec{g}, \quad |\vec{g}| \approx 9{,}81 \, \text{m/s}^2
+    \]
+  </div>
+  <p>Sie zeigt stets senkrecht nach unten (Richtung Erdmittelpunkt).</p>
+
+  <h2>4.2 Normalkraft</h2>
+  <p>Die Normalkraft ist die Reaktionskraft einer Unterlage und wirkt senkrecht zur Kontaktfläche:</p>
+  <ul>
+    <li>Waagrechte Fläche: \( F_N = m \cdot g \)</li>
+    <li>Geneigte Fläche: \( F_N = m \cdot g \cdot \cos(\alpha) \)</li>
+  </ul>
+  <div class="formel-box">
+    \[
+    F_N = m \cdot g \cdot \cos(\alpha)
+    \]
+  </div>
+
+  <h2>4.2.1 Interaktive Darstellung – Kräfte am Hang</h2>
+  <p>Nutze die Simulation, um zu sehen, wie sich Neigungswinkel und Masse auf die wirkenden Kräfte auswirken.</p>
+
+  <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+    <div>
+      <label for="mass">Masse (kg):</label><br>
+      <input type="range" id="mass" min="1" max="20" value="10" oninput="updateValues()">
+      <span id="massVal">10</span> kg
+
+      <br><br>
+      <label for="angle">Neigungswinkel (°):</label><br>
+      <input type="range" id="angle" min="0" max="60" value="30" oninput="updateValues()">
+      <span id="angleVal">30</span>°
+
+      <br><br>
+      <p><strong>Ergebnisse:</strong></p>
+      <ul>
+        <li>Normalkraft \( F_N = \) <span id="fnVal">?</span> N</li>
+        <li>Hangabtriebskraft \( F_H = \) <span id="fhVal">?</span> N</li>
+        <li>Gewichtskraft \( F_G = \) <span id="fgVal">?</span> N</li>
+      </ul>
+    </div>
+
+    <canvas id="forcesCanvas" width="300" height="300" style="border:1px solid #ccc; background: #f9f9f9;"></canvas>
+  </div>
+
+  <script>
+    function updateValues() {
+      const m = parseFloat(document.getElementById("mass").value);
+      const alphaDeg = parseFloat(document.getElementById("angle").value);
+      const g = 9.81;
+      const alpha = alphaDeg * Math.PI / 180;
+
+      const FG = m * g;
+      const FN = FG * Math.cos(alpha);
+      const FH = FG * Math.sin(alpha);
+
+      document.getElementById("massVal").textContent = m;
+      document.getElementById("angleVal").textContent = alphaDeg;
+      document.getElementById("fgVal").textContent = FG.toFixed(2);
+      document.getElementById("fnVal").textContent = FN.toFixed(2);
+      document.getElementById("fhVal").textContent = FH.toFixed(2);
+
+      drawDiagram(alphaDeg);
+    }
+
+    function drawDiagram(angleDeg) {
+      const ctx = document.getElementById("forcesCanvas").getContext("2d");
+      ctx.clearRect(0, 0, 300, 300);
+
+      const alpha = angleDeg * Math.PI / 180;
+      ctx.save();
+      ctx.translate(150, 200);
+      ctx.rotate(-alpha);
+      ctx.fillStyle = "#ddd";
+      ctx.fillRect(-100, 0, 200, 10); // Unterlage
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(150, 200);
+      ctx.rotate(-alpha);
+      ctx.fillStyle = "#999";
+      ctx.fillRect(-25, -25, 50, 50); // Klotz
+      ctx.restore();
+
+      // Gewichtskraft (senkrecht nach unten)
+      ctx.beginPath();
+      ctx.moveTo(150, 200);
+      ctx.lineTo(150, 250);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = "red";
+      ctx.fillText("F_G", 155, 245);
+
+      // Normalkraft
+      const fnX = Math.sin(alpha) * 50;
+      const fnY = -Math.cos(alpha) * 50;
+      ctx.beginPath();
+      ctx.moveTo(150, 200);
+      ctx.lineTo(150 + fnX, 200 + fnY);
+      ctx.strokeStyle = "blue";
+      ctx.stroke();
+      ctx.fillStyle = "blue";
+      ctx.fillText("F_N", 150 + fnX + 5, 200 + fnY - 5);
+
+      // Hangabtriebskraft
+      const fhX = Math.cos(alpha) * 50;
+      const fhY = Math.sin(alpha) * 50;
+      ctx.beginPath();
+      ctx.moveTo(150, 200);
+      ctx.lineTo(150 + fhX, 200 + fhY);
+      ctx.strokeStyle = "green";
+      ctx.stroke();
+      ctx.fillStyle = "green";
+      ctx.fillText("F_H", 150 + fhX + 5, 200 + fhY - 5);
+    }
+    updateValues();
+  </script>
+
+ <h2>4.3 Reibungskräfte – vertieft</h2>
+  <p>Reibungskräfte entstehen zwischen Körpern in Kontakt:</p>
+  <ul>
+    <li><strong>Haftreibung:</strong> Verhindert Bewegung, wirkt bis zu einem Maximalwert:</li>
+    <div class="formel-box">
+      \[
+      F_R \leq \mu_H \cdot F_N
+      \]
+    </div>
+    <li><strong>Gleitreibung:</strong> Wirkt bei Bewegung, immer gleich groß:</li>
+    <div class="formel-box">
+      \[
+      F_R = \mu_G \cdot F_N
+      \]
+    </div>
+    <li><strong>Rollreibung:</strong> Tritt bei rollenden Körpern auf, meist deutlich kleiner:</li>
+    <div class="formel-box">
+      \[
+      F_R = \mu_R \cdot F_N
+      \]
+    </div>
+  </ul>
+  <p>\( \mu_H, \mu_G, \mu_R \) sind die jeweiligen Reibungskoeffizienten.</p>
+
+  <h2>4.4 Hangabtriebskraft</h2>
+  <p>Ein Körper auf einer geneigten Ebene erfährt eine Komponente der Gewichtskraft entlang der Neigung:</p>
+  <div class="formel-box">
+    \[
+    F_\text{Hang} = m \cdot g \cdot \sin(\alpha)
+    \]
+  </div>
+
+  <h2>4.5 Federkraft – Hooke’sches Gesetz</h2>
+  <p>Federn wirken einer Dehnung oder Stauchung proportional entgegen:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_\text{Feder} = -k \cdot \vec{x}
+    \]
+  </div>
+  <p>\( k \): Federkonstante (N/m), \( \vec{x} \): Auslenkung von der Ruhelage.</p>
+
+  <h2>4.6 Zentripetalkraft (Kreisbewegung)</h2>
+  <p>Ein Körper in einer Kreisbahn benötigt eine zur Mitte gerichtete Kraft:</p>
+  <div class="formel-box">
+    \[
+    F_Z = m \cdot \frac{v^2}{r} = m \cdot \omega^2 \cdot r
+    \]
+  </div>
+  <p>Diese Kraft sorgt für die kontinuierliche Richtungsänderung der Geschwindigkeit.</p>
+
+  <h2>4.7 Kraft, Impuls und Energie im Vergleich</h2>
+  <p>Diese drei Größen beschreiben Bewegung auf unterschiedliche Weise:</p>
+  <ul>
+    <li><strong>Kraft:</strong> verursacht Beschleunigung (zeitlich lokal)</li>
+    <li><strong>Impuls:</strong> Maß für Bewegungsmenge (Vektor)</li>
+    <li><strong>Energie:</strong> Fähigkeit, Arbeit zu verrichten (Skalar)</li>
+  </ul>
+  <p>Formelbezüge:</p>
+  <div class="formel-box">
+    \[
+    \vec{F} = m \cdot \vec{a} \quad ; \quad \vec{p} = m \cdot \vec{v} \quad ; \quad E_\text{kin} = \frac{1}{2} m v^2
+    \]
+  </div>
+
+  <h2>4.8 Beispielaufgabe – Reibungskraft berechnen</h2>
+  <p><strong>Gegeben:</strong> Masse \( m = 3\,\text{kg} \), Reibungskoeffizient \( \mu = 0{,}25 \)</p>
+  <div class="formel-box">
+    \[
+    F_N = m \cdot g = 3 \cdot 9{,}81 = 29{,}43\,\text{N}
+    \]
+    \[
+    F_R = \mu \cdot F_N = 0{,}25 \cdot 29{,}43 = 7{,}36\,\text{N}
+    \]
+  </div>
+</section>
+
+<section id="hangabtrieb">
+  <h1>Kapitel 5: Bewegung am geneigten Hang</h1>
+  <p>Ein Körper auf einer schiefen Ebene wird durch die Hangabtriebskraft beschleunigt. Diese ergibt sich aus der Zerlegung der Gewichtskraft entlang der geneigten Fläche.</p>
+
+  <h2>5.1 Kräfte am schiefen Hang</h2>
+  <p>Die Gewichtskraft \( \vec{F}_G \) wird in zwei Komponenten zerlegt:</p>
+  <ul>
+    <li><strong>Normalkraft:</strong> senkrecht zur Oberfläche</li>
+    <li><strong>Hangabtriebskraft:</strong> parallel zur schiefen Ebene</li>
+  </ul>
+
+  <div class="formel-box">
+    \[
+    F_\text{Hang} = m \cdot g \cdot \sin(\alpha)
+    \]
+    \[
+    F_N = m \cdot g \cdot \cos(\alpha)
+    \]
+  </div>
+
+  <h2>5.1.1 Interaktive Berechnung</h2>
+<p>Wähle Masse, Winkel und Reibungskoeffizient – die Kräfte und Beschleunigung werden automatisch berechnet:</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+  <div>
+    <label for="mass_hang">Masse (kg):</label><br>
+    <input type="range" id="mass_hang" min="1" max="50" value="10">
+    <span id="massVal_hang">10</span> kg<br><br>
+
+    <label for="angle_hang">Neigungswinkel (°):</label><br>
+    <input type="range" id="angle_hang" min="0" max="60" value="30">
+    <span id="angleVal_hang">30</span>°<br><br>
+
+    <label for="mu_hang">Reibungskoeffizient \( \mu \):</label><br>
+    <input type="range" id="mu_hang" min="0" max="0.6" step="0.01" value="0.2">
+    <span id="muVal_hang">0.20</span><br><br>
+
+    <p><strong>Ergebnisse:</strong></p>
+    <ul>
+      <li>Normalkraft \( F_N = \) <span id="fnVal_hang">–</span> N</li>
+      <li>Hangabtriebskraft \( F_\text{Hang} = \) <span id="fhangVal_hang">–</span> N</li>
+      <li>Reibungskraft \( F_R = \) <span id="frVal_hang">–</span> N</li>
+      <li>Resultierende Beschleunigung \( a = \) <span id="aVal_hang">–</span> m/s²</li>
+    </ul>
+  </div>
+
+  <canvas id="hangCanvas_hang" width="300" height="300" style="border:1px solid #ccc; background: #f9f9f9;"></canvas>
+</div>
 
 <script>
-    // Smooth Scroll für Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+  function updateHang() {
+    const m = parseFloat(document.getElementById("mass_hang").value);
+    const alphaDeg = parseFloat(document.getElementById("angle_hang").value);
+    const mu = parseFloat(document.getElementById("mu_hang").value);
+    const g = 9.81;
+    const alpha = alphaDeg * Math.PI / 180;
+
+    const FN = m * g * Math.cos(alpha);
+    const F_Hang = m * g * Math.sin(alpha);
+    const FR = mu * FN;
+    const Fres = F_Hang - FR;
+    const a = Fres / m;
+
+    document.getElementById("massVal_hang").textContent = m;
+    document.getElementById("angleVal_hang").textContent = alphaDeg;
+    document.getElementById("muVal_hang").textContent = mu.toFixed(2);
+    document.getElementById("fnVal_hang").textContent = FN.toFixed(2);
+    document.getElementById("fhangVal_hang").textContent = F_Hang.toFixed(2);
+    document.getElementById("frVal_hang").textContent = FR.toFixed(2);
+    document.getElementById("aVal_hang").textContent = a.toFixed(2);
+
+    drawHang(alpha);
+  }
+
+  function drawHang(angle) {
+    const ctx = document.getElementById("hangCanvas_hang").getContext("2d");
+    ctx.clearRect(0, 0, 300, 300);
+    ctx.save();
+    ctx.translate(150, 200);
+    ctx.rotate(-angle);
+    ctx.fillStyle = "#ddd";
+    ctx.fillRect(-120, 0, 240, 10);
+    ctx.fillStyle = "#999";
+    ctx.fillRect(-25, -25, 50, 50);
+    ctx.restore();
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    // Event-Listener koppeln
+    document.getElementById("mass_hang").addEventListener("input", updateHang);
+    document.getElementById("angle_hang").addEventListener("input", updateHang);
+    document.getElementById("mu_hang").addEventListener("input", updateHang);
+    updateHang(); // Initial starten
+  });
 </script>
-</body>
-</html>
+
+
+  <h2>5.2 Berücksichtigung der Reibung</h2>
+  <p>Wenn Reibung wirkt, reduziert sie die resultierende Beschleunigung:</p>
+  <div class="formel-box">
+    \[
+    F_R = \mu \cdot F_N = \mu \cdot m \cdot g \cdot \cos(\alpha)
+    \]
+    \[
+    F_\text{res} = m \cdot g \cdot \sin(\alpha) - \mu \cdot m \cdot g \cdot \cos(\alpha)
+    \]
+    \[
+    a = \frac{F_\text{res}}{m} = g \cdot (\sin(\alpha) - \mu \cdot \cos(\alpha))
+    \]
+  </div>
+
+  <h2>5.3 Beispiel – Hangabtrieb mit Reibung</h2>
+  <p><strong>Gegeben:</strong> \( m = 10\,\text{kg} \), \( \alpha = 30^\circ \), \( \mu = 0{,}2 \)</p>
+  <p><strong>Berechne:</strong> Beschleunigung \( a \)</p>
+
+  <div class="formel-box">
+    \[
+    a = 9{,}81 \cdot (\sin(30^\circ) - 0{,}2 \cdot \cos(30^\circ)) 
+    \]
+    \[
+    \sin(30^\circ) = 0{,}5,\quad \cos(30^\circ) \approx 0{,}866
+    \]
+    \[
+    a = 9{,}81 \cdot (0{,}5 - 0{,}2 \cdot 0{,}866) = 9{,}81 \cdot (0{,}5 - 0{,}173) \approx 3{,}22\,\text{m/s}^2
+    \]
+  </div>
+
+  <p>Der Körper beschleunigt also mit etwa 3,22 m/s² die Rampe hinab.</p>
+
+</section>
+<section id="rotation">
+  <h1>Kapitel 6: Rotation und Drehmoment</h1>
+  <p>Bei rotierenden Körpern gelten eigene Gesetze. Statt linearer Beschleunigung betrachten wir Winkelbeschleunigung. Anstelle von Kraft tritt das <strong>Drehmoment</strong>.</p>
+
+  <h2>6.1 Winkelgrößen</h2>
+  <p>Für die Beschreibung einer Rotation nutzen wir:</p>
+  <ul>
+    <li><strong>Winkelgeschwindigkeit:</strong> \( \omega = \frac{d\varphi}{dt} \)</li>
+    <li><strong>Winkelbeschleunigung:</strong> \( \alpha = \frac{d\omega}{dt} \)</li>
+  </ul>
+
+  <h2>6.2 Trägheitsmoment \( J \)</h2>
+  <p>Das Trägheitsmoment beschreibt die Massenträgheit eines Körpers bei einer Drehbewegung:</p>
+  <div class="formel-box">
+    \[
+    J = \sum m_i \cdot r_i^2
+    \]
+  </div>
+  <p>Für einfache Körper gibt es Standardwerte (z. B. Vollzylinder: \( J = \frac{1}{2}mr^2 \))</p>
+
+  <h2>6.3 Drehmoment und Bewegungsgleichung</h2>
+  <p>Das Drehmoment bewirkt eine Winkelbeschleunigung:</p>
+  <div class="formel-box">
+    \[
+    M = J \cdot \alpha
+    \]
+  </div>
+  <p>Das ist das Rotationspendant zu \( F = m \cdot a \).</p>
+
+  <h2>6.4 Zusammenhang Translation – Rotation</h2>
+  <p>Wenn ein Körper rollt, lassen sich lineare und rotatorische Größen verknüpfen:</p>
+  <div class="formel-box">
+    \[
+    v = \omega \cdot r \quad \text{und} \quad a = \alpha \cdot r
+    \]
+  </div>
+
+  <h2>6.5 Beispiel – Drehmoment eines rotierenden Zylinders</h2>
+  <p><strong>Gegeben:</strong> \( m = 4\,\text{kg}, \; r = 0{,}2\,\text{m}, \; \alpha = 5\,\text{rad/s}^2 \)</p>
+  <p>Vollzylinder: \( J = \frac{1}{2}mr^2 = \frac{1}{2} \cdot 4 \cdot 0{,}2^2 = 0{,}08\,\text{kg\,m}^2 \)</p>
+  <p><strong>Gesucht:</strong> Drehmoment \( M \)</p>
+  <div class="formel-box">
+    \[
+    M = J \cdot \alpha = 0{,}08 \cdot 5 = 0{,}4\,\text{Nm}
+    \]
+  </div>
+
+</section>
+<section id="mehrkoerpersysteme">
+  <h1>Kapitel 7: Mehrkörpersysteme und Seilkräfte</h1>
+  <p>Mehrkörpersysteme bestehen aus mehreren verbundenen Massen, z. B. durch Seile oder Rollen. Sie haben gemeinsame oder gekoppelte Bewegungen.</p>
+
+  <h2>7.1 Seilkräfte – Annahmen</h2>
+  <ul>
+    <li>Das Seil ist <strong>masselos</strong> und <strong>unelastisch</strong>.</li>
+    <li>Die Seilkraft ist <strong>überall gleich groß</strong> (bei idealem Seil ohne Reibung an Rollen).</li>
+    <li>Alle Körper am Seil bewegen sich mit <strong>gleicher Geschwindigkeit und Beschleunigung</strong>.</li>
+  </ul>
+
+  <h2>7.2 Beispiel – Zwei Körper über Rolle</h2>
+  <p>Zwei Massen \( m_1 \) und \( m_2 \) hängen über eine idealisierte Rolle:</p>
+  <div class="formel-box">
+    \[
+    F_\text{res} = (m_2 - m_1) \cdot g \quad \text{(wenn } m_2 > m_1)
+    \]
+    \[
+    a = \frac{F_\text{res}}{m_1 + m_2} = g \cdot \frac{m_2 - m_1}{m_1 + m_2}
+    \]
+  </div>
+
+  <h2>7.3 Seilkraft berechnen</h2>
+  <p>Die Seilkraft \( T \) auf einen der Körper ergibt sich durch Einsetzen in \( F = m \cdot a \):</p>
+  <div class="formel-box">
+    \[
+    T = m_1 \cdot (g + a) \quad \text{oder} \quad T = m_2 \cdot (g - a)
+    \]
+  </div>
+
+  <h2>7.4 Beispiel mit Zahlen</h2>
+  <p><strong>Gegeben:</strong> \( m_1 = 3\,\text{kg}, \; m_2 = 5\,\text{kg}, \; g = 9{,}81\,\text{m/s}^2 \)</p>
+  <p><strong>Berechnung der Beschleunigung:</strong></p>
+  <div class="formel-box">
+    \[
+    a = 9{,}81 \cdot \frac{5 - 3}{5 + 3} = 9{,}81 \cdot \frac{2}{8} = 2{,}45\,\text{m/s}^2
+    \]
+  </div>
+  <p><strong>Seilkraft auf \( m_1 \):</strong></p>
+  <div class="formel-box">
+    \[
+    T = 3 \cdot (9{,}81 + 2{,}45) = 3 \cdot 12{,}26 = 36{,}78\,\text{N}
+    \]
+  </div>
+
+</section>
+
+<section id="impuls">
+  <h1>Kapitel 8: Impuls und Impulserhaltung</h1>
+  <p>Der <strong>Impuls</strong> ist ein grundlegender physikalischer Begriff, der beschreibt, wie viel Bewegung ein Körper hat. Er ist das Produkt aus Masse und Geschwindigkeit.</p>
+
+  <div class="formel-box">
+    <strong>Definition:</strong>
+    <p>\[ \vec{p} = m \cdot \vec{v} \]</p>
+    <p>\( \vec{p} \): Impuls (Einheit: kg·m/s)</p>
+  </div>
+
+  <p>Die Änderung des Impulses steht in direktem Zusammenhang mit der Kraft:</p>
+  <div class="formel-box">
+    \[
+    \vec{F} = \frac{d\vec{p}}{dt}
+    \]
+  </div>
+
+  <h2>8.1 Differenzierung</h2>
+  <p>Zur Klarheit die systematische Trennung zentraler physikalischer Begriffe:</p>
+  <ul>
+    <li><strong>Kraft (F):</strong> Verursacht eine Änderung des Bewegungszustands (z. B. Beschleunigung).</li>
+    <li><strong>Impuls (p):</strong> Maß für die Bewegungsmenge eines Körpers: \( \vec{p} = m \cdot \vec{v} \)</li>
+    <li><strong>Energie (E):</strong> Fähigkeit, Arbeit zu verrichten. Kinetische Energie: \( E_{kin} = \frac{1}{2}mv^2 \)</li>
+  </ul>
+  </div>
+
+  <h2>8.2 Systeme: Offen vs. geschlossen</h2>
+  <p>Für die Impulserhaltung ist es entscheidend, ob ein System <strong>geschlossen</strong> ist:</p>
+  <ul>
+    <li><strong>Geschlossenes System:</strong> Keine äußeren Kräfte → Gesamtimpuls bleibt erhalten.</li>
+    <li><strong>Offenes System:</strong> Äußere Kräfte wirken → Gesamtimpuls ändert sich.</li>
+  </ul>
+  <p><strong>Innere Kräfte</strong> wirken nur zwischen den Bestandteilen des Systems (z. B. Stoßkräfte). Nur <strong>äußere Kräfte</strong> können den Gesamtimpuls verändern.</p>
+
+
+  <h2>8.3 Impulserhaltungssatz</h2>
+  <p>In einem abgeschlossenen System bleibt der Gesamtimpuls erhalten – unabhängig von inneren Kräften:</p>
+  <div class="formel-box">
+    \[
+    \sum \vec{p}_\text{vorher} = \sum \vec{p}_\text{nachher}
+    \]
+  </div>
+  <p>Dies gilt besonders bei Stößen und Explosionen.</p>
+
+  <h2>8.4 Beispiel – Zwei Körper prallen zusammen</h2>
+  <p><strong>Gegeben:</strong> \( m_1 = 2\,\text{kg}, v_1 = 4\,\text{m/s}, m_2 = 3\,\text{kg}, v_2 = -2\,\text{m/s} \)</p>
+  <p><strong>Elastischer Stoß – gesuchte Geschwindigkeit nach dem Stoß</strong></p>
+
+  <p>Gesamtimpuls vorher:</p>
+  <div class="formel-box">
+    \[
+    p_\text{gesamt} = m_1 v_1 + m_2 v_2 = 2 \cdot 4 + 3 \cdot (-2) = 8 - 6 = 2\,\text{kg·m/s}
+    \]
+  </div>
+
+  <p><strong>Wenn beide Körper nach dem Stoß zusammenkleben (unelastisch):</strong></p>
+  <div class="formel-box">
+    \[
+    v_\text{nachher} = \frac{p_\text{gesamt}}{m_1 + m_2} = \frac{2}{5} = 0{,}4\,\text{m/s}
+    \]
+  </div>
+
+</section>
+
+<section id="zentrale-stoesse">
+  <h1>Kapitel 9: Zentrale Stöße</h1>
+  <p>Ein <strong>zentraler Stoß</strong> liegt vor, wenn sich zwei Körper entlang einer gemeinsamen Verbindungslinie durch ihre Schwerpunkte bewegen und stoßen. Dabei unterscheidet man drei Stoßtypen: elastisch, inelastisch und vollkommen inelastisch.</p>
+
+  <h2>9.1 Impulserhaltung</h2>
+  <p>Bei allen Stoßarten bleibt der Gesamtimpuls erhalten – vorausgesetzt, es wirken keine äußeren Kräfte:</p>
+  <div class="formel-box">
+    \[
+    m_1 \cdot v_1 + m_2 \cdot v_2 = m_1 \cdot v_1' + m_2 \cdot v_2'
+    \]
+  </div>
+  <p>
+    \( v_1, v_2 \): Geschwindigkeiten <em>vor</em> dem Stoß<br>
+    \( v_1', v_2' \): Geschwindigkeiten <em>nach</em> dem Stoß
+  </p>
+
+  <h2>9.2 Elastischer Stoß</h2>
+  <p>Hier bleibt zusätzlich zur Impulserhaltung auch die kinetische Energie erhalten:</p>
+  <div class="formel-box">
+    \[
+    \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 = \frac{1}{2} m_1 v_1'^2 + \frac{1}{2} m_2 v_2'^2
+    \]
+  </div>
+  <p>Typisch für federnde Kollisionen ohne bleibende Verformung.</p>
+
+  <h2>9.3 Inelastischer Stoß</h2>
+  <p>Nur der Impuls bleibt erhalten. Ein Teil der kinetischen Energie wird in Wärme, Schall oder Verformung umgewandelt.</p>
+
+  <h2>9.4 Vollkommen inelastischer Stoß</h2>
+  <p>Die Körper haften nach dem Stoß aneinander und bewegen sich mit gemeinsamer Geschwindigkeit \( v' \):</p>
+  <div class="formel-box">
+    \[
+    v' = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}
+    \]
+  </div>
+
+  <h2>9.5 Beispiel – Elastischer Stoß zweier Körper</h2>
+  <p><strong>Gegeben:</strong> \( m_1 = 2\,\text{kg}, v_1 = 3\,\text{m/s}; \quad m_2 = 1\,\text{kg}, v_2 = -2\,\text{m/s} \)</p>
+  <p><strong>Gesucht:</strong> Geschwindigkeiten nach dem Stoß \( v_1', v_2' \)</p>
+
+  <div class="formel-box">
+    \[
+    v_1' = \frac{(m_1 - m_2)v_1 + 2m_2 v_2}{m_1 + m_2} = \frac{(2 - 1) \cdot 3 + 2 \cdot (-2)}{3} = -\frac{1}{3}\,\text{m/s}
+    \]
+    \[
+    v_2' = \frac{(m_2 - m_1)v_2 + 2m_1 v_1}{m_1 + m_2} = \frac{(-1) \cdot (-2) + 4 \cdot 3}{3} = \frac{14}{3} \approx 4{,}67\,\text{m/s}
+    \]
+  </div>
+
+  <h2>9.6 Stoßarten im Überblick</h2>
+  <ul>
+    <li><strong>Elastisch:</strong> Impuls + Energie erhalten, keine bleibende Verformung</li>
+    <li><strong>Inelastisch:</strong> Impuls erhalten, Energie teilweise verloren</li>
+    <li><strong>Vollkommen inelastisch:</strong> Körper haften aneinander, maximaler Energieverlust</li>
+  </ul>
+
+</section>
+
+<section id="kreisbewegung">
+  <h1>Kapitel 10: Kreisbewegung und Zentralkräfte</h1>
+  <p>Bei einer Kreisbewegung ändert sich zwar der Betrag der Geschwindigkeit nicht, aber ihre Richtung ständig. Diese Richtungsänderung erfordert eine Kraft: die <strong>Zentripetalkraft</strong>.</p>
+
+  <p>Die <strong>Zentripetalbeschleunigung</strong> ergibt sich aus der Änderung der Bewegungsrichtung:</p>
+  <div class="formel-box">
+    \[
+    a_Z = \frac{v^2}{r} = \omega^2 \cdot r
+    \quad \Rightarrow \quad F_Z = m \cdot a_Z
+    \]
+  </div>
+  <p>Dies ist direkt aus dem zweiten Newtonschen Axiom \( F = m \cdot a \) abgeleitet.</p>
+
+  <h2>10.1 Gleichförmige Kreisbewegung</h2>
+  <p>Ein Körper bewegt sich mit konstanter Geschwindigkeit \( v \) auf einer Kreisbahn mit Radius \( r \). Die Geschwindigkeit ist stets tangential, die Zentripetalkraft radial gerichtet.</p>
+  <div class="formel-box">
+    \[
+    a_Z = \frac{v^2}{r}, \quad F_Z = m \cdot a_Z = m \cdot \frac{v^2}{r}
+    \]
+  </div>
+
+  <h2>10.2 Winkelgrößen und Bahngeschwindigkeit</h2>
+  <ul>
+    <li>Winkelgeschwindigkeit: \( \omega = \frac{\varphi}{t} \)</li>
+    <li>Beziehung: \( v = \omega \cdot r \)</li>
+    <li>Zentripetalkraft alternativ: \( F_Z = m \cdot \omega^2 \cdot r \)</li>
+  </ul>
+
+  <h2>10.3 Zentrifugalkraft – Trägheitskraft</h2>
+  <p>In rotierenden Bezugssystemen erscheint eine Trägheitskraft, die nach außen wirkt – die sogenannte <em>Zentrifugalkraft</em>. Sie ist keine echte Kraft, sondern eine Scheinkraft:</p>
+  <div class="formel-box">
+    \[
+    F_\text{Zentrifugal} = -F_Z = -m \cdot \frac{v^2}{r} = -m \cdot \omega^2 \cdot r
+    \]
+  </div>
+  <p>Sie ist nur in beschleunigten (rotierenden) Bezugssystemen relevant.</p>
+
+  <h2>10.4 Beispiel – Kugel an Schnur</h2>
+  <p><strong>Gegeben:</strong> \( m = 0{,}5\,\text{kg}, \; v = 3\,\text{m/s}, \; r = 0{,}6\,\text{m} \)</p>
+  <p><strong>Gesucht:</strong> Zentripetalkraft</p>
+  <div class="formel-box">
+    \[
+    F_Z = m \cdot \frac{v^2}{r} = 0{,}5 \cdot \frac{3^2}{0{,}6} = 0{,}5 \cdot \frac{9}{0{,}6} = 0{,}5 \cdot 15 = 7{,}5\,\text{N}
+    \]
+  </div>
+
+  <h2>10.5 Beispiel – Kurvenfahrt mit Reibung</h2>
+  <p><strong>Gegeben:</strong> Auto mit \( m = 1000\,\text{kg} \), Radius \( r = 50\,\text{m} \), Haftreibungskoeffizient \( \mu = 0{,}4 \).</p>
+  <p><strong>Gesucht:</strong> Maximale Geschwindigkeit ohne Schleudern</p>
+  <p>Reibung stellt die nötige Zentripetalkraft bereit:</p>
+  <div class="formel-box">
+    \[
+    F_R = \mu \cdot m \cdot g = 0{,}4 \cdot 1000 \cdot 9{,}81 = 3924\,\text{N}
+    \]
+    \[
+    F_R = F_Z = m \cdot \frac{v^2}{r}
+    \Rightarrow v = \sqrt{\mu \cdot g \cdot r}
+    \]
+    \[
+    v = \sqrt{0{,}4 \cdot 9{,}81 \cdot 50} \approx 14\,\text{m/s}
+    \]
+  </div>
+
+  <h2>10.6 Anwendungsbeispiele</h2>
+  <ul>
+    <li>Kurvenfahrt eines Autos</li>
+    <li>Kettenkarussell</li>
+    <li>Planetenbahnen</li>
+    <li>Zentrifugen (Labor/Technik)</li>
+    <li>Waschmaschine (Trommelrotation)</li>
+    <li>Loopings in Achterbahnen</li>
+    <li>Kurvenfahrt mit Reibung (z. B. Rallye)</li>
+  </ul>
+  <h2>10.7 Zentralkräfte allgemein</h2>
+  <p>Eine <strong>Zentralkraft</strong> ist eine Kraft, die immer entlang der Verbindungslinie zweier Körper wirkt und deren Richtung stets zum Zentrum zeigt. Sie tritt in vielen physikalischen Kontexten auf:</p>
+  <ul>
+    <li><strong>Gravitationskraft</strong>: zwischen Massen</li>
+    <li><strong>Coulomb-Kraft</strong>: zwischen elektrischen Ladungen</li>
+    <li><strong>Federkraft</strong>: Rückstellkraft zum Gleichgewichtspunkt</li>
+  </ul>
+  <p>Alle diese Kräfte haben die Form:</p>
+  <div class="formel-box">
+    \[
+    \vec{F} = f(r) \cdot \hat{r}
+    \]
+  </div>
+  <p>Das bedeutet: Die Kraft hängt nur vom Abstand \( r \) ab und zeigt stets zum Zentrum.</p>
+
+  <h2>10.8 Planetenbewegung und Kepler-Gesetze (Ausblick)</h2>
+  <p>Die Kreisbewegung unter Gravitationskraft führt direkt zu den Planetenbahnen. Dies ist Ausgangspunkt für die <strong>Kepler‘schen Gesetze</strong> und das Gravitationsgesetz von Newton:</p>
+  <div class="formel-box">
+    \[
+    F_G = G \cdot \frac{m_1 m_2}{r^2}
+    \]
+  </div>
+</section>
+
+<section id="gesamtzusammenfassung">
+  <h1>Kapitel 11: Gesamte Zusammenfassung und Überblick</h1>
+  <p>Die Dynamik untersucht, wie Kräfte auf Körper wirken und deren Bewegung beeinflussen. Die wichtigsten Konzepte aus diesem Themenbereich sind hier kompakt zusammengefasst.</p>
+
+  <h2>11.1 Grundgleichung der Dynamik</h2>
+  <div class="formel-box">
+    \[
+    \vec{F} = m \cdot \vec{a}
+    \]
+  </div>
+  <p>Die Beschleunigung eines Körpers ist proportional zur resultierenden Kraft und umgekehrt proportional zur Masse.</p>
+
+  <h2>11.2 Übersicht Kräftearten</h2>
+  <ul>
+    <li>Gewichtskraft: \( F_G = m \cdot g \)</li>
+    <li>Normalkraft: Reaktionskraft senkrecht zur Oberfläche</li>
+    <li>Reibungskraft: \( F_R = \mu \cdot F_N \)</li>
+    <li>Federkraft: \( F = -k \cdot x \)</li>
+    <li>Zentripetalkraft: \( F_Z = m \cdot \frac{v^2}{r} \)</li>
+    <li>Seilkraft: Kräfteübertragung über ein ideales Seil</li>
+    <li>Drehmoment: \( M = J \cdot \alpha \)</li>
+  </ul>
+
+  <h2>11.3 Bewegungsgesetze</h2>
+  <ul>
+    <li>Gleichförmige Bewegung: \( v = \text{konstant} \)</li>
+    <li>Gleichmäßig beschleunigt: \( s = s_0 + v_0 t + \frac{1}{2} a t^2 \)</li>
+    <li>Bewegung unter veränderlicher Kraft: Integration notwendig</li>
+    <li>Kreisbewegung: \( a_Z = \frac{v^2}{r} \)</li>
+    <li>Rotation: \( \omega = \frac{d\varphi}{dt},\quad \alpha = \frac{d\omega}{dt} \)</li>
+  </ul>
+
+  <h2>11.4 Impuls und Stoß</h2>
+  <ul>
+    <li>Impuls: \( \vec{p} = m \cdot \vec{v} \)</li>
+    <li>Impulserhaltung: \( \sum \vec{p}_\text{vorher} = \sum \vec{p}_\text{nachher} \)</li>
+    <li>Stoßtypen:
+      <ul>
+        <li>Elastisch: Impuls und Energie erhalten</li>
+        <li>Inelastisch: nur Impuls erhalten</li>
+        <li>Vollkommen inelastisch: Körper haften nach Stoß aneinander</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>11.5 Typische Anwendungen</h2>
+  <ul>
+    <li>Bewegung auf schiefer Ebene (Hangabtriebskraft)</li>
+    <li>Mehrkörpersysteme mit Seilen und Rollen</li>
+    <li>Rotierende Körper mit Trägheitsmoment</li>
+    <li>Kreisbahnen und Zentralkraftsysteme</li>
+    <li>Systeme mit zeitabhängiger Masse (z. B. Raketen)</li>
+  </ul>
+</section>
+
+<section id="veraenderliche-masse">
+  <h1>Bonus Kapitel 12: Systeme mit veränderlicher Masse</h1>
+  <p>In vielen physikalischen Anwendungen ändert sich die Masse eines Systems mit der Zeit – z.&nbsp;B. bei Raketen oder Sand, der aus einem Behälter fällt. Solche Systeme erfordern eine Erweiterung der klassischen Bewegungsgleichung.</p>
+
+  <h2>12.1 Prinzip der Impulsänderung</h2>
+  <p>Die klassische Formulierung \( \vec{F} = m \cdot \vec{a} \) gilt nur für konstante Masse. Für Systeme mit veränderlicher Masse muss man den Impuls ableiten:</p>
+  <div class="formel-box">
+    \[
+    \vec{F}_\text{ext} = \frac{d\vec{p}}{dt} = \frac{d}{dt}(m \cdot \vec{v}) = m \cdot \frac{d\vec{v}}{dt} + \vec{v} \cdot \frac{dm}{dt}
+    \]
+  </div>
+  <p>Die letzte Terme zeigen: Auch eine reine Massenänderung erzeugt eine Impulsänderung – selbst bei konstanter Geschwindigkeit.</p>
+
+  <h2>12.2 Raketenformel (Tsiolkovsky–Gleichung)</h2>
+  <p>Ein klassisches Beispiel ist die Rakete, die durch Rückstoßmasse beschleunigt wird:</p>
+  <ul>
+    <li>System: Rakete plus ausgestoßene Gase</li>
+    <li>Annahme: Kein äußerer Widerstand, \( \vec{F}_\text{ext} = 0 \)</li>
+  </ul>
+  <p>Die Impulserhaltung führt zur Tsiolkovsky-Gleichung:</p>
+  <div class="formel-box">
+    \[
+    v(t) = v_0 + v_e \cdot \ln\left(\frac{m_0}{m(t)}\right)
+    \]
+  </div>
+  <p>
+    \( v_e \): Ausströmgeschwindigkeit der Gase<br>
+    \( m_0 \): Anfangsmasse<br>
+    \( m(t) \): aktuelle Masse der Rakete
+  </p>
+
+  <h2>12.3 Beispiel – Raketenstart im Vakuum</h2>
+  <p><strong>Gegeben:</strong> \( m_0 = 5000\,\text{kg},\ m(t) = 2500\,\text{kg},\ v_e = 2500\,\text{m/s} \)</p>
+  <div class="formel-box">
+    \[
+    v = 2500 \cdot \ln\left(\frac{5000}{2500}\right) = 2500 \cdot \ln(2) \approx 1732\,\text{m/s}
+    \]
+  </div>
+  <p>Die Rakete erreicht bei Halbierung ihrer Masse eine Geschwindigkeit von etwa 1732 m/s.</p>
+
+  <h2>12.4 Weitere Anwendungen</h2>
+  <ul>
+    <li>Tropfender Wagen (Masseverlust)</li>
+    <li>Sand auf Förderband (Massezuwachs)</li>
+    <li>Brennstoffverbrauch bei Triebwerken</li>
+  </ul>
+
+</section>
+
+</section>
+  <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
+
+</section>
