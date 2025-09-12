@@ -295,7 +295,6 @@ body {
   cursor: pointer;
 }
 
-/* Handy */
 @media (max-width: 600px) {
   header {
     flex-direction: row;
@@ -304,10 +303,11 @@ body {
   }
 
   .menu-toggle {
-    display: block;   /* Button wird auf Handy eingeblendet */
+    display: block;   /* Button sichtbar */
     margin-left: auto;
   }
 
+  /* Menü standardmäßig ausblenden */
   nav ul {
     display: none;
     flex-direction: column;
@@ -316,8 +316,14 @@ body {
     width: 100%;
     padding: 1rem 0;
     text-align: center;
+
+    position: absolute;   /* Menü löst sich aus dem Header */
+    top: 60px;            /* Höhe unter dem Header (anpassen falls Header höher ist) */
+    left: 0;
+    z-index: 99;
   }
 
+  /* Menü sichtbar, wenn aktiv */
   nav ul.show {
     display: flex;
   }
