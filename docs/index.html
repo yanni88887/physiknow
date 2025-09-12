@@ -272,38 +272,78 @@ footer {
 }
 
 /* ===================== */
-/* TOC (PC-Standard) */
+/* PC: Sidebar-Inhaltsverzeichnis */
 /* ===================== */
-/* PC: TOC Sidebar startet unter Hero */
 .toc-box {
   position: fixed;
-  top: 350px;   /* Höhe Header + Hero */
-  left: 0;
-  width: 260px;
-  height: calc(100% - 350px);
+  top: 350px; /* startet unter dem Hero (anpassen!) */
+  left: 20px;
+  width: 240px;
+  max-height: calc(100% - 370px); /* unterer Abstand */
   overflow-y: auto;
-  background: #fdfdfd;
-  border-right: 2px solid #0066ff;
-  padding: 1.5rem 1rem;
+
+  background: #fff;
+  border: 2px solid #0066ff;
+  border-radius: 10px;
+  padding: 1rem;
   z-index: 90;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.1);
 }
 
+.toc-box h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0066ff;
+  margin-bottom: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.4rem;
+}
+
+.toc-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-box li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-box a {
+  display: block;
+  padding: 0.3rem 0.5rem;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.toc-box a:hover {
+  background: #0066ff;
+  color: #fff;
+}
+
+/* Content rückt nach rechts */
 .content {
-  margin-left: 270px;
+  margin-left: 280px;
   padding: 1rem;
 }
 
-/* Button standardmäßig ausblenden */
+/* ===================== */
+/* TOC-Burger-Button */
+/* ===================== */
 .toc-toggle {
   display: none;
 }
 
 /* ===================== */
-/* Handy/Tablet (TOC als Burger) */
+/* Handy / Tablet */
 /* ===================== */
 @media (max-width: 768px) {
-  /* Sidebar komplett ausblenden */
+  /* Sidebar ausblenden */
   .toc-box {
     display: none;
     position: fixed;
@@ -314,27 +354,29 @@ footer {
     max-width: 300px;
     background: #fff;
     border-right: 2px solid #0066ff;
+    border-radius: 0;
     z-index: 100;
     padding: 1rem;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
   }
 
-  /* Sidebar nur sichtbar wenn aktiv */
+  /* sichtbar wenn aktiv */
   .toc-box.show {
     display: block;
   }
 
-  /* Button sichtbar + unter dem Header */
+  /* Button unter Header */
   .toc-toggle {
     display: block;
     position: fixed;
-    top: 70px;  /* etwas unter Header */
+    top: 70px; /* unter Header */
     left: 1rem;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 102, 255, 0.9);
     color: #fff;
     border: none;
     padding: 0.5rem 0.8rem;
     border-radius: 5px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
     z-index: 101;
   }
@@ -1270,18 +1312,26 @@ footer {
   const toggleBtn = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector("nav ul");
 
-  toggleBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-  });
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  }
 </script>
 <script>
-  const tocToggle = document.querySelector(".toc-toggle");
-  const tocBox = document.querySelector(".toc-box");
+  document.addEventListener("DOMContentLoaded", () => {
+    const tocToggle = document.querySelector(".toc-toggle");
+    const tocBox = document.querySelector(".toc-box");
 
-  tocToggle.addEventListener("click", () => {
-    tocBox.classList.toggle("show");
+    if (tocToggle && tocBox) {
+      tocToggle.addEventListener("click", () => {
+        tocBox.classList.toggle("show");
+      });
+    }
   });
 </script>
+
+
 
 
 </body>
