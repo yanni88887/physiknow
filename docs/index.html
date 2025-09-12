@@ -253,6 +253,41 @@ footer {
 body {
   overflow-x: hidden; /* verhindert horizontales Scrollen */
 }
+/* Burger-Button Standard: ausgeblendet */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ----- Handy-Ansicht ----- */
+@media (max-width: 600px) {
+  /* Button anzeigen */
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* Button rechts */
+  }
+
+  /* Menü ausblenden */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #1e1e2f;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  /* Menü sichtbar, wenn aktiv */
+  nav ul.show {
+    display: flex;
+  }
+}
+
 
 
 </style>
@@ -261,16 +296,21 @@ body {
 <body>
 
 <header>
-    <h1>PhysikNow</h1>
-    <nav>
-        <ul>
-            <li><a href="#">Start</a></li>
-            <li><a href="#">Vorlage</a></li>
-            <li><a href="#">Quiz</a></li>
-            <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
-        </ul>
-    </nav>
+  <h1>PhysikNow</h1>
+
+  <!-- Burger-Button NUR für Handy -->
+  <button class="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
+
+  <nav>
+    <ul>
+      <li><a href="#">Start</a></li>
+      <li><a href="#">Vorlage</a></li>
+      <li><a href="#">Quiz</a></li>
+      <li><a href="/physiknow/Newsketter/Newsletter neu.html">Newsletter</a></li>
+    </ul>
+  </nav>
 </header>
+
 
 <section class="hero">
     <h2>Dynamik</h2>
@@ -1160,3 +1200,14 @@ body {
   <a href="quiz.html" class="quiz-btn">Quiz zu Dynamik starten</a>
 
 </section>
+<script>
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("nav ul");
+
+  toggleBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>
