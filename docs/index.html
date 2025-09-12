@@ -1273,12 +1273,31 @@ footer {
     const tocBox = document.querySelector(".toc-box");
 
     if (tocToggle && tocBox) {
-      tocToggle.addEventListener("click", () => {
+      // Toggle öffnen/schließen
+      tocToggle.addEventListener("click", (e) => {
+        e.stopPropagation(); // verhindert sofortiges Schließen
         tocBox.classList.toggle("show");
+      });
+
+      // Klick außerhalb schließt TOC
+      document.addEventListener("click", (e) => {
+        if (tocBox.classList.contains("show") &&
+            !tocBox.contains(e.target) &&
+            e.target !== tocToggle) {
+          tocBox.classList.remove("show");
+        }
+      });
+
+      // Scrollen schließt TOC
+      window.addEventListener("scroll", () => {
+        if (tocBox.classList.contains("show")) {
+          tocBox.classList.remove("show");
+        }
       });
     }
   });
 </script>
+
 
 </body>
 </html>
