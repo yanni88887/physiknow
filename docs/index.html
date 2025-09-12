@@ -287,6 +287,37 @@ body {
     display: flex;
   }
 }
+/* --- Burger-Menü --- */
+.menu-toggle {
+  display: none; /* Standard: ausgeblendet (PC) */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Handy-Ansicht */
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;       /* Button sichtbar */
+    margin-left: auto;    /* Button nach rechts */
+  }
+
+  nav ul {
+    display: none;        /* Navigation standardmäßig versteckt */
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #1e1e2f;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;        /* eingeblendet, wenn Button geklickt */
+  }
+}
 
 
 
@@ -298,7 +329,7 @@ body {
 <header>
   <h1>PhysikNow</h1>
 
-  <!-- Burger-Button NUR für Handy -->
+  <!-- Burger-Button (nur auf Handy sichtbar) -->
   <button class="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
 
   <nav>
