@@ -183,15 +183,18 @@ footer {
 }
 
 /* Handy */
+/* Handy */
 @media (max-width: 600px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;   /* zentriert statt linksbündig */
     }
     nav ul {
         flex-direction: column;
         gap: 0.5rem;
         width: 100%;
+        margin-top: 0.8rem;    /* Abstand zwischen Logo und Menü */
+        text-align: center;    /* Menüeinträge mittig */
     }
     nav a {
         display: block;
@@ -202,8 +205,19 @@ footer {
     }
     .hero h2 { font-size: 1.8rem; }
     .hero p { font-size: 1rem; }
-    section { padding: 15px; }
+    section { 
+        padding: 15px; 
+        width: 95%;           /* volle Breite auf Handy */
+    }
+    .toc-box ul {
+        grid-template-columns: 1fr; /* nur eine Spalte */
+    }
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
 }
+
 </style>
 
 </head>
